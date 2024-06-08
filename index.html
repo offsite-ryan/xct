@@ -21,7 +21,9 @@
   </div>
 </div>
 <script>
-document.getElementById('id01').style.display='block'
+  if (!localStorage.getItem('url')){
+    document.getElementById('id01').style.display='block'
+  }
 </script>
             
 </body>
