@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<title>XCT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="key.js"></script>"
+
+<body>
+
+    <div class="w3-container">
+        <div id="id01" class="w3-modal" style="background-color:#2f2f2f;display:block;">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom"
+                style="max-width:400px;background-color:#4f4848;color:white;">
+
+                <form id="myForm" class="w3-container" _onsubmit="submit()">
+                    <div class="w3-section">
+                        <label id="key"><b>Key</b></label>
+                        <input id="key-input" class="w3-input w3-border w3-margin-bottom" type="password"
+                            placeholder="Enter Key" name="key" required>
+                        <!-- <label><b>Page</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="" placeholder="Enter Page" name="page"
+                            required> -->
+                        <button class="w3-button w3-block w3-section w3-padding"
+                            style="background-color:#1599ac;color:white;" type="submit">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        localStorage.removeItem('key');
+        document.getElementById("key-input").focus();
+        document.getElementById("myForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            var formData = new FormData(e.target);
+            const obj = Object.fromEntries(formData)
+            console.log(obj);
+            if (submit(obj)) {
+                document.getElementById('myForm').style.backgroundColor = '#4f4848';
+                localStorage.setItem('key', obj.key);
+                window.location.href = `.${window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1)}`;
+            } else {
+                document.getElementById('myForm').style.backgroundColor = 'red';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,40 +1,585 @@
 <!DOCTYPE html>
 <html>
-<title>XCT</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>BCT</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.png?v3=2">
+    <link rel="apple-touch-icon" sizes="128x128" href="/apple-touch-icon.png?v=13">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="w3.css">
+</head>
 
-  <div class="w3-container">
-    <div id="id01" class="w3-modal" style="background-color:#2f2f2f;">
-      <div class="w3-modal-content w3-card-4 w3-animate-zoom"
-        style="max-width:400px;background-color:#4f4848;color:white;">
+<body id="body" class="center">
 
-        <form class="w3-container" action="/action_page.php">
-          <div class="w3-section">
-            <label><b>Key</b></label>
-            <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Key" name="key"
-              required>
-            <!-- <label><b>Page</b></label>
-            <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Page" name="page"
-              required> -->
-            <button class="w3-button w3-block w3-section w3-padding" style="background-color:#1599ac;color:white;"
-              type="submit">Submit</button>
-          </div>
-        </form>
+    <!-- TOP -->
+    <div id="content" class="" style="display:none;">
+        <span class="header">
+            <h1 class="color-font">
+                <div class="w3-dropdown-hover" _style="">
+                    <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:0px;"><i id="menu"
+                            class="fa fa-bars color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
+                    <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                        style="min-width:250px;">
+                        <a class="card-menu-option-selected w3-bar-item w3-button" onclick=""><i
+                                class="fa fa-battery-three-quarters" aria-hidden="true"></i> Test System</a>
+                        <!-- <hr /> -->
+                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i class="fa fa-cube"
+                                aria-hidden="true"></i>
+                            Virtualization</a>
+                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
+                                class="fa fa-television" aria-hidden="true"></i>
+                            Monitoring</a>
+                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
+                                class="fa fa-database" aria-hidden="true"></i> Data Processing</a>
+                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
+                                class="fa fa-calendar" aria-hidden="true"></i>
+                            Scheduler</a>
+                    </div>
+                </div>
+                TEST SYSTEM: <span class="color-current">TS0937</span>
+            </h1>
+            <img class="logo2" src="avl-logo-300x300.png" />
+        </span>
+        <div id="overview-counts" class="w3-row w3-center _w3-right-align">
+            <div class="w3-col s2 w3-left-align">
+                <h3 class="color-font">Overview:</h3>
+            </div>
+            <div class="w3-col s2 clickable">
+                <h3 class="color-font">Idle: <span class="color-current" style="font-weight:bold;">2</span></h3>
+            </div>
+            <div class="w3-col s2 clickable">
+                <h3 class="color-font">Running: <span class="color-current" style="font-weight:bold;">45</span></h3>
+            </div>
+            <div class="w3-col s2 clickable">
+                <h3 class="color-zero">Suspended: <span class="color-zero" style="font-weight:bold;">0</span></h3>
+            </div>
+            <div class="w3-col s2 clickable">
+                <h3 class="color-font">Warnings: <span class="color-current" style="font-weight:bold;">1</span></h3>
+            </div>
+            <div class="w3-col s2 clickable">
+                <h3 class="color-zero">Errors: <span class="color-zero" style="font-weight:bold;">0</span></h3>
+            </div>
+        </div>
 
-      </div>
+        <!-- CARDS -->
+        <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;">
+            <div class="w3-container w3-xlarge color-font"
+                style="border-top:1px solid#c5c5c5;margin-top:8px;padding-right:6px;">
+                <div class="w3-dropdown-hover w3-right" _style="">
+                    <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:30px;"><i id="menu"
+                            class="fa fa-bars color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
+                    <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium" style="right:0">
+                        <a class="card-menu-option-selected w3-bar-item w3-button" onclick="selectCardType('large')"><i
+                                class="fa fa-area-chart" aria-hidden="true"></i> Large Card</a>
+                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                            onclick="selectCardType('small')"><i class="fa fa-list-alt" aria-hidden="true"></i> Small
+                            Card</a>
+                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                            onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Table</a>
+                        <!-- <a class="card-menu-option-unselected w3-bar-item w3-button"
+                            onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
+                    </div>
+                </div>
+            </div>
+            <div w3-repeat="items" class="w3-col s12 m2 l2">
+                <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
+                    <span class="" style="display:flex;justify-content: space-between;">
+                        <span class="color-moniker">{{name}}</span>
+                        <span style="font-size:12px;margin-top:3px;">
+                            <span class="color-voltage">{{v}}</span>
+                            <span class="color-font"> | </span>
+                            <span class="color-current">{{i}}</span>
+                            <span class="color-font"> | </span>
+                            <span class="color-time">{{st}}</span>
+                        </span>
+                    </span>
+
+                    <span class="" style="display:flex;justify-content: space-between;">
+                        <span class="color-current">{{uut}}</span>
+                        <span style="font-size:12px;margin-top:3px;">
+                            <span class="color-current">{{cycles}}</span>
+                            <span class="color-font"> / </span>
+                            <span class="color-time">50</span>
+                        </span>
+                    </span>
+
+                    <div id="card-chart-{{name}}" name="card-chart" style="margin-top:3px;"></div>
+                </div>
+            </div>
+
+            <br />
+            <div id="pages" class="w3-col s12 w3-center">
+                <span id="pager" style="display:flex;justify-content:center;display:none;margin:3px;font-size:1.1rem;">
+                    <span w3-repeat="pages" id="page-{{name}}" class="color-font pager-button" _style=""
+                        onclick="clickPager(this.innerText)">{{name}}</span>
+                    <span id="page-all" class="w3-white-text _color-font pager-button" _style=""
+                        onclick="clickPager(this.innerText)">ALL</span>
+                </span>
+            </div>
+
+            <!-- DETAIL -->
+            <div id="detail" class="w3-padding card w3-col s12"
+                style="display:none;cursor:default;background-color: #2f2f2f;">
+                <div class="_w3-row _w3-padding">
+
+                    <!-- COLUMN 1 -->
+                    <div class="w3-col s2">
+                        <span class="color-moniker w3-xxlarge"><img src="./assets/discharge.png" height="45"/> <span id="detail-name">CHANNEL </span></span>
+                        <br />
+                        <span class="color-font w3-large"><i class="fa fa-battery-half w3-xxlarge color-ccurrent" aria-hidden="true"></i> <span id="detail-uut"
+                                class="color-current w3-xxlarge">UUT</span></span>
+                    </div>
+
+                    <!-- COLUMN 2 -->
+                    <div class="w3-col s3 w3-padding"
+                        style="margin-top:23px;display:flex;flex-direction:column;align-items:flex-end;">
+                        <span class="color-font w3-large" style="margin-top: 3px;margin-right: 10px;"><span>V | I (mA) |
+                                t
+                                (hrs)</span></span>
+                        <span class="color-font" style="font-size: 28px;margin-right:10px;">
+                            <span id="" class="color-voltage">3.312</span>
+                            <span id="" class="color-font"> | </span>
+                            <span id="" class="color-current">-0.612</span>
+                            <span id="" class="color-font"> | </span>
+                            <span id="" class="color-time">3.8</span>
+                        </span>
+                    </div>
+
+                    <!-- COLUMN 3 -->
+                    <div class="w3-col s4" style="display:flex;flex-direction:column;align-items:flex-start;">
+                        <span class="color-current w3-medium" style="margin-top: 12px;margin-left:10px;"><span
+                                class="color-font">Procedure: </span>TXW2345-02</span>
+                        <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Step
+                                Name: </span>Constant
+                            Current Charge</span>
+                        <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Run
+                                Time: </span>21h 41m</span>
+                        <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Num
+                                Cycles: </span>17 / <span class="color-time">50</span></span>
+                    </div>
+
+                    <!-- COLUMN 4 -->
+                    <div class="w3-col s2" style="display:flex;flex-direction:column;align-items:flex-start;">
+                        <span class="color-current w3-medium" style="margin-top: 12px;"><span
+                                class="color-font">Chemistry: </span>LiFo</span>
+                        <span class="color-current w3-medium"><span class="color-font">Rated Capacity: </span>2</span>
+                        <span class="color-current w3-medium"><span class="color-font">Max Voltage: </span>3.8</span>
+                        <span class="color-current w3-medium"><span class="color-font">Max Current:
+                            </span>2.2</span></span>
+                    </div>
+
+                    <!-- SCREEN GRAB & UI SWITCH -->
+                    <div class="w3-col s1"
+                        style="display:flex;flex-direction:row;align-items:flex-end;justify-content:flex-end">
+                        <span class="color-font" style="cursor:pointer;padding-right:20px;" onclick="copyDetail()"><i
+                                class="fa fa-files-o w3-xlarge" aria-hidden="true"></i></span>
+                        <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
+                            <div class="w3-xlarge" style="background-color:#2f2f2f00;border:0px solid;;">
+                                <i id="menu" class="fa fa-bars color-font" style="cursor:pointer;"
+                                    aria-hidden="true"></i>
+                            </div>
+                            <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
+                                style="right:0;z-index:99999;">
+                                <a class="card-menu-option-selected w3-bar-item w3-button"
+                                    onclick="selectChartType('I')">Runtime</a>
+                                <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                    onclick="selectChartType('V')">Parameters</a>
+                                <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                    onclick="selectChartType('I')">Test Definition</a>
+                                <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                    onclick="selectChartType('T')">Data Analysis</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="w3-col s12">
+                        <div class="w3-container">
+                            <hr />
+
+                            <!-- CALCULATED FIELDS -->
+                            <div class="w3-padding"
+                                style="display:flex;flex-direction:row;justify-content:space-between;">
+                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                    style="width:20%;border:2px solid rgb(138, 138, 138);">Dis Eng<span
+                                        class="color-current" style="float:right;">1 Wh</span></div>
+                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                    style="width:20%;border:2px solid rgb(138, 138, 138);">Dis Cap<span
+                                        class="color-current" style="float:right;">82 Ah</span></div>
+                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                    style="width:20%;border:2px solid rgb(138, 138, 138);">EE<span class="color-current"
+                                        style="float:right;">82 %</span></div>
+                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                    style="width:20%;border:2px solid rgb(138, 138, 138);">CE<span class="color-current"
+                                        style="float:right;">99 %</span></div>
+                                <div class="w3-center w3-col s2 color-font w3-xlarge w3-padding"
+                                    style="width:15%;border:2px solid rgb(138, 138, 138);"><i class="fa fa-clock-o"
+                                        aria-hidden="true"></i> Recent <i class="fa fa-caret-down"
+                                        aria-hidden="true"></i><span class="color-current" style="float:right;"></span>
+                                </div>
+                            </div>
+
+                            <!-- TOP CHART -->
+                            <span _style="">
+                                <div class=""
+                                    style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
+                                    <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
+                                        <div class="w3-xlarge" style="background-color:#2f2f2f00;border:0px solid;;">
+                                            <i id="menu" class="fa fa-bars color-font" style="cursor:pointer;"
+                                                aria-hidden="true"></i>
+                                        </div>
+                                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
+                                            style="right:0">
+                                            <a class="card-menu-option-selected w3-bar-item w3-button"
+                                                onclick="selectChartType('V')">V</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('I')">I</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">T°</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">E</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">P</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                            <div id="chart-detail-1" style="margin-top:3px;margin-bottom:20px;"></div>
+
+                            <!-- BOTTOM CHART -->
+                            <span _style="">
+                                <div class=""
+                                    style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
+                                    <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
+                                        <div class="w3-xlarge" style="background-color:#2f2f2f00;border:0px solid;;">
+                                            <i id="menu" class="fa fa-bars color-font" style="cursor:pointer;"
+                                                aria-hidden="true"></i>
+                                        </div>
+                                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
+                                            style="right:0">
+                                            <a class="card-menu-option-selected w3-bar-item w3-button"
+                                                onclick="selectChartType('V')">V</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('I')">I</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">T°</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">E</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">P</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                            <div id="chart-detail-2" style="margin-top:3px;margin-bottom:20px;"></div>
+
+                            <!-- TEST CONTROL BUTTONS -->
+                            <div class="w3-container" style="padding-bottom:20px;">
+                                <div class="w3-col s1" _style="">&nbsp;</div>
+                                <div class="w3-col s8" _style="">&nbsp;</div>
+                                <div class="w3-col s3" _style="">
+                                    <div class="w3-button detail-button-action w3-large" style="float:right;"><i
+                                            class="fa fa-pause" aria-hidden="true"></i> Pause Test</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU -->
+        <div class="navbar">
+            <a class="w3-xlarge"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            <!-- <a class="w3-xlarge"><i class="fa fa-home" aria-hidden="true"></i> Home</a> -->
+            <!-- <a class="w3-xlarge"><i class="fa fa-user-o" aria-hidden="true"></i></a> -->
+            <!-- <a class="w3-xlarge"><img src="./assets/ms-teams-white.png" height="32" /> Teams</a> -->
+            <a class="w3-xlarge"><i class="fa fa-users" aria-hidden="true"></i> Teams</a>
+            <a class="w3-xlarge card-menu-option-selected" style="border-bottom:5px solid #75e0f0;"><i class="fa fa-th" aria-hidden="true"></i> Runtime</a>
+            <!-- <a class="w3-xlarge"><i class="fa fa-wrench" aria-hidden="true"></i></a> -->
+            <!-- <a class="w3-xlarge"><i class="fa fa-comment-o" aria-hidden="true"></i></a> -->
+            <!-- <a class="w3-xlarge"><i class="fa fa-cube" aria-hidden="true"></i></a> -->
+            <!-- <a class="w3-xlarge"><i class="fa fa-first-order" aria-hidden="true"></i></a> -->
+            <!-- <a class="w3-xlarge"><i class="fa fa-cogs" aria-hidden="true"></i></a> -->
+            <!-- <a class="w3-xlarge"><i class="fa fa-television" aria-hidden="true"></i></a> -->
+            <!-- <a class="w3-xlarge"><i class="fa fa-database" aria-hidden="true"></i></a> -->
+            <!-- <a class="w3-xlarge"><i class="fa fa-calendar" aria-hidden="true"></i></a> -->
+            <a class="w3-xlarge"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test Setup</a>
+            <a class="w3-xlarge"><i class="fa fa-battery-empty" aria-hidden="true"></i> Battery Info</a>
+            <a class="w3-xlarge"><i class="fa _fa-cog" aria-hidden="true"></i></a>
+            <!-- <a class="w3-xlarge" style="float:right;"><i class="fa fa-info" aria-hidden="true"></i></a> -->
+            <a class="w3-xlarge" style="float:right;"><i class="fa fa-cog" aria-hidden="true"></i></a>
+        </div>
     </div>
-  </div>
-  <script>
-    const url = localStorage.getItem('url');
-    if (!url) {
-      document.getElementById('id01').style.display = 'block'
-    } else {
-      window.location.href = window.location.href(`./${url}.html`)
-    }
-  </script>
+
+    </div>
+
+    <!-- TOOLTIP -->
+    <div id="tootip" class="tooltiptext"
+        style="display:none;position:absolute;top:25px;left:25px;background-color:#3b3b3bd5;color:white;padding:10px;border-radius:8px;">
+        Tooltip Text
+    </div>
+
+    <!-- SCRIPT IMPORTS -->
+    <script src="key.js"></script>
+    <script src="data/16h.js"></script>
+    <script src="data/data.js"></script>
+    <script src="w3.js"></script>
+    <script src="HackTimer.js"></script>
+    <script src="chart-definitions/card.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+
+    <script>
+        if (!submit({key: localStorage.getItem('key')})) {
+            window.location.href = `.${window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1)}auth.html`;
+        } else {
+            // setTimeout(() => { window.location.reload() }, 15 * 1000)
+        }
+    </script>
+
+    <script>
+        // alert(navigator.userAgent);
+        const now = Date.now();
+        let card_type = localStorage.getItem('card_type') || 'large';
+        const chartData = new data();
+        let cards = { items: [] };
+        for (let x = 1; x <= 100; x++) {
+            const offset = (Math.random() * 700);
+            const count = 800;
+            const data1 = chartData.getData('v', offset, count);
+            const data2 = chartData.getData('i', offset, count);
+            const v = data1[data1.length - 1].toString().padEnd(5, '0');
+            const i = data2[data2.length - 1].toString().padEnd(5, '0');
+            cards.items.push({
+                name: `CH${x < 10 ? '0' + x : x}`,
+                // data: chartData.getData('v', (Math.random() * 100), 50),
+                v,
+                i,
+                st: (8 * Math.random()).toString().substring(0, 3), /** step time */
+                data1,
+                data2,
+                chart_options: JSON.parse(JSON.stringify(card_chart_options)),
+                uut: (Math.random() * 1000000).toFixed().padStart(6, '0'),
+                cycles: Math.floor(50 * Math.random()),
+                de: null,
+                dc: null,
+                ee: null,
+                ce: null,
+            });
+        }
+        const numPages = Math.ceil(cards.items.length / 6);
+        const temp = { pages: [] };
+        for (let x = 1; x <= numPages; x++) {
+            temp.pages.push({ name: x.toString() });
+        }
+        cards.pages = temp.pages;
+
+        document.getElementById('content').style.display = 'block';
+        w3.displayObject("cards", cards);
+        document.getElementById('cards').style.display = '';
+        selectCardType(card_type);
+
+        // console.log(Date.now() - now);
+
+        w3.includeHTML(() => {
+            const searchParams = new URLSearchParams(window.location.search);
+            init();
+        });
+
+        function update(onDemand = false) {
+            // this.get(`${config.urlLocationTracking}/status/${config.facility}/*/true?token=123`).then((v) => {
+            //     if (!onDemand) {
+            //         setTimeout(() => { update(); }, 5000);
+            //     }
+            // });
+            cards.items.forEach((v) => {
+                updateChart(v.name, v.data1, v.chart_options);
+            })
+        }
+
+        let monikers = {};
+        function init() {
+            update();
+        }
+
+        // ----- SHOW DETAIL -----
+        function clickCard(name) {
+            const channel = name.replace('CH', '');
+            const channelNum = +(channel);
+
+            const row = Math.floor((channelNum % 6 === 0) ? (channelNum / 6) - 1 : channelNum / 6);
+            let col = +(name.substring(2)) - (row * 6);
+            col = col === 0 ? 5 : col - 1;
+            // console.log(name, row, col);
+
+            const start = row * 6;
+            const end = start + 6;
+            // console.log(start, end);
+
+            let filtered = { items: cards.items.filter((v, i) => i >= start && i < end) };
+            filtered.pages = temp.pages;
+            w3.displayObject("cards", filtered);
+            document.getElementById('cards').style.display = '';
+            filtered.items.forEach((v) => {
+                updateChart(v.name, v.data1, v.chart_options);
+            })
+
+            document.getElementById('detail').style.display = '';
+            document.getElementById('overview-counts').style.display = 'none';
+
+            const selected = cards.items.find((v) => v.name === name);
+
+            card_chart_options.chart.height = '250';
+            card_chart_options.series[0].name = 'V';
+            card_chart_options.chart.sparkline.enabled = false;
+            card_chart_options.tooltip.enabled = true;
+            card_chart_options.chart.toolbar.show = false;
+            card_chart_options.chart.id = 'chart-detail-1';
+            card_chart_options.yaxis.min = 2;
+            card_chart_options.yaxis.max = 5;
+            // card_chart_options.yaxis.title.text = 'Voltage';
+            card_chart_options.yaxis.show = true;
+            card_chart_options.chart.type = 'line';
+            delete card_chart_options.fill;
+            card_chart_options.colors = ['#adff2f'];
+
+            card_chart_options.series[0].data = selected.data1;
+            var chart = new ApexCharts(document.getElementById(`chart-detail-1`), card_chart_options);
+            chart.render();
+
+            card_chart_options.series[0].name = 'I';
+            card_chart_options.stroke.curve = 'stepline';
+            card_chart_options.chart.toolbar.show = false;
+            card_chart_options.chart.id = 'chart-detail-2';
+            card_chart_options.yaxis[0].min = -1;
+            card_chart_options.yaxis[0].max = 1;
+            // card_chart_options.yaxis[0].title.text = 'Current';
+            card_chart_options.colors = ['#75e0f0'];
+
+            card_chart_options.series[0].data = selected.data2;
+            var chart = new ApexCharts(document.getElementById(`chart-detail-2`), card_chart_options);
+            chart.render();
+
+            card_chart_options.chart.toolbar.show = false;
+            card_chart_options.stroke.curve = 'smooth';
+            card_chart_options.chart.height = '70';
+            card_chart_options.chart.sparkline.enabled = true;
+            card_chart_options.tooltip.enabled = false;
+            card_chart_options.chart.group = undefined;
+            card_chart_options.chart.id = undefined;
+            card_chart_options.yaxis[0].min = undefined;
+            card_chart_options.yaxis[0].max = undefined;
+            card_chart_options.chart.type = 'area';
+
+            let elem = document.getElementById('chart-detail-1');
+            // document.getElementById('menu-chart-1').style.right = `${(elem.offsetLeft + 18)}px`;
+            // document.getElementById('menu-chart-2').style.right = `${(elem.offsetLeft + 18)}px`;
+
+            document.getElementById(name).classList.add('card-selected');
+            document.getElementById('detail-name').innerText = name;
+            document.getElementById('detail-uut').innerText = selected.uut;
+            document.getElementById('pager').style.display = 'block';
+
+            selectCardType(card_type);
+            selectPage(row + 1);
+        }
+
+        function closeDetail() {
+            document.getElementById('detail').style.display = 'none';
+            document.getElementById('overview-counts').style.display = '';
+            document.getElementById('pager').style.display = 'none';
+            w3.displayObject("cards", cards);
+            document.getElementById('cards').style.display = '';
+            cards.items.forEach((v) => {
+                updateChart(v.name, v.data1, v.chart_options);
+            })
+            selectCardType(card_type);
+        }
+
+        function updateChart(name, data, chart_options) {
+            chart_options.series[0].data = data;
+            // card_chart_options.chart.sparkline.enabled = true;
+            var chart = new ApexCharts(document.getElementById(`card-chart-${name}`), chart_options);
+            chart.render();
+        }
+
+        // Define the function to screenshot the div
+        function copyDetail() {
+            update = false;
+            let div = document.getElementById('detail');
+            div.scrollIntoView();
+
+            // Use the html2canvas function to take a screenshot and append it to the output div
+            html2canvas(div).then(
+                function (canvas) {
+                    canvas.toBlob(function (blob) {
+                        const item = new ClipboardItem({ "image/png": blob });
+                        navigator.clipboard.write([item]);
+                    });
+                })
+        }
+
+        // ----- CLICK PAGER -----
+        function clickPager(v) {
+            if (v === 'ALL') {
+                closeDetail()
+            } else {
+                console.log(+(v));
+                const row = (+v);
+                const channel = (((row - 1) * 6) + 1).toString().padStart(2, '0');
+                console.log(`CH${channel}`);
+                clickCard(`CH${channel}`);
+                selectPage(v);
+            }
+        }
+
+        function selectPage(num) {
+            const elem = document.getElementById(`page-${num}`);
+            elem.style.fontWeight = 'bold';
+            elem.style.fontSize = '1.3rem';
+            elem.classList.remove('color-font');
+            elem.classList.add('color-current');
+        }
+
+        function selectCardType(type) {
+            // document.styleSheets[1].cssRules[6].style.minHeight = null
+            // console.log(type);
+            card_type = type;
+            localStorage.setItem('card_type', type);
+            if (type === 'large') {
+                let elems = document.getElementsByName('card-chart');
+                for (let e of elems) {
+                    e.style.display = 'block';
+                }
+                elems = document.getElementsByClassName('card');
+                for (let e of elems) {
+                    e.style.minHeight = '100px';
+                }
+            } else if (type === 'small') {
+                let elems = document.getElementsByName('card-chart');
+                for (let e of elems) {
+                    e.style.display = 'none';
+                }
+                elems = document.getElementsByClassName('card');
+                for (let e of elems) {
+                    e.style.minHeight = '0px';
+                }
+            } else if (type === 'table') {
+
+            }
+        }
+
+        function selectChartType(type) {
+
+        }
+
+    </script>
 
 </body>
 
