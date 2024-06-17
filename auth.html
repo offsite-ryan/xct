@@ -39,7 +39,7 @@
             if (submit(obj)) {
                 document.getElementById('myForm').style.backgroundColor = '#4f4848';
                 localStorage.setItem('key', obj.key);
-                window.location.href = `.${window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1)}`;
+                window.location.href = `./`;
             } else {
                 document.getElementById('myForm').style.backgroundColor = 'red';
             }

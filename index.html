@@ -337,7 +337,7 @@
 
     <script>
         if (!submit({key: localStorage.getItem('key')})) {
-            window.location.href = `.${window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1)}auth.html`;
+            window.location.href = `./auth.html`;
         } else {
             // setTimeout(() => { window.location.reload() }, 15 * 1000)
         }
