@@ -69,7 +69,26 @@
         <!-- CARDS -->
         <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;">
             <div class="w3-container w3-xlarge color-font"
-                style="border-top:1px solid#c5c5c5;margin-top:8px;padding-right:6px;">
+                style="border-top:1px solid#c5c5c5;margin-top:8px;padding-top:10px;padding-right:6px;margin-bottom:10px;">
+                <div class="w3-col s4">
+                    <div class="w3-dropdown-hover" _style="">
+                        <div class="color-current" style="background-color:#2f2f2f;border:0px solid;"><i id="group"
+                                class="fa fa-th-large color-font" style="cursor:pointer;" aria-hidden="true"></i> Group A <i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium" _style="">
+                            <a class="card-menu-option-selected w3-bar-item w3-button" onclick="selectCardType('large')">Group A</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                onclick="selectCardType('small')">Group B</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                onclick="selectCardType('table')">Group C</a>
+                            <!-- <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-play" aria-hidden="true"></i></div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-pause" aria-hidden="true"></i></div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-stop" aria-hidden="true"></i></div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-eject" aria-hidden="true"></i></div>
                 <div class="w3-dropdown-hover w3-right" _style="">
                     <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:30px;"><i id="menu"
                             class="fa fa-bars color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
