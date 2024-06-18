@@ -41,7 +41,7 @@
                             Scheduler</a>
                     </div>
                 </div>
-                TEST SYSTEM: <span class="color-current">TS0937</span>
+                TEST SYSTEM: <span class="color-current">TS0937 - Runtime</span>
             </h1>
             <img class="logo2" src="avl-logo-300x300.png" />
         </span>
@@ -73,13 +73,16 @@
                 <div class="w3-col s4">
                     <div class="w3-dropdown-hover" _style="">
                         <div class="color-current" style="background-color:#2f2f2f;border:0px solid;"><i id="group"
-                                class="fa fa-th-large color-font" style="cursor:pointer;" aria-hidden="true"></i> Group A <i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                                class="fa fa-th-large color-font" style="cursor:pointer;" aria-hidden="true"></i> All <i class="fa fa-caret-down" aria-hidden="true"></i></div>
                         <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium" _style="">
-                            <a class="card-menu-option-selected w3-bar-item w3-button" onclick="selectCardType('large')">Group A</a>
+                            <a class="card-menu-option-selected w3-bar-item w3-button" onclick="selectCardType('large')">All</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button" onclick="selectCardType('large')">Group A</a>
                             <a class="card-menu-option-unselected w3-bar-item w3-button"
                                 onclick="selectCardType('small')">Group B</a>
                             <a class="card-menu-option-unselected w3-bar-item w3-button"
                                 onclick="selectCardType('table')">Group C</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                onclick="selectCardType('table')">Search</a>
                             <!-- <a class="card-menu-option-unselected w3-bar-item w3-button"
                                 onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
                         </div>
@@ -91,7 +94,7 @@
                 <div class="w3-col s1 w3-center color-zero"><i class="fa fa-eject" aria-hidden="true"></i></div>
                 <div class="w3-dropdown-hover w3-right" _style="">
                     <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:30px;"><i id="menu"
-                            class="fa fa-bars color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
+                            class="fa fa-ellipsis-v color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
                     <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium" style="right:0">
                         <a class="card-menu-option-selected w3-bar-item w3-button" onclick="selectCardType('large')"><i
                                 class="fa fa-area-chart" aria-hidden="true"></i> Large Card</a>
@@ -195,9 +198,9 @@
                     <!-- SCREEN GRAB & UI SWITCH -->
                     <div class="w3-col s1"
                         style="display:flex;flex-direction:row;align-items:flex-end;justify-content:flex-end">
-                        <span class="color-font" style="cursor:pointer;padding-right:20px;" onclick="copyDetail()"><i
+                        <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="copyDetail()"><i
                                 class="fa fa-files-o w3-xlarge" aria-hidden="true"></i></span>
-                        <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
+                        <!-- <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
                             <div class="w3-xlarge" style="background-color:#2f2f2f00;border:0px solid;;">
                                 <i id="menu" class="fa fa-bars color-font" style="cursor:pointer;"
                                     aria-hidden="true"></i>
@@ -213,7 +216,7 @@
                                 <a class="card-menu-option-unselected w3-bar-item w3-button"
                                     onclick="selectChartType('T')">Data Analysis</a>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -249,7 +252,7 @@
                                     style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
                                     <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
                                         <div class="w3-xlarge" style="background-color:#2f2f2f00;border:0px solid;;">
-                                            <i id="menu" class="fa fa-bars color-font" style="cursor:pointer;"
+                                            <i id="menu" class="fa fa-ellipsis-v color-font" style="cursor:pointer;"
                                                 aria-hidden="true"></i>
                                         </div>
                                         <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
@@ -276,7 +279,7 @@
                                     style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
                                     <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
                                         <div class="w3-xlarge" style="background-color:#2f2f2f00;border:0px solid;;">
-                                            <i id="menu" class="fa fa-bars color-font" style="cursor:pointer;"
+                                            <i id="menu" class="fa fa-ellipsis-v color-font" style="cursor:pointer;"
                                                 aria-hidden="true"></i>
                                         </div>
                                         <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
@@ -299,7 +302,8 @@
 
                             <!-- TEST CONTROL BUTTONS -->
                             <div class="w3-container" style="padding-bottom:20px;">
-                                <div class="w3-col s1" _style="">&nbsp;</div>
+                                <div class="w3-col s1" _style="">
+                                </div>
                                 <div class="w3-col s8" _style="">&nbsp;</div>
                                 <div class="w3-col s3" _style="">
                                     <div class="w3-button detail-button-action w3-large" style="float:right;"><i
@@ -328,11 +332,11 @@
             <!-- <a class="w3-xlarge"><i class="fa fa-television" aria-hidden="true"></i></a> -->
             <!-- <a class="w3-xlarge"><i class="fa fa-database" aria-hidden="true"></i></a> -->
             <!-- <a class="w3-xlarge"><i class="fa fa-calendar" aria-hidden="true"></i></a> -->
-            <a class="w3-xlarge"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test Setup</a>
-            <a class="w3-xlarge"><i class="fa fa-battery-empty" aria-hidden="true"></i> Battery Info</a>
-            <a class="w3-xlarge"><i class="fa _fa-cog" aria-hidden="true"></i></a>
+            <a class="w3-xlarge" style="float:right;"><i class="fa fa-cog" aria-hidden="true"></i> System Setup</a>
+            <a class="w3-xlarge" style="float:right;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test Setup</a>
+            <a class="w3-xlarge" style="float:right;"><i class="fa fa-battery-empty" aria-hidden="true"></i> Battery Setup</a>
+            <!-- <a class="w3-xlarge" style="float:right;"><i class="fa _fa-cog" aria-hidden="true"></i></a> -->
             <!-- <a class="w3-xlarge" style="float:right;"><i class="fa fa-info" aria-hidden="true"></i></a> -->
-            <a class="w3-xlarge" style="float:right;"><i class="fa fa-cog" aria-hidden="true"></i></a>
         </div>
     </div>
 
@@ -371,6 +375,7 @@
         for (let x = 1; x <= 100; x++) {
             const offset = (Math.random() * 700);
             const count = 800;
+            const uut = `${(Math.random() * 10000).toFixed().padStart(4, '0')}-${(Math.random() * 100).toFixed().padStart(2, '0')}`
             const data1 = chartData.getData('v', offset, count);
             const data2 = chartData.getData('i', offset, count);
             const v = data1[data1.length - 1].toString().padEnd(5, '0');
@@ -384,7 +389,7 @@
                 data1,
                 data2,
                 chart_options: JSON.parse(JSON.stringify(card_chart_options)),
-                uut: (Math.random() * 1000000).toFixed().padStart(6, '0'),
+                uut,
                 cycles: Math.floor(50 * Math.random()),
                 de: null,
                 dc: null,
