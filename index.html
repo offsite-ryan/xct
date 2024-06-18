@@ -330,28 +330,15 @@
         <!-- MENU -->
         <div class="navbar">
             <a class="w3-xlarge"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-            <!-- <a class="w3-xlarge"><i class="fa fa-home" aria-hidden="true"></i> Home</a> -->
-            <!-- <a class="w3-xlarge"><i class="fa fa-user-o" aria-hidden="true"></i></a> -->
-            <!-- <a class="w3-xlarge"><img src="./assets/ms-teams-white.png" height="32" /> Teams</a> -->
-            <a class="w3-xlarge"><i class="fa fa-users" aria-hidden="true"></i> Teams</a>
+            <a class="w3-xlarge"><i class="fa fa-users" aria-hidden="true"></i></a>
             <a id="runtime" class="w3-xlarge card-menu-option-selected" _style=""
                 onclick="changeView('runtime', this)"><i class="fa fa-th" aria-hidden="true"></i> Runtime</a>
-            <!-- <a class="w3-xlarge"><i class="fa fa-wrench" aria-hidden="true"></i></a> -->
-            <!-- <a class="w3-xlarge"><i class="fa fa-comment-o" aria-hidden="true"></i></a> -->
-            <!-- <a class="w3-xlarge"><i class="fa fa-cube" aria-hidden="true"></i></a> -->
-            <!-- <a class="w3-xlarge"><i class="fa fa-first-order" aria-hidden="true"></i></a> -->
-            <!-- <a class="w3-xlarge"><i class="fa fa-cogs" aria-hidden="true"></i></a> -->
-            <!-- <a class="w3-xlarge"><i class="fa fa-television" aria-hidden="true"></i></a> -->
-            <!-- <a class="w3-xlarge"><i class="fa fa-database" aria-hidden="true"></i></a> -->
-            <!-- <a class="w3-xlarge"><i class="fa fa-calendar" aria-hidden="true"></i></a> -->
             <a id="system-setup" class="w3-xlarge" style="float:right;" onclick="changeView(this.id, this)"><i
                     class="fa fa-cog" aria-hidden="true"></i> System Setup</a>
             <a id="test-setup" class="w3-xlarge" style="float:right;" onclick="changeView(this.id, this)"><i
                     class="fa fa-pencil-square-o" aria-hidden="true"></i> Test Setup</a>
             <a id="battery-setup" class="w3-xlarge" style="float:right;" onclick="changeView(this.id, this)"><i
                     class="fa fa-battery-empty" aria-hidden="true"></i> Battery Setup</a>
-            <!-- <a class="w3-xlarge" style="float:right;"><i class="fa _fa-cog" aria-hidden="true"></i></a> -->
-            <!-- <a class="w3-xlarge" style="float:right;"><i class="fa fa-info" aria-hidden="true"></i></a> -->
         </div>
     </div>
 
@@ -633,6 +620,7 @@
                 document.getElementById('overview-counts').style.display = 'block';
                 document.getElementById('view').innerText = 'Runtime';
                 document.getElementById('view-test-setup').style.display = 'none';
+                closeDetail();
                 updateMenu(name);
             } else if (name === 'test-setup') {
                 document.getElementById('cards').style.display = 'none';
