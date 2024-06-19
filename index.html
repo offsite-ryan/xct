@@ -334,7 +334,7 @@
             <div class="w3-container w3-padding w3-large">
                 <table class="w3-table w3-bordered">
                     <tr class="color-font">
-                        <th></th>
+                        <th><i class="fa fa-square-o color-current" aria-hidden="true"></i></th>
                         <th>Channel</th>
                         <th>Serial Number</th>
                         <th>Battery File</th>
@@ -343,41 +343,41 @@
                     </tr>
                     <tr>
                         <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
-                        <td class="color-moniker">01</td>
-                        <td>1287-03 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                        <td>LiPh-108</td>
+                        <td class="color-moniker">CH01</td>
+                        <td>1287-03</td>
+                        <td>LiPh-108 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
                         <td>TXW87689v3</td>
                         <td>On Test</td>
                     </tr>
                     <tr>
                         <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
-                        <td class="color-moniker">02</td>
-                        <td>- &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td class="color-moniker">CH02</td>
+                        <td></i></td>
+                        <td class=" color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                        <td></td>
                         <td>Empty</td>
                     </tr>
                     <tr>
                         <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
-                        <td class="color-moniker">03</td>
-                        <td>1287-13 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                        <td>LiPh-108</td>
+                        <td class="color-moniker">CH03</td>
+                        <td>1287-13</td>
+                        <td>LiPh-108 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
                         <td>TXW87689v3</td>
                         <td>On Test</td>
                     </tr>
                     <tr>
                         <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
-                        <td class="color-moniker">04</td>
-                        <td>- &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td class="color-moniker">CH04</td>
+                        <td></td>
+                        <td class=" color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                        <td></td>
                         <td>Empty</td>
                     </tr>
                     <tr>
                         <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
-                        <td class="color-moniker">05</td>
+                        <td class="color-moniker">CH05</td>
+                        <td>1287-67</td>
                         <td>1287-67 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                        <td>LiPh-108</td>
                         <td>TXW87689v3</td>
                         <td>Paused</td>
                     </tr>
@@ -392,10 +392,22 @@
 
         <!-- TEST SETUP -->
         <div id="view-test-setup" style="display:none;">
+            <hr />
             <div class="">
                 <img src="./assets/test-setup.png" width="1350" />
             </div>
         </div>
+
+        <!-- BATTERY SETUP -->
+        <div id="view-battery-setup" style="display:none;">
+            <hr />
+        </div>
+
+        <!-- SYSTEM SETUP -->
+        <div id="view-system-setup" style="display:none;">
+            <hr />
+        </div>
+
         <!-- MENU -->
         <div class="navbar">
             <a class="w3-xlarge"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
@@ -689,7 +701,7 @@
                     }
                 })
             }
-            ['cards', 'overview-counts', 'view-batch', 'view-test-setup'].forEach((v) => {
+            ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup'].forEach((v) => {
                 document.getElementById(v).style.display = 'none';
             })
 
@@ -697,33 +709,33 @@
                 document.getElementById('cards').style.display = 'block';
                 document.getElementById('overview-counts').style.display = 'block';
                 document.getElementById('view').innerText = 'Runtime';
-                document.getElementById('view-test-setup').style.display = 'none';
+                // document.getElementById('view-test-setup').style.display = 'none';
                 closeDetail();
                 updateMenu(name);
             } else if (name === 'batch') {
-                document.getElementById('cards').style.display = 'none';
-                document.getElementById('overview-counts').style.display = 'none';
+                // document.getElementById('cards').style.display = 'none';
+                // document.getElementById('overview-counts').style.display = 'none';
                 document.getElementById('view').innerText = 'Batch Operations';
-                document.getElementById('view-test-setup').style.display = 'none';
+                // document.getElementById('view-test-setup').style.display = 'none';
                 document.getElementById('view-batch').style.display = 'block';
                 updateMenu(name);
             } else if (name === 'test-setup') {
-                document.getElementById('cards').style.display = 'none';
-                document.getElementById('overview-counts').style.display = 'none';
+                // document.getElementById('cards').style.display = 'none';
+                // document.getElementById('overview-counts').style.display = 'none';
                 document.getElementById('view').innerText = 'Test Setup';
                 document.getElementById('view-test-setup').style.display = 'block';
                 updateMenu(name);
             } else if (name === 'battery-setup') {
-                document.getElementById('cards').style.display = 'none';
-                document.getElementById('overview-counts').style.display = 'none';
+                // document.getElementById('cards').style.display = 'none';
+                // document.getElementById('overview-counts').style.display = 'none';
                 document.getElementById('view').innerText = 'Battery Setup';
-                document.getElementById('view-test-setup').style.display = 'none';
+                document.getElementById('view-battery-setup').style.display = 'block';
                 updateMenu(name);
             } else if (name === 'system-setup') {
-                document.getElementById('cards').style.display = 'none';
-                document.getElementById('overview-counts').style.display = 'none';
+                // document.getElementById('cards').style.display = 'none';
+                // document.getElementById('overview-counts').style.display = 'none';
                 document.getElementById('view').innerText = 'System Setup';
-                document.getElementById('view-test-setup').style.display = 'none';
+                document.getElementById('view-system-setup').style.display = 'block';
                 updateMenu(name);
             }
         }
