@@ -113,29 +113,59 @@
                     </div>
                 </div>
             </div>
-            <div w3-repeat="items" class="w3-col s12 m2 l2">
-                <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
-                    <span class="" style="display:flex;justify-content: space-between;">
-                        <span class="color-moniker">{{name}}</span>
-                        <span style="font-size:12px;margin-top:3px;">
-                            <span class="color-voltage">{{v}}</span>
-                            <span class="color-font"> | </span>
-                            <span class="color-current">{{i}}</span>
-                            <span class="color-font"> | </span>
-                            <span class="color-time">{{st}}</span>
-                        </span>
-                    </span>
 
-                    <span class="" style="display:flex;justify-content: space-between;">
-                        <span class="color-current">{{uut}}</span>
-                        <span style="font-size:12px;margin-top:3px;">
-                            <span class="color-current">{{cycles}}</span>
-                            <span class="color-font"> / </span>
-                            <span class="color-time">50</span>
-                        </span>
-                    </span>
+            <!-- TABLE -->
+            <div id="table-view" class="w3-col s12 w3-large" style="display:block;">
+                <table class="w3-table w3-bordered">
+                    <tr class="color-font">
+                        <th>Channel</th>
+                        <th>Serial Number</th>
+                        <th>Test Procedure</th>
+                        <th>Step Name</th>
+                        <th>V</th>
+                        <th>I (mA)</th>
+                        <th>t (h)</th>
+                        <th>Cycles</th>
+                    </tr>
+                    <tr w3-repeat="items">
+                        <td class="color-moniker">{{name}}</td>
+                        <td>{{uut}}</td>
+                        <td>TXW467v3</td>
+                        <td>Constant Current Discharge</td>
+                        <td class="color-voltage">{{v}}</td>
+                        <td class="color-current">{{i}}</td>
+                        <td class="color-time">{{st}}</td>
+                        <td><span class="color-current">{{cycles}}</span> / <span class="color-time">50</span></td>
+                    </tr>
+                </table>
+            </div>
 
-                    <div id="card-chart-{{name}}" name="card-chart" style="margin-top:3px;"></div>
+            <!-- LARGE / SMALL CARDS -->
+            <div id="card-view" class="w3-col s12 w3-large" style="display:block;">
+                <div w3-repeat="items" class="w3-col s12 m2 l2" style="display:block">
+                    <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
+                        <span class="" style="display:flex;justify-content: space-between;">
+                            <span class="color-moniker">{{name}}</span>
+                            <span style="font-size:12px;margin-top:3px;">
+                                <span class="color-voltage">{{v}}</span>
+                                <span class="color-font"> | </span>
+                                <span class="color-current">{{i}}</span>
+                                <span class="color-font"> | </span>
+                                <span class="color-time">{{st}}</span>
+                            </span>
+                        </span>
+
+                        <span class="" style="display:flex;justify-content: space-between;">
+                            <span class="color-current">{{uut}}</span>
+                            <span style="font-size:12px;margin-top:3px;">
+                                <span class="color-current">{{cycles}}</span>
+                                <span class="color-font"> / </span>
+                                <span class="color-time">50</span>
+                            </span>
+                        </span>
+
+                        <div id="card-chart-{{name}}" name="card-chart" style="margin-top:3px;"></div>
+                    </div>
                 </div>
             </div>
 
@@ -384,9 +414,12 @@
                 </table>
                 <div class="w3-roww-padding" style="margin-top:25px;">
                     <div class="w3-col s3 w3-center">&nbsp;</div>
-                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load battery</div>
-                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load test file</div>
-                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">start test</div>
+                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load battery
+                    </div>
+                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load test file
+                    </div>
+                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">start test
+                    </div>
                 </div>
             </div>
         </div>
@@ -666,7 +699,12 @@
             // console.log(type);
             card_type = type;
             localStorage.setItem('card_type', type);
+
+            document.getElementById('card-view').style.display = 'none';
+            document.getElementById('table-view').style.display = 'none';
+
             if (type === 'large') {
+                document.getElementById('card-view').style.display = 'block';
                 let elems = document.getElementsByName('card-chart');
                 for (let e of elems) {
                     e.style.display = 'block';
@@ -676,6 +714,7 @@
                     e.style.minHeight = '100px';
                 }
             } else if (type === 'small') {
+                document.getElementById('card-view').style.display = 'block';
                 let elems = document.getElementsByName('card-chart');
                 for (let e of elems) {
                     e.style.display = 'none';
@@ -685,7 +724,7 @@
                     e.style.minHeight = '0px';
                 }
             } else if (type === 'table') {
-
+                document.getElementById('table-view').style.display = 'block';
             }
         }
 

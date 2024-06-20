@@ -1,5 +1,6 @@
 class data {
     values = null;
+    monikers = [];
     constructor() {
         const text = csv16h;
         const split = text.split('\n');
@@ -18,8 +19,29 @@ class data {
                 })
             }
         })
-        // console.table(json.slice(offset, count));
         this.values = json;
+
+        // /** MONIKERS */
+        for (let x = 1; x <= 100; x++) {
+            this.monikers.push({
+                name: `CH${x.toString().padStart(2, '0')}`,
+                uut: `${(Math.random() * 10000).toFixed().padStart(4, '0')}-${(Math.random() * 100).toFixed().padStart(2, '0')}`,
+                battery_file: ``,
+                test_procedure: ``,
+                state: ``,
+                data_v: null,
+                data_i: null,
+                data_c: null,
+                data_t: null,
+                step_time: null,
+                run_time: null,
+                v: null,
+                i: null,
+                c: null,
+                t: null,
+                group: null,
+            })
+        }
     }
     getData(field, offset, count) {
         let result = this.values.filter((v, i) => i >= offset && i < (count * 25));
