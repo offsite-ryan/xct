@@ -45,10 +45,10 @@
             </h1>
             <img class="logo2" src="avl-logo-300x300.png" />
         </span>
-        <div id="overview-counts" class="w3-row w3-center _w3-right-align">
+        <div id="overview-counts" class="w3-row w3-center _w3-right-align" style="padding-top:20px;">
             <div class="w3-col s2 w3-left-align">
-                <h3 class="color-font">
-                    <div class="w3-dropdown-hover" _style="">
+                <span class="color-font w3-xlarge">
+                    <div class="w3-dropdown-hover  w3-xlarge" _style="">
                         <div class="color-current" style="background-color:#2f2f2f;border:0px solid;"><i id="filter"
                                 class="fa fa-filter color-font" style="cursor:pointer;" aria-hidden="true"></i> All <i
                                 class="fa fa-caret-down" style="padding-left:20px;" aria-hidden="true"></i></div>
@@ -67,36 +67,37 @@
                                 onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
                         </div>
                     </div>
-                </h3>
+                </span>
             </div>
-            <div class="w3-col s2 clickable">
-                <h3 class="color-font">Idle: <span class="color-current" style="font-weight:bold;">2</span></h3>
+            <!-- <div class="w3-col s1 clickable">
+                <h3 class="color-time"><i class="fa fa-square-o" aria-hidden="true"></i> <span class="color-time" style="font-weight:bold;">2</span></h3>
             </div>
-            <div class="w3-col s2 clickable">
-                <h3 class="color-font">Running: <span class="color-current" style="font-weight:bold;">45</span></h3>
+            <div class="w3-col s1 clickable">
+                <h3 class="w3-text-green"><i class="fa fa-play" aria-hidden="true"></i> <span class="color-time" style="font-weight:bold;">45</span></h3>
             </div>
-            <div class="w3-col s2 clickable">
-                <h3 class="color-zero">Suspended: <span class="color-zero" style="font-weight:bold;">0</span></h3>
+            <div class="w3-col s1 clickable">
+                <h3 class="w3-text-gray"><i class="fa fa-pause" aria-hidden="true"></i> <span class="color-time" style="font-weight:bold;">3</span></h3>
             </div>
-            <div class="w3-col s2 clickable">
-                <h3 class="color-font">Warnings: <span class="color-current" style="font-weight:bold;">1</span></h3>
+            <div class="w3-col s1 clickable">
+                <h3 class="w3-text-yellow"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <span class="color-time" style="font-weight:bold;">1</span></h3>
             </div>
-            <div class="w3-col s2 clickable">
-                <h3 class="color-zero">Errors: <span class="color-zero" style="font-weight:bold;">0</span></h3>
+            <div class="w3-col s1 clickable">
+                <h3 class="w3-text-red"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <span class="color-zero" style="font-weight:bold;">0</span></h3>
+            </div> -->
+            <div class="w3-col s2 clickable w3-xlarge">
+                <span class="color-font">Idle: <span class="color-current" style="font-weight:bold;">2</span></span>
             </div>
-        </div>
-
-        <!-- CARDS -->
-        <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;">
-            <div class="w3-container w3-xlarge color-font"
-                style="border-top:1px solid#c5c5c5;margin-top:8px;padding-top:10px;padding-right:6px;margin-bottom:10px;">
-                <div class="w3-col s4">
-                    &nbsp;
-                </div>
-                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-play" aria-hidden="true"></i></div>
-                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-pause" aria-hidden="true"></i></div>
-                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-stop" aria-hidden="true"></i></div>
-                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-eject" aria-hidden="true"></i></div>
+            <div class="w3-col s2 clickable w3-xlarge">
+                <span class="color-font">Running: <span class="color-current" style="font-weight:bold;">45</span></span>
+            </div>
+            <div class="w3-col s2 clickable w3-xlarge">
+                <span class="color-zero">Suspended: <span class="color-zero" style="font-weight:bold;">0</span></span>
+            </div>
+            <div class="w3-col s2 clickable w3-xlarge">
+                <span class="color-font">Warnings: <span class="color-current" style="font-weight:bold;">1</span></span>
+            </div>
+            <div class="w3-col s2 clickable w3-xlarge">
+                <span class="color-zero">Errors: <span class="color-zero" style="font-weight:bold;">0</span></span>
                 <div class="w3-dropdown-hover w3-right" _style="">
                     <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:30px;"><i id="menu"
                             class="fa fa-ellipsis-v color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
@@ -109,15 +110,32 @@
                         <a class="card-menu-option-unselected w3-bar-item w3-button"
                             onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Table</a>
                         <!-- <a class="card-menu-option-unselected w3-bar-item w3-button"
-                            onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
+                        onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- CARDS -->
+        <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;">
+            <hr/>
+            <!-- <div class="w3-container w3-xlarge color-font"
+                style="border-top:1px solid#c5c5c5;margin-top:8px;padding-top:10px;padding-right:6px;margin-bottom:10px;">
+                <div class="w3-col s4">
+                    &nbsp;
+                </div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-play" aria-hidden="true"></i></div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-pause" aria-hidden="true"></i></div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-stop" aria-hidden="true"></i></div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-eject" aria-hidden="true"></i></div>
+
+            </div> -->
 
             <!-- TABLE -->
             <div id="table-view" class="w3-col s12 w3-large" style="display:block;">
                 <table class="w3-table w3-bordered">
                     <tr class="color-font">
+                        <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
                         <th>Channel</th>
                         <th>Serial Number</th>
                         <th>Test Procedure</th>
@@ -126,8 +144,10 @@
                         <th>I (mA)</th>
                         <th>t (h)</th>
                         <th>Cycles</th>
+                        <th></th>
                     </tr>
                     <tr w3-repeat="items">
+                        <!-- <td><i class="fa fa-square-o" aria-hidden="true"></i></td> -->
                         <td class="color-moniker">{{name}}</td>
                         <td>{{uut}}</td>
                         <td>TXW467v3</td>
@@ -136,6 +156,7 @@
                         <td class="color-current">{{i}}</td>
                         <td class="color-time">{{st}}</td>
                         <td><span class="color-current">{{cycles}}</span> / <span class="color-time">50</span></td>
+                        <td><i class="fa fa-pause color-font" aria-hidden="true"></i></td>
                     </tr>
                 </table>
             </div>
