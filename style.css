@@ -142,3 +142,14 @@ body {
     /* background-color: #2f2f2f !important; */
     color: #1599ac !important;
 }
+
+.modal-dark {
+    border: 1px solid white;
+    /* font-family: cursive !important; */
+    padding: 4px;
+    color: #cecece;
+    background-color: #2f2f2f !important;
+    max-width: 1400px;
+    padding: 20px;
+    min-height: 500px;
+}

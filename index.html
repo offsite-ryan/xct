@@ -18,6 +18,8 @@
 
     <!-- TOP -->
     <div id="content" class="" style="display:none;">
+        <a _href="" id="" class="w3-xlarge" style="float:right;min-width:0px;padding-left:10px;cursor:pointer;"
+            onclick="showModal()"><i class="fa fa-ellipsis-v color-zero" aria-hidden="true"></i></a>
         <span class="header">
             <h1 class="color-font">
                 <div class="w3-dropdown-hover" _style="">
@@ -118,7 +120,7 @@
 
         <!-- CARDS -->
         <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;">
-            <hr/>
+            <hr />
             <!-- <div class="w3-container w3-xlarge color-font"
                 style="border-top:1px solid#c5c5c5;margin-top:8px;padding-top:10px;padding-right:6px;margin-bottom:10px;">
                 <div class="w3-col s4">
@@ -257,7 +259,7 @@
                     <div class="w3-col s1"
                         style="display:flex;flex-direction:row;align-items:flex-end;justify-content:flex-end">
                         <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="closeDetail()"><i
-                            class="fa fa-times w3-xlarge" aria-hidden="true"></i></span>
+                                class="fa fa-times w3-xlarge" aria-hidden="true"></i></span>
 
                         <!-- <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="copyDetail()"><i
                                 class="fa fa-files-o w3-xlarge" aria-hidden="true"></i></span> -->
@@ -475,6 +477,8 @@
                 onclick="changeView('runtime', this)"><i class="fa fa-th" aria-hidden="true"></i> Runtime</a>
             <a href="#batch" id="batch" class="w3-xlarge" _style="" onclick="changeView('batch', this)"><i
                     class="fa fa-table" aria-hidden="true"></i> Batch</a>
+            <!-- <a _href="" id="" class="w3-xlarge" style="float:right;min-width:0px;"
+                onclick="showModal()"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a> -->
             <a href="#system-setup" id="system-setup" class="w3-xlarge" style="float:right;"
                 onclick="changeView(this.id, this)"><i class="fa fa-cog" aria-hidden="true"></i> System Setup</a>
             <a href="#test-setup" id="test-setup" class="w3-xlarge" style="float:right;"
@@ -492,6 +496,23 @@
     <div id="tootip" class="tooltiptext"
         style="display:none;position:absolute;top:25px;left:25px;background-color:#3b3b3bd5;color:white;padding:10px;border-radius:8px;">
         Tooltip Text
+    </div>
+
+    <!-- MODAL -->
+    <div id="modal" class="w3-modal w3-xlarge" style="background-color: rgba(0,0,0,0.65)">
+        <div class="w3-modal-content modal-dark">
+            <div class="w3-container w3-padding">
+                <div class="w3-row-padding">
+                    <h3 class="color-time">UI Options</h3>
+                    <hr />
+                    <span onclick="document.getElementById('modal').style.display='none'"
+                        class="w3-button w3-display-topright w3-xxlarge">&times;</span>
+                    <span><i id="option-show-row-monikers" class="fa fa-toggle-on w3-xlarge color-font"
+                            aria-hidden="true" onclick="showRowMonikersOnDetailPage()"></i> Show Row Monikers on Detail
+                        Page</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- SCRIPT IMPORTS -->
@@ -515,6 +536,8 @@
     <script>
         // console.log(navigator.userAgent);
         const now = Date.now();
+        let show_row_monikers = localStorage.getItem('show_row_monikers') === 'true' ? true : false;
+        showRowMonikersOnDetailPage(false);
         let card_type = localStorage.getItem('card_type') || 'large';
         const chartData = new data();
         let cards = { items: [] };
@@ -582,7 +605,7 @@
 
         // ----- SHOW DETAIL -----
         function clickRow(rowNum) {
-            clickCard(`CH${rowNum.toString().padStart(2,'0')}`);
+            clickCard(`CH${rowNum.toString().padStart(2, '0')}`);
         }
         function clickCard(name) {
             const channel = name.replace('CH', '');
@@ -597,7 +620,8 @@
             const end = start + 6;
             // console.log(start, end);
 
-            let filtered = {items: [] }; // { items: cards.items.filter((v, i) => i >= start && i < end) };
+            let filtered = { items: [] };
+            filtered = { items: cards.items.filter((v, i) => i >= start && i < end) };
             filtered.pages = temp.pages;
             w3.displayObject("cards", filtered);
             document.getElementById('cards').style.display = '';
@@ -659,7 +683,8 @@
             // document.getElementById('menu-chart-1').style.right = `${(elem.offsetLeft + 18)}px`;
             // document.getElementById('menu-chart-2').style.right = `${(elem.offsetLeft + 18)}px`;
 
-            // document.getElementById(name).classList.add('card-selected');
+            document.getElementById(name).classList.add('card-selected');
+            // document.getElementById(name).classList.add('row-selected');
             document.getElementById('detail-name').innerText = name;
             document.getElementById('detail-uut').innerText = selected.uut;
             document.getElementById('pager').style.display = 'block';
@@ -667,9 +692,12 @@
             selectCardType(card_type);
             selectPage(row + 1);
 
-            document.getElementById('card-view').style.display = 'none';
-            document.getElementById('table-view').style.display = 'none';
-            document.getElementById('pager').style.display = 'none';
+            // HIDE TOP ON DETAIL
+            if (!show_row_monikers) {
+                document.getElementById('card-view').style.display = 'none';
+                document.getElementById('table-view').style.display = 'none';
+                document.getElementById('pager').style.display = 'none';
+            }
         }
 
         function closeDetail() {
@@ -820,6 +848,21 @@
             if (hash) {
                 changeView(hash.substring(1), document.getElementById(hash.substring(1)));
             }
+        }
+
+        function showModal() {
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function showRowMonikersOnDetailPage(toggle = true) {
+            if (toggle) {
+                show_row_monikers = !show_row_monikers;
+                localStorage.setItem('show_row_monikers', show_row_monikers);
+            }
+            const elem = document.getElementById('option-show-row-monikers');
+            elem.classList.remove('fa-toggle-on', 'fa-toggle-off', 'color-current', 'color-time');
+            const classes = show_row_monikers === true ? ['fa-toggle-on', 'color-font'] : ['fa-toggle-off', 'color-time'];
+            elem.classList.add(...classes);
         }
 
         window.addEventListener("popstate", (event) => {
