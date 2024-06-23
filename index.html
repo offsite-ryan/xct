@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="robots" content="noindex">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <title>BTS</title>
+    <title id="title">BTS</title>
     <link rel="icon" type="image/x-icon" href="./favicon.png?v3=2">
     <link rel="apple-touch-icon" sizes="128x128" href="/apple-touch-icon.png?v=13">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
@@ -146,9 +146,9 @@
                         <th>I (mA)</th>
                         <th>t (h)</th>
                         <th>Cycles</th>
-                        <th></th>
+                        <!-- <th></th> -->
                     </tr>
-                    <tr w3-repeat="items" onclick="clickRow(this.rowIndex)">
+                    <tr w3-repeat="items" onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
                         <!-- <td><i class="fa fa-square-o" aria-hidden="true"></i></td> -->
                         <td class="color-moniker">{{name}}</td>
                         <td>{{uut}}</td>
@@ -158,7 +158,7 @@
                         <td class="color-current">{{i}}</td>
                         <td class="color-time">{{st}}</td>
                         <td><span class="color-current">{{cycles}}</span> / <span class="color-time">50</span></td>
-                        <td><i class="fa fa-pause color-font" style="cursor:pointer;" aria-hidden="true"></i></td>
+                        <!-- <td><i class="fa fa-pause color-font" style="cursor:pointer;" aria-hidden="true"></i></td> -->
                     </tr>
                 </table>
             </div>
@@ -471,7 +471,7 @@
 
         <!-- MENU -->
         <div class="navbar">
-            <a class="w3-xlarge"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            <a class="w3-xlarge" onclick="clickBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
             <a class="w3-xlarge"><i class="fa fa-users" aria-hidden="true"></i></a>
             <a href="#runtime" id="runtime" class="w3-xlarge card-menu-option-selected" _style=""
                 onclick="changeView('runtime', this)"><i class="fa fa-th" aria-hidden="true"></i> Runtime</a>
@@ -507,8 +507,8 @@
                     <hr />
                     <span onclick="document.getElementById('modal').style.display='none'"
                         class="w3-button w3-display-topright w3-xxlarge">&times;</span>
-                    <span><i id="option-show-row-monikers" class="fa fa-toggle-on w3-xlarge color-font"
-                            aria-hidden="true" onclick="showRowMonikersOnDetailPage()"></i> Show Row Monikers on Detail
+                    <span><i id="option-show-row-monikers" class="fa fa-toggle-on w3-xxlarge color-font w3-right"
+                            aria-hidden="true" onclick="showRowMonikersOnDetailPage()"></i> Show Row Channels on Detail
                         Page</span>
                 </div>
             </div>
@@ -608,8 +608,13 @@
             clickCard(`CH${rowNum.toString().padStart(2, '0')}`);
         }
         function clickCard(name) {
+            
+            document.getElementById('title').innerText = `BTS - ${name}`
+
             const channel = name.replace('CH', '');
             const channelNum = +(channel);
+
+            location.hash = `#detail-${name}`;
 
             const row = Math.floor((channelNum % 6 === 0) ? (channelNum / 6) - 1 : channelNum / 6);
             let col = +(name.substring(2)) - (row * 6);
@@ -710,6 +715,7 @@
                 updateChart(v.name, v.dataV, v.chart_options);
             })
             selectCardType(card_type);
+            location.hash = `#runtime`;
         }
 
         function updateChart(name, data, chart_options) {
@@ -809,6 +815,7 @@
             })
 
             if (name === 'runtime') {
+                document.getElementById('title').innerText = 'BTS - Runtime'
                 document.getElementById('cards').style.display = 'block';
                 document.getElementById('overview-counts').style.display = 'block';
                 document.getElementById('view').innerText = 'Runtime';
@@ -816,6 +823,7 @@
                 closeDetail();
                 updateMenu(name);
             } else if (name === 'batch') {
+                document.getElementById('title').innerText = 'BTS - Batch'
                 // document.getElementById('cards').style.display = 'none';
                 document.getElementById('overview-counts').style.display = 'block';
                 document.getElementById('view').innerText = 'Batch Operations';
@@ -823,18 +831,21 @@
                 document.getElementById('view-batch').style.display = 'block';
                 updateMenu(name);
             } else if (name === 'test-setup') {
+                document.getElementById('title').innerText = 'BTS - Test Setup'
                 // document.getElementById('cards').style.display = 'none';
                 // document.getElementById('overview-counts').style.display = 'none';
                 document.getElementById('view').innerText = 'Test Setup';
                 document.getElementById('view-test-setup').style.display = 'block';
                 updateMenu(name);
             } else if (name === 'battery-setup') {
+                document.getElementById('title').innerText = 'BTS - Battery Setup'
                 // document.getElementById('cards').style.display = 'none';
                 // document.getElementById('overview-counts').style.display = 'none';
                 document.getElementById('view').innerText = 'Battery Setup';
                 document.getElementById('view-battery-setup').style.display = 'block';
                 updateMenu(name);
             } else if (name === 'system-setup') {
+                document.getElementById('title').innerText = 'BTS - System Setup'
                 // document.getElementById('cards').style.display = 'none';
                 // document.getElementById('overview-counts').style.display = 'none';
                 document.getElementById('view').innerText = 'System Setup';
@@ -846,7 +857,15 @@
         function showView() {
             const hash = window.location.hash || '#runtime'
             if (hash) {
-                changeView(hash.substring(1), document.getElementById(hash.substring(1)));
+                if (hash.startsWith('#detail-')) {
+                    // changeView('runtime', document.getElementById('runtime'));
+                    ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup'].forEach((v) => {
+                        document.getElementById(v).style.display = 'none';
+                    })
+                    clickCard(hash.replace('#detail-', ''));
+                } else {
+                    changeView(hash.substring(1), document.getElementById(hash.substring(1)));
+                }
             }
         }
 
@@ -868,6 +887,10 @@
         window.addEventListener("popstate", (event) => {
             showView();
         });
+
+        function clickBack() {
+            history.back();
+        }
     </script>
 
 </body>
