@@ -55,45 +55,29 @@
                                 class="fa fa-filter color-font" style="cursor:pointer;" aria-hidden="true"></i> All <i
                                 class="fa fa-caret-down" style="padding-left:20px;" aria-hidden="true"></i></div>
                         <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-large" _style="">
-                            <a class="card-menu-option-selected w3-bar-item w3-button"
-                                onclick="selectCardType('large')">All</a>
+                            <a class="card-menu-option-selected w3-bar-item w3-button" onclick="filter('')">All</a>
                             <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                onclick="selectCardType('large')">Project A</a>
+                                onclick="filter('Project A')">Project A</a>
                             <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                onclick="selectCardType('small')">Project B</a>
+                                onclick="filter('Project B')">Project B</a>
                             <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                onclick="selectCardType('table')">Project C</a>
+                                onclick="filter('Project C')">Project C</a>
                             <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                onclick="selectCardType('table')">Search</a>
+                                onkeyup="filter(this.value)"><input type="text" placeholder="Search..."></input></a>
                             <!-- <a class="card-menu-option-unselected w3-bar-item w3-button"
                                 onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
                         </div>
                     </div>
                 </span>
             </div>
-            <!-- <div class="w3-col s1 clickable">
-                <h3 class="color-time"><i class="fa fa-square-o" aria-hidden="true"></i> <span class="color-time" style="font-weight:bold;">2</span></h3>
-            </div>
-            <div class="w3-col s1 clickable">
-                <h3 class="w3-text-green"><i class="fa fa-play" aria-hidden="true"></i> <span class="color-time" style="font-weight:bold;">45</span></h3>
-            </div>
-            <div class="w3-col s1 clickable">
-                <h3 class="w3-text-gray"><i class="fa fa-pause" aria-hidden="true"></i> <span class="color-time" style="font-weight:bold;">3</span></h3>
-            </div>
-            <div class="w3-col s1 clickable">
-                <h3 class="w3-text-yellow"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <span class="color-time" style="font-weight:bold;">1</span></h3>
-            </div>
-            <div class="w3-col s1 clickable">
-                <h3 class="w3-text-red"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <span class="color-zero" style="font-weight:bold;">0</span></h3>
-            </div> -->
             <div class="w3-col s2 clickable w3-xlarge">
-                <span class="color-font">Idle: <span class="color-current" style="font-weight:bold;">2</span></span>
+                <span class="color-font">Running: <span class="color-current" style="font-weight:bold;">41</span></span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
-                <span class="color-font">Running: <span class="color-current" style="font-weight:bold;">45</span></span>
+                <span class="color-font">Paused: <span class="color-current" style="font-weight:bold;">7</span></span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
-                <span class="color-zero">Suspended: <span class="color-zero" style="font-weight:bold;">0</span></span>
+                <span class="color-zero">Empty: <span class="color-zero" style="font-weight:bold;">0</span></span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
                 <span class="color-font">Warnings: <span class="color-current" style="font-weight:bold;">1</span></span>
@@ -104,13 +88,17 @@
                     <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:30px;"><i id="menu"
                             class="fa fa-ellipsis-v color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
                     <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium" style="right:0">
-                        <a class="card-menu-option-selected w3-bar-item w3-button" onclick="selectCardType('large')"><i
-                                class="fa fa-area-chart" aria-hidden="true"></i> Large Card</a>
-                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                        <a id="menu-view-large" class="card-menu-option-selected w3-bar-item w3-button"
+                            onclick="selectCardType('large')"><i class="fa fa-area-chart" aria-hidden="true"></i> Large
+                            Card</a>
+                        <a id="menu-view-small" class="card-menu-option-unselected w3-bar-item w3-button"
                             onclick="selectCardType('small')"><i class="fa fa-list-alt" aria-hidden="true"></i> Small
                             Card</a>
-                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                        <a id="menu-view-table" class="card-menu-option-unselected w3-bar-item w3-button"
                             onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Table</a>
+                        <a id="menu-view-timeline" class="card-menu-option-unselected w3-bar-item w3-button"
+                            onclick="selectCardType('timeline')"><i class="fa fa-table" aria-hidden="true"></i>
+                            Timeline</a>
                         <!-- <a class="card-menu-option-unselected w3-bar-item w3-button"
                         onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
                     </div>
@@ -192,6 +180,81 @@
                 </div>
             </div>
 
+            <!-- TIMELINE -->
+            <div id="timeline-view" class="w3-col s12 w3-large" style="display:none;">
+                <div id="" class="w3-col s12 w3-large" _style="display:block;">
+                    <table class="w3-table w3-bordered">
+                        <tr class="color-font">
+                            <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
+                            <th width=100>Channel</th>
+                            <th class="w3-center" style="border-left:0px solid;"> 20-Jun-24</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 21-Jun-24</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 22-Jun-24</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 23-Jun-24</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 24-Jun-24</th>
+                            <!-- <th class="w3-center">Timeline: <spam class="color-current">Last 5 days</spam></th> -->
+                        </tr>
+                        <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                            <td class="color-moniker">CH01</td>
+                            <td colspan="5">
+                                <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
+                                    <div style="background-color:#adff2f;width:15%;">&nbsp;</div>
+                                    <div style="background-color:red;width:1%;">&nbsp;</div>
+                                    <div style="background-color:#2f2f2f;width:29%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:4%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:16%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:28%;">&nbsp;</div>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                            <td class="color-moniker">CH02</td>
+                            <td colspan="5">
+                                <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
+                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
+                                    <div style="background-color:rgb(138, 138, 138);width:27%;">&nbsp;</div>
+                                    <div style="background-color:red;width:1%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:24%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                            <td class="color-moniker">CH03</td>
+                            <td colspan="5">
+                                <span class="w3-small" style="display:flex;opacity:55% !important;margin-top:5px;">
+                                    <div style="background-color:rgb(138, 138, 138);width:27%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
+                                    <div style="background-color:red;width:1%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:24%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                            <td class="color-moniker">CH04</td>
+                            <td colspan="5">
+                                <span class="w3-small" style="display:flex;opacity:55% !important;margin-top:5px;">
+                                    <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
+                                    <div style="background-color:#2f2f2f;width:17%;">&nbsp;</div>
+                                    <div style="background-color:rgb(138, 138, 148);width:10%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:25%;">&nbsp;</div>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PAGER -->
             <br />
             <div id="pages" class="w3-col s12 w3-center">
                 <span id="pager" style="display:flex;justify-content:center;display:none;margin:3px;font-size:1.1rem;">
@@ -462,11 +525,13 @@
         <!-- BATTERY SETUP -->
         <div id="view-battery-setup" style="display:none;">
             <hr />
+            <div w3-include-html="battery-setup.html"></div>
         </div>
 
         <!-- SYSTEM SETUP -->
         <div id="view-system-setup" style="display:none;">
             <hr />
+            <div w3-include-html="system-setup.html"></div>
         </div>
 
         <!-- MENU -->
@@ -524,6 +589,7 @@
     <script src="chart-definitions/card.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 
     <script>
         if (!submit({ key: localStorage.getItem('key') })) {
@@ -539,6 +605,8 @@
         let show_row_monikers = localStorage.getItem('show_row_monikers') === 'true' ? true : false;
         showRowMonikersOnDetailPage(false);
         let card_type = localStorage.getItem('card_type') || 'large';
+
+        // DATA
         const chartData = new data();
         let cards = { items: [] };
         for (let x = 1; x <= 48; x++) {
@@ -601,6 +669,17 @@
         function init() {
             update();
             showView();
+
+            // QR CODE
+            const qrcode = new QRCode(document.getElementById('qrcode'), {
+                // text: 'https://offsite-ryan.github.io/xct/#runtime',
+                text: window.location.origin + window.location.pathname + '#runtime',
+                width: 175,
+                height: 175,
+                colorDark: '#fff',
+                colorLight: '#000',
+                correctLevel: QRCode.CorrectLevel.H
+            });
         }
 
         // ----- SHOW DETAIL -----
@@ -608,7 +687,7 @@
             clickCard(`CH${rowNum.toString().padStart(2, '0')}`);
         }
         function clickCard(name) {
-            
+
             document.getElementById('title').innerText = `BTS - ${name}`
 
             const channel = name.replace('CH', '');
@@ -701,6 +780,7 @@
             if (!show_row_monikers) {
                 document.getElementById('card-view').style.display = 'none';
                 document.getElementById('table-view').style.display = 'none';
+                document.getElementById('timeline-view').style.display = 'none';
                 document.getElementById('pager').style.display = 'none';
             }
         }
@@ -769,8 +849,14 @@
             card_type = type;
             localStorage.setItem('card_type', type);
 
+            ['menu-view-large', 'menu-view-small', 'menu-view-table', 'menu-view-timeline'].forEach((v) => {
+                document.getElementById(v).classList.replace('card-menu-option-selected', 'card-menu-option-unselected');
+            })
+            document.getElementById(`menu-view-${type}`).classList.replace('card-menu-option-unselected', 'card-menu-option-selected');
+
             document.getElementById('card-view').style.display = 'none';
             document.getElementById('table-view').style.display = 'none';
+            document.getElementById('timeline-view').style.display = 'none';
 
             if (type === 'large') {
                 document.getElementById('card-view').style.display = 'block';
@@ -794,6 +880,8 @@
                 }
             } else if (type === 'table') {
                 document.getElementById('table-view').style.display = 'block';
+            } else if (type === 'timeline') {
+                document.getElementById('timeline-view').style.display = 'block';
             }
         }
 
@@ -819,35 +907,26 @@
                 document.getElementById('cards').style.display = 'block';
                 document.getElementById('overview-counts').style.display = 'block';
                 document.getElementById('view').innerText = 'Runtime';
-                // document.getElementById('view-test-setup').style.display = 'none';
                 closeDetail();
                 updateMenu(name);
             } else if (name === 'batch') {
                 document.getElementById('title').innerText = 'BTS - Batch'
-                // document.getElementById('cards').style.display = 'none';
                 document.getElementById('overview-counts').style.display = 'block';
                 document.getElementById('view').innerText = 'Batch Operations';
-                // document.getElementById('view-test-setup').style.display = 'none';
                 document.getElementById('view-batch').style.display = 'block';
                 updateMenu(name);
             } else if (name === 'test-setup') {
                 document.getElementById('title').innerText = 'BTS - Test Setup'
-                // document.getElementById('cards').style.display = 'none';
-                // document.getElementById('overview-counts').style.display = 'none';
                 document.getElementById('view').innerText = 'Test Setup';
                 document.getElementById('view-test-setup').style.display = 'block';
                 updateMenu(name);
             } else if (name === 'battery-setup') {
                 document.getElementById('title').innerText = 'BTS - Battery Setup'
-                // document.getElementById('cards').style.display = 'none';
-                // document.getElementById('overview-counts').style.display = 'none';
                 document.getElementById('view').innerText = 'Battery Setup';
                 document.getElementById('view-battery-setup').style.display = 'block';
                 updateMenu(name);
             } else if (name === 'system-setup') {
                 document.getElementById('title').innerText = 'BTS - System Setup'
-                // document.getElementById('cards').style.display = 'none';
-                // document.getElementById('overview-counts').style.display = 'none';
                 document.getElementById('view').innerText = 'System Setup';
                 document.getElementById('view-system-setup').style.display = 'block';
                 updateMenu(name);
@@ -890,6 +969,17 @@
 
         function clickBack() {
             history.back();
+        }
+
+        // FILTER
+        function filter(value) {
+            console.warn(value);
+        }
+
+        // EXPAND SYSTEM SETUP TABLE
+        function expandTable(name, elem) {
+            document.getElementById(name).style.height = '';
+            elem.style.display = 'none';
         }
     </script>
 
