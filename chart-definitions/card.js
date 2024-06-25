@@ -16,7 +16,7 @@ var card_chart_options = {
         toolbar: {
             show: false
         },
-        group: undefined
+        group: undefined,
     },
     fill: {
         type: 'gradient',
