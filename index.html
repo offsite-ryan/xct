@@ -211,9 +211,10 @@
 
                         <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
                             <td class="color-moniker">CH02</td>
-                            <td colspan="5">
+                            <td colspan="5" onmouseenter="">
                                 <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
-                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:7%;"
+                                        onmouseenter="timelineTooltip(this)">&nbsp;</div>
                                     <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
                                     <div style="background-color:rgb(138, 138, 138);width:27%;">&nbsp;</div>
                                     <div style="background-color:red;width:1%;">&nbsp;</div>
@@ -350,6 +351,14 @@
                     <div class="w3-col s12">
                         <div class="w3-container">
                             <hr />
+                            <div class="w3-col s12 w3-center" style="">
+                                <span><i class="fa fa-play w3-xlarge color-zero" aria-hidden="true"
+                                        style="padding:5px 25px 15px 25px;"></i></span>
+                                <span><i class="fa fa-pause w3-xlarge color-font" aria-hidden="true"
+                                        style="padding:5px 25px 15px 25px;"></i></i></span>
+                                <span><i class="fa fa-eject w3-xlarge color-zero" aria-hidden="true"
+                                        style="padding:5px 25px 15px 25px;"></i></i></span>
+                            </div>
 
                             <!-- CALCULATED FIELDS -->
                             <div class="w3-padding"
@@ -534,6 +543,12 @@
             <div w3-include-html="system-setup.html"></div>
         </div>
 
+        <!-- CONTEXTUAL HELP -->
+        <div id="view-contextual-help" style="display:none;">
+            <hr />
+            <div w3-include-html="contextual-help.html"></div>
+        </div>
+
         <!-- MENU -->
         <div class="navbar">
             <a class="w3-xlarge" onclick="clickBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
@@ -544,6 +559,8 @@
                     class="fa fa-table" aria-hidden="true"></i> Batch</a>
             <!-- <a _href="" id="" class="w3-xlarge" style="float:right;min-width:0px;"
                 onclick="showModal()"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a> -->
+            <a href="#contextual-help" id="contextual-help" class="w3-xlarge" style="float:right;"
+                onclick="changeView(this.id, this)"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
             <a href="#system-setup" id="system-setup" class="w3-xlarge" style="float:right;"
                 onclick="changeView(this.id, this)"><i class="fa fa-cog" aria-hidden="true"></i> System Setup</a>
             <a href="#test-setup" id="test-setup" class="w3-xlarge" style="float:right;"
@@ -890,14 +907,14 @@
 
         function changeView(name, elem) {
             const updateMenu = (id) => {
-                ['runtime', 'batch', 'battery-setup', 'test-setup', 'system-setup'].forEach((v) => {
+                ['runtime', 'batch', 'battery-setup', 'test-setup', 'system-setup', 'contextual-help'].forEach((v) => {
                     document.getElementById(v).classList.remove('card-menu-option-selected');
                     if (id === v) {
                         elem.classList.add('card-menu-option-selected');
                     }
                 })
             }
-            ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup'].forEach((v) => {
+            ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup', 'view-contextual-help'].forEach((v) => {
                 document.getElementById(v).style.display = 'none';
             })
 
@@ -928,6 +945,11 @@
                 document.getElementById('title').innerText = 'BTS - System Setup'
                 document.getElementById('view').innerText = 'System Setup';
                 document.getElementById('view-system-setup').style.display = 'block';
+                updateMenu(name);
+            } else if (name === 'contextual-help') {
+                document.getElementById('title').innerText = 'BTS - Help'
+                document.getElementById('view').innerText = 'Help';
+                document.getElementById('view-contextual-help').style.display = 'block';
                 updateMenu(name);
             }
         }
@@ -979,6 +1001,45 @@
         function expandTable(name, elem) {
             document.getElementById(name).style.maxHeight = '';
             elem.style.display = 'none';
+        }
+
+        // TIMELINE TOOLTIP
+        function timelineTooltip(e) {
+            console.log(e);
+        }
+
+        // SYSTEM SETUP CHANNEL ASSIGNMENT VIEW
+        function changeChannelAssignmentView(view) {
+            const elemChannels = document.getElementById('system-setup-channel-assignment-channels');
+            const elemLocations = document.getElementById('system-setup-channel-assignment-locations');
+            
+            elemChannels.classList.remove('card-menu-option-selected');
+            elemLocations.classList.remove('card-menu-option-selected');
+            // elemChannels.classList.add('card-menu-option-unselected');
+            // elemLocations.classList.add('card-menu-option-unselected');
+
+            const elemChannelsView = document.getElementById('channel-assignment-view-channels');
+            const elemLocationsView = document.getElementById('channel-assignment-view-locations');
+
+            elemChannelsView.style.display = 'none';
+            elemLocationsView.style.display = 'none';
+            
+
+            if (view === 'channels') {
+                elemChannels.classList.add('card-menu-option-selected');
+                elemChannels.style.borderBottom = '5px solid #75e0f0';
+                elemLocations.style.borderBottom = '';
+                // elemLocations.style.backgroundColor = '#2f2f2f';
+                elemChannelsView.style.display = 'block';
+            } else {
+                elemLocations.classList.add('card-menu-option-selected');
+                elemLocations.style.borderBottom = '5px solid #75e0f0';
+                elemChannels.style.borderBottom = '';
+                // elemChannels.style.backgroundColor = '#2f2f2f';
+                elemLocationsView.style.display = 'block';
+            }
+
+            
         }
     </script>
 
