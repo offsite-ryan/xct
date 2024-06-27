@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title id="title">BTS</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.png?v3=2">
+    <link rel="apple-touch-icon" sizes="128x128" href="/apple-touch-icon.png?v=13">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="w3.css">
+</head>
+
+<body id="body" class="center">
+
+    <!-- TOP -->
+    <div id="content" class="" style="display:none;">
+        <a _href="" id="" class="w3-xlarge" style="float:right;min-width:0px;padding-left:10px;cursor:pointer;"
+            onclick="showModal()"><i class="fa fa-ellipsis-v color-zero" aria-hidden="true"></i></a>
+        <span class="header">
+            <h1 class="color-font">
+                <div class="w3-dropdown-hover" _style="">
+                    <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:0px;"><i id="menu"
+                            class="fa fa-bars color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
+                    <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                        style="min-width:250px;">
+                        <a class="card-menu-option-selected w3-bar-item w3-button" onclick=""><i
+                                class="fa fa-battery-three-quarters" aria-hidden="true"></i> Test System</a>
+                        <!-- <hr /> -->
+                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i class="fa fa-cube"
+                                aria-hidden="true"></i>
+                            Virtualization</a>
+                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
+                                class="fa fa-television" aria-hidden="true"></i>
+                            Monitoring</a>
+                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
+                                class="fa fa-database" aria-hidden="true"></i> Data Processing</a>
+                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
+                                class="fa fa-calendar" aria-hidden="true"></i>
+                            Scheduler</a>
+                    </div>
+                </div>
+                TEST SYSTEM: <span class="color-current">TS0937 - <span id="view">Runtime</span></span>
+            </h1>
+            <img class="logo2" src="avl-logo-300x300.png" />
+        </span>
+        <div id="overview-counts" class="w3-row w3-center _w3-right-align" style="padding-top:20px;">
+            <div class="w3-col s2 w3-left-align">
+                <span class="color-font w3-xlarge">
+                    <div class="w3-dropdown-hover  w3-xlarge" _style="">
+                        <div class="color-current" style="background-color:#2f2f2f;border:0px solid;"><i id="filter"
+                                class="fa fa-filter color-font" style="cursor:pointer;" aria-hidden="true"></i> All <i
+                                class="fa fa-caret-down" style="padding-left:20px;" aria-hidden="true"></i></div>
+                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-large" _style="">
+                            <a class="card-menu-option-selected w3-bar-item w3-button" onclick="filter('')">All</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                onclick="filter('Project A')">Project A</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                onclick="filter('Project B')">Project B</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                onclick="filter('Project C')">Project C</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                onkeyup="filter(this.value)"><input type="text" placeholder="Search..."></input></a>
+                            <!-- <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class="w3-col s2 clickable w3-xlarge">
+                <span class="color-font">Running: <span class="color-current" style="font-weight:bold;">41</span></span>
+            </div>
+            <div class="w3-col s2 clickable w3-xlarge">
+                <span class="color-font">Paused: <span class="color-current" style="font-weight:bold;">7</span></span>
+            </div>
+            <div class="w3-col s2 clickable w3-xlarge">
+                <span class="color-zero">Empty: <span class="color-zero" style="font-weight:bold;">0</span></span>
+            </div>
+            <div class="w3-col s2 clickable w3-xlarge">
+                <span class="color-font">Warnings: <span class="color-current" style="font-weight:bold;">1</span></span>
+            </div>
+            <div class="w3-col s2 clickable w3-xlarge">
+                <span class="color-zero">Errors: <span class="color-zero" style="font-weight:bold;">0</span></span>
+                <div class="w3-dropdown-hover w3-right" _style="">
+                    <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:30px;"><i id="menu"
+                            class="fa fa-ellipsis-v color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
+                    <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium" style="right:0">
+                        <a id="menu-view-large" class="card-menu-option-selected w3-bar-item w3-button"
+                            onclick="selectCardType('large')"><i class="fa fa-area-chart" aria-hidden="true"></i> Large
+                            Card</a>
+                        <a id="menu-view-small" class="card-menu-option-unselected w3-bar-item w3-button"
+                            onclick="selectCardType('small')"><i class="fa fa-list-alt" aria-hidden="true"></i> Small
+                            Card</a>
+                        <a id="menu-view-table" class="card-menu-option-unselected w3-bar-item w3-button"
+                            onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Table</a>
+                        <a id="menu-view-timeline" class="card-menu-option-unselected w3-bar-item w3-button"
+                            onclick="selectCardType('timeline')"><i class="fa fa-table" aria-hidden="true"></i>
+                            Timeline</a>
+                        <!-- <a class="card-menu-option-unselected w3-bar-item w3-button"
+                        onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARDS -->
+        <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;">
+            <hr />
+            <!-- <div class="w3-container w3-xlarge color-font"
+                style="border-top:1px solid#c5c5c5;margin-top:8px;padding-top:10px;padding-right:6px;margin-bottom:10px;">
+                <div class="w3-col s4">
+                    &nbsp;
+                </div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-play" aria-hidden="true"></i></div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-pause" aria-hidden="true"></i></div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-stop" aria-hidden="true"></i></div>
+                <div class="w3-col s1 w3-center color-zero"><i class="fa fa-eject" aria-hidden="true"></i></div>
+
+            </div> -->
+
+            <!-- TABLE -->
+            <div id="table-view" class="w3-col s12 w3-large" style="display:block;">
+                <table class="w3-table w3-bordered">
+                    <tr class="color-font">
+                        <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
+                        <th>Channel</th>
+                        <th>Serial Number</th>
+                        <th>Test Procedure</th>
+                        <th>Step Name</th>
+                        <th>V</th>
+                        <th>I (mA)</th>
+                        <th>t (h)</th>
+                        <th>Cycles</th>
+                        <!-- <th></th> -->
+                    </tr>
+                    <tr w3-repeat="items" onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                        <!-- <td><i class="fa fa-square-o" aria-hidden="true"></i></td> -->
+                        <td class="color-moniker">{{name}}</td>
+                        <td>{{uut}}</td>
+                        <td>TXW467v3</td>
+                        <td>Constant Current Discharge</td>
+                        <td class="color-voltage">{{v}}</td>
+                        <td class="color-current">{{i}}</td>
+                        <td class="color-time">{{st}}</td>
+                        <td><span class="color-current">{{cycles}}</span> / <span class="color-time">50</span></td>
+                        <!-- <td><i class="fa fa-pause color-font" style="cursor:pointer;" aria-hidden="true"></i></td> -->
+                    </tr>
+                </table>
+            </div>
+
+            <!-- LARGE / SMALL CARDS -->
+            <div id="card-view" class="w3-col s12 w3-large" style="display:block;">
+                <div w3-repeat="items" class="w3-col s12 m2 l2" style="display:block">
+                    <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
+                        <span class="" style="display:flex;justify-content: space-between;">
+                            <span class="color-moniker">{{name}}</span>
+                            <span style="font-size:12px;margin-top:3px;">
+                                <span class="color-voltage">{{v}}</span>
+                                <span class="color-font"> | </span>
+                                <span class="color-current">{{i}}</span>
+                                <span class="color-font"> | </span>
+                                <span class="color-time">{{st}}</span>
+                            </span>
+                        </span>
+
+                        <span class="" style="display:flex;justify-content: space-between;">
+                            <span class="color-current">{{uut}}</span>
+                            <span style="font-size:12px;margin-top:3px;">
+                                <span class="color-current">{{cycles}}</span>
+                                <span class="color-font"> / </span>
+                                <span class="color-time">50</span>
+                            </span>
+                        </span>
+
+                        <div id="card-chart-{{name}}" name="card-chart" style="margin-top:3px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIMELINE -->
+            <div id="timeline-view" class="w3-col s12 w3-large" style="display:none;">
+                <div id="" class="w3-col s12 w3-large" _style="display:block;">
+                    <table class="w3-table w3-bordered">
+                        <tr class="color-font">
+                            <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
+                            <th width=100>Channel</th>
+                            <th class="w3-center" style="border-left:0px solid;"> 20-Jun-24</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 21-Jun-24</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 22-Jun-24</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 23-Jun-24</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 24-Jun-24</th>
+                            <!-- <th class="w3-center">Timeline: <spam class="color-current">Last 5 days</spam></th> -->
+                        </tr>
+                        <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                            <td class="color-moniker">CH01</td>
+                            <td colspan="5">
+                                <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
+                                    <div style="background-color:#adff2f;width:15%;">&nbsp;</div>
+                                    <div style="background-color:red;width:1%;">&nbsp;</div>
+                                    <div style="background-color:#2f2f2f;width:29%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:4%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:16%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:28%;">&nbsp;</div>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                            <td class="color-moniker">CH02</td>
+                            <td colspan="5">
+                                <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
+                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
+                                    <div style="background-color:rgb(138, 138, 138);width:27%;">&nbsp;</div>
+                                    <div style="background-color:red;width:1%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:24%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                            <td class="color-moniker">CH03</td>
+                            <td colspan="5">
+                                <span class="w3-small" style="display:flex;opacity:55% !important;margin-top:5px;">
+                                    <div style="background-color:rgb(138, 138, 138);width:27%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
+                                    <div style="background-color:red;width:1%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:24%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                            <td class="color-moniker">CH04</td>
+                            <td colspan="5">
+                                <span class="w3-small" style="display:flex;opacity:55% !important;margin-top:5px;">
+                                    <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
+                                    <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
+                                    <div style="background-color:#2f2f2f;width:17%;">&nbsp;</div>
+                                    <div style="background-color:rgb(138, 138, 148);width:10%;">&nbsp;</div>
+                                    <div style="background-color:#75e0f0;width:25%;">&nbsp;</div>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PAGER -->
+            <br />
+            <div id="pages" class="w3-col s12 w3-center">
+                <span id="pager" style="display:flex;justify-content:center;display:none;margin:3px;font-size:1.1rem;">
+                    <span w3-repeat="pages" id="page-{{name}}" class="color-font pager-button" _style=""
+                        onclick="clickPager(this.innerText)">{{name}}</span>
+                    <span id="page-all" class="w3-white-text _color-font pager-button" _style=""
+                        onclick="clickPager(this.innerText)">ALL</span>
+                </span>
+            </div>
+
+            <!-- DETAIL -->
+            <div id="detail" class="w3-padding card w3-col s12"
+                style="display:none;cursor:default;background-color: #2f2f2f;">
+                <div class="_w3-row _w3-padding">
+
+                    <!-- COLUMN 1 -->
+                    <div class="w3-col s2">
+                        <span class="color-moniker w3-xxlarge"><img src="./assets/discharge.png" height="45" /> <span
+                                id="detail-name">CHANNEL </span></span>
+                        <br />
+                        <span class="color-font w3-large"><i class="fa fa-battery-half w3-xxlarge color-ccurrent"
+                                aria-hidden="true"></i> <span id="detail-uut"
+                                class="color-current w3-xxlarge">UUT</span></span>
+                    </div>
+
+                    <!-- COLUMN 2 -->
+                    <div class="w3-col s3 w3-padding"
+                        style="margin-top:23px;display:flex;flex-direction:column;align-items:flex-end;">
+                        <span class="color-font w3-large" style="margin-top: 3px;margin-right: 10px;"><span>V | I (mA) |
+                                t
+                                (hrs)</span></span>
+                        <span class="color-font" style="font-size: 28px;margin-right:10px;">
+                            <span id="" class="color-voltage">3.312</span>
+                            <span id="" class="color-font"> | </span>
+                            <span id="" class="color-current">-0.612</span>
+                            <span id="" class="color-font"> | </span>
+                            <span id="" class="color-time">3.8</span>
+                        </span>
+                    </div>
+
+                    <!-- COLUMN 3 -->
+                    <div class="w3-col s4" style="display:flex;flex-direction:column;align-items:flex-start;">
+                        <span class="color-current w3-medium" style="margin-top: 12px;margin-left:10px;"><span
+                                class="color-font">Procedure: </span>TXW2345-02</span>
+                        <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Step
+                                Name: </span>Constant
+                            Current Charge</span>
+                        <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Run
+                                Time: </span>21h 41m</span>
+                        <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Num
+                                Cycles: </span>17 / <span class="color-time">50</span></span>
+                    </div>
+
+                    <!-- COLUMN 4 -->
+                    <div class="w3-col s2" style="display:flex;flex-direction:column;align-items:flex-start;">
+                        <span class="color-current w3-medium" style="margin-top: 12px;"><span
+                                class="color-font">Chemistry: </span>LiFo</span>
+                        <span class="color-current w3-medium"><span class="color-font">Rated Capacity: </span>2</span>
+                        <span class="color-current w3-medium"><span class="color-font">Max Voltage: </span>3.8</span>
+                        <span class="color-current w3-medium"><span class="color-font">Max Current:
+                            </span>2.2</span></span>
+                    </div>
+
+                    <!-- SCREEN GRAB & UI SWITCH -->
+                    <div class="w3-col s1"
+                        style="display:flex;flex-direction:row;align-items:flex-end;justify-content:flex-end">
+                        <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="closeDetail()"><i
+                                class="fa fa-times w3-xlarge" aria-hidden="true"></i></span>
+
+                        <!-- <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="copyDetail()"><i
+                                class="fa fa-files-o w3-xlarge" aria-hidden="true"></i></span> -->
+
+                        <!-- <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
+                            <div class="w3-xlarge" style="background-color:#2f2f2f00;border:0px solid;;">
+                                <i id="menu" class="fa fa-bars color-font" style="cursor:pointer;"
+                                    aria-hidden="true"></i>
+                            </div>
+                            <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
+                                style="right:0;z-index:99999;">
+                                <a class="card-menu-option-selected w3-bar-item w3-button"
+                                    onclick="selectChartType('I')">Runtime</a>
+                                <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                    onclick="selectChartType('V')">Parameters</a>
+                                <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                    onclick="selectChartType('I')">Test Definition</a>
+                                <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                    onclick="selectChartType('T')">Data Analysis</a>
+                            </div>
+                        </div> -->
+
+                    </div>
+
+                    <div class="w3-col s12">
+                        <div class="w3-container">
+                            <hr />
+
+                            <!-- CALCULATED FIELDS -->
+                            <div class="w3-padding"
+                                style="display:flex;flex-direction:row;justify-content:space-between;">
+                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                    style="width:20%;border:2px solid rgb(138, 138, 138);">Dis Eng<span
+                                        class="color-current" style="float:right;">1 Wh</span></div>
+                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                    style="width:20%;border:2px solid rgb(138, 138, 138);">Dis Cap<span
+                                        class="color-current" style="float:right;">82 Ah</span></div>
+                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                    style="width:20%;border:2px solid rgb(138, 138, 138);">EE<span class="color-current"
+                                        style="float:right;">82 %</span></div>
+                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                    style="width:20%;border:2px solid rgb(138, 138, 138);">CE<span class="color-current"
+                                        style="float:right;">99 %</span></div>
+                                <div class="w3-center w3-col s2 color-font w3-xlarge w3-padding"
+                                    style="width:15%;border:2px solid rgb(138, 138, 138);"><i class="fa fa-clock-o"
+                                        aria-hidden="true"></i> Recent <i class="fa fa-caret-down"
+                                        aria-hidden="true"></i><span class="color-current" style="float:right;"></span>
+                                </div>
+                            </div>
+
+                            <!-- TOP CHART -->
+                            <span _style="">
+                                <div class=""
+                                    style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
+                                    <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
+                                        <div class="w3-xlarge"
+                                            style="background-color:#2f2f2f00;border:0px solid;margin-left:30px;">
+                                            <i id="menu" class="fa fa-ellipsis-v color-font" style="cursor:pointer;"
+                                                aria-hidden="true"></i>
+                                        </div>
+                                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
+                                            style="right:0">
+                                            <a class="card-menu-option-selected w3-bar-item w3-button"
+                                                onclick="selectChartType('V')">V</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('I')">V / t</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('I')">I</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('I')">I / t</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">T°</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">E</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">P</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                            <div id="chart-detail-1" style="margin-top:3px;margin-bottom:20px;"></div>
+
+                            <!-- BOTTOM CHART -->
+                            <span _style="">
+                                <div class=""
+                                    style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
+                                    <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
+                                        <div class="w3-xlarge"
+                                            style="background-color:#2f2f2f00;border:0px solid;margin-left:30px;;">
+                                            <i id="menu" class="fa fa-ellipsis-v color-font" style="cursor:pointer;"
+                                                aria-hidden="true"></i>
+                                        </div>
+                                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
+                                            style="right:0">
+                                            <a class="card-menu-option-selected w3-bar-item w3-button"
+                                                onclick="selectChartType('V')">V</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('I')">I</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">T°</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">E</a>
+                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                                onclick="selectChartType('T')">P</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                            <div id="chart-detail-2" style="margin-top:3px;margin-bottom:20px;"></div>
+
+                            <!-- TEST CONTROL BUTTONS -->
+                            <div class="w3-container" style="padding-bottom:20px;">
+                                <div class="w3-col s1" _style="">&nbsp;</div>
+                                <div class="w3-col s8" _style="">&nbsp;</div>
+                                <div class="w3-col s3" _style="">
+                                    <div class="w3-button detail-button-action w3-large" style="float:right;"><i
+                                            class="fa fa-pause" aria-hidden="true"></i> Pause Test</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BATCH OPERATIONS -->
+        <div id="view-batch" style="display:none;">
+            <hr />
+            <div class="w3-container w3-padding w3-large">
+                <table class="w3-table w3-bordered">
+                    <tr class="color-font">
+                        <th><i class="fa fa-square-o color-current" aria-hidden="true"></i></th>
+                        <th>Channel</th>
+                        <th>Serial Number</th>
+                        <th>Battery File</th>
+                        <th>Test Procedure</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
+                        <td class="color-moniker">CH01</td>
+                        <td>1287-03</td>
+                        <td>LiPh-108 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                        <td>TXW87689v3</td>
+                        <td class="w3-text-green">On Test</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
+                        <td class="color-moniker">CH02</td>
+                        <td></i></td>
+                        <td class=" color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                        <td></td>
+                        <td class="color-zero">Empty</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
+                        <td class="color-moniker">CH03</td>
+                        <td>1287-13</td>
+                        <td>LiPh-108 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                        <td>TXW87689v3</td>
+                        <td class="w3-text-green">On Test</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
+                        <td class="color-moniker">CH04</td>
+                        <td></td>
+                        <td class="color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                        <td></td>
+                        <td class="color-zero">Empty</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
+                        <td class="color-moniker">CH05</td>
+                        <td>1287-67</td>
+                        <td>1287-67 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                        <td>TXW87689v3</td>
+                        <td class="w3-text-yellow">Paused</td>
+                    </tr>
+                </table>
+                <div class="w3-roww-padding" style="margin-top:25px;">
+                    <div class="w3-col s3 w3-center">&nbsp;</div>
+                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load battery
+                    </div>
+                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load test file
+                    </div>
+                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">start test
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEST SETUP -->
+        <div id="view-test-setup" style="display:none;">
+            <hr />
+            <div class="">
+                <img src="./assets/test-setup.png" width="1350" />
+            </div>
+        </div>
+
+        <!-- BATTERY SETUP -->
+        <div id="view-battery-setup" style="display:none;">
+            <hr />
+            <div w3-include-html="battery-setup.html"></div>
+        </div>
+
+        <!-- SYSTEM SETUP -->
+        <div id="view-system-setup" style="display:none;">
+            <hr />
+            <div w3-include-html="system-setup.html"></div>
+        </div>
+
+        <!-- MENU -->
+        <div class="navbar">
+            <a class="w3-xlarge" onclick="clickBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            <a class="w3-xlarge"><i class="fa fa-users" aria-hidden="true"></i></a>
+            <a href="#runtime" id="runtime" class="w3-xlarge card-menu-option-selected" _style=""
+                onclick="changeView('runtime', this)"><i class="fa fa-th" aria-hidden="true"></i> Runtime</a>
+            <a href="#batch" id="batch" class="w3-xlarge" _style="" onclick="changeView('batch', this)"><i
+                    class="fa fa-table" aria-hidden="true"></i> Batch</a>
+            <!-- <a _href="" id="" class="w3-xlarge" style="float:right;min-width:0px;"
+                onclick="showModal()"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a> -->
+            <a href="#system-setup" id="system-setup" class="w3-xlarge" style="float:right;"
+                onclick="changeView(this.id, this)"><i class="fa fa-cog" aria-hidden="true"></i> System Setup</a>
+            <a href="#test-setup" id="test-setup" class="w3-xlarge" style="float:right;"
+                onclick="changeView(this.id, this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test
+                Setup</a>
+            <a href="#battery-setup" id="battery-setup" class="w3-xlarge" style="float:right;"
+                onclick="changeView(this.id, this)"><i class="fa fa-battery-empty" aria-hidden="true"></i> Battery
+                Setup</a>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- TOOLTIP -->
+    <div id="tootip" class="tooltiptext"
+        style="display:none;position:absolute;top:25px;left:25px;background-color:#3b3b3bd5;color:white;padding:10px;border-radius:8px;">
+        Tooltip Text
+    </div>
+
+    <!-- MODAL -->
+    <div id="modal" class="w3-modal w3-xlarge" style="background-color: rgba(0,0,0,0.65)">
+        <div class="w3-modal-content modal-dark">
+            <div class="w3-container w3-padding">
+                <div class="w3-row-padding">
+                    <h3 class="color-time">UI Options</h3>
+                    <hr />
+                    <span onclick="document.getElementById('modal').style.display='none'"
+                        class="w3-button w3-display-topright w3-xxlarge">&times;</span>
+                    <span><i id="option-show-row-monikers" class="fa fa-toggle-on w3-xxlarge color-font w3-right"
+                            aria-hidden="true" onclick="showRowMonikersOnDetailPage()"></i> Show Row Channels on Detail
+                        Page</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT IMPORTS -->
+    <script src="key.js"></script>
+    <script src="data/16h.js"></script>
+    <script src="data/data.js"></script>
+    <script src="w3.js"></script>
+    <script src="HackTimer.js"></script>
+    <script src="chart-definitions/card.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
+    <script>
+        if (!submit({ key: localStorage.getItem('key') })) {
+            window.location.href = `./auth.html`;
+        } else {
+            // setTimeout(() => { window.location.reload() }, 15 * 1000)
+        }
+    </script>
+
+    <script>
+        // console.log(navigator.userAgent);
+        const now = Date.now();
+        let show_row_monikers = localStorage.getItem('show_row_monikers') === 'true' ? true : false;
+        showRowMonikersOnDetailPage(false);
+        let card_type = localStorage.getItem('card_type') || 'large';
+
+        // DATA
+        const chartData = new data();
+        let cards = { items: [] };
+        for (let x = 1; x <= 48; x++) {
+            const offset = (Math.random() * 700);
+            const count = 800;
+            const uut = `${(Math.random() * 10000).toFixed().padStart(4, '0')}-${(Math.random() * 100).toFixed().padStart(2, '0')}`
+            const dataV = chartData.getData('v', offset, count);
+            const dataI = chartData.getData('i', offset, count);
+            const v = dataV[dataV.length - 1].toString().padEnd(5, '0');
+            const i = dataI[dataI.length - 1].toString().padEnd(5, '0');
+
+            cards.items.push({
+                name: `CH${x < 10 ? '0' + x : x}`,
+                // data: chartData.getData('v', (Math.random() * 100), 50),
+                v,
+                i,
+                st: (8 * Math.random()).toString().substring(0, 3), /** step time */
+                dataV,
+                dataI,
+                chart_options: JSON.parse(JSON.stringify(card_chart_options)),
+                uut,
+                cycles: Math.floor(50 * Math.random()),
+                de: null,
+                dc: null,
+                ee: null,
+                ce: null,
+            });
+        }
+        const numPages = Math.ceil(cards.items.length / 6);
+        const temp = { pages: [] };
+        for (let x = 1; x <= numPages; x++) {
+            temp.pages.push({ name: x.toString() });
+        }
+        cards.pages = temp.pages;
+
+        document.getElementById('content').style.display = 'block';
+        w3.displayObject("cards", cards);
+        selectCardType(card_type);
+
+        // console.log(Date.now() - now);
+
+        w3.includeHTML(() => {
+            const searchParams = new URLSearchParams(window.location.search);
+            init();
+        });
+
+        function update(onDemand = false) {
+            // this.get(`${config.urlLocationTracking}/status/${config.facility}/*/true?token=123`).then((v) => {
+            //     if (!onDemand) {
+            //         setTimeout(() => { update(); }, 5000);
+            //     }
+            // });
+            cards.items.forEach((v) => {
+                updateChart(v.name, v.dataV, v.chart_options);
+            })
+        }
+
+        let monikers = {};
+        function init() {
+            update();
+            showView();
+
+            // QR CODE
+            const qrcode = new QRCode(document.getElementById('qrcode'), {
+                // text: 'https://offsite-ryan.github.io/xct/#runtime',
+                text: window.location.origin + window.location.pathname + '#runtime',
+                width: 175,
+                height: 175,
+                colorDark: '#fff',
+                colorLight: '#000',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        // ----- SHOW DETAIL -----
+        function clickRow(rowNum) {
+            clickCard(`CH${rowNum.toString().padStart(2, '0')}`);
+        }
+        function clickCard(name) {
+
+            document.getElementById('title').innerText = `BTS - ${name}`
+
+            const channel = name.replace('CH', '');
+            const channelNum = +(channel);
+
+            location.hash = `#detail-${name}`;
+
+            const row = Math.floor((channelNum % 6 === 0) ? (channelNum / 6) - 1 : channelNum / 6);
+            let col = +(name.substring(2)) - (row * 6);
+            col = col === 0 ? 5 : col - 1;
+            console.log(name, row, col);
+
+            const start = row * 6;
+            const end = start + 6;
+            // console.log(start, end);
+
+            let filtered = { items: [] };
+            filtered = { items: cards.items.filter((v, i) => i >= start && i < end) };
+            filtered.pages = temp.pages;
+            w3.displayObject("cards", filtered);
+            document.getElementById('cards').style.display = '';
+            filtered.items.forEach((v) => {
+                updateChart(v.name, v.dataV, v.chart_options);
+            })
+
+            document.getElementById('detail').style.display = '';
+            document.getElementById('overview-counts').style.display = 'none';
+            // document.getElementById('card-view').style.display = 'none';
+            // document.getElementById('table-view').style.display = 'none';
+            // document.getElementById('pager').style.display = 'none';
+
+            const selected = cards.items.find((v) => v.name === name);
+
+            card_chart_options.chart.height = '250';
+            card_chart_options.series[0].name = 'V';
+            card_chart_options.chart.sparkline.enabled = false;
+            card_chart_options.tooltip.enabled = true;
+            card_chart_options.chart.toolbar.show = false;
+            card_chart_options.chart.id = 'chart-detail-1';
+            card_chart_options.yaxis[0].min = 2;
+            card_chart_options.yaxis[0].max = 5;
+            card_chart_options.yaxis[0].title.text = 'Voltage';
+            card_chart_options.yaxis[0].show = true;
+            card_chart_options.chart.type = 'line';
+            delete card_chart_options.fill;
+            card_chart_options.colors = ['#adff2f'];
+
+            card_chart_options.series[0].data = selected.dataV;
+            var chart = new ApexCharts(document.getElementById(`chart-detail-1`), card_chart_options);
+            chart.render();
+
+            card_chart_options.series[0].name = 'I';
+            card_chart_options.stroke.curve = 'stepline';
+            card_chart_options.chart.toolbar.show = false;
+            card_chart_options.chart.id = 'chart-detail-2';
+            card_chart_options.yaxis[0].min = -1;
+            card_chart_options.yaxis[0].max = 1;
+            card_chart_options.yaxis[0].title.text = 'Current';
+            card_chart_options.colors = ['#75e0f0'];
+
+            card_chart_options.series[0].data = selected.dataI;
+            var chart = new ApexCharts(document.getElementById(`chart-detail-2`), card_chart_options);
+            chart.render();
+
+            card_chart_options.chart.toolbar.show = false;
+            card_chart_options.stroke.curve = 'smooth';
+            card_chart_options.chart.height = '70';
+            card_chart_options.chart.sparkline.enabled = true;
+            card_chart_options.tooltip.enabled = false;
+            card_chart_options.chart.group = undefined;
+            card_chart_options.chart.id = undefined;
+            card_chart_options.yaxis[0].min = undefined;
+            card_chart_options.yaxis[0].max = undefined;
+            card_chart_options.chart.type = 'area';
+
+            let elem = document.getElementById('chart-detail-1');
+            // document.getElementById('menu-chart-1').style.right = `${(elem.offsetLeft + 18)}px`;
+            // document.getElementById('menu-chart-2').style.right = `${(elem.offsetLeft + 18)}px`;
+
+            document.getElementById(name).classList.add('card-selected');
+            // document.getElementById(name).classList.add('row-selected');
+            document.getElementById('detail-name').innerText = name;
+            document.getElementById('detail-uut').innerText = selected.uut;
+            document.getElementById('pager').style.display = 'block';
+
+            selectCardType(card_type);
+            selectPage(row + 1);
+
+            // HIDE TOP ON DETAIL
+            if (!show_row_monikers) {
+                document.getElementById('card-view').style.display = 'none';
+                document.getElementById('table-view').style.display = 'none';
+                document.getElementById('timeline-view').style.display = 'none';
+                document.getElementById('pager').style.display = 'none';
+            }
+        }
+
+        function closeDetail() {
+            document.getElementById('detail').style.display = 'none';
+            document.getElementById('overview-counts').style.display = '';
+            document.getElementById('pager').style.display = 'none';
+            w3.displayObject("cards", cards);
+            document.getElementById('cards').style.display = '';
+            cards.items.forEach((v) => {
+                updateChart(v.name, v.dataV, v.chart_options);
+            })
+            selectCardType(card_type);
+            location.hash = `#runtime`;
+        }
+
+        function updateChart(name, data, chart_options) {
+            chart_options.series[0].data = data;
+            // card_chart_options.chart.sparkline.enabled = true;
+            var chart = new ApexCharts(document.getElementById(`card-chart-${name}`), chart_options);
+            chart.render();
+        }
+
+        // Define the function to screenshot the div
+        function copyDetail() {
+            update = false;
+            let div = document.getElementById('detail');
+            div.scrollIntoView();
+
+            // Use the html2canvas function to take a screenshot and append it to the output div
+            html2canvas(div).then(
+                function (canvas) {
+                    canvas.toBlob(function (blob) {
+                        const item = new ClipboardItem({ "image/png": blob });
+                        navigator.clipboard.write([item]);
+                    });
+                })
+        }
+
+        // ----- CLICK PAGER -----
+        function clickPager(v) {
+            if (v === 'ALL') {
+                closeDetail()
+            } else {
+                console.log(+(v));
+                const row = (+v);
+                const channel = (((row - 1) * 6) + 1).toString().padStart(2, '0');
+                console.log(`CH${channel}`);
+                clickCard(`CH${channel}`);
+                selectPage(v);
+            }
+        }
+
+        function selectPage(num) {
+            const elem = document.getElementById(`page-${num}`);
+            elem.style.fontWeight = 'bold';
+            elem.style.fontSize = '1.3rem';
+            elem.classList.remove('color-font');
+            elem.classList.add('color-current');
+        }
+
+        function selectCardType(type) {
+            // document.styleSheets[1].cssRules[6].style.minHeight = null
+            // console.log(type);
+            card_type = type;
+            localStorage.setItem('card_type', type);
+
+            ['menu-view-large', 'menu-view-small', 'menu-view-table', 'menu-view-timeline'].forEach((v) => {
+                document.getElementById(v).classList.replace('card-menu-option-selected', 'card-menu-option-unselected');
+            })
+            document.getElementById(`menu-view-${type}`).classList.replace('card-menu-option-unselected', 'card-menu-option-selected');
+
+            document.getElementById('card-view').style.display = 'none';
+            document.getElementById('table-view').style.display = 'none';
+            document.getElementById('timeline-view').style.display = 'none';
+
+            if (type === 'large') {
+                document.getElementById('card-view').style.display = 'block';
+                let elems = document.getElementsByName('card-chart');
+                for (let e of elems) {
+                    e.style.display = 'block';
+                }
+                elems = document.getElementsByClassName('card');
+                for (let e of elems) {
+                    e.style.minHeight = '100px';
+                }
+            } else if (type === 'small') {
+                document.getElementById('card-view').style.display = 'block';
+                let elems = document.getElementsByName('card-chart');
+                for (let e of elems) {
+                    e.style.display = 'none';
+                }
+                elems = document.getElementsByClassName('card');
+                for (let e of elems) {
+                    e.style.minHeight = '0px';
+                }
+            } else if (type === 'table') {
+                document.getElementById('table-view').style.display = 'block';
+            } else if (type === 'timeline') {
+                document.getElementById('timeline-view').style.display = 'block';
+            }
+        }
+
+        function selectChartType(type) {
+
+        }
+
+        function changeView(name, elem) {
+            const updateMenu = (id) => {
+                ['runtime', 'batch', 'battery-setup', 'test-setup', 'system-setup'].forEach((v) => {
+                    document.getElementById(v).classList.remove('card-menu-option-selected');
+                    if (id === v) {
+                        elem.classList.add('card-menu-option-selected');
+                    }
+                })
+            }
+            ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup'].forEach((v) => {
+                document.getElementById(v).style.display = 'none';
+            })
+
+            if (name === 'runtime') {
+                document.getElementById('title').innerText = 'BTS - Runtime'
+                document.getElementById('cards').style.display = 'block';
+                document.getElementById('overview-counts').style.display = 'block';
+                document.getElementById('view').innerText = 'Runtime';
+                closeDetail();
+                updateMenu(name);
+            } else if (name === 'batch') {
+                document.getElementById('title').innerText = 'BTS - Batch'
+                document.getElementById('overview-counts').style.display = 'block';
+                document.getElementById('view').innerText = 'Batch Operations';
+                document.getElementById('view-batch').style.display = 'block';
+                updateMenu(name);
+            } else if (name === 'test-setup') {
+                document.getElementById('title').innerText = 'BTS - Test Setup'
+                document.getElementById('view').innerText = 'Test Setup';
+                document.getElementById('view-test-setup').style.display = 'block';
+                updateMenu(name);
+            } else if (name === 'battery-setup') {
+                document.getElementById('title').innerText = 'BTS - Battery Setup'
+                document.getElementById('view').innerText = 'Battery Setup';
+                document.getElementById('view-battery-setup').style.display = 'block';
+                updateMenu(name);
+            } else if (name === 'system-setup') {
+                document.getElementById('title').innerText = 'BTS - System Setup'
+                document.getElementById('view').innerText = 'System Setup';
+                document.getElementById('view-system-setup').style.display = 'block';
+                updateMenu(name);
+            }
+        }
+
+        function showView() {
+            const hash = window.location.hash || '#runtime'
+            if (hash) {
+                if (hash.startsWith('#detail-')) {
+                    // changeView('runtime', document.getElementById('runtime'));
+                    ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup'].forEach((v) => {
+                        document.getElementById(v).style.display = 'none';
+                    })
+                    clickCard(hash.replace('#detail-', ''));
+                } else {
+                    changeView(hash.substring(1), document.getElementById(hash.substring(1)));
+                }
+            }
+        }
+
+        function showModal() {
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function showRowMonikersOnDetailPage(toggle = true) {
+            if (toggle) {
+                show_row_monikers = !show_row_monikers;
+                localStorage.setItem('show_row_monikers', show_row_monikers);
+            }
+            const elem = document.getElementById('option-show-row-monikers');
+            elem.classList.remove('fa-toggle-on', 'fa-toggle-off', 'color-current', 'color-time');
+            const classes = show_row_monikers === true ? ['fa-toggle-on', 'color-font'] : ['fa-toggle-off', 'color-time'];
+            elem.classList.add(...classes);
+        }
+
+        window.addEventListener("popstate", (event) => {
+            showView();
+        });
+
+        function clickBack() {
+            history.back();
+        }
+
+        // FILTER
+        function filter(value) {
+            console.warn(value);
+        }
+
+        // EXPAND SYSTEM SETUP TABLE
+        function expandTable(name, elem) {
+            document.getElementById(name).style.maxHeight = '';
+            elem.style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>

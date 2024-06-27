@@ -1,0 +1,181 @@
+body {
+    /* border: 4px solid green; */
+    /* font-family: cursive !important; */
+    padding: 4px;
+    color: #cecece;
+    background-color: #2f2f2f;
+    max-width: 1400px;
+    padding: 20px;
+}
+
+.center {
+    margin-right: auto;
+    margin-left: auto;
+    /* max-width: 1000px; */
+    /* display: block; */
+}
+
+.button {
+    padding: 10px;
+    min-width:200px;
+    cursor: pointer;
+    border: 1px solid #c5c5c5;
+    margin: 5px;
+}
+.button :hover {
+    /* margin: 30px; */
+    /* min-width:100px; */
+    /* cursor: pointer; */
+    /* border: 1px solid #c5c5c5; */
+    /* margin: 5px; */
+    background-color: red;
+}
+
+.logo1 {
+    width: 50px;
+    left: 20px;
+    top: 2px;
+    position: absolute;
+    /* padding-bottom: 30px; */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo2 {
+    width: 100px;
+    /* right: 20px; */
+    top: -20px;
+    position: relative;
+    /* padding-bottom: 30px; */
+}
+
+.card {
+    min-height: 100px;
+    cursor: pointer;
+    border: 1px solid #c5c5c5;
+    margin: 5px;
+}
+
+.detail-button {
+    background-color: #1599ac !important;
+    color: white !important;
+    min-width: 230px;
+}
+
+.detail-button-action {
+    border:2px solid #1599ac !important;
+    /* background-color: #1599ac !important; */
+    color: #1599ac !important;
+    min-width: 230px;
+}
+
+/* .color-disabled {
+    color: #1599ac;
+} */
+
+.color-font {
+    color: #1599ac;
+}
+
+.color-moniker {
+    color: #ffd861;
+}
+
+.color-voltage {
+    color: #adff2f;
+}
+
+.color-current {
+    color: #75e0f0;
+}
+
+.color-time {
+    color: white;
+}
+
+
+.color-zero {
+    color: rgb(138, 138, 138);
+}
+
+.detail {
+    min-height: 700px;
+}
+
+.card-selected {
+    /* width: 250px; */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 2px 0 rgba(253, 251, 251, 0.49); */
+    /* text-align: center; */
+    border: 3px solid white
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+/* .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-top: 10px solid #f00;
+} */
+
+.pager-button {
+    padding-right: 20px;
+    cursor: pointer;
+    /* border: 0.3px solid #1599ac; */
+}
+
+.apexcharts-tooltip {
+    /* background: black;
+    background-color: #2f2f2f; */
+    color: black;
+}
+
+.card-menu-options {
+    background-color: #2f2f2f !important;
+    /* color: #75e0f0 !important; */
+}
+.card-menu-option-selected {
+    /* background-color: #2f2f2f !important; */
+    color: #75e0f0 !important;
+    background-color: #3d3d3d !important;
+    /* color: white !important; */
+    border-bottom:5px solid #75e0f0;
+}
+.card-menu-option-unselected {
+    /* background-color: #2f2f2f !important; */
+    color: #1599ac !important;
+}
+
+.modal-dark {
+    border: 1px solid white;
+    /* font-family: cursive !important; */
+    padding: 4px;
+    color: #cecece;
+    background-color: #2f2f2f !important;
+    max-width: 1400px;
+    padding: 20px;
+    min-height: 500px;
+}
+textarea {
+    color: #75e0f0;
+    background-color: #3d3d3d;
+}
+input {
+    color: #75e0f0;
+    background-color: #3d3d3d;
+}
+input a:hover {
+    color: #1599ac;
+    background-color: #3d3d3d;
+}
+::placeholder { /* Edge 12 -18 */
+    color: #888888;
+}
