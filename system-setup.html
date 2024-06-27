@@ -119,10 +119,10 @@
 
                 <div class="w3-bar" style="border-bottom:1px solid white;">
                     <a id="system-setup-channel-assignment-channels"
-                        class="w3-bar-item card-menu-option-selected" style="cursor:pointer;"
-                        onclick="changeChannelAssignmentView('channels')">Channels</a>
+                        class="w3-bar-item card-menu-option-selected" style="cursor:pointer;border-bottom:5px solid #75e0f0;"
+                        onclick="changeChannelAssignmentView('channels')">View by Channel</a>
                     <a id="system-setup-channel-assignment-locations" class="w3-bar-item _card-menu-option-unselected" style="cursor:pointer;"
-                        onclick="changeChannelAssignmentView('locations')">Locations</a>
+                        onclick="changeChannelAssignmentView('locations')">View by Location</a>
                 </div>
 
                 <div id="channel-assignment-view-channels" class="">
@@ -238,8 +238,7 @@
                                         style="cursor:pointer;color:#cecece;"></i></th>
                                 <th style="width:15%;">Assignment <i class="fa fa-info-circle" aria-hidden="true"
                                         style="cursor:pointer;color:#cecece;"></i></th>
-                                <th>Comment <i class="fa fa-info-circle color-zero" aria-hidden="true"
-                                        style="cursor:pointer;color:#cecece;"></i><i class="fa fa-expand w3-right"
+                                <th>Comment <i class="fa fa-expand w3-right"
                                         aria-hidden="true" style="cursor:pointer;"
                                         onclick="expandTable('table-mapping-configuration', this)"></i></th>
                             </tr>
