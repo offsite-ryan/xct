@@ -227,7 +227,7 @@
                         <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
                             <td class="color-moniker">CH03</td>
                             <td colspan="5">
-                                <span class="w3-small" style="display:flex;opacity:55% !important;margin-top:5px;">
+                                <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
                                     <div style="background-color:rgb(138, 138, 138);width:27%;">&nbsp;</div>
                                     <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
                                     <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
@@ -241,7 +241,7 @@
                         <tr onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
                             <td class="color-moniker">CH04</td>
                             <td colspan="5">
-                                <span class="w3-small" style="display:flex;opacity:55% !important;margin-top:5px;">
+                                <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
                                     <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
                                     <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
                                     <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
@@ -802,16 +802,16 @@
         }
 
         function closeDetail() {
-            document.getElementById('detail').style.display = 'none';
-            document.getElementById('overview-counts').style.display = '';
-            document.getElementById('pager').style.display = 'none';
-            w3.displayObject("cards", cards);
-            document.getElementById('cards').style.display = '';
-            cards.items.forEach((v) => {
-                updateChart(v.name, v.dataV, v.chart_options);
-            })
-            selectCardType(card_type);
-            location.hash = `#runtime`;
+                document.getElementById('detail').style.display = 'none';
+                document.getElementById('overview-counts').style.display = '';
+                document.getElementById('pager').style.display = 'none';
+                w3.displayObject("cards", cards);
+                document.getElementById('cards').style.display = '';
+                cards.items.forEach((v) => {
+                    updateChart(v.name, v.dataV, v.chart_options);
+                })
+                selectCardType(card_type);
+                location.hash = `#runtime`;
         }
 
         function updateChart(name, data, chart_options) {
@@ -923,7 +923,7 @@
                 document.getElementById('cards').style.display = 'block';
                 document.getElementById('overview-counts').style.display = 'block';
                 document.getElementById('view').innerText = 'Runtime';
-                closeDetail();
+                // closeDetail();
                 updateMenu(name);
             } else if (name === 'batch') {
                 document.getElementById('title').innerText = 'BTS - Batch'
@@ -1012,7 +1012,7 @@
         function changeChannelAssignmentView(view) {
             const elemChannels = document.getElementById('system-setup-channel-assignment-channels');
             const elemLocations = document.getElementById('system-setup-channel-assignment-locations');
-            
+
             elemChannels.classList.remove('card-menu-option-selected');
             elemLocations.classList.remove('card-menu-option-selected');
             // elemChannels.classList.add('card-menu-option-unselected');
@@ -1023,7 +1023,7 @@
 
             elemChannelsView.style.display = 'none';
             elemLocationsView.style.display = 'none';
-            
+
 
             if (view === 'channels') {
                 elemChannels.classList.add('card-menu-option-selected');
@@ -1039,7 +1039,7 @@
                 elemLocationsView.style.display = 'block';
             }
 
-            
+
         }
     </script>
 
