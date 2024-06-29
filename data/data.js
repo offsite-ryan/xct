@@ -40,9 +40,39 @@ class data {
                 c: null,
                 t: null,
                 group: null,
+                history: [],
             })
         }
+
+        // const getRandomInt = (max) => {
+        //     return Math.floor(Math.random() * max);
+        // }
+        // const getRandomHours = (max) => {
+        //     return Math.abs(Math.floor(Math.random() * max));
+        // }
+        // const states = [
+        //     { name: 'Charge', max: 10 },
+        //     { name: 'Discharge', max: 10 },
+        //     { name: 'Paused', max: 24 },
+        //     { name: 'Error', max: 10 },
+        //     { name: 'Empty', max: 36 },
+        // ]
+        // this.monikers.forEach((m) => {
+        //     const numHours = 24 * 5;
+        //     let hours = 0;
+        //     while (hours <= numHours) {
+        //         const state = states[getRandomInt(5)];
+        //         const h = getRandomHours(state.max);
+        //         hours += h;
+        //         if (hours > numHours) {
+        //             m.history[m.history.length - 1].hours += (hours - numHours);
+        //         }
+        //         m.history.push({name: state.name, hours: h});
+        //     }
+        // });
+        // console.log('done');
     }
+
     getData(field, offset, count) {
         let result = this.values.filter((v, i) => i >= offset && i < (count * 25));
         result = result.map((v) => v[field]);

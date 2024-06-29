@@ -179,3 +179,7 @@ input a:hover {
 ::placeholder { /* Edge 12 -18 */
     color: #888888;
 }
+
+.table-row-selected {
+    background-color: #3d3d3d;
+}
