@@ -136,7 +136,8 @@
                         <th>Cycles</th>
                         <!-- <th></th> -->
                     </tr>
-                    <tr w3-repeat="items" id="table-row-{{name}}" onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                    <tr w3-repeat="items" id="table-row-{{name}}" onclick="clickRow(this.rowIndex)"
+                        style="cursor:pointer;">
                         <!-- <td><i class="fa fa-square-o" aria-hidden="true"></i></td> -->
                         <td class="color-moniker">{{name}}</td>
                         <td>{{uut}}</td>
@@ -187,68 +188,23 @@
                         <tr class="color-font">
                             <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
                             <th width=100>Channel</th>
-                            <th class="w3-center" style="border-left:0px solid;"> 20-Jun-24</th>
-                            <th class="w3-center" style="border-left:1px solid;"> 21-Jun-24</th>
-                            <th class="w3-center" style="border-left:1px solid;"> 22-Jun-24</th>
-                            <th class="w3-center" style="border-left:1px solid;"> 23-Jun-24</th>
-                            <th class="w3-center" style="border-left:1px solid;"> 24-Jun-24</th>
+                            <th class="w3-center" style="border-left:0px solid;"> 27-Jun</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 28-Jun</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 29-Jun</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 30-Jun</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 01-Jul</th>
                             <!-- <th class="w3-center">Timeline: <spam class="color-current">Last 5 days</spam></th> -->
                         </tr>
-                        <tr id="timeline-row-CH01" onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
-                            <td class="color-moniker">CH01</td>
-                            <td colspan="5">
-                                <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
-                                    <div style="background-color:#adff2f;width:15%;">&nbsp;</div>
-                                    <div style="background-color:red;width:1%;">&nbsp;</div>
-                                    <div style="background-color:#2f2f2f;width:29%;">&nbsp;</div>
-                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
-                                    <div style="background-color:#75e0f0;width:4%;">&nbsp;</div>
-                                    <div style="background-color:#adff2f;width:16%;">&nbsp;</div>
-                                    <div style="background-color:#75e0f0;width:28%;">&nbsp;</div>
-                                </span>
-                            </td>
-                        </tr>
 
-                        <tr id="timeline-row-CH02" onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
-                            <td class="color-moniker">CH02</td>
-                            <td colspan="5" onmouseenter="">
-                                <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
-                                    <div style="background-color:#75e0f0;width:7%;"
-                                        onmouseenter="timelineTooltip(this)">&nbsp;</div>
-                                    <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
-                                    <div style="background-color:rgb(138, 138, 138);width:27%;">&nbsp;</div>
-                                    <div style="background-color:red;width:1%;">&nbsp;</div>
-                                    <div style="background-color:#75e0f0;width:24%;">&nbsp;</div>
-                                    <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
-                                </span>
-                            </td>
-                        </tr>
-
-                        <tr id="timeline-row-CH03" onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
-                            <td class="color-moniker">CH03</td>
+                        <!-- TIMELINE ROWS - REPEAT -->
+                        <tr id="timeline-row-{{name}}" w3-repeat="items" id="timeline-row-CH04"
+                            onclick="clickRow(this.rowIndex)">
+                            <td class="color-moniker" style="cursor:pointer;">{{name}}</td>
                             <td colspan="5">
-                                <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
-                                    <div style="background-color:rgb(138, 138, 138);width:27%;">&nbsp;</div>
-                                    <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
-                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
-                                    <div style="background-color:red;width:1%;">&nbsp;</div>
-                                    <div style="background-color:#75e0f0;width:24%;">&nbsp;</div>
-                                    <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
+                                <span class="w3-small" style="display:flex;margin-top:5px;">
+                                    {{history}}
                                 </span>
-                            </td>
-                        </tr>
 
-                        <tr id="timeline-row-CH04" onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
-                            <td class="color-moniker">CH04</td>
-                            <td colspan="5">
-                                <span class="w3-small" style="display:flex;opacity:75% !important;margin-top:5px;">
-                                    <div style="background-color:#adff2f;width:24%;">&nbsp;</div>
-                                    <div style="background-color:#75e0f0;width:7%;">&nbsp;</div>
-                                    <div style="background-color:#adff2f;width:17%;">&nbsp;</div>
-                                    <div style="background-color:#2f2f2f;width:17%;">&nbsp;</div>
-                                    <div style="background-color:rgb(138, 138, 148);width:10%;">&nbsp;</div>
-                                    <div style="background-color:#75e0f0;width:25%;">&nbsp;</div>
-                                </span>
                             </td>
                         </tr>
                     </table>
@@ -443,29 +399,35 @@
                             <div id="chart-detail-2" style="margin-top:3px;margin-bottom:20px;"></div>
 
                             <!-- ADDITIONAL CHANNELS -->
-                            <div class="w3-container w3-padding _color-font" style="display:flex;flex-direction:row;justify-content:space-around;">
+                            <div class="w3-container w3-padding _color-font"
+                                style="display:flex;flex-direction:row;justify-content:space-around;">
                                 <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
                                     <span style="_margin:15px;">POUCH_TAB_POS</span>
-                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.31 <span class="color-font">°C</span></span>
+                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.31 <span
+                                            class="color-font">°C</span></span>
                                 </div>
                                 <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
                                     <span style="_margin:15px;">POUCH_TAB_NEG</span>
-                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.33 <span class="color-font">°C</span></span>
+                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.33 <span
+                                            class="color-font">°C</span></span>
                                 </div>
                                 <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
                                     <span style="_margin:15px;">POUCH_BOTTOM_LEFT</span>
-                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.32 <span class="color-font">°C</span></span>
+                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.32 <span
+                                            class="color-font">°C</span></span>
                                 </div>
                                 <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
                                     <span style="_margin:15px;">POUCH_BOTTOM_RIGHT</span>
-                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.35 <span class="color-font">°C</span></span>
+                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.35 <span
+                                            class="color-font">°C</span></span>
                                 </div>
                                 <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
                                     <span style="_margin:15px;">POUCH_CENTER</span>
-                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.28 <span class="color-font">°C</span></span>
+                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.28 <span
+                                            class="color-font">°C</span></span>
                                 </div>
                             </div>
-                            &nbsp;<br/>
+                            &nbsp;<br />
                         </div>
                     </div>
                 </div>
@@ -538,18 +500,16 @@
             </div>
         </div>
 
-        <!-- TEST SETUP -->
-        <div id="view-test-setup" style="display:none;">
-            <hr />
-            <div class="">
-                <img src="./assets/test-setup.png" width="1350" />
-            </div>
-        </div>
-
         <!-- BATTERY SETUP -->
         <div id="view-battery-setup" style="display:none;">
             <hr />
             <div w3-include-html="battery-setup.html"></div>
+        </div>
+
+        <!-- TEST SETUP -->
+        <div id="view-test-setup" style="display:none;">
+            <hr />
+            <div w3-include-html="test-setup.html"></div>
         </div>
 
         <!-- SYSTEM SETUP -->
@@ -596,8 +556,8 @@
     </div>
 
     <!-- MODAL -->
-    <div id="modal" class="w3-modal w3-xlarge" style="background-color: rgba(0,0,0,0.65)">
-        <div class="w3-modal-content modal-dark">
+    <div id="modal" class="w3-modal w3-xlarge" style="background-color: rgba(0,0,0,0.65);">
+        <div class="w3-modal-content modal-dark" style="_min-height:900px;">
             <div class="w3-container w3-padding">
                 <div class="w3-row-padding">
                     <h3 class="color-time">UI Options</h3>
@@ -607,6 +567,48 @@
                     <span><i id="option-show-row-monikers" class="fa fa-toggle-on w3-xxlarge color-font w3-right"
                             aria-hidden="true" onclick="showRowMonikersOnDetailPage()"></i> Show Row Channels on Detail
                         Page</span>
+                    <br />
+                    <span><i id="option_show_charge_discharge" class="fa fa-toggle-on w3-xxlarge color-font w3-right"
+                            aria-hidden="true" onclick="showChargeDischargeOnTimeline()"></i> Show Charge / Discharge on
+                        Timeline
+                        View</span>
+                </div>
+            </div>
+            <br />
+            <div class="w3-container w3-padding">
+                <div class="w3-row-padding">
+                    Tasks:
+                    <hr/>
+                    <ol>
+                        <li>Runtime</li>
+                        <ul>
+                            <li>update counts from timeline simulation</li>
+                            <li>sticky filters</li>
+                            <li>filter by info in battery file</li>
+                        </ul>
+                        <li>Runtime Detail</li>
+                        <ul>[X] VCR buttons to control channel</ul>
+                        <ul>... on battery set to view</ul>
+                        <ul>... on test to view</ul>
+                        <li>Timeline</li>
+                        <ul>
+                            <li>[X] create simulated history</li>
+                            <li>[X] colors too bright</li>
+                            <li>update column titles to last 5 days</li>
+                        </ul>
+                        <li>Test Setup</li>
+                        <ul>
+                            <li>[x] change to table (graphic still an image)</li>
+                            <li>create graphic from table entries</li>
+                            <li>edit modal iterations</li>
+                        </ul>
+                        <li>Batch Operations (needs simulation of battery files)</li>
+                        <ul>
+                            <li>dropdowns</li>
+                            <li>honor filters</li>
+                            <li>buttons that make sense vs edit row vs inline edit of row</li>
+                        </ul>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -636,6 +638,8 @@
         const now = Date.now();
         let show_row_monikers = localStorage.getItem('show_row_monikers') === 'true' ? true : false;
         showRowMonikersOnDetailPage(false);
+        let show_charge_discharge = localStorage.getItem('show_charge_discharge') === 'false' ? false : true;
+        showChargeDischargeOnTimeline(false);
         let card_type = localStorage.getItem('card_type') || 'large';
 
         // DATA
@@ -649,6 +653,34 @@
             const dataI = chartData.getData('i', offset, count);
             const v = dataV[dataV.length - 1].toString().padEnd(5, '0');
             const i = dataI[dataI.length - 1].toString().padEnd(5, '0');
+
+            let history = '';
+            const temp = chartData.getHistory(x + Math.round(Math.random() * 10));
+            temp.forEach((h) => {
+                const pct = h.hours / 120;
+                const hours = 120 * pct;
+                // history += `
+                //     <div class="w3-dropdown-hover ${h.className}" style="_background-color:${h.color};width:${hours}%;">
+                //         <div _class="${h.className}">&nbsp;
+                //         <div class="w3-dropdown-content w3-bar-block w3-border w3-medium w3-padding"
+                //             style="width:400px;color:#cecece background-color:black;z-index:99999">
+                //             <span style="padding-left:15px;">a bunch of info</span>
+                //         </div>
+                //         </div>
+                //     </div>
+                // `;
+
+                history += `
+                    <div class="_w3-dropdown-hover ${h.className}" style="width:${hours}%;opacity:100%;">
+                        &nbsp;
+                        <!--<div class="w3-dropdown-content w3-xlarge"
+                            style="width:400px;color:#cecece;background-color:black;opacity:100%;">
+                            <span style="padding-left:15px;opacity:100%;">a bunch of info</span>
+                        </div>-->
+                    </div>
+                `;
+
+            })
 
             cards.items.push({
                 name: `CH${x < 10 ? '0' + x : x}`,
@@ -665,6 +697,7 @@
                 dc: null,
                 ee: null,
                 ce: null,
+                history,
             });
         }
         const numPages = Math.ceil(cards.items.length / 6);
@@ -720,7 +753,7 @@
             clickCard(name);
             document.getElementById(`table-row-${name}`).classList.add('table-row-selected');
             // /* ENABLE WHEN TIMELINE TESTBEDS EXIST */
-            // document.getElementById(`timeline-row-${name}`).classList.add('table-row-selected');
+            document.getElementById(`timeline-row-${name}`).classList.add('table-row-selected');
         }
         function clickCard(name) {
 
@@ -823,16 +856,16 @@
         }
 
         function closeDetail() {
-                document.getElementById('detail').style.display = 'none';
-                document.getElementById('overview-counts').style.display = '';
-                document.getElementById('pager').style.display = 'none';
-                w3.displayObject("cards", cards);
-                document.getElementById('cards').style.display = '';
-                cards.items.forEach((v) => {
-                    updateChart(v.name, v.dataV, v.chart_options);
-                })
-                selectCardType(card_type);
-                location.hash = `#runtime`;
+            document.getElementById('detail').style.display = 'none';
+            document.getElementById('overview-counts').style.display = '';
+            document.getElementById('pager').style.display = 'none';
+            w3.displayObject("cards", cards);
+            document.getElementById('cards').style.display = '';
+            cards.items.forEach((v) => {
+                updateChart(v.name, v.dataV, v.chart_options);
+            })
+            selectCardType(card_type);
+            location.hash = `#runtime`;
         }
 
         function updateChart(name, data, chart_options) {
@@ -1003,6 +1036,25 @@
             elem.classList.remove('fa-toggle-on', 'fa-toggle-off', 'color-current', 'color-time');
             const classes = show_row_monikers === true ? ['fa-toggle-on', 'color-font'] : ['fa-toggle-off', 'color-time'];
             elem.classList.add(...classes);
+            
+            if (toggle) {
+                window.location.reload();
+            }
+        }
+
+        function showChargeDischargeOnTimeline(toggle = true) {
+            if (toggle) {
+                show_charge_discharge = !show_charge_discharge;
+                localStorage.setItem('show_charge_discharge', show_charge_discharge);
+            }
+            const elem = document.getElementById('option_show_charge_discharge');
+            elem.classList.remove('fa-toggle-on', 'fa-toggle-off', 'color-current', 'color-time');
+            const classes = show_charge_discharge === true ? ['fa-toggle-on', 'color-font'] : ['fa-toggle-off', 'color-time'];
+            elem.classList.add(...classes);
+
+            if (toggle) {
+                window.location.reload();
+            }
         }
 
         window.addEventListener("popstate", (event) => {
@@ -1031,32 +1083,42 @@
 
         // SYSTEM SETUP CHANNEL ASSIGNMENT VIEW
         function changeChannelAssignmentView(view) {
+            // const elemShared = document.getElementById('system-setup-channel-assignment-shared');
             const elemChannels = document.getElementById('system-setup-channel-assignment-channels');
             const elemLocations = document.getElementById('system-setup-channel-assignment-locations');
 
+            // elemShared.classList.remove('card-menu-option-selected');
             elemChannels.classList.remove('card-menu-option-selected');
             elemLocations.classList.remove('card-menu-option-selected');
-            // elemChannels.classList.add('card-menu-option-unselected');
-            // elemLocations.classList.add('card-menu-option-unselected');
 
+            // const elemSharedView = document.getElementById('channel-assignment-view-shared');
             const elemChannelsView = document.getElementById('channel-assignment-view-channels');
             const elemLocationsView = document.getElementById('channel-assignment-view-locations');
 
+            // elemSharedView.style.display = 'none';
             elemChannelsView.style.display = 'none';
             elemLocationsView.style.display = 'none';
 
 
+            // if (view === 'shared') {
+            //     elemShared.classList.add('card-menu-option-selected');
+            //     elemShared.style.borderBottom = '5px solid #75e0f0';
+            //     elemLocations.style.borderBottom = '';
+            //     elemChannels.style.borderBottom = '';
+            //     // elemLocations.style.backgroundColor = '#2f2f2f';
+            //     elemSharedView.style.display = 'block';
+            // } else 
             if (view === 'channels') {
                 elemChannels.classList.add('card-menu-option-selected');
                 elemChannels.style.borderBottom = '5px solid #75e0f0';
+                // elemShared.style.borderBottom = '';
                 elemLocations.style.borderBottom = '';
-                // elemLocations.style.backgroundColor = '#2f2f2f';
                 elemChannelsView.style.display = 'block';
-            } else {
+            } else if (view === 'locations') {
                 elemLocations.classList.add('card-menu-option-selected');
                 elemLocations.style.borderBottom = '5px solid #75e0f0';
+                // elemShared.style.borderBottom = '';
                 elemChannels.style.borderBottom = '';
-                // elemChannels.style.backgroundColor = '#2f2f2f';
                 elemLocationsView.style.display = 'block';
             }
 

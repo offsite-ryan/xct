@@ -1,0 +1,260 @@
+<div class="w3-container w3-padding w3-large">
+    <div class="w3-row-padding" style="padding-bottom:25px;">
+        <div class="w3-padding w3-col s12 w3-large">
+            <!-- <div style="height:100px;background: linear-gradient(to bottom right, white, white 50%, green 50%, green);">&nbsp;</div> -->
+            <span class="w3-xlarge color-current">19d 2/C Charge / Discharge <span class="w3-medium color-zero">v003</span>
+
+                <img src="./assets/test-profile.png" width="100%" style="padding-top:30px;padding-bottom:30px;" />
+                <br />
+
+                <div id="table-channel-configuration"
+                    _style="max-height: 290px;overflow: auto;scrollbar-color: #5d5d5d #2f2f2f;">
+                    <table class="w3-table w3-bordered w3-large"
+                        style="margin-top:10px;margin-bottom:0px;color:#cecece;">
+                        <tr class="color-font">
+                            <th style="width:30%;">Step Name</th>
+                            <th>Mode</th>
+                            <th>Setpoint</th>
+                            <th>End Condition</th>
+                            <th style="width:20%;">Est. Duration
+                                <!-- <i class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;"></i> -->
+                            </th>
+                        </tr>
+                        <tr>
+                            <td><span style="padding-left:0px;display:flex;">
+                                    <div class="" style="border-left:10px solid #2d6b27;">&nbsp;</div>&nbsp;Charge CV
+                                </span></td>
+                            <!-- <td>CH01</td> -->
+                            <td>CV</td>
+                            <td>3.6</td>
+                            <td>Voltage >= 3.6</td>
+                            <td>1h<i class="fa fa-pencil-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;color:#cecece;"
+                                    onclick="document.getElementById('modal-test-setup').style.display='block'"></i><i
+                                    class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;padding-right:15px;"></i></td>
+                        </tr>
+                        <tr>
+                            <td><span style="display:flex;">
+                                    <div class="" style="border-left:10px solid blue;">&nbsp;</div>&nbsp;Loop - Start
+                                </span></td>
+                            <!-- <td>CH01</td> -->
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="fa fa-pencil-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;color:#cecece;"></i><i
+                                    class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;padding-right:15px;"></i></td>
+                        </tr>
+                        <tr>
+                            <td><span style="padding-left:30px;display:flex;">
+                                    <div class="" style="border-left:10px solid rgb(122, 196, 245);">&nbsp;</div>
+                                    &nbsp;Discharge C/2
+                                </span></td>
+                            <!-- <td>CH01</td> -->
+                            <td>CC</td>
+                            <td>-0.625</td>
+                            <td>Voltage <= 2.7</td>
+                            <td>3h 30m<i class="fa fa-pencil-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;color:#cecece;"></i><i
+                                    class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;padding-right:15px;"></i></td>
+                        </tr>
+                        <tr>
+                            <td><span style="padding-left:30px;display:flex;">
+                                    <div class="" style="border-left:10px solid darkgray;">&nbsp;</div>&nbsp;Wait
+                                </span></td>
+                            <!-- <td>CH01</td> -->
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>30 min<i class="fa fa-pencil-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;color:#cecece;"></i><i
+                                    class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;padding-right:15px;"></i></td>
+                        </tr>
+                        <tr>
+                            <td><span style="padding-left:30px;display:flex;">
+                                    <div class="" style="border-left:10px solid #17d305;">&nbsp;</div>&nbsp;Charge C/2
+                                </span></td>
+                            <!-- <td>CH01</td> -->
+                            <td>CC</td>
+                            <td>0.625</td>
+                            <td>Voltage >= 3.4</td>
+                            <td>3h 30m<i class="fa fa-pencil-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;color:#cecece;"></i><i
+                                    class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;padding-right:15px;"></i></td>
+                        </tr>
+                        <tr>
+                            <td><span style="padding-left:30px;display:flex;">
+                                    <div class="" style="border-left:10px solid #2d6b27;">&nbsp;</div>&nbsp;Charge CV
+                                </span></td>
+                            <!-- <td>CH01</td> -->
+                            <td>CV</td>
+                            <td>3.6</td>
+                            <td>1.0 h</td>
+                            <td>1h<i class="fa fa-pencil-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;color:#cecece;"></i><i
+                                    class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;padding-right:15px;"></i></td>
+                        </tr>
+                        <tr>
+                            <td><span style="padding-left:30px;display:flex;">
+                                    <div class="" style="border-left:10px solid darkgray;">&nbsp;</div>&nbsp;Wait
+                                </span></td>
+                            <!-- <td>CH01</td> -->
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>30 min<i class="fa fa-pencil-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;color:#cecece;"></i><i
+                                    class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;padding-right:15px;"></i></td>
+                        </tr>
+                        <tr>
+                            <td><span style="display:flex;">
+                                    <div class="" style="border-left:10px solid blue;">&nbsp;</div>&nbsp;Loop - End
+                                </span></td>
+                            <!-- <td>CH01</td> -->
+                            <td></td>
+                            <td></td>
+                            <td>50x</td>
+                            <td>18d 18h <i class="fa fa-pencil-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;color:#cecece;"></i><i
+                                    class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;padding-right:15px;"></i></td>
+                        </tr>
+                        <tr>
+                            <td><span style="display:flex;">
+                                    <div class="" style="border-left:10px solid purple;">&nbsp;</div>&nbsp;Set SOC
+                                </span></td>
+                            <!-- <td>CH01</td> -->
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td> 2h 30m<i class="fa fa-pencil-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;color:#cecece;"></i><i
+                                    class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                    style="cursor:pointer;padding-right:15px;"></i></td>
+                        </tr>
+                        <tr class="color-font _card-menu-option-selected">
+                            <td colspan="4"><b>Total Estimated Test Duration</b></td>
+                            <td><b>18d 20h 30m</b></td>
+                        </tr>
+                        <!-- <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td> <i class="fa fa-plus-square-o w3-xlarge w3-right color-current" aria-hidden="true"
+                                    style="cursor:pointer;color;"></i></td>
+                        </tr> -->
+                    </table>
+                </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- MODAL -->
+    <div id="modal-test-setup" class="w3-modal w3-xlarge" style="background-color: rgba(0,0,0,0.65);">
+        <div class="w3-modal-content modal-dark w3-padding" style="height:900px;">
+            <div class="w3-container">
+                <div class="w3-row">
+                    <h3 class="color-font">Test Step Definition</h3>
+                    <span onclick="document.getElementById('modal-test-setup').style.display='none'"
+                        class="w3-button w3-display-topright w3-xxlarge">&times;</span>
+                    <hr />
+                    <!-- <span><input type="color" value="#2d6b27" style="width:35px;height:35px;" /> <input value="Charge CV"/></span> -->
+                    <div class="w3-col s12 w3-medium">
+
+                        <form class="w3-container color-font">
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Step Name <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="Charge CV">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding" _style="min-height:120px;">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding" style="min-height:100px;">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Control Mode <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="CV">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Setpoint <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="3.6 V">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Est. Duration (hours) <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="1">
+                            </div>
+
+                            <div class="w3-col s12 w3-padding color-font w3-xlarge" style=""><br />End Condition
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Variable <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="V">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Condition <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value=">=">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Value <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="3.6">
+                            </div>
+
+                            <div class="w3-col s12 w3-padding color-font w3-xlarge" style=""><br />Step Limits
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Variable</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="T">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Min °C</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="21">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Max °C</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="24">
+                            </div>
+
+                            <div class="w3-col s12 w3-padding w3-center w3-large" style="min-height:120px;padding-top:30px !important;">
+                                <span class="button w3-right color-font" onclick="document.getElementById('modal-test-setup').style.display='none'">Cancel</span>
+                                <span class="button w3-right color-zero">Save</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="" style="padding-bottom:60px;">
+        <img src="./assets/test-setup.png" width="1350" />
+    </div> -->
+</div>
