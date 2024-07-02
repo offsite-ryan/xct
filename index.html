@@ -71,7 +71,7 @@
                 </span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
-                <span class="color-font">Running: <span class="color-current" style="font-weight:bold;">41</span></span>
+                <span class="color-font">On Test: <span class="color-current" style="font-weight:bold;">41</span></span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
                 <span class="color-font">Paused: <span class="color-current" style="font-weight:bold;">7</span></span>
@@ -80,7 +80,7 @@
                 <span class="color-zero">Empty: <span class="color-zero" style="font-weight:bold;">0</span></span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
-                <span class="color-font">Warnings: <span class="color-current" style="font-weight:bold;">1</span></span>
+                <span class="color-font">Complete: <span class="color-current" style="font-weight:bold;">9</span></span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
                 <span class="color-zero">Errors: <span class="color-zero" style="font-weight:bold;">0</span></span>
@@ -458,7 +458,7 @@
                     <tr>
                         <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
                         <td class="color-moniker">CH02</td>
-                        <td></i></td>
+                        <td></td>
                         <td class=" color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
                         <td></td>
                         <td class="color-zero">Empty</td>
@@ -516,6 +516,12 @@
         <div id="view-system-setup" style="display:none;">
             <hr />
             <div w3-include-html="system-setup.html"></div>
+        </div>
+
+        <!-- SYSTEM SETUP -->
+        <div id="view-setup" style="display:none;">
+            <hr />
+            <div w3-include-html="setup.html"></div>
         </div>
 
         <!-- CONTEXTUAL HELP -->
@@ -968,7 +974,7 @@
                     }
                 })
             }
-            ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup', 'view-contextual-help'].forEach((v) => {
+            ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup', 'view-setup', 'view-contextual-help'].forEach((v) => {
                 document.getElementById(v).style.display = 'none';
             })
 
@@ -1004,6 +1010,11 @@
                 document.getElementById('title').innerText = 'BTS - Help'
                 document.getElementById('view').innerText = 'Help';
                 document.getElementById('view-contextual-help').style.display = 'block';
+                updateMenu(name);
+            } else if (name === 'setup') {
+                document.getElementById('title').innerText = 'BTS - Setup'
+                document.getElementById('view').innerText = 'Setup';
+                document.getElementById('view-setup').style.display = 'block';
                 updateMenu(name);
             }
         }
