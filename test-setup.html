@@ -2,7 +2,7 @@
     <div class="w3-row-padding" style="padding-bottom:25px;">
         <div class="w3-padding w3-col s12 w3-large">
             <!-- <div style="height:100px;background: linear-gradient(to bottom right, white, white 50%, green 50%, green);">&nbsp;</div> -->
-            <span class="w3-xlarge color-current">19d 2/C Charge / Discharge <span class="w3-medium color-zero">v003</span>
+            <span class="w3-xlarge color-current">19d 2/C Charge - Discharge <span class="w3-medium color-zero">v003</span>
 
                 <img src="./assets/test-profile.png" width="100%" style="padding-top:30px;padding-bottom:30px;" />
                 <br />
@@ -28,7 +28,7 @@
                             <!-- <td>CH01</td> -->
                             <td>CV</td>
                             <td>3.6</td>
-                            <td>Voltage >= 3.6</td>
+                            <td>Current < 100 mA</td>
                             <td>1h<i class="fa fa-pencil-square-o w3-right w3-xlarge" aria-hidden="true"
                                     style="cursor:pointer;color:#cecece;"
                                     onclick="document.getElementById('modal-test-setup').style.display='block'"></i><i
@@ -129,7 +129,7 @@
                         </tr>
                         <tr>
                             <td><span style="display:flex;">
-                                    <div class="" style="border-left:10px solid purple;">&nbsp;</div>&nbsp;Set SOC
+                                    <div class="" style="border-left:10px solid purple;">&nbsp;</div>&nbsp;Storage Prep
                                 </span></td>
                             <!-- <td>CH01</td> -->
                             <td></td>
@@ -210,19 +210,19 @@
                             <div class="w3-col s4 w3-padding">
                                 <label>Variable <i class="fa fa-info-circle color-time" aria-hidden="true"
                                         style="cursor:pointer;"></i></label>
-                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="V">
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="I">
                             </div>
 
                             <div class="w3-col s4 w3-padding">
                                 <label>Condition <i class="fa fa-info-circle color-time" aria-hidden="true"
                                         style="cursor:pointer;"></i></label>
-                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value=">=">
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="<">
                             </div>
 
                             <div class="w3-col s4 w3-padding">
                                 <label>Value <i class="fa fa-info-circle color-time" aria-hidden="true"
                                         style="cursor:pointer;"></i></label>
-                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="3.6">
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="100 mA">
                             </div>
 
                             <div class="w3-col s12 w3-padding color-font w3-xlarge" style=""><br />Step Limits
@@ -230,17 +230,17 @@
 
                             <div class="w3-col s4 w3-padding">
                                 <label>Variable</label>
-                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="T">
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="POUCH_CENTER">
                             </div>
 
                             <div class="w3-col s4 w3-padding">
-                                <label>Min °C</label>
-                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="21">
+                                <label>Min</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="-">
                             </div>
 
                             <div class="w3-col s4 w3-padding">
-                                <label>Max °C</label>
-                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="24">
+                                <label>Max</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="60 °C">
                             </div>
 
                             <div class="w3-col s12 w3-padding w3-center w3-large" style="min-height:120px;padding-top:30px !important;">
