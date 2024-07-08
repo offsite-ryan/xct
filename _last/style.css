@@ -179,3 +179,26 @@ input a:hover {
 ::placeholder { /* Edge 12 -18 */
     color: #888888;
 }
+
+.table-row-selected {
+    background-color: #3d3d3d;
+}
+
+.charge {
+    /* background-color: #99ce28; */
+    background-color: #70AD47;
+}
+.discharge {
+    /* background-color: #75e0f0; */
+    background-color: #9DC3E6;
+}
+.on-test {
+    /* background-color: green; */
+    background-color: #048004;
+}
+.paused {
+    background-color: #A5A5A5;
+}
+.error {
+    background-color: red;
+}

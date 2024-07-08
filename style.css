@@ -154,6 +154,14 @@ body {
     color: #1599ac !important;
 }
 
+.tab-selected {
+    /* background-color: #2f2f2f !important; */
+    color: #75e0f0 !important;
+    background-color: #3d3d3d !important;
+    /* color: white !important; */
+    border-bottom:5px solid #75e0f0 !important;
+}
+
 .modal-dark {
     border: 1px solid white;
     /* font-family: cursive !important; */

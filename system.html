@@ -1,0 +1,51 @@
+<div class="w3-large">
+    <div class="w3-row" style="padding-bottom:25px;">
+        <div class="w3-col s12">
+            <div class="w3-bar w3-xlarge" style="border-bottom:1px solid white;">
+                <!-- <a id="system-setup-channel-assignment-locations" class="w3-bar-item" style="cursor:pointer;"
+                    onclick="changeSetupView('tests')"><i class="fa fa-info" aria-hidden="true"></i>
+                    About</a> -->
+                <a id="system-tab-view-general" class="w3-bar-item tab-selected"
+                    style="cursor:pointer;" onclick="changeSystemTab('general')"><i class="fa fa-info-circle"
+                        aria-hidden="true"></i> General</a>
+                <a id="system-tab-view-hardware" class="w3-bar-item" style="cursor:pointer;"
+                    onclick="changeSystemTab('hardware')"><i class="fa fa-cubes" aria-hidden="true"></i>
+                    Hardware</a>
+                <a id="system-tab-view-calibration" class="w3-bar-item" style="cursor:pointer;"
+                    onclick="changeSystemTab('calibration')"><i class="fa fa-balance-scale" aria-hidden="true"></i>
+                    Calibration</a>
+                <a id="system-tab-view-users" class="w3-bar-item w3-right" style="cursor:pointer;"
+                    onclick="changeSystemTab('users')"><i class="fa fa-user-o" aria-hidden="true"></i>
+                    Users</a>
+                <a id="system-tab-view-notifications" class="w3-bar-item w3-right" style="cursor:pointer;"
+                    onclick="changeSystemTab('notifications')"><i class="fa fa-bell-o" aria-hidden="true"></i>
+                    Notification</a>
+            </div>
+
+            <!-- GENERAL -->
+            <div id="view-system-general" style="display:block;">
+                <div w3-include-html="system-general.html"></div>
+            </div>
+
+            <!-- HARDWARE -->
+            <div id="view-system-hardware" style="display:none;">
+                <div w3-include-html="in-development.html"></div>
+            </div>
+
+            <!-- CALIBRATION -->
+            <div id="view-system-calibration" style="display:none;">
+                <div w3-include-html="in-development.html"></div>
+            </div>
+
+            <!-- NOTIFICATIONS -->
+            <div id="view-system-notifications" style="display:none;">
+                <div w3-include-html="notifications.html"></div>
+            </div>
+
+            <!-- USERS -->
+            <div id="view-system-users" style="display:none;">
+                <div w3-include-html="users.html"></div>
+            </div>
+        </div>
+    </div>
+</div>

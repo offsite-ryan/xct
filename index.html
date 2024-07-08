@@ -87,7 +87,8 @@
                 <div class="w3-dropdown-hover w3-right" _style="">
                     <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:30px;"><i id="menu"
                             class="fa fa-ellipsis-v color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
-                    <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium" style="right:0;width:125px;">
+                    <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
+                        style="right:0;width:125px;">
                         <a id="menu-view-large" class="card-menu-option-selected w3-bar-item w3-button"
                             onclick="selectCardType('large')"><i class="fa fa-area-chart" aria-hidden="true"></i> Large
                             Card</a>
@@ -504,31 +505,28 @@
         <!-- BATTERY SETUP -->
         <div id="view-battery-setup" style="display:none;">
             <hr />
-            <div w3-include-html="battery-setup.html"></div>
         </div>
 
         <!-- TEST SETUP -->
         <div id="view-test-setup" style="display:none;">
             <hr />
-            <div w3-include-html="test-setup.html"></div>
         </div>
 
         <!-- SYSTEM SETUP -->
         <div id="view-system-setup" style="display:none;">
             <hr />
-            <div w3-include-html="system-setup.html"></div>
         </div>
 
         <!-- SYSTEM -->
         <div id="view-setup" style="display:none;">
             <hr />
-            <div w3-include-html="setup.html"></div>
+            <div w3-include-html="system.html"></div>
         </div>
 
         <!-- PARAMETERS -->
         <div id="view-parameters" style="display:none;">
             <hr />
-            <div w3-include-html="parameters.html"></div>
+            <div w3-include-html="configuration.html"></div>
         </div>
 
         <!-- CONTEXTUAL HELP -->
@@ -547,14 +545,15 @@
                     class="fa fa-table" aria-hidden="true"></i> Batch Operations</a>
             <a href="#contextual-help" id="contextual-help" class="w3-xlarge" style="float:right;"
                 onclick="changeView(this.id, this)"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
-            <!-- <a href="#setup" id="setup" class="w3-xlarge" style="float:right;min-width:0px;"
-                onclick="changeView(this.id, this)"><i class="fa fa-cog" aria-hidden="true"></i></a> -->
-            <a href="#system-setup" id="system-setup" class="w3-xlarge" style="float:right;"
-                onclick="changeView(this.id, this)"><i class="fa fa-cog" aria-hidden="true"></i> System Setup</a>
+            <a href="#system" id="system" class="w3-xlarge" style="float:right;"
+                onclick="changeView(this.id, this)"><i class="fa fa-cog" aria-hidden="true"></i></a>
+            <a href="#configuration" id="configuration" class="w3-xlarge" style="float:right;min-width:0px;"
+                onclick="changeView(this.id, this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Configuration</a>
+            <!-- <a href="#system-setup" id="system-setup" class="w3-xlarge" style="float:right;"
+                onclick="changeView(this.id, this)"><i class="fa fa-_cog" aria-hidden="true"></i></a>
             <a href="#test-setup" id="test-setup" class="w3-xlarge" style="float:right;"
-                onclick="changeView(this.id, this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test
-                Setup</a>
-            <a href="#battery-setup" id="battery-setup" class="w3-xlarge" style="float:right;"
+                onclick="changeView(this.id, this)"><i class="fa fa-_pencil-square-o" aria-hidden="true"></i></a> -->
+            <a href="#battery-setup" id="battery-setup" class="w3-xlarge" style="float:right;display:none;"
                 onclick="changeView(this.id, this)"><i class="fa fa-battery-empty" aria-hidden="true"></i> Battery
                 Setup</a>
         </div>
@@ -631,6 +630,10 @@
     <script src="key.js"></script>
     <script src="data/16h.js"></script>
     <script src="data/data.js"></script>
+    <script src="test-setup.js"></script>
+    <script src="battery-setup.js"></script>
+    <script src="system.js"></script>
+    <script src="configuration.js"></script>
     <script src="w3.js"></script>
     <script src="HackTimer.js"></script>
     <script src="chart-definitions/card.js"></script>
@@ -974,7 +977,7 @@
 
         function changeView(name, elem) {
             const updateMenu = (id) => {
-                ['runtime', 'batch', 'battery-setup', 'test-setup', 'system-setup', 'contextual-help'].forEach((v) => {
+                ['runtime', 'batch', 'battery-setup', 'contextual-help', 'system', 'configuration'].forEach((v) => {
                     document.getElementById(v).classList.remove('card-menu-option-selected');
                     if (id === v) {
                         elem.classList.add('card-menu-option-selected');
@@ -1018,14 +1021,14 @@
                 document.getElementById('view').innerText = 'Help';
                 document.getElementById('view-contextual-help').style.display = 'block';
                 updateMenu(name);
-            } else if (name === 'setup') {
+            } else if (name === 'system') {
                 document.getElementById('title').innerText = 'BTS - System'
                 document.getElementById('view').innerText = 'System';
                 document.getElementById('view-setup').style.display = 'block';
                 updateMenu(name);
-            } else if (name === 'parameters') {
-                document.getElementById('title').innerText = 'BTS - Parameters'
-                document.getElementById('view').innerText = 'Parameters';
+            } else if (name === 'configuration') {
+                document.getElementById('title').innerText = 'BTS - Setup'
+                document.getElementById('view').innerText = 'Setup';
                 document.getElementById('view-parameters').style.display = 'block';
                 updateMenu(name);
             }
@@ -1104,6 +1107,8 @@
             console.log(e);
         }
 
+        //#region SETUP i/O ASSIGNMENT
+
         // SYSTEM SETUP CHANNEL ASSIGNMENT VIEW
         function changeChannelAssignmentView(view) {
             // const elemShared = document.getElementById('system-setup-channel-assignment-shared');
@@ -1144,9 +1149,8 @@
                 elemChannels.style.borderBottom = '';
                 elemLocationsView.style.display = 'block';
             }
-
-
         }
+        //#endregion
     </script>
 
 </body>
