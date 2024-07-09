@@ -87,17 +87,17 @@ function collapseRowDetail(index) {
             document.getElementById('test-2-step-row-3').style.display = '';
             document.getElementById('test-2-step-row-4').style.display = '';
         }
-    } else if (index === 6) {
-        const elem = document.getElementById('test-2-step-row-6-icon');
+    } else if (index === 3) {
+        const elem = document.getElementById('test-3-step-row-6-icon');
         const isShown = elem.classList.contains('fa-caret-up');
         if (isShown) {
-            document.getElementById('test-2-step-row-6-icon').classList.replace('fa-caret-up', 'fa-caret-down');
-            document.getElementById('test-2-step-row-7').style.display = 'none';
-            document.getElementById('test-2-step-row-8').style.display = 'none';
+            document.getElementById('test-3-step-row-6-icon').classList.replace('fa-caret-up', 'fa-caret-down');
+            document.getElementById('test-3-step-row-7').style.display = 'none';
+            document.getElementById('test-3-step-row-8').style.display = 'none';
         } else {
-            document.getElementById('test-2-step-row-6-icon').classList.replace('fa-caret-down', 'fa-caret-up');
-            document.getElementById('test-2-step-row-7').style.display = '';
-            document.getElementById('test-2-step-row-8').style.display = '';
+            document.getElementById('test-3-step-row-6-icon').classList.replace('fa-caret-down', 'fa-caret-up');
+            document.getElementById('test-3-step-row-7').style.display = '';
+            document.getElementById('test-3-step-row-8').style.display = '';
         }
     }
 }
