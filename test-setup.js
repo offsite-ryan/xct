@@ -13,11 +13,19 @@ function toggleTestEditorRowDetail(id) {
     // elem.style.display = elem.classList.contains('fa-caret-down') ? elem.classList.replace('fa-caret-down', 'fa-caret-up') : elem.classList.replace('fa-caret-up', 'fa-caret-down');
 
     let elem = document.getElementById(`${id}-detail`);
-    elem.style.display = elem.style.display === 'none' ? '' : 'none';
-    elem.style.borderBottom = elem.style.display === 'none' ? '' : '0px';
+    elem.style.display = elem.style.display === 'none' ? 'none' : 'none';
+    elem.style.borderBottom = elem.style.display === 'none' ? '0px' : '0px';
 
-    let elemIcon = document.getElementById(`${id}-detail-icon`);
-    elemIcon.style.display = elem.style.display === 'none' ? elemIcon.classList.replace('fa-caret-up', 'fa-caret-down') : elemIcon.classList.replace('fa-caret-down', 'fa-caret-up');
+    // let elemIcon = document.getElementById(`${id}-detail-icon`);
+    // const isShown = elemIcon.classList.contains('fa-caret-left');
+    // elemIcon.style.display = isShown ? elemIcon.classList.replace('fa-caret-left', 'fa-caret-right') : elemIcon.classList.replace('fa-caret-right', 'fa-caret-left');
+
+    // elem = document.getElementById('test-3-table')
+    // elem.style.width = isShown ? '75%' : '100%';
+
+    // elem = document.getElementById('test-3-sidebar')
+    // elem.style.display = isShown ? '' : 'none';
+    // elem.style.width = '22%';
 }
 
 function testEditorTableClick(e, table) {
@@ -27,6 +35,7 @@ function testEditorTableClick(e, table) {
 function toggleTestRowDetail(id) {
     let elem = document.getElementById(`${id}-detail`);
     elem.style.display = elem.style.display === 'none' ? '' : 'none';
+
 }
 
 function onKeyDown(event) {
@@ -57,6 +66,7 @@ function closeTest() {
     document.getElementById('table-tests-recent').style.display = 'block';
     document.getElementById('test-view-1').style.display = 'none';
     document.getElementById('test-view-2').style.display = 'none';
+    document.getElementById('test-view-3').style.display = 'none';
     document.getElementById('test-save-cancel').style.display = 'none';
 }
 
