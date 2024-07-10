@@ -67,6 +67,8 @@ function closeTest() {
     document.getElementById('test-view-1').style.display = 'none';
     document.getElementById('test-view-2').style.display = 'none';
     document.getElementById('test-view-3').style.display = 'none';
+    document.getElementById('test-view-4').style.display = 'none';
+    document.getElementById('test-view-5').style.display = 'none';
     document.getElementById('test-save-cancel').style.display = 'none';
 }
 

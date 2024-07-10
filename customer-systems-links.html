@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <title id="title">BTS</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.png?v3=2">
+    <link rel="apple-touch-icon" sizes="128x128" href="/apple-touch-icon.png?v=13">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="w3.css">
+</head>
+<style>
+    a {
+        color: #1599ac;
+    }
+</style>
+
+<script>
+    const systems = {
+        'Development': "http://usplmwn320004:4203/",
+        'Development - Last': "http://usplmwn320004:4203/_last/",
+        'Public': "https://offsite-ryan.github.io/xct/",
+    }
+</script>
+
+<body id="" class=""
+    style="background-color:#2f2f2f; color:#cecece;margin-left:auto;margin-right:auto;max-width:1200px;">
+    <!-- <script src="./customer-systems-links.js"></script> -->
+
+    <h2>BTS Systems</h2>
+    <div id="links" class="w3-row-padding">
+        <!-- <div class="w3-col s4 w3-padding">
+            <div class="w3-padding" style="border:1px solid;">
+                Dev Server
+                <br />
+                <a href="http://usplmwn320004:4203/">http://usplmwn320004:4203/</a>
+            </div>
+        </div> -->
+    </div>
+
+    <script>
+        const elem = document.getElementById('links');
+        Object.keys(systems).forEach((k) => {
+            let child = document.createElement('span');
+            child.innerHTML = `
+            <div class="w3-col s4 w3-padding">
+                <div class="w3-padding" style="border:1px solid;">
+                ${k}
+                    <br />
+                    <a href="${systems[k]}" target="_blank">${systems[k]}</a>
+                </div>
+            </div>`;
+            elem.appendChild(child);
+        })
+    </script>
+</body>
+
+</html>
