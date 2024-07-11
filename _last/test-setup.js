@@ -92,15 +92,6 @@ function collapseRowDetail(index) {
             document.getElementById('test-2-step-row-1-detail').style.display = '';
         }
     } else if (index === 2) {
-        const elem = document.getElementById('test-2-step-row-2-detail');
-        const isShown = elem.style.display !== 'none';
-        if (isShown) {
-            // document.getElementById('test-2-step-row-0').style.display = 'none';
-            document.getElementById('test-2-step-row-2-detail').style.display = 'none';
-        } else {
-            document.getElementById('test-2-step-row-2-detail').style.display = '';
-        }
-    } else if (index === 5) {
         const elem = document.getElementById('test-2-step-row-1-icon');
         const isShown = elem.classList.contains('fa-caret-up');
         if (isShown) {

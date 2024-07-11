@@ -62,9 +62,10 @@
                     <!-- <td style="border-bottom:0px !important;"></td> -->
                     <td colspan="7" style="padding-left:30px;">
                         <table>
-                            <!-- <tr>
+                            <tr>
                                 <th class="color-font">Condition</th>
-                            </tr> -->
+                                <!-- <th class="color-font">Reaction</th> -->
+                            </tr>
                             <tr style="border-left:1px solid;border-top:1px solid #ddd">
                                 <td contenteditable='true'>POUCH_CENTER > 60 °C</td>
                             </tr>
@@ -135,44 +136,6 @@
             </td>
             </td>
             </tr>
-            <tr id="test-2-step-row-2" style="border-top:1px solid #ddd;">
-                <td colspan="6"><span style="padding-left:0px;display:flex;">
-                        <div class="" style="border-left:10px solid #ff03d8;">&nbsp;</div>&nbsp;
-                        <span>Test End Conditions<span class="w3-medium color-zero"> defaults</span>
-                        </span></td>
-                <td><i id="test-2-step-row-1-icon" class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
-                        style="cursor:pointer;color:#cecece;" onclick="collapseRowDetail(2)"></i>
-                </td>
-            </tr>
-            <tr id="test-2-step-row-2-detail" style="display:none;">
-                <!-- <td style="border-bottom:0px !important;"></td> -->
-                <td colspan="7" style="padding-left:30px;">
-                    <table>
-                        <tr>
-                            <th class="color-font">Mode</th>
-                            <th class="color-font">Setpoint</th>
-                            <th class="color-font">Condition</th>
-                        </tr>
-                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                            <td contenteditable='true'>+CC</td>
-                            <td>*</td>
-                            <td>V > MAX_V * 0.9</td>
-                        </tr>
-                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                            <td contenteditable='true'>-CC</td>
-                            <td>*</td>
-                            <td>V > MIN_V * 1.1</td>
-                        </tr>
-                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                            <td contenteditable='true'>CV</td>
-                            <td>MAX_V</td>
-                            <td>I < 100 mA</td>
-                        </tr>
-                </td>
-        </table>
-        </td>
-        </td>
-        </tr>
             <tr class="" style="border-top:1px solid #ddd;">
                 <th></th>
                 <th></th>
@@ -213,7 +176,7 @@
                 <td>CC <i class="fa fa-caret-down w3-large" aria-hidden="true"></i></td>
                 <td contenteditable="true">C/2</td>
                 <td contenteditable="true">V >= 3.4</td>
-                <td contenteditable="true" class="color-zero">Δ V = 0.1</td>
+                <td contenteditable="true">0.1 Hz</td>
                 <td contenteditable="true">3h 30m</td>
                 <td><i class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
                         style="cursor:pointer;color:#cecece;"
@@ -245,7 +208,7 @@
                 <td>CV <i class="fa fa-caret-down w3-large" aria-hidden="true"></i></td>
                 <td contenteditable="true">MAX_V</td>
                 <td contenteditable="true">I < 100 mA</td>
-                <td contenteditable="true" class="color-zero">Δ t = 10s</td>
+                <td contenteditable="true">0.1 Hz</td>
                 <td contenteditable="true">1h</td>
                 <td><i class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
                         style="cursor:pointer;color:#cecece;"
