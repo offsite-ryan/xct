@@ -5,9 +5,9 @@
                 <!-- <a id="system-setup-channel-assignment-locations" class="w3-bar-item" style="cursor:pointer;"
                     onclick="changeSetupView('tests')"><i class="fa fa-info" aria-hidden="true"></i>
                     About</a> -->
-                <a id="system-tab-view-general" class="w3-bar-item tab-selected"
-                    style="cursor:pointer;" onclick="changeSystemTab('general')"><i class="fa fa-info-circle"
-                        aria-hidden="true"></i> General</a>
+                <a id="system-tab-view-general" class="w3-bar-item tab-selected" style="cursor:pointer;"
+                    onclick="changeSystemTab('general')"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                    General</a>
                 <a id="system-tab-view-hardware" class="w3-bar-item" style="cursor:pointer;"
                     onclick="changeSystemTab('hardware')"><i class="fa fa-cubes" aria-hidden="true"></i>
                     Hardware</a>
@@ -20,6 +20,9 @@
                 <a id="system-tab-view-notifications" class="w3-bar-item w3-right" style="cursor:pointer;"
                     onclick="changeSystemTab('notifications')"><i class="fa fa-bell-o" aria-hidden="true"></i>
                     Notification</a>
+                <!-- <a id="system-tab-view-colors" class="w3-bar-item w3-right" style="cursor:pointer;"
+                    onclick="changeSystemTab('colors')"><i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                    Colors</a> -->
             </div>
 
             <!-- GENERAL -->
@@ -34,6 +37,11 @@
 
             <!-- CALIBRATION -->
             <div id="view-system-calibration" style="display:none;">
+                <div w3-include-html="in-development.html"></div>
+            </div>
+
+            <!-- COLORS -->
+            <div id="view-system-colors" style="display:none;">
                 <div w3-include-html="in-development.html"></div>
             </div>
 
