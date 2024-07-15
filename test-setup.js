@@ -59,7 +59,193 @@ function onKeyDown(event) {
 function viewTest(index) {
     document.getElementById('table-tests-recent').style.display = 'none';
     document.getElementById(`test-view-${index}`).style.display = 'block';
-    document.getElementById('test-save-cancel').style.display = 'block';
+    // document.getElementById('test-save-cancel').style.display = 'block';
+
+    const obj = {
+        steps: [
+            {
+                indent: 0,
+                color: 'orange',
+                name: 'Wait',
+                description: 'Wait for Chamber Temp',
+                setpoint: '',
+                end_condition: 'CHAMBER_1_TEMP >= 30 °C',
+                step_safety_limits: 'POUCH_CENTER > 30 °C<br/>123',
+                estimated_duration: '<span class="color-zero">3h 30m</span>',
+                step_safety_limits: '',
+                log_rate: ''
+            },
+            {
+                indent: 0,
+                color: '#17d305',
+                name: 'CC',
+                description: 'Charge C/5',
+                setpoint: '+C/5',
+                end_condition: '<span class="color-zero">V > MAX_V * 0.9</span>',
+                step_safety_limits: 'POUCH_CENTER > 30 °C',
+                estimated_duration: '<span class="color-zero">5h</span>',
+                log_rate: '<span class="color-zero">&Delta; t = 10s</span>'
+            },
+            {
+                indent: 0,
+                color: '#2d6b27',
+                name: 'CV',
+                description: 'Charge CV',
+                setpoint: 'MAX_V',
+                end_condition: '<span class="color-zero">I < 100 mA</span>',
+                step_safety_limits: '',
+                estimated_duration: '<span class="color-zero">1h</span>',
+                log_rate: '<span class="color-zero">&Delta; t = 10s</span>'
+            },
+            {
+                indent: 0,
+                color: '',
+                name: 'Rest',
+                description: '',
+                setpoint: '',
+                end_condition: '<span class="_color-zero">t > 30m</span>',
+                step_safety_limits: '',
+                estimated_duration: '<span class="_color-zero">30m</span>',
+                log_rate: '<span class="color-zero"></span>'
+            },
+            {
+                indent: 0,
+                color: 'blue',
+                name: 'Loop',
+                description: '',
+                setpoint: '',
+                end_condition: '<span class="color-zero"></span>',
+                step_safety_limits: '',
+                estimated_duration: '<span class="color-zero"></span>',
+                log_rate: '<span class="color-zero"></span>'
+            },
+            {
+                indent: 1,
+                color: '#7ac4f5',
+                name: 'CC',
+                description: 'Discharge C/2',
+                setpoint: '-C/2',
+                end_condition: '<span class="color-zero">V <= MIN_V</span>',
+                step_safety_limits: '',
+                estimated_duration: '<span class="color-zero">4h</span>',
+                log_rate: '<span class="color-zero">Δ V = 0.1</span>'
+            },
+            {
+                indent: 1,
+                color: '',
+                name: 'Rest',
+                description: '',
+                setpoint: '',
+                end_condition: '<span class="_color-zero">t > 30m</span>',
+                step_safety_limits: '',
+                estimated_duration: '<span class="_color-zero">30m</span>',
+                log_rate: '<span class="color-zero"></span>'
+            },
+            {
+                indent: 1,
+                color: '#17d305',
+                name: 'CC',
+                description: 'Charge C/2',
+                setpoint: '+C/2',
+                end_condition: '<span class="color-zero">V > MAX_V * 0.9</span>',
+                step_safety_limits: '',
+                estimated_duration: '<span class="color-zero">3h 30m</span>',
+                log_rate: '<span class="color-zero">&Delta; t = 10s</span>'
+            },
+            {
+                indent: 1,
+                color: '#2d6b27',
+                name: 'CV',
+                description: 'Charge CV',
+                setpoint: 'MAX_V',
+                end_condition: '<span class="color-zero">I < 100 mA</span>',
+                step_safety_limits: '',
+                estimated_duration: '<span class="color-zero">1h</span>',
+                log_rate: '<span class="color-zero">&Delta; t = 10s</span>'
+            },
+            {
+                indent: 1,
+                color: '',
+                name: 'Rest',
+                description: '',
+                setpoint: '',
+                end_condition: '<span class="_color-zero">t > 30m</span>',
+                step_safety_limits: '',
+                estimated_duration: '<span class="_color-zero">30m</span>',
+                log_rate: '<span class="color-zero"></span>'
+            },
+            {
+                indent: 0,
+                color: 'blue',
+                name: 'Loop - End',
+                description: '',
+                setpoint: '',
+                end_condition: '50x',
+                step_safety_limits: '',
+                estimated_duration: '<span class="color-zero"></span>',
+                log_rate: '<span class="color-zero"></span>'
+            },
+            {
+                indent: 0,
+                color: '#7ac4f5',
+                name: 'CC',
+                description: 'Storage Prep',
+                setpoint: '-C/5',
+                end_condition: '<span class="color-zero">V <= MAX_V * 0.30</span>',
+                step_safety_limits: '',
+                estimated_duration: '<span class="color-zero">4h</span>',
+                log_rate: '<span class="color-zero"></span>'
+            },
+            {
+                indent: 0,
+                color: '#f8e263',
+                name: 'NOTIFY',
+                description: 'Test Complete',
+                setpoint: '',
+                end_condition: '<span class="color-zero"></span>',
+                step_safety_limits: '',
+                estimated_duration: '<span class="color-zero"></span>',
+                log_rate: '<span class="color-zero"></span>'
+            },
+            // { index: 10, indent: 0, color: 'orange', name: 'Wait', description: 'Wait for Chamber Temp', setpoint: 'CHAMBER_TEMP >= 30 °C', end_condition: '<span class="color-zero">V > MAX_V * 0.9</span>', step_safety_limits: 'POUCH_CENTER > 30 °C<br/>123', log_rate: '<span class="color-zero">&Delta; t = 10s</span>', estimated_duration: '<span class="color-zero">3h 30m</span>', step_safety_limits: 'POUCH_CENTER > 30 °C<br/>123', log_rate: '<span class="color-zero">&Delta; t = 10s</span>' },
+            // // { index: 10, colspan: '6' },
+            // { index: 11, indent: 0, color: '#17d305', name: 'NAME 2', description: 'DESCRIPTION', setpoint: '', end_condition: '', step_safety_limits: '', log_rate: '', estimated_duration: '' },
+        ]
+    }
+    obj.steps.forEach((v, i) => {
+        v.index = i;
+        v.name = v.name.toUpperCase();
+    });
+    w3.displayObject("test-6-steps", obj);
+
+
+    const table = document.getElementById(`test-6-steps`);
+    let insertAt = 2;
+    obj.steps.forEach((v) => {
+        document.getElementById(`test-6-step-row-${v.index}-indicator`).style.borderLeft = `10px solid ${v.color}`;
+        document.getElementById(`test-6-step-row-${v.index}-indent`).style.paddingLeft = `${v.indent * 30}px`;
+
+        const row = table.insertRow(insertAt);
+        row.id = `test-6-step-row-${v.index}-detail`;
+        row.style.display = 'none';
+        let cell = row.insertCell(0);
+        cell.innerHTML = `&nbsp;`;
+        cell = row.insertCell(1);
+        cell.colSpan = '6';
+        cell.innerHTML = `<div class="_color-font"></span> <span contentEditable="true" placeholder="Add Comment..."></div>`;
+        insertAt += 2;
+        if (v.name === 'CV') {
+            document.getElementById(`test-6-step-row-${v.index}`).style.borderTop = '';
+        }
+        if (v.name.startsWith('Loop')) {
+            document.getElementById(`test-6-step-row-${v.index}-icon`).classList.replace('fa-ellipsis-v', 'fa-minus-square-o');
+        }
+        if (['LOOP - END', 'REST', 'WAIT'].indexOf(v.name) >= 0) {
+            document.getElementById(`test-6-step-row-${v.index}-icon`).style.display = 'none';
+        }
+
+    });
+    renderTest('test-6-canvas', obj.steps);
 }
 
 function closeTest() {
@@ -70,7 +256,7 @@ function closeTest() {
     document.getElementById('test-view-4').style.display = 'none';
     document.getElementById('test-view-5').style.display = 'none';
     document.getElementById('test-view-6').style.display = 'none';
-    document.getElementById('test-save-cancel').style.display = 'none';
+    // document.getElementById('test-save-cancel').style.display = 'none';
 }
 
 function collapseRowDetail(index) {
@@ -130,4 +316,99 @@ function collapseRowDetail(index) {
             document.getElementById('test-3-step-row-8').style.display = '';
         }
     }
+}
+
+function renderTest(id, testSteps) {
+    const canvas = document.getElementById(id);
+    canvas.width = canvas.parentElement.parentElement.clientWidth;
+    canvas.height = 200;
+    const ctx = canvas.getContext("2d");
+    const width = canvas.width;
+    const height = canvas.height;
+
+    const getX = (pct) => {
+        return width * (pct / 100);
+    }
+    const getY = (pct) => {
+        return height * (pct / 100);
+    }
+    const getW = (pct) => {
+        return (width * (pct / 100));
+    }
+
+    const steps = [
+        { label: 'WAIT', pct: 14.9, color: '#ffa500c4', endY: 50 },
+        { label: 'CC', pct: 21.3, color: '#70FE4750', endY: 22 }, // charge cc
+        { label: 'CV', pct: 4.3, color: '#70AD4750', endY: 20 }, // charge cv
+        { label: 'REST', pct: 2.1, color: 'grey', endY: 20 },
+        { label: 'CC', pct: 17, color: '#7ac4f5c4', endY: 80 }, // discharge
+        { label: 'REST', pct: 2.1, color: 'grey', endY: 80 },
+        { label: 'CC', pct: 14.9, color: '#70FE4750', endY: 22 },
+        { label: 'CV', pct: 4.3, color: '#70AD4750', endY: 20 },
+        { label: 'REST', pct: 2.1, color: 'grey', endY: 20 },
+        { label: 'CC', pct: 16.7, color: '#7ac4f5c4', endY: 60 },
+        { label: '', pct: 0.3, color: '#f8e263', endY: 60 },
+    ];
+    // background
+    ctx.beginPath()
+    let start = 0;
+    steps.forEach((v) => {
+        ctx.fillStyle = v.color;
+        ctx.fillRect(getX(start), 0, getW(v.pct), height);
+        start += v.pct;
+    });
+    ctx.stroke();
+
+    // labels
+    ctx.beginPath();
+    ctx.fillStyle = "black";
+    ctx.font = "20px Arial";
+    start = 1;
+    steps.forEach((v) => {
+        ctx.fillText(v.label === 'REST' ? '' : v.label, getX(start), 20);
+        start += v.pct;
+    });
+    ctx.stroke();
+
+    // soc line
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.fillStyle = "black";
+    ctx.font = "20px Arial";
+    start = 0;
+    ctx.lineWidth = 4;
+    ctx.moveTo(getX(0), getY(50));
+    steps.forEach((v) => {
+        ctx.lineTo(getW(start + v.pct), getY(v.endY));
+        start += v.pct;
+    });
+    ctx.stroke();
+
+    // loop
+    const loopStart = 4;
+    const loopEnd = 9
+    start = steps.slice(0, loopStart).map((v) => v.pct).reduce((p, c) => p + c);
+    let end = steps.slice(loopStart, loopEnd).map((v) => v.pct).reduce((p, c) => p + c);
+    console.log(start, end);
+
+
+    ctx.strokeStyle = "black";
+    const h = 89;
+    ctx.beginPath();
+    ctx.moveTo(getX(start), getY(h));
+    ctx.lineTo(getW(start + end), getY(h));
+
+    ctx.moveTo(getX(start), getY(h));
+    ctx.lineTo(getX(start + 1), getY(h - 3));
+    ctx.moveTo(getX(start), getY(h));
+    ctx.lineTo(getX(start + 1), getY(h + 3));
+
+    ctx.moveTo(getX(start + end), getY(h));
+    ctx.lineTo(getX(start + end - 1), getY(h - 3));
+    ctx.moveTo(getX(start + end), getY(h));
+    ctx.lineTo(getX(start + end - 1), getY(h + 3));
+
+    ctx.fillStyle = "black";
+    ctx.fillText("50x", getX(start + ((end) / 2)), getY(98.5));
+    ctx.stroke();
 }

@@ -210,4 +210,19 @@ input a:hover {
 .error {
     background-color: red;
 }
-
+.chip {
+    display: inline-block;
+    padding: 0 15px;
+    color: black;
+    height: 50px;
+    /* font-size: 16px; */
+    /* line-height: 50px; */
+    border-radius: 15px;
+    background-color: #636363;
+}
+[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    pointer-events: none;
+    display: block; /* For Firefox */
+    color:rgb(138, 138, 138);
+}

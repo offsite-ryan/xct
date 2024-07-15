@@ -1,7 +1,12 @@
-<div id="" class="_w3-padding w3-col s12 w3-large" style="">
+<div id="" class="_w3-padding w3-col s12 w3-large" style="padding-bottom:75px;">
     <!-- <div style="height:100px;background: linear-gradient(to bottom right, white, white 50%, green 50%, green);">&nbsp;</div> -->
-    <span class="w3-xlarge color-current"><span contenteditable='true'>19d C/2 Charge - Discharge (6)</span> <span
-            class="w3-medium color-zero">v009
+    <span class="w3-xlarge color-current">
+        <span contenteditable='true'>19d C/2 Charge - Discharge (6)
+            <i class="fa fa-close color-font w3-xlarge w3-right" aria-hidden="true"
+                style="padding-left:10px;cursor:pointer;" onclick="closeTest()"> Close</i>
+            <i class="fa fa-floppy-o color-zero w3-xlarge w3-right" aria-hidden="true"
+                style="padding-left:10px;cursor:pointer;"> Save</i>
+        </span> <span class="w3-medium color-zero">v009
             <br />
             <span class="w3-medium color-zero">Ryan D - 15-Jul-2024</span>
         </span>
@@ -10,140 +15,116 @@
         <!-- <i class="fa fa-plus-square-o color-font w3-xlarge w3-right" aria-hidden="true"
             style="padding-left:10px;cursor:pointer;"></i> -->
 
-        <!-- <i class="fa fa-close color-font w3-xlarge w3-right" aria-hidden="true"
-            style="padding-left:10px;cursor:pointer;"></i>
-        <i class="fa fa-floppy-o color-font w3-xlarge w3-right" aria-hidden="true"
-            style="padding-left:10px;cursor:pointer;"></i> -->
+        <!-- <img src="./assets/test-profile.png" width="100%" style="padding-top:30px;padding-bottom:15px;" /> -->
 
-        <img src="./assets/test-profile.png" width="100%" style="padding-top:30px;padding-bottom:30px;" />
-        <br />
+        <canvas id="test-6-canvas" width="1000" height="150" style="padding-bottom:20px;padding-top:20px;">
+            Sorry, your browser does not support canvas.
+        </canvas>
 
-        <div class="w3-col s12 w3-left color-zero">
-            <!-- <i class="fa fa-save" aria-hidden="true" style="cursor:pointer;padding:5px;"></i> -->
-            <i class="fa fa-pencil-square-o color-font" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-list" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-cut" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-copy" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-paste" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-plus" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-trash" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+        <table id="test-6-defaults" class="w3-table _w3-bordered w3-large"
+            style="margin-top:0px;margin-bottom:0px;color:#cecece;_display:none;"
+            _onclick="testEditorTableClick(event, this)">
 
-            <i class="fa fa-download w3-right color-font" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-globe w3-right color-font" aria-hidden="true" style="cursor:pointer;padding:5px;"
-                onclick="document.getElementById('modal-test-global-limits').style.display = 'block'"></i>
-        </div>
-
-        <div id="" _style="max-height: 290px;overflow: auto;scrollbar-color: #5d5d5d #2f2f2f;">
-            <br />
-            <table class="w3-table _w3-bordered w3-large" style="margin-top:10px;margin-bottom:0px;color:#cecece;"
-                onclick="testEditorTableClick(event, this)">
-                <tr class="color-font">
-                    <th style="_width:25%;">Test Defaults</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr id="test-6-step-row-0" style="border-top:1px solid #ddd;">
-                    <td colspan="6"><span style="padding-left:0px;display:flex;">
-                            <div class="" style="border-left:10px solid #0e707e;">&nbsp;</div>&nbsp;
-                            <span>Safety Limits<span class="w3-medium color-zero"> applies to all steps unless override is provided</span>
-                            </span></td>
-                    <td><i id="test-6-step-row-1-icon" class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
-                            style="cursor:pointer;color:#cecece;" onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i>
-                    </td>
-                </tr>
-                <tr id="test-6-step-row-0-detail" style="display:none;">
-                    <!-- <td style="border-bottom:0px !important;"></td> -->
-                    <td colspan="7" style="padding-left:30px;">
-                        <table>
-                            <!-- <tr>
-                                <th class="color-font">Condition</th>
-                            </tr> -->
-                            <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                                <td contenteditable='true'>POUCH_CENTER > 60 °C</td>
-                            </tr>
-                            <tr>
-                                <td contenteditable='true'>t > STEP_ESTIMATED_DURATION*1.5</td>
-                            </tr>
-                            <tr>
-                                <td contenteditable='true'>V > MAX_V * 1.05</td>
-                            </tr>
-                            <tr>
-                                <td contenteditable='true'>V < MIN_V * 0.95</td>
-                            </tr>
-                            <tr>
-                                <td contenteditable='true'>I > MAX_I</td>
-                            </tr>
-                            <tr>
-                                <td contenteditable='true'>I < MIN_I * 0.95</td>
-                            </tr>
-                        </table>
-                    </td>
-                    </td>
-                </tr>
-                <tr id="test-6-step-row-1" style="border-top:1px solid #ddd;">
-                    <td colspan="6"><span style="padding-left:0px;display:flex;">
-                            <div class="" style="border-left:10px solid #0e707e;">&nbsp;</div>&nbsp;
-                            <span>Log Point Conditions<span class="w3-medium color-zero"> defaults</span>
-                            </span></td>
-                    <td><i id="test-6-step-row-1-icon" class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
-                            style="cursor:pointer;color:#cecece;" onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i>
-                    </td>
-                </tr>
-                <tr id="test-6-step-row-1-detail" style="display:none;">
-                    <!-- <td style="border-bottom:0px !important;"></td> -->
-                    <td colspan="7" style="padding-left:30px;">
-                        <table>
-                            <tr>
-                                <th class="color-font">Mode</th>
-                                <th class="color-font">Setpoint</th>
-                                <th class="color-font">Condition</th>
-                            </tr>
-                            <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                                <td contenteditable='true'>CC</td>
-                                <td>*</td>
-                                <td>&Delta; V = 0.05</td>
-                            </tr>
-                            <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                                <td contenteditable='true'>CC</td>
-                                <td>1C</td>
-                                <td>&Delta; V = 0.05</td>
-                            </tr>
-                            <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                                <td contenteditable='true'>CC</td>
-                                <td>C/2</td>
-                                <td>&Delta; V = 0.1</td>
-                            </tr>
-                            <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                                <td contenteditable='true'>CC</td>
-                                <td>C/5</td>
-                                <td>&Delta; V = 0.1</td>
-                            </tr>
-                            <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                                <td contenteditable='true'>CV</td>
-                                <td>MAX_V</td>
-                                <td>&Delta; t = 10s</td>
-                            </tr>
-                    </td>
-            </table>
-            </td>
-            </td>
+            <tr class="color-font">
+                <th style="_width:25%;">Test Defaults<i class="fa fa-print w3-right color-font w3-xlarge w3-hide"
+                        aria-hidden="true" style="cursor:pointer;"></i></th>
             </tr>
-            <tr id="test-6-step-row-2" style="border-top:1px solid #ddd;">
-                <td colspan="6" on><span style="_padding-left:0px;display:flex;">
-                        <div class="" style="border-left:10px solid #0e707e;">&nbsp;</div>&nbsp;
-                        <span>End Conditions<span class="w3-medium color-zero"> defaults</span>
-                        </span></td>
-                <td><i id="test-6-step-row-1-icon" class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
-                        style="cursor:pointer;color:#cecece;" onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i>
+            <tr id="test-6-defaults-row-0" style="border-top:1px solid #ddd;">
+                <td>
+                    <span class="" style="border-left:10px solid #0e707e;">&nbsp;&nbsp;
+                        Safety Limits
+                        <span class="w3-medium color-zero">applies to all steps unless override is provided</span>
+                        <span class="w3-right" style="cursor: pointer;"><i class="fa fa-ellipsis-v w3-xlarge"
+                                aria-hidden="true"
+                                onclick="toggleTestRowDetail(this.parentElement.parentElement.parentElement.parentElement.id)"></i></span>
+                    </span>
                 </td>
             </tr>
-            <tr id="test-6-step-row-2-detail" style="display:none;">
-                <!-- <td style="border-bottom:0px !important;"></td> -->
-                <td colspan="7" style="padding-left:30px;">
+            <tr id="test-6-defaults-row-0-detail" style="display:none;">
+                <td style="padding-left:60px;">
+                    <table>
+                        <!-- <tr>
+                            <th class="color-font">Condition</th>
+                        </tr> -->
+                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
+                            <td contenteditable='true'>POUCH_CENTER > 60 °C</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable='true'>t > STEP_ESTIMATED_DURATION*1.5</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable='true'>V > MAX_V * 1.05</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable='true'>V < MIN_V * 0.95</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable='true'>I > MAX_I</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable='true'>I < MIN_I * 0.95</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr id="test-6-defaults-row-1" style="border-top:1px solid #ddd;">
+                <td>
+                    <span class="" style="border-left:10px solid #0e707e;">&nbsp;&nbsp;
+                        Log Point Conditions
+                        <span class="w3-right" style="cursor: pointer;"><i class="fa fa-ellipsis-v w3-xlarge"
+                                aria-hidden="true"
+                                onclick="toggleTestRowDetail(this.parentElement.parentElement.parentElement.parentElement.id)"></i></span>
+                    </span>
+                </td>
+            </tr>
+            <tr id="test-6-defaults-row-1-detail" style="display:none;">
+                <td style="padding-left:60px;">
+                    <table>
+                        <tr>
+                            <th class="color-font">Mode</th>
+                            <th class="color-font">Setpoint</th>
+                            <th class="color-font">Condition</th>
+                        </tr>
+                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
+                            <td contenteditable='true'>CC</td>
+                            <td>*</td>
+                            <td>&Delta; V = 0.05</td>
+                        </tr>
+                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
+                            <td contenteditable='true'>CC</td>
+                            <td>1C</td>
+                            <td>&Delta; V = 0.05</td>
+                        </tr>
+                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
+                            <td contenteditable='true'>CC</td>
+                            <td>C/2</td>
+                            <td>&Delta; V = 0.1</td>
+                        </tr>
+                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
+                            <td contenteditable='true'>CC</td>
+                            <td>C/5</td>
+                            <td>&Delta; V = 0.1</td>
+                        </tr>
+                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
+                            <td contenteditable='true'>CV</td>
+                            <td>MAX_V</td>
+                            <td>&Delta; t = 10s</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr id="test-6-defaults-row-2" style="border-top:1px solid #ddd;">
+                <td>
+                    <span class="" style="border-left:10px solid #0e707e;">&nbsp;&nbsp;
+                        End Conditions
+                        <span class="w3-right" style="cursor: pointer;"><i class="fa fa-ellipsis-v w3-xlarge"
+                                aria-hidden="true"
+                                onclick="toggleTestRowDetail(this.parentElement.parentElement.parentElement.parentElement.id)"></i></span>
+                    </span>
+                </td>
+            </tr>
+            <tr id="test-6-defaults-row-2-detail" style="display:none;">
+                <td style="padding-left:60px;">
                     <table>
                         <tr>
                             <th class="color-font">Mode</th>
@@ -165,297 +146,104 @@
                             <td>MAX_V</td>
                             <td>I < 100 mA</td>
                         </tr>
+                    </table>
                 </td>
-        </table>
-        </td>
-        </td>
-        <tr id="test-6-step-row-3" style="border-top:1px solid #ddd;">
-            <td colspan="6" on><span style="_padding-left:0px;display:flex;">
-                    <div class="" style="border-left:10px solid #0e707e;">&nbsp;</div>&nbsp;
-                    <span>Estimated Durations<span class="w3-medium color-zero"> defaults</span>
-                    </span></td>
-            <td><i id="test-6-step-row-1-icon" class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
-                    style="cursor:pointer;color:#cecece;" onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i>
-            </td>
-        </tr>
-        <tr id="test-6-step-row-3-detail" style="display:none;">
-            <!-- <td style="border-bottom:0px !important;"></td> -->
-            <td colspan="7" style="padding-left:30px;">
-                <table>
-                    <tr>
-                        <th class="color-font">Mode</th>
-                        <th class="color-font">Setpoint</th>
-                        <th class="color-font">Est. Duratiuon</th>
-                    </tr>
-                    <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                        <td contenteditable='true'>+CC</td>
-                        <td>C/2</td>
-                        <td>3h 30m</td>
-                    </tr>
-                    <tr style="border-left:1px solid;border-top:1px solid #ddd">
-                        <td contenteditable='true'>-CC</td>
-                        <td>C/2</td>
-                        <td>4h</td>
-                    </tr>
-            </td>
-    </table>
-    </td>
-    </td>
-        </tr>
-            <tr class="" style="border-top:1px solid #ddd;">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>&nbsp;</th>
             </tr>
-            <tr class="color-font" style="_border-top:1px solid #ddd;">
+
+            <tr id="test-6-defaults-row-3" style="border-top:1px solid #ddd;">
+                <td>
+                    <span class="" style="border-left:10px solid #0e707e;">&nbsp;&nbsp;
+                        Estimated Durations
+                        <span class="w3-right" style="cursor: pointer;"><i class="fa fa-ellipsis-v w3-xlarge"
+                                aria-hidden="true"
+                                onclick="toggleTestRowDetail(this.parentElement.parentElement.parentElement.parentElement.id)"></i></span>
+                    </span>
+                </td>
+            </tr>
+            <tr id="test-6-defaults-row-3-detail" style="display:none;">
+                <td style="padding-left:60px;">
+                    <table>
+                        <tr>
+                            <th class="color-font">Mode</th>
+                            <th class="color-font">Setpoint</th>
+                            <th class="color-font">Est. Duratiuon</th>
+                        </tr>
+                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
+                            <td contenteditable='true'>+CC</td>
+                            <td>C/2</td>
+                            <td>3h 30m</td>
+                        </tr>
+                        <tr style="border-left:1px solid;border-top:1px solid #ddd">
+                            <td contenteditable='true'>-CC</td>
+                            <td>C/2</td>
+                            <td>4h</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr id="test-6-step-row-0" style="border-top:1px solid #ddd;">
+                <td></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <div class="w3-col s12 w3-left color-zero">
+            <!-- <i class="fa fa-save" aria-hidden="true" style="cursor:pointer;padding:5px;"></i> -->
+            <i class="fa fa-pencil-square-o color-font" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-list" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-cut" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-copy" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-paste" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-plus" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-trash" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+
+            <!-- <i class="fa fa-download w3-right color-font" aria-hidden="true" style="cursor:pointer;padding:5px;"></i> -->
+            <!-- <i class="fa fa-globe w3-right color-font" aria-hidden="true" style="cursor:pointer;padding:5px;"
+                onclick="document.getElementById('modal-test-global-limits').style.display = 'block'"></i> -->
+        </div>
+
+        <table id="test-6-steps" class="w3-table _w3-bordered w3-large"
+            style="margin-top:10px;margin-bottom:0px;color:#cecece;_display:none;"
+            onclick="testEditorTableClick(event, this)">
+
+            <tr class="color-font">
                 <th style="_width:25%;">Step</th>
                 <th>Description</th>
                 <th>Setpoint</th>
                 <th>End Condition</th>
+                <th>Step Safety Limits</th>
                 <th>Log Rate</th>
-                <th>Est. Duration
+                <th style="width:10%">Duration
                     <!-- <i class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
-                            style="cursor:pointer;"></i> -->
+                        style="cursor:pointer;"></i> -->
                 </th>
-                <th></th>
-            </tr>
-            <tr id="test-6-step-row-2" style="border-top:1px solid #ddd;">
-                <td><span style="padding-left:0px;display:flex;">
-                        <div class="" style="border-left:10px solid #f89726;">&nbsp;</div>&nbsp;Wait
-                    </span></td>
-                <td>Wait for Chamber Temp</td>
-                <td></td>
-                <td contenteditable="true" class="">CHAMBER_1_TEMP >= 30 °C</td>
-                <td contenteditable="true" class="color-zero"></td>
-                <td contenteditable="true"></td>
-                <td></td>
-            </tr>
-            <tr id="test-6-step-row-4" style="border-top:1px solid #ddd;">
-                <td><span style="padding-left:0px;display:flex;">
-                        <div class="" style="border-left:10px solid #17d305;">&nbsp;</div>&nbsp;CC
-                    </span></td>
-                <td>Charge C/2</td>
-                <td contenteditable="true">+C/2</td>
-                <td contenteditable="true" class="color-zero">V > MAX_V * 0.9</td>
-                <td contenteditable="true" class="color-zero">Δ V = 0.1</td>
-                <td contenteditable="true" class="color-zero">3h 30m</td>
-                <td><i class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
-                        style="cursor:pointer;color:#cecece;"
-                        onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i></td>
-            </tr>
-            <tr id="test-6-step-row-4-detail" style="display:none;" _onclick="selectTestEditorRow(event, this.rowIndex)"
-                style="_display:none;">
-                <td style="border-bottom:0px !important;"></td>
-                <td colspan="6">
-                    <table>
-                        <tr>
-                            <td class="color-font">Description</td>
-                            <td contenteditable='true'></td>
-                        </tr>
-                        <tr>
-                            <td class="color-font">Step Limits</td>
-                            <td contenteditable='true' style="min-width:100px;"></td>
-                        </tr>
-                    </table>
-                </td>
-                <!-- <td colspan="6" class="_w3-center"><span class="color-font">Limits:</span> T
-                        < 60 °C<br /><span class="color-font">Log Points:</span> 0.1 mA -->
-                </td>
-            </tr>
-            <tr id="test-6-step-row-5" style="_border-top:1px solid #ddd;">
-                <td><span style="padding-left:0px;display:flex;">
-                        <div class="" style="border-left:10px solid #2d6b27;">&nbsp;</div>&nbsp;CV
-                    </span></td>
-                <td>Charge CV</td>
-                <td contenteditable="true">MAX_V</td>
-                <td contenteditable="true" class="color-zero">I < 100 mA</td>
-                <td contenteditable="true" class="color-zero">Δ t = 10s</td>
-                <td contenteditable="true">1h</td>
-                <td><i class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
-                        style="cursor:pointer;color:#cecece;"
-                        onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i></td>
-            </tr>
-            <tr id="test-6-step-row-5-detail" style="display:none;" _onclick="selectTestEditorRow(event, this.rowIndex)"
-                style="_display:none;">
-                <td style="border-bottom:0px !important;"></td>
-                <td colspan="6">
-                    <table>
-                        <tr>
-                            <td class="color-font">Description</td>
-                            <td contenteditable='true'></td>
-                        </tr>
-                        <tr>
-                            <td class="color-font">Step Limits</td>
-                            <td contenteditable='true' style="min-width:100px;"></td>
-                        </tr>
-                    </table>
-                </td>
-                <!-- <td colspan="6" class="_w3-center"><span class="color-font">Limits:</span> T
-                        < 60 °C<br /><span class="color-font">Log Points:</span> 0.1 mA -->
-                </td>
-            </tr>
-            <tr id="test-6-step-row-5" style="border-top:1px solid #ddd;">
-                <td><span style="padding-left:0px;display:flex;">
-                        <div class="" style="border-left:10px solid darkgray;">&nbsp;</div>&nbsp;Rest
-                    </span></td>
-                <td></td>
-                <td></td>
-                <td contenteditable="true">t > 30 m</td>
-                <td></td>
-                <td contenteditable="true">30m</td>
-                <td></td>
+                <th style="width:1%"></th>
             </tr>
 
-            <tr id="test-6-step-row-5" style="border-top:1px solid #ddd;">
-                <td colspan="6"><span style="display:flex;">
-                        <div class="" style="border-left:10px solid blue;">&nbsp;</div>&nbsp;
-                        <span>Loop Start <span contenteditable="true" class="w3-medium color-zero"> (50x C/2 Charge
-                                - Discharge)</span>
-                        </span>
-                    </span></td>
-                <td><i class="fa fa-caret-up w3-right w3-xlarge" aria-hidden="true" style="cursor:pointer;"
-                        onclick=""></i>
+            <!-- REPEAT -->
+            <tr w3-repeat="steps" id="test-6-step-row-{{index}}" style="border-top:1px solid #ddd;">
+                <td><span id="test-6-step-row-{{index}}-indent" style="display:flex;">
+                        <div id="test-6-step-row-{{index}}-indicator" class="" style="border-left:10px solid;">
+                            &nbsp;</div>&nbsp;{{name}}
+                    </span>
                 </td>
-            </tr>
-            <tr id="test-6-step-row-7" style="border-top:1px solid #ddd;">
-                <td><span style="padding-left:30px;display:flex;">
-                        <div class="" style="border-left:10px solid rgb(122, 196, 245);">&nbsp;</div>
-                        &nbsp;CC
-                    </span></td>
-                <td>Discharge C/2</td>
-                <td>-C/2</td>
-                <td class="color-zero">V <= MIN_V</td>
-                <td class="color-zero">0.1 Hz</td>
-                <td class="color-zero">4h</td>
-                <td><i class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
-                        style="cursor:pointer;color:#cecece;"
-                        _onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i></td>
-            </tr>
-            <tr id="test-6-step-row-8" style="border-top:1px solid #ddd;">
-                <td><span style="padding-left:30px;display:flex;">
-                        <div class="" style="border-left:10px solid darkgray;">&nbsp;</div>&nbsp;Rest
-                    </span></td>
-                <td></td>
-                <td></td>
-                <td>t > 30 m</td>
-                <td></td>
-                <td>30m</td>
-                <td></td>
-            </tr>
-            <tr id="test-6-step-row-4" style="border-top:1px solid #ddd;">
-                <td><span style="padding-left:30px;display:flex;">
-                        <div class="" style="border-left:10px solid #17d305;">&nbsp;</div>&nbsp;CC
-                    </span></td>
-                <td>Charge C/2</td>
-                <td contenteditable="true">+C/2</td>
-                <td contenteditable="true" class="color-zero">V > MAX_V * 0.9</td>
-                <td contenteditable="true" class="color-zero">Δ V = 0.1</td>
-                <td contenteditable="true" class="color-zero">3h 30m</td>
-                <td><i class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
-                        style="cursor:pointer;color:#cecece;"
+                <td contenteditable="true">{{description}}</td>
+                <td contenteditable="true">{{setpoint}}</td>
+                <td contenteditable="true" class="">{{end_condition}}</td>
+                <td contenteditable="true" class="">{{step_safety_limits}}<span style="_display:none;"></span></td>
+                <td contenteditable="true" class="">{{log_rate}}</td>
+                <td contenteditable="true">{{estimated_duration}}</td>
+                <td><i id="test-6-step-row-{{index}}-icon" class="fa fa-ellipsis-v w3-right w3-xlarge"
+                        aria-hidden="true" style="cursor:pointer;color:#cecece;"
                         onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i></td>
             </tr>
-            <tr id="test-6-step-row-4-detail" style="display:none;" _onclick="selectTestEditorRow(event, this.rowIndex)"
-                style="_display:none;">
-                <td style="border-bottom:0px !important;"></td>
-                <td colspan="6">
-                    <table>
-                        <tr>
-                            <td class="color-font">Description</td>
-                            <td contenteditable='true'></td>
-                        </tr>
-                        <tr>
-                            <td class="color-font">Step Limits</td>
-                            <td contenteditable='true' style="min-width:100px;"></td>
-                        </tr>
-                    </table>
-                </td>
-                <!-- <td colspan="6" class="_w3-center"><span class="color-font">Limits:</span> T
-                        < 60 °C<br /><span class="color-font">Log Points:</span> 0.1 mA -->
-                </td>
-            </tr>
-            <tr id="test-6-step-row-5" style="_border-top:1px solid #ddd;">
-                <td><span style="padding-left:30px;display:flex;">
-                        <div class="" style="border-left:10px solid #2d6b27;">&nbsp;</div>&nbsp;CV
-                    </span></td>
-                <td>Charge CV</td>
-                <td contenteditable="true">MAX_V</td>
-                <td contenteditable="true" class="color-zero">I < 100 mA</td>
-                <td contenteditable="true" class="color-zero">Δ t = 10s</td>
-                <td contenteditable="true">1h</td>
-                <td><i class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
-                        style="cursor:pointer;color:#cecece;"
-                        onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i></td>
-            </tr>
-            <tr id="test-6-step-row-5-detail" style="display:none;" _onclick="selectTestEditorRow(event, this.rowIndex)"
-                style="_display:none;">
-                <td style="border-bottom:0px !important;"></td>
-                <td colspan="6">
-                    <table>
-                        <tr>
-                            <td class="color-font">Description</td>
-                            <td contenteditable='true'></td>
-                        </tr>
-                        <tr>
-                            <td class="color-font">Step Limits</td>
-                            <td contenteditable='true' style="min-width:100px;"></td>
-                        </tr>
-                    </table>
-                </td>
-                <!-- <td colspan="6" class="_w3-center"><span class="color-font">Limits:</span> T
-                        < 60 °C<br /><span class="color-font">Log Points:</span> 0.1 mA -->
-                </td>
-            </tr>
-            <tr id="test-6-step-row-8" style="border-top:1px solid #ddd;">
-                <td><span style="padding-left:30px;display:flex;">
-                        <div class="" style="border-left:10px solid darkgray;">&nbsp;</div>&nbsp;Rest
-                    </span></td>
-                <td></td>
-                <td></td>
-                <td>t > 30 m</td>
-                <td></td>
-                <td>30m</td>
-                <td></td>
-            </tr>
-            <tr style="border-top:1px solid #ddd;">
-                <td><span style="display:flex;">
-                        <div class="" style="border-left:10px solid blue;">&nbsp;</div>&nbsp;Loop - End
-                    </span></td>
-                <td></td>
-                <td></td>
-                <td>50x</td>
-                <td></td>
-                <td class="color-time">18d 18h</td>
-                <td></td>
-            </tr>
-            <tr style="border-top:1px solid #ddd;">
-                <td><span style="display:flex;">
-                        <div class="" style="border-left:10px solid rgb(122, 196, 245);">&nbsp;</div>&nbsp;
-                        <span>CC</span>
-                        </span></td>
-                <td>Storage Prep</td>
-                <td>-C/5</td>
-                <td>V < MAX_V * 0.30</td>
-                <td></td>
-                <td>5h</td>
-            </tr>
+
             <tr class="color-font _card-menu-option-selected"
                 style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;">
-                <td colspan="5"><b>Estimated Test Duration</b></td>
-                <td><b>18d 20h 30m</b></td>
+                <td colspan="6"><b>Estimated Test Duration</b></td>
+                <td><b>19d 8h 0m</b></td>
             </tr>
-            <!-- <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td> <i class="fa fa-plus-square-o w3-xlarge w3-right color-current" aria-hidden="true"
-                            style="cursor:pointer;color;"></i></td>
-                </tr> -->
-            </table>
-        </div>
+        </table>
+
 </div>
