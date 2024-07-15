@@ -180,7 +180,7 @@ function viewTest(index) {
                 name: 'Loop - End',
                 description: '',
                 setpoint: '',
-                end_condition: '50x',
+                end_condition: 'LOOP_COUNT > 50',
                 step_safety_limits: '',
                 estimated_duration: '<span class="color-zero"></span>',
                 log_rate: '<span class="color-zero"></span>'
