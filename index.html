@@ -924,7 +924,7 @@
             document.getElementById(name).classList.add('card-selected');
             // document.getElementById(name).classList.add('row-selected');
             document.getElementById('detail-name').innerText = name;
-            document.getElementById('detail-uut').innerText = selected.uut;
+            document.getElementById('detail-uut').innerHTML = selected.uut;
             document.getElementById('pager').style.display = 'block';
 
             selectCardType(card_type);
