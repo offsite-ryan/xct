@@ -126,7 +126,8 @@ class data {
             })
         }
         history = history.slice(offset, offset + 120);
-        return history.reverse();
+        history.reverse();
+        return history;
     }
 }
 // function getData(name, field = 'v', offset = 0, count = 1000) {

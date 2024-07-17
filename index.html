@@ -71,19 +71,24 @@
                 </span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
-                <span class="color-font">On Test: <span class="color-current" style="font-weight:bold;">41</span></span>
+                <span class="color-font">On Test: <span id="count_on_test" class=""
+                        style="font-weight:bold;">41</span></span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
-                <span class="color-font">Paused: <span class="color-current" style="font-weight:bold;">7</span></span>
+                <span class="color-font">Paused: <span id="count_paused" class=""
+                        style="font-weight:bold;">7</span></span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
-                <span class="color-zero">Empty: <span class="color-zero" style="font-weight:bold;">0</span></span>
+                <span class="color-font">Empty: <span id="count_empty" class=""
+                        style="font-weight:bold;">0</span></span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
-                <span class="color-font">Complete: <span class="color-current" style="font-weight:bold;">9</span></span>
+                <span class="color-font">Complete: <span id="count_complete" class=""
+                        style="font-weight:bold;">9</span></span>
             </div>
             <div class="w3-col s2 clickable w3-xlarge">
-                <span class="color-zero">Errors: <span class="color-zero" style="font-weight:bold;">0</span></span>
+                <span class="color-font">Errors: <span id="count_error" class=""
+                        style="font-weight:bold;">0</span></span>
                 <div class="w3-dropdown-hover w3-right" _style="">
                     <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:30px;"><i id="menu"
                             class="fa fa-ellipsis-v color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
@@ -545,10 +550,11 @@
                     class="fa fa-table" aria-hidden="true"></i> Batch Operations</a>
             <a href="#contextual-help" id="contextual-help" class="w3-xlarge" style="float:right;"
                 onclick="changeView(this.id, this)"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
-            <a href="#system" id="system" class="w3-xlarge" style="float:right;"
-                onclick="changeView(this.id, this)"><i class="fa fa-cog" aria-hidden="true"></i></a>
+            <a href="#system" id="system" class="w3-xlarge" style="float:right;" onclick="changeView(this.id, this)"><i
+                    class="fa fa-cog" aria-hidden="true"></i></a>
             <a href="#configuration" id="configuration" class="w3-xlarge" style="float:right;min-width:0px;"
-                onclick="changeView(this.id, this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Configuration</a>
+                onclick="changeView(this.id, this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                Configuration</a>
             <!-- <a href="#system-setup" id="system-setup" class="w3-xlarge" style="float:right;"
                 onclick="changeView(this.id, this)"><i class="fa fa-_cog" aria-hidden="true"></i></a>
             <a href="#test-setup" id="test-setup" class="w3-xlarge" style="float:right;"
@@ -661,6 +667,11 @@
         // DATA
         const chartData = new data();
         let cards = { items: [] };
+        let on_test = 0;
+        let paused = 0;
+        let empty = 0;
+        let complete = 0;
+        let error = 0;
         for (let x = 1; x <= 48; x++) {
             const offset = (Math.random() * 700);
             const count = 800;
@@ -672,19 +683,9 @@
 
             let history = '';
             const temp = chartData.getHistory(x + Math.round(Math.random() * 10));
-            temp.forEach((h) => {
+            temp.forEach((h, index) => {
                 const pct = h.hours / 120;
                 const hours = 120 * pct;
-                // history += `
-                //     <div class="w3-dropdown-hover ${h.className}" style="_background-color:${h.color};width:${hours}%;">
-                //         <div _class="${h.className}">&nbsp;
-                //         <div class="w3-dropdown-content w3-bar-block w3-border w3-medium w3-padding"
-                //             style="width:400px;color:#cecece background-color:black;z-index:99999">
-                //             <span style="padding-left:15px;">a bunch of info</span>
-                //         </div>
-                //         </div>
-                //     </div>
-                // `;
 
                 history += `
                     <div class="_w3-dropdown-hover ${h.className}" style="width:${hours}%;opacity:100%;">
@@ -695,6 +696,14 @@
                         </div>-->
                     </div>
                 `;
+
+                if (index === temp.length - 1) {
+                    if (h.className === 'charge' || h.className === 'discharge' || h.className === 'on-test') { on_test++; }
+                    if (h.className === 'paused') { paused++; }
+                    if (h.className === '') { complete++; }
+                    if (h.className === 'empty') { empty++; }
+                    if (h.className === 'error') { error++; }
+                }
 
             })
 
@@ -722,6 +731,27 @@
             temp.pages.push({ name: x.toString() });
         }
         cards.pages = temp.pages;
+
+        // /** UPDATE COUNTS */
+        let elem = document.getElementById('count_on_test');
+        elem.innerText = on_test;
+        elem.classList.add(on_test > 0 ? 'color-current' : 'color-zero')
+
+        elem = document.getElementById('count_paused');
+        elem.innerText = paused;
+        elem.classList.add(paused > 0 ? 'color-current' : 'color-zero')
+
+        elem = document.getElementById('count_complete');
+        elem.innerText = complete;
+        elem.classList.add(complete > 0 ? 'color-current' : 'color-zero')
+
+        elem = document.getElementById('count_empty');
+        elem.innerText = empty;
+        elem.classList.add(empty > 0 ? 'color-current' : 'color-zero')
+
+        elem = document.getElementById('count_error');
+        elem.innerText = error;
+        elem.classList.add(error > 0 ? 'color-current' : 'color-zero')
 
         document.getElementById('content').style.display = 'block';
         w3.displayObject("cards", cards);
