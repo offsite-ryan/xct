@@ -47,8 +47,9 @@
             </h1>
             <img class="logo2" src="avl-logo-300x300.png" />
         </span>
+
         <div id="overview-counts" class="w3-row w3-center _w3-right-align" style="padding-top:20px;">
-            <div class="w3-col s2 w3-left-align">
+            <div class="w3-col s1 w3-left-align">
                 <span class="color-font w3-xlarge">
                     <div class="w3-dropdown-hover  w3-xlarge" _style="">
                         <div class="color-current" style="background-color:#2f2f2f;border:0px solid;"><i id="filter"
@@ -64,31 +65,31 @@
                                 onclick="filter('Project C')">Project C</a>
                             <a class="card-menu-option-unselected w3-bar-item w3-button"
                                 onkeyup="filter(this.value)"><input type="text" placeholder="Search..."></input></a>
-                            <!-- <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch</a> -->
                         </div>
                     </div>
                 </span>
             </div>
-            <div class="w3-col s2 clickable w3-xlarge">
+            <div id="filter_on_test" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('on_test')">
                 <span class="color-font">On Test: <span id="count_on_test" class=""
                         style="font-weight:bold;">41</span></span>
             </div>
-            <div class="w3-col s2 clickable w3-xlarge">
+            <div id="filter_paused" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('paused')">
                 <span class="color-font">Paused: <span id="count_paused" class=""
                         style="font-weight:bold;">7</span></span>
             </div>
-            <div class="w3-col s2 clickable w3-xlarge">
+            <div id="filter_empty" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('empty')">
                 <span class="color-font">Empty: <span id="count_empty" class=""
                         style="font-weight:bold;">0</span></span>
             </div>
-            <div class="w3-col s2 clickable w3-xlarge">
+            <div id="filter_complete" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('complete')">
                 <span class="color-font">Complete: <span id="count_complete" class=""
                         style="font-weight:bold;">9</span></span>
             </div>
-            <div class="w3-col s2 clickable w3-xlarge">
+            <div id="filter_error" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('error')">
                 <span class="color-font">Errors: <span id="count_error" class=""
                         style="font-weight:bold;">0</span></span>
+            </div>
+            <div id="" class="w3-col s1 clickable w3-xlarge">
                 <div class="w3-dropdown-hover w3-right" _style="">
                     <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:30px;"><i id="menu"
                             class="fa fa-ellipsis-v color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
@@ -105,17 +106,16 @@
                         <a id="menu-view-timeline" class="card-menu-option-unselected w3-bar-item w3-button"
                             onclick="selectCardType('timeline')"><i class="fa fa-table" aria-hidden="true"></i>
                             Timeline</a>
-                        <!-- <a class="card-menu-option-unselected w3-bar-item w3-button"
-                        onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Batch Operations</a> -->
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- CARDS -->
-        <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;">
-            <hr />
-            <!-- <div class="w3-container w3-xlarge color-font"
+    <!-- CARDS -->
+    <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;">
+        <hr />
+        <!-- <div class="w3-container w3-xlarge color-font"
                 style="border-top:1px solid#c5c5c5;margin-top:8px;padding-top:10px;padding-right:6px;margin-bottom:10px;">
                 <div class="w3-col s4">
                     &nbsp;
@@ -127,171 +127,169 @@
 
             </div> -->
 
-            <!-- TABLE -->
-            <div id="table-view" class="w3-col s12 w3-large" style="display:block;">
+        <!-- TABLE -->
+        <div id="table-view" class="w3-col s12 w3-large" style="display:block;">
+            <table class="w3-table w3-bordered">
+                <tr class="color-font">
+                    <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
+                    <th>Channel</th>
+                    <th>Serial Number</th>
+                    <th>Test Procedure</th>
+                    <th>Step Name</th>
+                    <th>V</th>
+                    <th>I (mA)</th>
+                    <th>t (h)</th>
+                    <th>Cycles</th>
+                    <!-- <th></th> -->
+                </tr>
+                <tr w3-repeat="items" id="table-row-{{name}}" onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
+                    <!-- <td><i class="fa fa-square-o" aria-hidden="true"></i></td> -->
+                    <td class="color-moniker">{{name}}</td>
+                    <td>{{uut}}</td>
+                    <td>TXW467v3</td>
+                    <td>Constant Current Discharge</td>
+                    <td class="color-voltage">{{v}}</td>
+                    <td class="color-current">{{i}}</td>
+                    <td class="color-time">{{st}}</td>
+                    <td><span class="color-current">{{cycles}}</span> / <span class="color-time">50</span></td>
+                    <!-- <td><i class="fa fa-pause color-font" style="cursor:pointer;" aria-hidden="true"></i></td> -->
+                </tr>
+            </table>
+        </div>
+
+        <!-- LARGE / SMALL CARDS -->
+        <div id="card-view" class="w3-col s12 w3-large" style="display:block;">
+            <div w3-repeat="items" class="w3-col s12 m2 l2" style="display:block">
+                <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
+                    <span class="" style="display:flex;justify-content: space-between;">
+                        <span id="card-name-{{name}}" class="color-moniker">{{name}}</span>
+                        <span style="font-size:12px;margin-top:3px;">
+                            <span class="color-voltage">{{v}}</span>
+                            <span class="color-font"> | </span>
+                            <span class="color-current">{{i}}</span>
+                            <span class="color-font"> | </span>
+                            <span class="color-time">{{st}}</span>
+                        </span>
+                    </span>
+
+                    <span class="" style="display:flex;justify-content: space-between;">
+                        <span class="color-current">{{uut}}</span>
+                        <span style="font-size:12px;margin-top:3px;">
+                            <span class="color-current">{{cycles}}</span>
+                            <span class="color-font"> / </span>
+                            <span class="color-time">50</span>
+                        </span>
+                    </span>
+
+                    <div id="card-chart-{{name}}" name="card-chart" style="margin-top:3px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIMELINE -->
+        <div id="timeline-view" class="w3-col s12 w3-large" style="display:none;">
+            <div id="" class="w3-col s12 w3-large" _style="display:block;">
                 <table class="w3-table w3-bordered">
                     <tr class="color-font">
                         <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
-                        <th>Channel</th>
-                        <th>Serial Number</th>
-                        <th>Test Procedure</th>
-                        <th>Step Name</th>
-                        <th>V</th>
-                        <th>I (mA)</th>
-                        <th>t (h)</th>
-                        <th>Cycles</th>
-                        <!-- <th></th> -->
+                        <th width=100>Channel</th>
+                        <th class="w3-center" style="border-left:0px solid;"> 27-Jun</th>
+                        <th class="w3-center" style="border-left:1px solid;"> 28-Jun</th>
+                        <th class="w3-center" style="border-left:1px solid;"> 29-Jun</th>
+                        <th class="w3-center" style="border-left:1px solid;"> 30-Jun</th>
+                        <th class="w3-center" style="border-left:1px solid;"> 01-Jul</th>
+                        <!-- <th class="w3-center">Timeline: <spam class="color-current">Last 5 days</spam></th> -->
                     </tr>
-                    <tr w3-repeat="items" id="table-row-{{name}}" onclick="clickRow(this.rowIndex)"
-                        style="cursor:pointer;">
-                        <!-- <td><i class="fa fa-square-o" aria-hidden="true"></i></td> -->
-                        <td class="color-moniker">{{name}}</td>
-                        <td>{{uut}}</td>
-                        <td>TXW467v3</td>
-                        <td>Constant Current Discharge</td>
-                        <td class="color-voltage">{{v}}</td>
-                        <td class="color-current">{{i}}</td>
-                        <td class="color-time">{{st}}</td>
-                        <td><span class="color-current">{{cycles}}</span> / <span class="color-time">50</span></td>
-                        <!-- <td><i class="fa fa-pause color-font" style="cursor:pointer;" aria-hidden="true"></i></td> -->
+
+                    <!-- TIMELINE ROWS - REPEAT -->
+                    <tr id="timeline-row-{{name}}" w3-repeat="items" id="timeline-row-CH04"
+                        onclick="clickRow(this.rowIndex)">
+                        <td class="color-moniker" style="cursor:pointer;">{{name}}</td>
+                        <td colspan="5">
+                            <span class="w3-small" style="display:flex;margin-top:5px;">
+                                {{history}}
+                            </span>
+
+                        </td>
                     </tr>
                 </table>
             </div>
+        </div>
 
-            <!-- LARGE / SMALL CARDS -->
-            <div id="card-view" class="w3-col s12 w3-large" style="display:block;">
-                <div w3-repeat="items" class="w3-col s12 m2 l2" style="display:block">
-                    <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
-                        <span class="" style="display:flex;justify-content: space-between;">
-                            <span class="color-moniker">{{name}}</span>
-                            <span style="font-size:12px;margin-top:3px;">
-                                <span class="color-voltage">{{v}}</span>
-                                <span class="color-font"> | </span>
-                                <span class="color-current">{{i}}</span>
-                                <span class="color-font"> | </span>
-                                <span class="color-time">{{st}}</span>
-                            </span>
-                        </span>
+        <!-- PAGER -->
+        <br />
+        <div id="pages" class="w3-col s12 w3-center">
+            <span id="pager" style="display:flex;justify-content:center;display:none;margin:3px;font-size:1.1rem;">
+                <span w3-repeat="pages" id="page-{{name}}" class="color-font pager-button" _style=""
+                    onclick="clickPager(this.innerText)">{{name}}</span>
+                <span id="page-all" class="w3-white-text _color-font pager-button" _style=""
+                    onclick="clickPager(this.innerText)">ALL</span>
+            </span>
+        </div>
 
-                        <span class="" style="display:flex;justify-content: space-between;">
-                            <span class="color-current">{{uut}}</span>
-                            <span style="font-size:12px;margin-top:3px;">
-                                <span class="color-current">{{cycles}}</span>
-                                <span class="color-font"> / </span>
-                                <span class="color-time">50</span>
-                            </span>
-                        </span>
+        <!-- DETAIL -->
+        <div id="detail" class="w3-padding card w3-col s12"
+            style="display:none;cursor:default;background-color: #2f2f2f;">
+            <div class="_w3-row _w3-padding">
 
-                        <div id="card-chart-{{name}}" name="card-chart" style="margin-top:3px;"></div>
-                    </div>
+                <!-- COLUMN 1 -->
+                <div class="w3-col s2">
+                    <span class="color-moniker w3-xxlarge"><img src="./assets/discharge.png" height="45" /> <span
+                            id="detail-name">CHANNEL </span></span>
+                    <br />
+                    <span class="color-font w3-large"><i class="fa fa-battery-half w3-xxlarge color-ccurrent"
+                            aria-hidden="true"></i> <span id="detail-uut"
+                            class="color-current w3-xxlarge">UUT</span></span>
                 </div>
-            </div>
 
-            <!-- TIMELINE -->
-            <div id="timeline-view" class="w3-col s12 w3-large" style="display:none;">
-                <div id="" class="w3-col s12 w3-large" _style="display:block;">
-                    <table class="w3-table w3-bordered">
-                        <tr class="color-font">
-                            <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
-                            <th width=100>Channel</th>
-                            <th class="w3-center" style="border-left:0px solid;"> 27-Jun</th>
-                            <th class="w3-center" style="border-left:1px solid;"> 28-Jun</th>
-                            <th class="w3-center" style="border-left:1px solid;"> 29-Jun</th>
-                            <th class="w3-center" style="border-left:1px solid;"> 30-Jun</th>
-                            <th class="w3-center" style="border-left:1px solid;"> 01-Jul</th>
-                            <!-- <th class="w3-center">Timeline: <spam class="color-current">Last 5 days</spam></th> -->
-                        </tr>
-
-                        <!-- TIMELINE ROWS - REPEAT -->
-                        <tr id="timeline-row-{{name}}" w3-repeat="items" id="timeline-row-CH04"
-                            onclick="clickRow(this.rowIndex)">
-                            <td class="color-moniker" style="cursor:pointer;">{{name}}</td>
-                            <td colspan="5">
-                                <span class="w3-small" style="display:flex;margin-top:5px;">
-                                    {{history}}
-                                </span>
-
-                            </td>
-                        </tr>
-                    </table>
+                <!-- COLUMN 2 -->
+                <div class="w3-col s3 w3-padding"
+                    style="margin-top:23px;display:flex;flex-direction:column;align-items:flex-end;">
+                    <span class="color-font w3-large" style="margin-top: 3px;margin-right: 10px;"><span>V | I (mA) |
+                            t
+                            (hrs)</span></span>
+                    <span class="color-font" style="font-size: 28px;margin-right:10px;">
+                        <span id="" class="color-voltage">3.312</span>
+                        <span id="" class="color-font"> | </span>
+                        <span id="" class="color-current">-0.612</span>
+                        <span id="" class="color-font"> | </span>
+                        <span id="" class="color-time">3.8</span>
+                    </span>
                 </div>
-            </div>
 
-            <!-- PAGER -->
-            <br />
-            <div id="pages" class="w3-col s12 w3-center">
-                <span id="pager" style="display:flex;justify-content:center;display:none;margin:3px;font-size:1.1rem;">
-                    <span w3-repeat="pages" id="page-{{name}}" class="color-font pager-button" _style=""
-                        onclick="clickPager(this.innerText)">{{name}}</span>
-                    <span id="page-all" class="w3-white-text _color-font pager-button" _style=""
-                        onclick="clickPager(this.innerText)">ALL</span>
-                </span>
-            </div>
+                <!-- COLUMN 3 -->
+                <div class="w3-col s4" style="display:flex;flex-direction:column;align-items:flex-start;">
+                    <span class="color-current w3-medium" style="margin-top: 12px;margin-left:10px;"><span
+                            class="color-font">Procedure: </span>TXW2345-02 <span class="color-time">...</span></span>
+                    <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Step
+                            Name: </span>Constant
+                        Current Charge</span>
+                    <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Run
+                            Time: </span>21h 41m</span>
+                    <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Num
+                            Cycles: </span>17 / <span class="color-time">50</span></span>
+                </div>
 
-            <!-- DETAIL -->
-            <div id="detail" class="w3-padding card w3-col s12"
-                style="display:none;cursor:default;background-color: #2f2f2f;">
-                <div class="_w3-row _w3-padding">
+                <!-- COLUMN 4 -->
+                <div class="w3-col s2" style="display:flex;flex-direction:column;align-items:flex-start;">
+                    <span class="color-current w3-medium" style="margin-top: 12px;"><span class="color-font">Battery:
+                        </span>2987-08 <span class="color-time">...</span></span>
+                    <span class="color-current w3-medium"><span class="color-font">Rated Capacity: </span>2</span>
+                    <span class="color-current w3-medium"><span class="color-font">Max Voltage: </span>3.8</span>
+                    <span class="color-current w3-medium"><span class="color-font">Max Current:
+                        </span>2.2</span></span>
+                </div>
 
-                    <!-- COLUMN 1 -->
-                    <div class="w3-col s2">
-                        <span class="color-moniker w3-xxlarge"><img src="./assets/discharge.png" height="45" /> <span
-                                id="detail-name">CHANNEL </span></span>
-                        <br />
-                        <span class="color-font w3-large"><i class="fa fa-battery-half w3-xxlarge color-ccurrent"
-                                aria-hidden="true"></i> <span id="detail-uut"
-                                class="color-current w3-xxlarge">UUT</span></span>
-                    </div>
+                <!-- SCREEN GRAB & UI SWITCH -->
+                <div class="w3-col s1"
+                    style="display:flex;flex-direction:row;align-items:flex-end;justify-content:flex-end">
+                    <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="closeDetail()"><i
+                            class="fa fa-times w3-xlarge" aria-hidden="true"></i></span>
 
-                    <!-- COLUMN 2 -->
-                    <div class="w3-col s3 w3-padding"
-                        style="margin-top:23px;display:flex;flex-direction:column;align-items:flex-end;">
-                        <span class="color-font w3-large" style="margin-top: 3px;margin-right: 10px;"><span>V | I (mA) |
-                                t
-                                (hrs)</span></span>
-                        <span class="color-font" style="font-size: 28px;margin-right:10px;">
-                            <span id="" class="color-voltage">3.312</span>
-                            <span id="" class="color-font"> | </span>
-                            <span id="" class="color-current">-0.612</span>
-                            <span id="" class="color-font"> | </span>
-                            <span id="" class="color-time">3.8</span>
-                        </span>
-                    </div>
-
-                    <!-- COLUMN 3 -->
-                    <div class="w3-col s4" style="display:flex;flex-direction:column;align-items:flex-start;">
-                        <span class="color-current w3-medium" style="margin-top: 12px;margin-left:10px;"><span
-                                class="color-font">Procedure: </span>TXW2345-02 <span
-                                class="color-time">...</span></span>
-                        <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Step
-                                Name: </span>Constant
-                            Current Charge</span>
-                        <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Run
-                                Time: </span>21h 41m</span>
-                        <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Num
-                                Cycles: </span>17 / <span class="color-time">50</span></span>
-                    </div>
-
-                    <!-- COLUMN 4 -->
-                    <div class="w3-col s2" style="display:flex;flex-direction:column;align-items:flex-start;">
-                        <span class="color-current w3-medium" style="margin-top: 12px;"><span
-                                class="color-font">Battery: </span>2987-08 <span class="color-time">...</span></span>
-                        <span class="color-current w3-medium"><span class="color-font">Rated Capacity: </span>2</span>
-                        <span class="color-current w3-medium"><span class="color-font">Max Voltage: </span>3.8</span>
-                        <span class="color-current w3-medium"><span class="color-font">Max Current:
-                            </span>2.2</span></span>
-                    </div>
-
-                    <!-- SCREEN GRAB & UI SWITCH -->
-                    <div class="w3-col s1"
-                        style="display:flex;flex-direction:row;align-items:flex-end;justify-content:flex-end">
-                        <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="closeDetail()"><i
-                                class="fa fa-times w3-xlarge" aria-hidden="true"></i></span>
-
-                        <!-- <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="copyDetail()"><i
+                    <!-- <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="copyDetail()"><i
                                 class="fa fa-files-o w3-xlarge" aria-hidden="true"></i></span> -->
 
-                        <!-- <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
+                    <!-- <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
                             <div class="w3-xlarge" style="background-color:#2f2f2f00;border:0px solid;;">
                                 <i id="menu" class="fa fa-bars color-font" style="cursor:pointer;"
                                     aria-hidden="true"></i>
@@ -309,260 +307,259 @@
                             </div>
                         </div> -->
 
-                    </div>
+                </div>
 
-                    <div class="w3-col s12">
-                        <div class="w3-container">
-                            <hr />
-                            <div class="w3-col s12 w3-center" _style="">
-                                <span><i class="fa fa-play w3-xlarge color-zero" aria-hidden="true"
-                                        style="padding:5px 25px 15px 25px;"></i></span>
-                                <span><i class="fa fa-pause w3-xlarge color-font" aria-hidden="true"
-                                        style="padding:5px 25px 15px 25px;"></i></i></span>
-                                <span><i class="fa fa-eject w3-xlarge color-zero" aria-hidden="true"
-                                        style="padding:5px 25px 15px 25px;"></i></i></span>
-                            </div>
-
-                            <!-- CALCULATED FIELDS -->
-                            <div class="w3-padding"
-                                style="display:flex;flex-direction:row;justify-content:space-between;">
-                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
-                                    style="width:20%;border:2px solid rgb(138, 138, 138);">Dis Eng<span
-                                        class="color-current" style="float:right;">1 Wh</span></div>
-                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
-                                    style="width:20%;border:2px solid rgb(138, 138, 138);">Dis Cap<span
-                                        class="color-current" style="float:right;">82 Ah</span></div>
-                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
-                                    style="width:20%;border:2px solid rgb(138, 138, 138);">EE<span class="color-current"
-                                        style="float:right;">82 %</span></div>
-                                <div class="w3-col s2 color-font w3-xlarge w3-padding"
-                                    style="width:20%;border:2px solid rgb(138, 138, 138);">CE<span class="color-current"
-                                        style="float:right;">99 %</span></div>
-                                <div class="w3-center w3-col s2 color-font w3-xlarge w3-padding"
-                                    style="width:15%;border:2px solid rgb(138, 138, 138);"><i class="fa fa-clock-o"
-                                        aria-hidden="true"></i> Recent <i class="fa fa-caret-down"
-                                        aria-hidden="true"></i><span class="color-current" style="float:right;"></span>
-                                </div>
-                            </div>
-
-                            <!-- TOP CHART -->
-                            <span _style="">
-                                <div class=""
-                                    style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
-                                    <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
-                                        <div class="w3-xlarge"
-                                            style="background-color:#2f2f2f00;border:0px solid;margin-left:30px;">
-                                            <i id="menu" class="fa fa-ellipsis-v color-font" style="cursor:pointer;"
-                                                aria-hidden="true"></i>
-                                        </div>
-                                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
-                                            style="right:0">
-                                            <a class="card-menu-option-selected w3-bar-item w3-button"
-                                                onclick="selectChartType('V')">V</a>
-                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                                onclick="selectChartType('I')">V / t</a>
-                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                                onclick="selectChartType('I')">I</a>
-                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                                onclick="selectChartType('I')">I / t</a>
-                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                                onclick="selectChartType('T')">T°</a>
-                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                                onclick="selectChartType('T')">E</a>
-                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                                onclick="selectChartType('T')">P</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                            <div id="chart-detail-1" style="margin-top:3px;margin-bottom:20px;"></div>
-
-                            <!-- BOTTOM CHART -->
-                            <span _style="">
-                                <div class=""
-                                    style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
-                                    <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
-                                        <div class="w3-xlarge"
-                                            style="background-color:#2f2f2f00;border:0px solid;margin-left:30px;;">
-                                            <i id="menu" class="fa fa-ellipsis-v color-font" style="cursor:pointer;"
-                                                aria-hidden="true"></i>
-                                        </div>
-                                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
-                                            style="right:0">
-                                            <a class="card-menu-option-selected w3-bar-item w3-button"
-                                                onclick="selectChartType('V')">V</a>
-                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                                onclick="selectChartType('I')">I</a>
-                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                                onclick="selectChartType('T')">T°</a>
-                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                                onclick="selectChartType('T')">E</a>
-                                            <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                                onclick="selectChartType('T')">P</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                            <div id="chart-detail-2" style="margin-top:3px;margin-bottom:20px;"></div>
-
-                            <!-- ADDITIONAL CHANNELS -->
-                            <div class="w3-container w3-padding _color-font"
-                                style="display:flex;flex-direction:row;justify-content:space-around;">
-                                <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
-                                    <span style="_margin:15px;">POUCH_TAB_POS</span>
-                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.31 <span
-                                            class="color-font">°C</span></span>
-                                </div>
-                                <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
-                                    <span style="_margin:15px;">POUCH_TAB_NEG</span>
-                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.33 <span
-                                            class="color-font">°C</span></span>
-                                </div>
-                                <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
-                                    <span style="_margin:15px;">POUCH_BOTTOM_LEFT</span>
-                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.32 <span
-                                            class="color-font">°C</span></span>
-                                </div>
-                                <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
-                                    <span style="_margin:15px;">POUCH_BOTTOM_RIGHT</span>
-                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.35 <span
-                                            class="color-font">°C</span></span>
-                                </div>
-                                <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
-                                    <span style="_margin:15px;">POUCH_CENTER</span>
-                                    <span class="w3-right w3-large color-current" style="_margin:15px;">27.28 <span
-                                            class="color-font">°C</span></span>
-                                </div>
-                            </div>
-                            &nbsp;<br />
+                <div class="w3-col s12">
+                    <div class="w3-container">
+                        <hr />
+                        <div class="w3-col s12 w3-center" _style="">
+                            <span><i class="fa fa-play w3-xlarge color-zero" aria-hidden="true"
+                                    style="padding:5px 25px 15px 25px;"></i></span>
+                            <span><i class="fa fa-pause w3-xlarge color-font" aria-hidden="true"
+                                    style="padding:5px 25px 15px 25px;"></i></i></span>
+                            <span><i class="fa fa-eject w3-xlarge color-zero" aria-hidden="true"
+                                    style="padding:5px 25px 15px 25px;"></i></i></span>
                         </div>
+
+                        <!-- CALCULATED FIELDS -->
+                        <div class="w3-padding" style="display:flex;flex-direction:row;justify-content:space-between;">
+                            <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                style="width:20%;border:2px solid rgb(138, 138, 138);">Dis Eng<span
+                                    class="color-current" style="float:right;">1 Wh</span></div>
+                            <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                style="width:20%;border:2px solid rgb(138, 138, 138);">Dis Cap<span
+                                    class="color-current" style="float:right;">82 Ah</span></div>
+                            <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                style="width:20%;border:2px solid rgb(138, 138, 138);">EE<span class="color-current"
+                                    style="float:right;">82 %</span></div>
+                            <div class="w3-col s2 color-font w3-xlarge w3-padding"
+                                style="width:20%;border:2px solid rgb(138, 138, 138);">CE<span class="color-current"
+                                    style="float:right;">99 %</span></div>
+                            <div class="w3-center w3-col s2 color-font w3-xlarge w3-padding"
+                                style="width:15%;border:2px solid rgb(138, 138, 138);"><i class="fa fa-clock-o"
+                                    aria-hidden="true"></i> Recent <i class="fa fa-caret-down"
+                                    aria-hidden="true"></i><span class="color-current" style="float:right;"></span>
+                            </div>
+                        </div>
+
+                        <!-- TOP CHART -->
+                        <span _style="">
+                            <div class=""
+                                style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
+                                <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
+                                    <div class="w3-xlarge"
+                                        style="background-color:#2f2f2f00;border:0px solid;margin-left:30px;">
+                                        <i id="menu" class="fa fa-ellipsis-v color-font" style="cursor:pointer;"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
+                                        style="right:0">
+                                        <a class="card-menu-option-selected w3-bar-item w3-button"
+                                            onclick="selectChartType('V')">V</a>
+                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                            onclick="selectChartType('I')">V / t</a>
+                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                            onclick="selectChartType('I')">I</a>
+                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                            onclick="selectChartType('I')">I / t</a>
+                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                            onclick="selectChartType('T')">T°</a>
+                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                            onclick="selectChartType('T')">E</a>
+                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                            onclick="selectChartType('T')">P</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        <div id="chart-detail-1" style="margin-top:3px;margin-bottom:20px;"></div>
+
+                        <!-- BOTTOM CHART -->
+                        <span _style="">
+                            <div class=""
+                                style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
+                                <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
+                                    <div class="w3-xlarge"
+                                        style="background-color:#2f2f2f00;border:0px solid;margin-left:30px;;">
+                                        <i id="menu" class="fa fa-ellipsis-v color-font" style="cursor:pointer;"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
+                                        style="right:0">
+                                        <a class="card-menu-option-selected w3-bar-item w3-button"
+                                            onclick="selectChartType('V')">V</a>
+                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                            onclick="selectChartType('I')">I</a>
+                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                            onclick="selectChartType('T')">T°</a>
+                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                            onclick="selectChartType('T')">E</a>
+                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                            onclick="selectChartType('T')">P</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        <div id="chart-detail-2" style="margin-top:3px;margin-bottom:20px;"></div>
+
+                        <!-- ADDITIONAL CHANNELS -->
+                        <div class="w3-container w3-padding _color-font"
+                            style="display:flex;flex-direction:row;justify-content:space-around;">
+                            <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
+                                <span style="_margin:15px;">POUCH_TAB_POS</span>
+                                <span class="w3-right w3-large color-current" style="_margin:15px;">27.31 <span
+                                        class="color-font">°C</span></span>
+                            </div>
+                            <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
+                                <span style="_margin:15px;">POUCH_TAB_NEG</span>
+                                <span class="w3-right w3-large color-current" style="_margin:15px;">27.33 <span
+                                        class="color-font">°C</span></span>
+                            </div>
+                            <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
+                                <span style="_margin:15px;">POUCH_BOTTOM_LEFT</span>
+                                <span class="w3-right w3-large color-current" style="_margin:15px;">27.32 <span
+                                        class="color-font">°C</span></span>
+                            </div>
+                            <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
+                                <span style="_margin:15px;">POUCH_BOTTOM_RIGHT</span>
+                                <span class="w3-right w3-large color-current" style="_margin:15px;">27.35 <span
+                                        class="color-font">°C</span></span>
+                            </div>
+                            <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
+                                <span style="_margin:15px;">POUCH_CENTER</span>
+                                <span class="w3-right w3-large color-current" style="_margin:15px;">27.28 <span
+                                        class="color-font">°C</span></span>
+                            </div>
+                        </div>
+                        &nbsp;<br />
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- BATCH OPERATIONS -->
-        <div id="view-batch" style="display:none;">
-            <hr />
-            <div class="w3-container w3-padding w3-large">
-                <table class="w3-table w3-bordered">
-                    <tr class="color-font">
-                        <th><i class="fa fa-square-o color-current" aria-hidden="true"></i></th>
-                        <th>Channel</th>
-                        <th>Serial Number</th>
-                        <th>Battery File</th>
-                        <th>Test Procedure</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
-                        <td class="color-moniker">CH01</td>
-                        <td>1287-03</td>
-                        <td>LiPh-108 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                        <td>TXW87689v3</td>
-                        <td class="w3-text-green">On Test</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
-                        <td class="color-moniker">CH02</td>
-                        <td></td>
-                        <td class=" color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                        <td></td>
-                        <td class="color-zero">Empty</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
-                        <td class="color-moniker">CH03</td>
-                        <td>1287-13</td>
-                        <td>LiPh-108 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                        <td>TXW87689v3</td>
-                        <td class="w3-text-green">On Test</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
-                        <td class="color-moniker">CH04</td>
-                        <td></td>
-                        <td class="color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                        <td></td>
-                        <td class="color-zero">Empty</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
-                        <td class="color-moniker">CH05</td>
-                        <td>1287-67</td>
-                        <td>1287-67 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                        <td>TXW87689v3</td>
-                        <td class="w3-text-yellow">Paused</td>
-                    </tr>
-                </table>
-                <div class="w3-roww-padding" style="margin-top:25px;">
-                    <div class="w3-col s3 w3-center">&nbsp;</div>
-                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load battery
-                    </div>
-                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load test file
-                    </div>
-                    <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">start test
-                    </div>
+    <!-- BATCH OPERATIONS -->
+    <div id="view-batch" style="display:none;">
+        <hr />
+        <div class="w3-container w3-padding w3-large">
+            <table class="w3-table w3-bordered">
+                <tr class="color-font">
+                    <th><i class="fa fa-square-o color-current" aria-hidden="true"></i></th>
+                    <th>Channel</th>
+                    <th>Serial Number</th>
+                    <th>Battery File</th>
+                    <th>Test Procedure</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
+                    <td class="color-moniker">CH01</td>
+                    <td>1287-03</td>
+                    <td>LiPh-108 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                    <td>TXW87689v3</td>
+                    <td class="w3-text-green">On Test</td>
+                </tr>
+                <tr>
+                    <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
+                    <td class="color-moniker">CH02</td>
+                    <td></td>
+                    <td class=" color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                    <td></td>
+                    <td class="color-zero">Empty</td>
+                </tr>
+                <tr>
+                    <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
+                    <td class="color-moniker">CH03</td>
+                    <td>1287-13</td>
+                    <td>LiPh-108 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                    <td>TXW87689v3</td>
+                    <td class="w3-text-green">On Test</td>
+                </tr>
+                <tr>
+                    <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
+                    <td class="color-moniker">CH04</td>
+                    <td></td>
+                    <td class="color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                    <td></td>
+                    <td class="color-zero">Empty</td>
+                </tr>
+                <tr>
+                    <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
+                    <td class="color-moniker">CH05</td>
+                    <td>1287-67</td>
+                    <td>1287-67 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+                    <td>TXW87689v3</td>
+                    <td class="w3-text-yellow">Paused</td>
+                </tr>
+            </table>
+            <div class="w3-roww-padding" style="margin-top:25px;">
+                <div class="w3-col s3 w3-center">&nbsp;</div>
+                <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load battery
+                </div>
+                <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load test file
+                </div>
+                <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">start test
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- BATTERY SETUP -->
-        <div id="view-battery-setup" style="display:none;">
-            <hr />
-        </div>
+    <!-- BATTERY SETUP -->
+    <div id="view-battery-setup" style="display:none;">
+        <hr />
+    </div>
 
-        <!-- TEST SETUP -->
-        <div id="view-test-setup" style="display:none;">
-            <hr />
-        </div>
+    <!-- TEST SETUP -->
+    <div id="view-test-setup" style="display:none;">
+        <hr />
+    </div>
 
-        <!-- SYSTEM SETUP -->
-        <div id="view-system-setup" style="display:none;">
-            <hr />
-        </div>
+    <!-- SYSTEM SETUP -->
+    <div id="view-system-setup" style="display:none;">
+        <hr />
+    </div>
 
-        <!-- SYSTEM -->
-        <div id="view-setup" style="display:none;">
-            <hr />
-            <div w3-include-html="system.html"></div>
-        </div>
+    <!-- SYSTEM -->
+    <div id="view-setup" style="display:none;">
+        <hr />
+        <div w3-include-html="system.html"></div>
+    </div>
 
-        <!-- PARAMETERS -->
-        <div id="view-parameters" style="display:none;">
-            <hr />
-            <div w3-include-html="configuration.html"></div>
-        </div>
+    <!-- PARAMETERS -->
+    <div id="view-parameters" style="display:none;">
+        <hr />
+        <div w3-include-html="configuration.html"></div>
+    </div>
 
-        <!-- CONTEXTUAL HELP -->
-        <div id="view-contextual-help" style="display:none;">
-            <hr />
-            <div w3-include-html="contextual-help.html"></div>
-        </div>
+    <!-- CONTEXTUAL HELP -->
+    <div id="view-contextual-help" style="display:none;">
+        <hr />
+        <div w3-include-html="contextual-help.html"></div>
+    </div>
 
-        <!-- MENU -->
-        <div class="navbar">
-            <a class="w3-xlarge" onclick="clickBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-            <a class="w3-xlarge"><i class="fa fa-users" aria-hidden="true"></i></a>
-            <a href="#runtime" id="runtime" class="w3-xlarge card-menu-option-selected" _style=""
-                onclick="changeView('runtime', this)"><i class="fa fa-th" aria-hidden="true"></i> Runtime</a>
-            <a href="#batch" id="batch" class="w3-xlarge" _style="" onclick="changeView('batch', this)"><i
-                    class="fa fa-table" aria-hidden="true"></i> Batch Operations</a>
-            <a href="#contextual-help" id="contextual-help" class="w3-xlarge" style="float:right;"
-                onclick="changeView(this.id, this)"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
-            <a href="#system" id="system" class="w3-xlarge" style="float:right;" onclick="changeView(this.id, this)"><i
-                    class="fa fa-cog" aria-hidden="true"></i></a>
-            <a href="#configuration" id="configuration" class="w3-xlarge" style="float:right;min-width:0px;"
-                onclick="changeView(this.id, this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                Configuration</a>
-            <!-- <a href="#system-setup" id="system-setup" class="w3-xlarge" style="float:right;"
+    <!-- MENU -->
+    <div class="navbar">
+        <a class="w3-xlarge" onclick="clickBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+        <a class="w3-xlarge"><i class="fa fa-users" aria-hidden="true"></i></a>
+        <a href="#runtime" id="runtime" class="w3-xlarge card-menu-option-selected" _style=""
+            onclick="changeView('runtime', this)"><i class="fa fa-th" aria-hidden="true"></i> Runtime</a>
+        <a href="#batch" id="batch" class="w3-xlarge" _style="" onclick="changeView('batch', this)"><i
+                class="fa fa-table" aria-hidden="true"></i> Batch Operations</a>
+        <a href="#contextual-help" id="contextual-help" class="w3-xlarge" style="float:right;"
+            onclick="changeView(this.id, this)"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+        <a href="#system" id="system" class="w3-xlarge" style="float:right;" onclick="changeView(this.id, this)"><i
+                class="fa fa-cog" aria-hidden="true"></i></a>
+        <a href="#configuration" id="configuration" class="w3-xlarge" style="float:right;min-width:0px;"
+            onclick="changeView(this.id, this)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            Configuration</a>
+        <!-- <a href="#system-setup" id="system-setup" class="w3-xlarge" style="float:right;"
                 onclick="changeView(this.id, this)"><i class="fa fa-_cog" aria-hidden="true"></i></a>
             <a href="#test-setup" id="test-setup" class="w3-xlarge" style="float:right;"
                 onclick="changeView(this.id, this)"><i class="fa fa-_pencil-square-o" aria-hidden="true"></i></a> -->
-            <a href="#battery-setup" id="battery-setup" class="w3-xlarge" style="float:right;display:none;"
-                onclick="changeView(this.id, this)"><i class="fa fa-battery-empty" aria-hidden="true"></i> Battery
-                Setup</a>
-        </div>
+        <a href="#battery-setup" id="battery-setup" class="w3-xlarge" style="float:right;display:none;"
+            onclick="changeView(this.id, this)"><i class="fa fa-battery-empty" aria-hidden="true"></i> Battery
+            Setup</a>
+    </div>
     </div>
 
     </div>
@@ -680,6 +677,7 @@
             const dataI = chartData.getData('i', offset, count);
             const v = dataV[dataV.length - 1].toString().padEnd(5, '0');
             const i = dataI[dataI.length - 1].toString().padEnd(5, '0');
+            let state = null;
 
             let history = '';
             const temp = chartData.getHistory(x + Math.round(Math.random() * 10));
@@ -698,11 +696,11 @@
                 `;
 
                 if (index === temp.length - 1) {
-                    if (h.className === 'charge' || h.className === 'discharge' || h.className === 'on-test') { on_test++; }
-                    if (h.className === 'paused') { paused++; }
-                    if (h.className === '') { complete++; }
-                    if (h.className === 'empty') { empty++; }
-                    if (h.className === 'error') { error++; }
+                    if (h.className === 'charge' || h.className === 'discharge' || h.className === 'on-test') { on_test++; state = 'on_test'; }
+                    if (h.className === 'paused') { paused++; state = 'paused'; }
+                    if (h.className === '') { complete++; state = 'complete'; }
+                    if (h.className === 'empty') { empty++; state = 'empty'; }
+                    if (h.className === 'error') { error++; state = 'error'; }
                 }
 
             })
@@ -722,6 +720,7 @@
                 dc: null,
                 ee: null,
                 ce: null,
+                state,
                 history,
             });
         }
@@ -731,6 +730,7 @@
             temp.pages.push({ name: x.toString() });
         }
         cards.pages = temp.pages;
+
 
         // /** UPDATE COUNTS */
         let elem = document.getElementById('count_on_test');
@@ -753,11 +753,49 @@
         elem.innerText = error;
         elem.classList.add(error > 0 ? 'color-current' : 'color-zero')
 
+        // /** ALTER CARDS BASED ON STATE */
+        cards.items.forEach((v) => {
+            if (v.state === 'empty') {
+                v.dataV = [];
+                v.dataI = [];
+                v.v = '';
+                v.i = ''
+                v.st = '';
+                v.cycles = '';
+                v.uut = '<span class="color-zero">EMPTY<br/>1d 16h 37m</span>';
+            }
+            if (v.state === 'weeor') {
+                v.dataV = [];
+                v.dataI = [];
+                v.v = '';
+                v.i = ''
+                v.st = '';
+                v.cycles = '';
+                v.uut = '<span style=color:red">ERROR<br/>1d 16h 37m</span>';
+            }
+        })
+
         document.getElementById('content').style.display = 'block';
         w3.displayObject("cards", cards);
         selectCardType(card_type);
 
-        // console.log(Date.now() - now);
+
+        // /** ALTER CARDS BASED ON STATE */
+        cards.items.forEach((v) => {
+            if (v.state === 'error') {
+                document.getElementById(v.name).style.borderColor = 'red';
+                document.getElementById(v.name).style.backgroundColor = '#ff000021';
+                document.getElementById(`card-chart-${v.name}`).style.display = 'none';
+            }
+            if (v.state === 'empty') {
+                // document.getElementById(v.name).style.borderColor = '#f9f9f963';
+                // document.getElementById(v.name).style.backgroundColor = '#64646421';
+                document.getElementById(`card-chart-${v.name}`).style.display = 'none';
+                const elem = document.getElementById(`card-name-${v.name}`);
+                elem.classList.remove('color-moniker');
+                elem.classList.add('color-zero');
+            }
+        })
 
         w3.includeHTML(() => {
             const searchParams = new URLSearchParams(window.location.search);
@@ -982,7 +1020,7 @@
                 }
                 elems = document.getElementsByClassName('card');
                 for (let e of elems) {
-                    e.style.minHeight = '100px';
+                    e.style.minHeight = '150px';
                 }
             } else if (type === 'small') {
                 document.getElementById('card-view').style.display = 'block';
@@ -1135,6 +1173,32 @@
         // TIMELINE TOOLTIP
         function timelineTooltip(e) {
             console.log(e);
+        }
+
+        // FILTER RUNTIME
+        function filterRuntime(name) {
+            ['on_test', 'paused', 'empty', 'complete', 'error'].forEach((v) => {
+                document.getElementById(`filter_${v}`).classList.remove('filter-selected');
+            });
+            document.getElementById(`filter_${name}`).classList.add('filter-selected');
+            cards.items.forEach((v) => {
+                ['', 'table-row-', 'timeline-row-'].forEach((v2) => {
+                    const elem = document.getElementById(`${v2}${v.name}`);
+                    if (v.state !== name) {
+                        elem.classList.add('w3-hide');
+                    } else {
+                        elem.classList.remove('w3-hide');
+                        // elem.classList.add('w3-show');
+                    }
+                });
+            })
+            // const filtered = cards.items.filter((v) => v.state === name);
+            // w3.displayObject("cards", cards);
+            // w3.displayObject("cards", {items: filtered });
+
+            // document.getElementById('content').style.display = 'block';
+            // w3.displayObject("cards", cards);
+            // selectCardType(card_type);
         }
 
         //#region SETUP i/O ASSIGNMENT
