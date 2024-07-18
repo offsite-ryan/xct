@@ -8,8 +8,9 @@ body {
     padding: 4px;
     color: #cecece;
     background-color: #2f2f2f;
-    max-width: 1800px;
-    padding: 20px;
+    /* max-width: 1800px; */
+    padding-right: 20px;
+    padding-top: 20px;
 }
 
 .center {

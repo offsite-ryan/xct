@@ -173,12 +173,12 @@
         </div>
 
         <!-- LARGE / SMALL CARDS -->
-        <div id="card-view" class="w3-col s12 w3-large" style="display:block;">
-            <div w3-repeat="items" class="w3-col s12 m2 l2" style="display:block">
+        <div id="card-view" class="w3-col s12 w3-large" style="display:flex;flex-direction:row;flex-wrap:wrap;">
+            <div w3-repeat="items" class="w3-col s12 m3 l2" style="display:block;max-width:325px;min-width:325px;">
                 <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
                     <span class="" style="display:flex;justify-content: space-between;">
-                        <span id="card-name-{{name}}" class="color-moniker">{{name}}</span>
-                        <span style="font-size:12px;margin-top:3px;">
+                        <span id="card-name-{{name}}" class=" color-moniker">{{name}}</span>
+                        <span style="font-size:15px;margin-top:3px;">
                             <span class="color-voltage">{{v}}V</span>
                             <span class="color-font"> | </span>
                             <span class="color-current">{{i}}A</span>
@@ -187,9 +187,9 @@
                         </span>
                     </span>
 
-                    <span class="" style="display:flex;justify-content: space-between;">
+                    <span class="w3-medium" style="display:flex;justify-content: space-between;">
                         <span class="color-current">{{uut}}</span>
-                        <span style="font-size:12px;margin-top:3px;">
+                        <span style="_font-size:12px;margin-top:3px;">
                             <span class="color-current">{{cycles}}</span>
                             <span class="color-font"> / </span>
                             <span class="color-time">50</span>
@@ -597,6 +597,9 @@
                             aria-hidden="true" onclick="showChargeDischargeOnTimeline()"></i> Show Charge / Discharge on
                         Timeline
                         View</span>
+                    <!-- <br />
+                    <span><i id="option_menu_location" class="fa fa-toggle-off w3-xxlarge color-font w3-right"
+                            aria-hidden="true" onclick="toggleMenuLocation()"></i> Bottom Menu</span> -->
                 </div>
             </div>
             <br />
@@ -670,6 +673,8 @@
         let show_charge_discharge = localStorage.getItem('show_charge_discharge') === 'false' ? false : true;
         showChargeDischargeOnTimeline(false);
         let card_type = localStorage.getItem('card_type') || 'large';
+        // let menu_location_bottom = localStorage.getItem('menu_location_bottom') === 'true' ? true : false;
+        // toggleMenuLocation(false);
 
         // DATA
         const chartData = new data();
@@ -772,7 +777,7 @@
                 v.i = ''
                 v.st = '';
                 v.cycles = '';
-                v.uut = '<span class="color-zero">EMPTY<br/>1d 16h 37m</span>';
+                v.uut = `<span class="color-zero">EMPTY - 1d 16h 37m</span>`;
             }
             if (v.state === 'error') {
                 v.dataV = [];
@@ -1023,7 +1028,7 @@
             document.getElementById('timeline-view').style.display = 'none';
 
             if (type === 'large') {
-                document.getElementById('card-view').style.display = 'block';
+                document.getElementById('card-view').style.display = 'flex';
                 let elems = document.getElementsByName('card-chart');
                 for (let e of elems) {
                     e.style.display = 'block';
@@ -1034,7 +1039,7 @@
                     e.style.maxHeight = '170px';
                 }
             } else if (type === 'small') {
-                document.getElementById('card-view').style.display = 'block';
+                document.getElementById('card-view').style.display = 'flex';
                 let elems = document.getElementsByName('card-chart');
                 for (let e of elems) {
                     e.style.display = 'none';
@@ -1155,6 +1160,21 @@
             const elem = document.getElementById('option_show_charge_discharge');
             elem.classList.remove('fa-toggle-on', 'fa-toggle-off', 'color-current', 'color-time');
             const classes = show_charge_discharge === true ? ['fa-toggle-on', 'color-font'] : ['fa-toggle-off', 'color-time'];
+            elem.classList.add(...classes);
+
+            if (toggle) {
+                window.location.reload();
+            }
+        }
+
+        function toggleMenuLocation(toggle=true) {
+            if (toggle) {
+                menu_location_bottom = !menu_location_bottom;
+                localStorage.setItem('menu_location_bottom', menu_location_bottom);
+            }
+            const elem = document.getElementById('option_menu_location');
+            elem.classList.remove('fa-toggle-on', 'fa-toggle-off', 'color-current', 'color-time');
+            const classes = menu_location_bottom === true ? ['fa-toggle-on', 'color-font'] : ['fa-toggle-off', 'color-time'];
             elem.classList.add(...classes);
 
             if (toggle) {
