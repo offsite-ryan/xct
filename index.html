@@ -1056,12 +1056,12 @@
 
         function changeView(name, elem) {
             const updateMenu = (id) => {
-                ['runtime', 'batch', 'battery-setup', 'contextual-help', 'system', 'configuration'].forEach((v) => {
-                    document.getElementById(v).classList.remove('card-menu-option-selected');
-                    if (id === v) {
-                        elem.classList.add('card-menu-option-selected');
-                    }
-                })
+                // ['runtime', 'batch', 'battery-setup', 'contextual-help', 'system', 'configuration'].forEach((v) => {
+                //     document.getElementById(v).classList.remove('card-menu-option-selected');
+                //     if (id === v) {
+                //         elem.classList.add('card-menu-option-selected');
+                //     }
+                // })
             }
             ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup', 'view-setup', 'view-parameters', 'view-contextual-help'].forEach((v) => {
                 document.getElementById(v).style.display = 'none';
