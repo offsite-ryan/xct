@@ -12,14 +12,19 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 
 <body id="body" class="center">
 
     <!-- SIDE MENU -->
-    <div class="w3-sidebar w3-bar-block w3-xxlarge"
-        style="padding-top:20px;width:70px;background-color:#393939;border-right:1px solid;_border-top:1px solid;top:0px;">
-        <!-- <img class="logo2" src="avl-logo-300x300.png" style="width:100%" /> -->
+    <!-- <div class="w3-sidebar w3-bar-block w3-xxlarge"
+        style="padding-top:20px;width:70px;background-color:#272727;border-right:1px solid;_border-top:1px solid;top:0px;">
         <a href="#" class="w3-bar-item w3-button color-font"><i class="fa fa-bars"></i></a>
         <a href="#runtime" class="w3-bar-item w3-button"><i class="fa fa-th"></i></a>
         <a href="#batch" class="w3-bar-item w3-button"><i class="fa fa-table"></i></a>
@@ -27,18 +32,18 @@
         <a href="#system" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
         <a _href="#" class="w3-bar-item _w3-button color-zero"><i class="fa fa-group"></i></a>
         <a href="#contextual-help" class="w3-bar-item w3-button"><i class="fa fa-question-circle"></i></a>
-        <!-- <a href="#" class="w3-bar-item w3-button w3-bottom w3-xlarge"><i class="fa fa-chevron-right"></i></a> -->
-    </div>
+    </div> -->
 
     <!-- TOP -->
-    <div id="content" class="" style="display:none;margin-left:100px;">
+    <div id="content" class="" style="display:none;margin-left:30px;">
         <a _href="" id="" class="w3-xlarge" style="float:right;min-width:0px;padding-left:10px;cursor:pointer;"
             onclick="showModal()"><i class="fa fa-ellipsis-v color-zero" aria-hidden="true"></i></a>
         <span class="header">
             <h1 class="color-font">
                 <div class="w3-dropdown-hover" _style="">
                     <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:0px;">
-                        <!-- <i id="menu" class="fa fa-bars color-font" style="cursor:pointer;" aria-hidden="true"></i> -->
+                        <i id="menu" class="fa fa-bars" style="cursor:pointer;padding-right:25px;color:#23a638;"
+                            aria-hidden="true"></i>
                     </div>
                     <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-xlarge"
                         style="min-width:250px;">
@@ -58,7 +63,23 @@
                             Scheduler</a>
                     </div>
                 </div>
-                TEST SYSTEM: <span class="color-current">TS0937 - <span id="view">Runtime</span></span>
+                <span class="">TS0937 - <span id="view" class="" style="_padding-left:65px;">Runtime </span>
+                    <span class="">
+                        <div class="w3-dropdown-hover  w3-xlarge" style="background-color:#2f2f2f;">
+                            <i class="fa fa-caret-down" style="padding-left:20px;color:white;" aria-hidden="true"></i>
+                            <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                style="background-color:#2f2f2f;color:white;min-width:250px;">
+                                <a href="#runtime" class="w3-bar-item w3-button"><i class="fa fa-th" aria-hidden="true"></i> Runtime</a>
+                                <a href="#batch" class="w3-bar-item w3-button"><i class="fa fa-table" aria-hidden="true"></i> Batch Operations</a>
+                                <a href="#configuration" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Setup</a>
+                                <a href="#system" class="w3-bar-item w3-button"><i class="fa fa-cog" aria-hidden="true"></i> System</a>
+                                <a href="#contextual-help" class="w3-bar-item w3-button"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+                            </div>
+                        </div>
+                    </span>
+
+                    <!--  -->
+                </span>
             </h1>
             <img class="logo2" src="avl-logo-300x300.png" />
         </span>
@@ -67,18 +88,19 @@
             <div class="w3-col s1 w3-left-align">
                 <span class="color-font w3-xlarge">
                     <div class="w3-dropdown-hover  w3-xlarge" _style="">
-                        <div class="color-current" style="background-color:#2f2f2f;border:0px solid;"><i id="filter"
-                                class="fa fa-filter color-font" style="cursor:pointer;" aria-hidden="true"></i> All <i
-                                class="fa fa-caret-down" style="padding-left:20px;" aria-hidden="true"></i></div>
-                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-large" _style="">
-                            <a class="card-menu-option-selected w3-bar-item w3-button" onclick="filter('')">All</a>
-                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                        <div class="" style="background-color:#2f2f2f;color:white;border:0px solid;"><i id="filter"
+                                class="fa fa-filter" style="cursor:pointer;"
+                                aria-hidden="true">&nbsp;&nbsp;&nbsp;All </i><i class="fa fa-caret-down"
+                                style="padding-left:20px;" aria-hidden="true"></i></div>
+                        <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge" style="background-color:#2f2f2f;color:white;">
+                            <a class="w3-bar-item w3-button" onclick="filter('')">All</a>
+                            <a class="w3-bar-item w3-button"
                                 onclick="filter('Project A')">Project A</a>
-                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                            <a class="w3-bar-item w3-button"
                                 onclick="filter('Project B')">Project B</a>
-                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                            <a class="w3-bar-item w3-button"
                                 onclick="filter('Project C')">Project C</a>
-                            <a class="card-menu-option-unselected w3-bar-item w3-button"
+                            <a class="w3-bar-item w3-button"
                                 onkeyup="filter(this.value)"><input type="text" placeholder="Search..."></input></a>
                         </div>
                     </div>
@@ -86,39 +108,39 @@
             </div>
             <div id="filter_on_test" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('on_test')">
                 <span class="color-font">On Test: <span id="count_on_test" class=""
-                        style="font-weight:bold;">41</span></span>
+                        style="font-weight:bold;margin-left:10px;">41</span></span>
             </div>
             <div id="filter_paused" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('paused')">
                 <span class="color-font">Paused: <span id="count_paused" class=""
-                        style="font-weight:bold;">7</span></span>
+                        style="font-weight:bold;margin-left:10px;">7</span></span>
             </div>
             <div id="filter_empty" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('empty')">
                 <span class="color-font">Empty: <span id="count_empty" class=""
-                        style="font-weight:bold;">0</span></span>
+                        style="font-weight:bold;margin-left:10px;">0</span></span>
             </div>
             <div id="filter_complete" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('complete')">
                 <span class="color-font">Complete: <span id="count_complete" class=""
-                        style="font-weight:bold;">9</span></span>
+                        style="font-weight:bold;margin-left:10px;">9</span></span>
             </div>
             <div id="filter_error" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('error')">
                 <span class="color-font">Errors: <span id="count_error" class=""
-                        style="font-weight:bold;">0</span></span>
+                        style="font-weight:bold;margin-left:10px;">0</span></span>
             </div>
             <div id="" class="w3-col s1 clickable w3-xlarge">
                 <div class="w3-dropdown-hover w3-right" _style="">
-                    <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:30px;"><i id="menu"
-                            class="fa fa-ellipsis-v color-font" style="cursor:pointer;" aria-hidden="true"></i></div>
-                    <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
-                        style="right:0;width:125px;">
-                        <a id="menu-view-large" class="card-menu-option-selected w3-bar-item w3-button"
+                    <div class="" style="background-color:#272727;color:white;border:0px solid;padding-left:30px;"><i id="menu"
+                            class="fa fa-ellipsis-v w3-xlarge" style="cursor:pointer;" aria-hidden="true"></i></div>
+                    <div class=" w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                        style="right:0;width:125px;min-width:250px;background-color:#2f2f2f;color:white;">
+                        <a id="menu-view-large" class="w3-bar-item w3-button"
                             onclick="selectCardType('large')"><i class="fa fa-area-chart" aria-hidden="true"></i> Large
                             Card</a>
-                        <a id="menu-view-small" class="card-menu-option-unselected w3-bar-item w3-button"
+                        <a id="menu-view-small" class="w3-bar-item w3-button"
                             onclick="selectCardType('small')"><i class="fa fa-list-alt" aria-hidden="true"></i> Small
                             Card</a>
-                        <a id="menu-view-table" class="card-menu-option-unselected w3-bar-item w3-button"
+                        <a id="menu-view-table" class="w3-bar-item w3-button"
                             onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Table</a>
-                        <a id="menu-view-timeline" class="card-menu-option-unselected w3-bar-item w3-button"
+                        <a id="menu-view-timeline" class="w3-bar-item w3-button"
                             onclick="selectCardType('timeline')"><i class="fa fa-table" aria-hidden="true"></i>
                             Timeline</a>
                     </div>
@@ -128,7 +150,7 @@
     </div>
 
     <!-- CARDS -->
-    <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;margin-left:100px;">
+    <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;margin-left:30px;">
         <hr />
         <!-- <div class="w3-container w3-xlarge color-font"
                 style="border-top:1px solid#c5c5c5;margin-top:8px;padding-top:10px;padding-right:6px;margin-bottom:10px;">
@@ -173,22 +195,37 @@
         </div>
 
         <!-- LARGE / SMALL CARDS -->
-        <div id="card-view" class="w3-col s12 w3-large" style="display:flex;flex-direction:row;flex-wrap:wrap;">
-            <div w3-repeat="items" class="w3-col s12 m3 l2" style="display:block;max-width:325px;min-width:325px;">
+        <div id="card-view" class="w3-col s12 w3-large"
+            style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content: center;">
+            <div w3-repeat="items" class="w3-col s12 m3 l2"
+                style="display:block;max-width:300px;min-width:300px;padding:12px;">
                 <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
-                    <span class="" style="display:flex;justify-content: space-between;">
-                        <span id="card-name-{{name}}" class=" color-moniker">{{name}}</span>
-                        <span style="font-size:15px;margin-top:3px;">
-                            <span class="color-voltage">{{v}}V</span>
-                            <span class="color-font"> | </span>
-                            <span class="color-current">{{i}}A</span>
-                            <span class="color-font"> | </span>
-                            <span class="color-time">{{st}}h</span>
-                        </span>
+                    <span class="" style="display:flex;justify-content: space-between;padding-bottom:10px;">
+                        <span id="card-name-{{name}}" class="color-moniker">{{name}}</span>
+                        <span id="" class="color-moniker w3-right"
+                            style="margin-top:8px;font-size:20px !important;">{{uut}}</span>
                     </span>
 
-                    <span class="w3-medium" style="display:flex;justify-content: space-between;">
-                        <span class="color-current">{{uut}}</span>
+                    <div class="w3-center" style="padding:5px;margin-left:5px;margin-right:5px;padding-bottom:20px;">
+                        <div class="" style="display:flex;align-items:center;border-radius:30px;">
+                            <div style="padding-right:20px;">{{cycles}}</div>
+                            <div class="" style="max-height:15px;width:40%;background-color:rgb(106, 190, 223);">&nbsp;
+                            </div>
+                            <div class="" style="max-height:15px;;width:60%;background-color:#6abedf1a;">
+                                &nbsp;</div>
+                            <div style="padding-left:10px;">50</div>
+                        </div>
+                    </div>
+
+                    <span id="card-view-"
+                        style="font-size:20px;margin-top:3px;display:flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-between;">
+                        <span class="color-voltage">{{v}}V</span>
+                        <span class="color-current">{{i}}A</span>
+                        <span class="color-time">{{st}}h</span>
+                    </span>
+
+                    <span class="w3-medium" style="display:flex;justify-content: space-between;display:none;">
+                        <!-- <span class="color-current">{{uut}}</span> -->
                         <span style="_font-size:12px;margin-top:3px;">
                             <span class="color-current">{{cycles}}</span>
                             <span class="color-font"> / </span>
@@ -196,7 +233,7 @@
                         </span>
                     </span>
 
-                    <div id="card-chart-{{name}}" name="card-chart" style="margin-top:3px;"></div>
+                    <div id="card-chart-{{name}}" name="card-chart" style="margin-top:3px;padding-top:10px;"></div>
                 </div>
             </div>
         </div>
@@ -244,7 +281,7 @@
 
         <!-- DETAIL -->
         <div id="detail" class="w3-padding _card w3-col s12"
-            style="display:none;cursor:default;background-color: #2f2f2f;border:1px solid;">
+            style="display:none;cursor:default;background-color: #1e1e1e;_border:1px solid;">
             <div class="_w3-row _w3-padding">
 
                 <!-- COLUMN 1 -->
@@ -264,11 +301,11 @@
                             t
                             (hrs)</span></span>
                     <span class="color-font" style="font-size: 28px;margin-right:10px;">
-                        <span id="" class="color-voltage">3.312</span>
-                        <span id="" class="color-font"> | </span>
-                        <span id="" class="color-current">-0.612</span>
-                        <span id="" class="color-font"> | </span>
-                        <span id="" class="color-time">3.8</span>
+                        <span id="" class="color-voltage" style="margin-right:20px;">3.312V </span>
+                        <!-- <span id="" class="color-font"> | </span> -->
+                        <span id="" class="color-current" style="margin-right:20px;">-0.612A </span>
+                        <!-- <span id="" class="color-font"> | </span> -->
+                        <span id="" class="color-time">3.8h</span>
                     </span>
                 </div>
 
@@ -454,7 +491,7 @@
     </div>
 
     <!-- BATCH OPERATIONS -->
-    <div id="view-batch" style="display:none;margin-left:100px;">
+    <div id="view-batch" style="display:none;margin-left:30px;">
         <hr />
         <div class="w3-container w3-padding w3-large">
             <table class="w3-table w3-bordered">
@@ -520,34 +557,34 @@
     </div>
 
     <!-- BATTERY SETUP -->
-    <div id="view-battery-setup" style="display:none;margin-left:100px;">
+    <div id="view-battery-setup" style="display:none;margin-left:30px;">
         <hr />
     </div>
 
     <!-- TEST SETUP -->
-    <div id="view-test-setup" style="display:none;margin-left:100px;">
+    <div id="view-test-setup" style="display:none;margin-left:30px;">
         <hr />
     </div>
 
     <!-- SYSTEM SETUP -->
-    <div id="view-system-setup" style="display:none;margin-left:100px;">
+    <div id="view-system-setup" style="display:none;margin-left:30px;">
         <hr />
     </div>
 
     <!-- SYSTEM -->
-    <div id="view-setup" style="display:none;margin-left:100px;">
+    <div id="view-setup" style="display:none;margin-left:30px;">
         <hr />
         <div w3-include-html="system.html"></div>
     </div>
 
     <!-- PARAMETERS -->
-    <div id="view-parameters" style="display:none;margin-left:100px;">
+    <div id="view-parameters" style="display:none;margin-left:30px;">
         <hr />
         <div w3-include-html="configuration.html"></div>
     </div>
 
     <!-- CONTEXTUAL HELP -->
-    <div id="view-contextual-help" style="display:none;margin-left:100px;">
+    <div id="view-contextual-help" style="display:none;margin-left:30px;">
         <hr />
         <div w3-include-html="contextual-help.html"></div>
     </div>
@@ -777,7 +814,7 @@
                 v.i = ''
                 v.st = '';
                 v.cycles = '';
-                v.uut = `<span class="color-zero">EMPTY - 1d 16h 37m</span>`;
+                v.uut = `<span class="">EMPTY</span>`;
             }
             if (v.state === 'error') {
                 v.dataV = [];
@@ -786,7 +823,7 @@
                 v.i = ''
                 v.st = '';
                 v.cycles = '';
-                v.uut = '<span style=color:red">ERROR<br/>1d 16h 37m</span>';
+                v.uut = '<span style=color:red">ERROR</span>';
             }
         })
 
@@ -796,21 +833,21 @@
 
 
         // /** ALTER CARDS BASED ON STATE */
-        cards.items.forEach((v) => {
-            if (v.state === 'error') {
-                document.getElementById(v.name).style.borderColor = 'red';
-                document.getElementById(v.name).style.backgroundColor = '#ff000021';
-                document.getElementById(`card-chart-${v.name}`).style.display = 'none';
-            }
-            if (v.state === 'empty') {
-                // document.getElementById(v.name).style.borderColor = '#f9f9f963';
-                // document.getElementById(v.name).style.backgroundColor = '#64646421';
-                document.getElementById(`card-chart-${v.name}`).style.display = 'none';
-                const elem = document.getElementById(`card-name-${v.name}`);
-                elem.classList.remove('color-moniker');
-                elem.classList.add('color-zero');
-            }
-        })
+        // cards.items.forEach((v) => {
+        //     if (v.state === 'error') {
+        //         document.getElementById(v.name).style.borderColor = 'red';
+        //         document.getElementById(v.name).style.backgroundColor = '#ff000021';
+        //         document.getElementById(`card-chart-${v.name}`).style.display = 'none';
+        //     }
+        //     if (v.state === 'empty') {
+        //         // document.getElementById(v.name).style.borderColor = '#f9f9f963';
+        //         // document.getElementById(v.name).style.backgroundColor = '#64646421';
+        //         document.getElementById(`card-chart-${v.name}`).style.display = 'none';
+        //         const elem = document.getElementById(`card-name-${v.name}`);
+        //         elem.classList.remove('color-moniker');
+        //         elem.classList.add('color-zero');
+        //     }
+        // })
 
         w3.includeHTML(() => {
             const searchParams = new URLSearchParams(window.location.search);
@@ -1035,8 +1072,8 @@
                 }
                 elems = document.getElementsByClassName('card');
                 for (let e of elems) {
-                    e.style.minHeight = '170px';
-                    e.style.maxHeight = '170px';
+                    e.style.minHeight = '275px';
+                    e.style.maxHeight = '275px';
                 }
             } else if (type === 'small') {
                 document.getElementById('card-view').style.display = 'flex';
@@ -1167,7 +1204,7 @@
             }
         }
 
-        function toggleMenuLocation(toggle=true) {
+        function toggleMenuLocation(toggle = true) {
             if (toggle) {
                 menu_location_bottom = !menu_location_bottom;
                 localStorage.setItem('menu_location_bottom', menu_location_bottom);
@@ -1214,7 +1251,7 @@
             document.getElementById(`filter_${name}`).classList.add('filter-selected');
             cards.items.forEach((v) => {
                 ['', 'table-row-', 'timeline-row-'].forEach((v2) => {
-                    const elem = document.getElementById(`${v2}${v.name}`);
+                    const elem = document.getElementById(`${v2}${v.name}`).parentElement;
                     if (v.state !== name) {
                         elem.classList.add('w3-hide');
                     } else {

@@ -1,16 +1,18 @@
 body, h1, h2, h3, h4, h5, h6 {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Roboto, Verdana, Geneva, sans-serif;
 }
 
 body {
     /* border: 4px solid green; */
     /* font-family: cursive !important; */
+    font-family: Roboto !important;
     padding: 4px;
-    color: #cecece;
-    background-color: #2f2f2f;
-    /* max-width: 1800px; */
-    padding-right: 20px;
-    padding-top: 20px;
+    color: white;
+    background-color: #272727;
+    max-width: 1980px;
+    padding: 40px;
+    /* padding-right: 20px; */
+    /* padding-top: 20px; */
 }
 
 .center {
@@ -61,8 +63,9 @@ body {
 .card {
     /* min-height: 190px; */
     cursor: pointer;
-    border: 1px solid #c5c5c5;
+    /* border: 1px solid #c5c5c5; */
     margin: 5px;
+    background-color: #1e1e1e;
 }
 
 .detail-button {
@@ -83,11 +86,15 @@ body {
 } */
 
 .color-font {
-    color: #1599ac;
+    /* color: #1599ac; */
+    /* color: #41aadc; */
+    color:white;
 }
 
 .color-moniker {
-    color: #ffd861;
+    /* color: #ffd861; */
+    color: white;
+    font-size:28px !important;
 }
 
 .color-voltage {
@@ -95,7 +102,8 @@ body {
 }
 
 .color-current {
-    color: #75e0f0;
+    /* color: #75e0f0; */
+    color: #41aadc;
 }
 
 .color-time {
@@ -171,7 +179,7 @@ body {
     /* background-color: #2f2f2f !important; */
     /* color: #75e0f0 !important; */
     background-color: #3d3d3d !important;
-    border:1px solid #75e0f0;
+    border:1px solid white;
     /* color: white !important; */
     /* border-bottom:5px solid #75e0f0; */
     border-radius: 5px;
@@ -240,4 +248,7 @@ input a:hover {
     pointer-events: none;
     display: block; /* For Firefox */
     color:rgb(138, 138, 138);
+}
+th {
+    color:#1599ac;
 }

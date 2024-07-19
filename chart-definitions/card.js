@@ -5,8 +5,8 @@ var card_chart_options = {
     }],
     chart: {
         id: undefined,
-        height: 70,
-        type: 'area',
+        height: 100,
+        type: 'line',
         sparkline: {
             enabled: true
         },
@@ -18,16 +18,32 @@ var card_chart_options = {
         },
         group: undefined,
     },
-    fill: {
-        type: 'gradient',
-        gradient: {
-            shadeIntensity: 1,
-            inverseColors: false,
-            opacityFrom: 0.6,
-            opacityTo: 0,
-            // stops: [20, 100, 100, 100]
+    grid: {
+        show: true,
+        borderColor: '#494949',
+        strokeDashArray: 0,
+        position: 'back',
+        xaxis: {
+            lines: {
+                show: true
+            }
+        },   
+        yaxis: {
+            lines: {
+                show: true
+            }
         },
     },
+    // fill: {
+    //     type: 'gradient',
+    //     gradient: {
+    //         shadeIntensity: 1,
+    //         inverseColors: false,
+    //         opacityFrom: 0.6,
+    //         opacityTo: 0,
+    //         // stops: [20, 100, 100, 100]
+    //     },
+    // },
     // stroke: {
     //     width: [15]
     // },
@@ -37,7 +53,8 @@ var card_chart_options = {
     // colors: ['#2E93fA', '#66DA26', '#546E7A', '#E91E63', '#FF9800'],
     // colors: ['#298bac'],
     // colors: ['#1599ac'],
-    colors: ['#75e0f082'],
+    colors: ['#41aadc'],
+    // colors: ['#adff2f50'],
     // colors: ['#adff2f82'],
     dataLabels: {
         enabled: false
