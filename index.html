@@ -209,9 +209,9 @@
                     <div class="w3-center" style="padding:5px;margin-left:5px;margin-right:5px;padding-bottom:20px;">
                         <div class="" style="display:flex;align-items:center;border-radius:30px;">
                             <div style="padding-right:20px;">{{cycles}}</div>
-                            <div class="" style="max-height:15px;width:40%;background-color:rgb(106, 190, 223);">&nbsp;
+                            <div id="{{name}}-progress-complete" class="" style="max-height:15px;background-color:rgb(106, 190, 223);">&nbsp;
                             </div>
-                            <div class="" style="max-height:15px;;width:60%;background-color:#6abedf1a;">
+                            <div id="{{name}}-progress-requested" class="" style="max-height:15px;background-color:#6abedf1a;">
                                 &nbsp;</div>
                             <div style="padding-left:10px;">50</div>
                         </div>
@@ -813,7 +813,7 @@
                 v.v = '';
                 v.i = ''
                 v.st = '';
-                v.cycles = '';
+                v.cycles = '0';
                 v.uut = `<span class="">EMPTY</span>`;
             }
             if (v.state === 'error') {
@@ -863,6 +863,13 @@
 
             cards.items.forEach((v) => {
                 updateChart(v.name, v.dataV, v.chart_options);
+
+                // /** update percent complete */
+                const pct = 100 * (v.cycles / 50);
+                let elem = document.getElementById(`${v.name}-progress-complete`);
+                elem.style.width = `${pct}%`;
+                elem = document.getElementById(`${v.name}-progress-requested`);
+                elem.style.width = `${100-pct}%`;
             })
         }
 
