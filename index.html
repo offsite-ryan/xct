@@ -41,7 +41,7 @@
         <span class="header">
             <h1 class="color-font">
                 <div class="w3-dropdown-hover" _style="">
-                    <div class="" style="background-color:#2f2f2f;border:0px solid;padding-left:0px;">
+                    <div class="" style="background-color:#272727;border:0px solid;padding-left:0px;">
                         <i id="menu" class="fa fa-bars" style="cursor:pointer;padding-right:25px;color:#1599ac;_color:#23a638;"
                             aria-hidden="true"></i>
                     </div>
@@ -66,7 +66,7 @@
                 <span class="">TS0937 - <span id="view" class="" style="_padding-left:65px;">Runtime </span>
                     <span class="">
                         <div class="w3-dropdown-hover  w3-xlarge" style="background-color:#2f2f2f;">
-                            <i class="fa fa-caret-down" style="padding-left:20px;color:white;" aria-hidden="true"></i>
+                            <i class="fa fa-caret-down w3-xxlarge" style="padding-left:20px;color:white;" aria-hidden="true"></i>
                             <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
                                 style="background-color:#2f2f2f;color:white;min-width:250px;">
                                 <a href="#runtime" class="w3-bar-item w3-button"><i class="fa fa-th" aria-hidden="true"></i> Runtime</a>
@@ -213,7 +213,7 @@
                             </div>
                             <div id="{{name}}-progress-requested" class="" style="max-height:15px;background-color:#6abedf1a;">
                                 &nbsp;</div>
-                            <div style="padding-left:10px;">50</div>
+                            <div style="padding-left:10px;">{{requested_cycles}}</div>
                         </div>
                     </div>
 
@@ -767,6 +767,7 @@
                 chart_options: JSON.parse(JSON.stringify(card_chart_options)),
                 uut,
                 cycles: Math.floor(50 * Math.random()),
+                requested_cycles: 50,
                 de: null,
                 dc: null,
                 ee: null,
@@ -812,8 +813,9 @@
                 v.v = '';
                 v.i = ''
                 v.st = '';
-                v.cycles = '0';
-                v.uut = `<span class="">EMPTY</span>`;
+                v.cycles = '';
+                v.requested_cycles = '';
+                v.uut = `<span class="color-zero">EMPTY</span>`;
             }
             if (v.state === 'error') {
                 v.dataV = [];
@@ -822,7 +824,8 @@
                 v.i = ''
                 v.st = '';
                 v.cycles = '';
-                v.uut = '<span style=color:red">ERROR</span>';
+                v.requested_cycles = '';
+                v.uut = '<span style="color:red">ERROR</span>';
             }
         })
 
