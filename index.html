@@ -259,18 +259,23 @@
                         </div>
 
                         <div class="_w3-center" style="padding-bottom:10px;">
-                            <!-- <div class="" style="display:flex;align-items:center;border-radius:30px;">
-                                <div style="padding-right:20px;">{{cycles}}</div>
-                                <div id="{{name}}-progress-complete" class=""
-                                    style="max-height:15px;background-color:rgb(106, 190, 223);">&nbsp;
-                                </div>
-                                <div id="{{name}}-progress-requested" class=""
-                                    style="max-height:15px;background-color:#6abedf1a;">
-                                    &nbsp;</div>
-                                <div style="padding-left:10px;">{{requested_cycles}}</div>
-                            </div> -->
-
-                            <div class=""><b>{{batch_state}}</b></div>
+                            <span><b>{{batch_state}}</b>
+                                <span class="w3-right">
+                                    <span class="">{{cycles}}</span>
+                                    <span class=""> / </span>
+                                    <span class="color-current">50</span>
+                                <!-- <div class="" style="display:flex;align-items:center;border-radius:30px;">
+                                    <div style="padding-right:20px;">{{cycles}}</div>
+                                    <div id="{{name}}-progress-complete" class=""
+                                        style="max-height:15px;background-color:rgb(106, 190, 223);">&nbsp;
+                                    </div>
+                                    <div id="{{name}}-progress-requested" class=""
+                                        style="max-height:15px;background-color:#6abedf1a;">
+                                        &nbsp;</div>
+                                    <div style="padding-left:10px;">{{requested_cycles}}</div>
+                                </div> -->
+                            </span>
+                            <br/>
                         </div>
 
                         <span id="card-view-"
@@ -338,7 +343,7 @@
                 </span>
             </div>
 
-            
+
             <div style="padding-top:25px">&nbsp;</div>
 
             <!-- DETAIL -->
@@ -989,18 +994,20 @@
                 v.icon = './assets/paused.png';
                 v.batch_state = '<span class="w3-text-yellow">PAUSED</span>';
                 v.step = '';
-                start = Math.floor(150*Math.random());
+                start = Math.floor(150 * Math.random());
                 for (let y = start; y >= 0; y--) {
-                    v.dataV[v.dataV.length - y] = v.dataV[start] ;
+                    v.dataV[v.dataV.length - y] = null; // v.dataV[start] ;
+                    v.dataI[v.dataI.length - y] = null; // 0 ;
                 }
             }
             if (v.state === 'complete') {
                 v.icon = './assets/empty.png';
                 v.batch_state = '<span class="color-current">COMPLETE</span>';
                 v.step = '';
-                start = Math.floor(150*Math.random());
+                start = Math.floor(150 * Math.random());
                 for (let y = start; y >= 0; y--) {
-                    v.dataV[v.dataV.length - y] = v.dataV[start] ;
+                    v.dataV[v.dataV.length - y] = null; // v.dataV[start] ;
+                    v.dataI[v.dataI.length - y] = null; // 0 ;
                 }
             }
             if (v.state === 'on_test') {
