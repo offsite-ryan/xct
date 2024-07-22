@@ -258,8 +258,7 @@
                                 style="margin-top:8px;font-size:20px !important;">{{uut}}</span>
                         </div>
 
-                        <div class="_w3-center"
-                            style="padding-bottom:10px;">
+                        <div class="_w3-center" style="padding-bottom:10px;">
                             <!-- <div class="" style="display:flex;align-items:center;border-radius:30px;">
                                 <div style="padding-right:20px;">{{cycles}}</div>
                                 <div id="{{name}}-progress-complete" class=""
@@ -270,7 +269,7 @@
                                     &nbsp;</div>
                                 <div style="padding-left:10px;">{{requested_cycles}}</div>
                             </div> -->
-                            
+
                             <div class=""><b>{{batch_state}}</b></div>
                         </div>
 
@@ -989,11 +988,19 @@
                 v.icon = './assets/paused.png';
                 v.batch_state = '<span class="w3-text-yellow">PAUSED</span>';
                 v.step = '';
+                start = Math.floor(150*Math.random());
+                for (let y = start; y >= 0; y--) {
+                    v.dataV[v.dataV.length - y] = v.dataV[start] ;
+                }
             }
             if (v.state === 'complete') {
                 v.icon = './assets/empty.png';
                 v.batch_state = '<span class="color-current">COMPLETE</span>';
                 v.step = '';
+                start = Math.floor(150*Math.random());
+                for (let y = start; y >= 0; y--) {
+                    v.dataV[v.dataV.length - y] = v.dataV[start] ;
+                }
             }
             if (v.state === 'on_test') {
                 v.batch_state = '<span class="w3-text-green">ON TEST</span>';
