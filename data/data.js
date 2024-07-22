@@ -12,7 +12,8 @@ class data {
         rows.forEach((v, i) => {
             if (i > 0) {
                 json.push({
-                    i: +(v[5]),
+                    // /** not sure why but the data for I (current) is opposite of what it should be */
+                    i: -(+(v[5])), 
                     v: +(v[6]),
                     c: +(v[7]),
                     t: +(v[8]),

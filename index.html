@@ -39,10 +39,35 @@
         <div id="content" class="" style="display:none;">
             <a _href="" id="" class="w3-xlarge" style="float:right;min-width:0px;padding-left:10px;cursor:pointer;"
                 onclick="showModal()"><i class="fa fa-ellipsis-v color-zero" aria-hidden="true"></i></a>
+
             <span class="header">
                 <h1 class="color-font">
+
+                    <!-- Sidebar -->
+                    <!-- <div class="w3-sidebar w3-bar-block w3-border w3-xlarge w3-center w3-text-white"
+                        style="display:none;width:300px;color:white;background-color: #1e1e1e;;top: 110px;"
+                        id="mySidebar">
+                        
+                        <div style="background-color: #3d3d3d;border:1px solid;padding:50px;">
+                            <a class="" style="color:#1599ac;" onclick=""><i class="fa fa-battery-three-quarters"
+                                    aria-hidden="true"></i><br />Test System</a>
+                        </div>
+                        <a class="" onclick=""><i class="fa fa-cube" aria-hidden="true"></i><br />
+                            Virtualization</a>
+                        <hr />
+                        <a class="" onclick=""><i class="fa fa-television" aria-hidden="true"></i><br />
+                            Monitoring</a>
+                        <hr />
+                        <a class="" onclick=""><i class="fa fa-database" aria-hidden="true"></i><br /> Data
+                            Processing</a>
+                        <hr />
+                        <a class="" onclick=""><i class="fa fa-calendar" aria-hidden="true"></i><br />
+                            Scheduler</a>
+                    </div> -->
+
                     <div class="w3-dropdown-hover" _style="">
-                        <div class="" style="background-color:#272727;border:0px solid;padding-left:0px;">
+                        <div class="" style="background-color:#272727;border:0px solid;padding-left:0px;"
+                            onclick="document.getElementById('mySidebar').style.display = 'block';">
                             <i id="menu" class="fa fa-bars" style="cursor:pointer;padding-right:25px;color:#1599ac;"
                                 aria-hidden="true"></i>
                         </div>
@@ -53,7 +78,7 @@
                             <!-- <hr /> -->
                             <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
                                     class="fa fa-cube" aria-hidden="true"></i>
-                                Virtualization</a>
+                                <span class="w3-text-white">Virtualization</span></a>
                             <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
                                     class="fa fa-television" aria-hidden="true"></i>
                                 Monitoring</a>
@@ -233,9 +258,9 @@
                                 style="margin-top:8px;font-size:20px !important;">{{uut}}</span>
                         </div>
 
-                        <div class="w3-center"
-                            style="padding:5px;margin-left:5px;margin-right:5px;padding-bottom:10px;">
-                            <div class="" style="display:flex;align-items:center;border-radius:30px;">
+                        <div class="_w3-center"
+                            style="padding-bottom:10px;">
+                            <!-- <div class="" style="display:flex;align-items:center;border-radius:30px;">
                                 <div style="padding-right:20px;">{{cycles}}</div>
                                 <div id="{{name}}-progress-complete" class=""
                                     style="max-height:15px;background-color:rgb(106, 190, 223);">&nbsp;
@@ -244,7 +269,9 @@
                                     style="max-height:15px;background-color:#6abedf1a;">
                                     &nbsp;</div>
                                 <div style="padding-left:10px;">{{requested_cycles}}</div>
-                            </div>
+                            </div> -->
+                            
+                            <div class=""><b>{{batch_state}}</b></div>
                         </div>
 
                         <span id="card-view-"
@@ -838,10 +865,14 @@
             const uut = `${(Math.random() * 10000).toFixed().padStart(4, '0')}-${(Math.random() * 100).toFixed().padStart(2, '0')}`
             const test = '19d C/2 Charge - Discharge (6)';
             const dataV = chartData.getData('v', offset, count).reverse();
-            const dataI = chartData.getData('i', offset, count).reverse();
+            let dataI = chartData.getData('i', offset, count).reverse();
+            dataI.forEach((v) => {
+                v = -v;
+            })
+
             const v = dataV[dataV.length - 1].toString().padEnd(5, '0');
             const i = dataI[dataI.length - 1].toString().padEnd(5, '0');
-            const isCharging = dataV[dataV.length - 1] > dataV[dataV.length - 2]
+            const isCharging = dataI[dataV.length - 1] > 0;
             let state = null;
 
             let history = '';
@@ -926,7 +957,7 @@
         // /** ALTER CARDS BASED ON STATE */
         cards.items.forEach((v) => {
             if (v.state === 'empty') {
-                v.icon = './assets/empty.png';
+                v.icon = './assets/charge-empty.png';
                 v.test = '';
                 v.step = '',
                     v.battery = '';
@@ -941,7 +972,7 @@
                 v.batch_state = '<span class="color-zero">EMPTY</span>';
             }
             if (v.state === 'error') {
-                v.icon = './assets/empty.png';
+                v.icon = './assets/error.png';
                 v.test = '';
                 v.battery = '';
                 v.dataV = [];
@@ -955,7 +986,7 @@
                 v.batch_state = '<span style="color:red">ERROR</span>';
             }
             if (v.state === 'paused') {
-                v.icon = './assets/empty.png';
+                v.icon = './assets/paused.png';
                 v.batch_state = '<span class="w3-text-yellow">PAUSED</span>';
                 v.step = '';
             }
@@ -1012,16 +1043,16 @@
                 updateChart(v.name, v.dataV, v.chart_options);
 
                 // /** update percent complete */
-                const pct = 100 * (v.cycles / 50);
-                let elem = document.getElementById(`${v.name}-progress-complete`);
-                elem.style.width = `${pct}%`;
-                elem = document.getElementById(`${v.name}-progress-requested`);
-                elem.style.width = `${100 - pct}%`;
+                // const pct = 100 * (v.cycles / 50);
+                // let elem = document.getElementById(`${v.name}-progress-complete`);
+                // elem.style.width = `${pct}%`;
+                // elem = document.getElementById(`${v.name}-progress-requested`);
+                // elem.style.width = `${100 - pct}%`;
 
-                elem = document.getElementById(`${v.name}-progress-complete-table`);
-                elem.style.width = `${pct}%`;
-                elem = document.getElementById(`${v.name}-progress-requested-table`);
-                elem.style.width = `${100 - pct}%`;
+                // elem = document.getElementById(`${v.name}-progress-complete-table`);
+                // elem.style.width = `${pct}%`;
+                // elem = document.getElementById(`${v.name}-progress-requested-table`);
+                // elem.style.width = `${100 - pct}%`;
             })
         }
 
