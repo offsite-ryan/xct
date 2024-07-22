@@ -179,6 +179,7 @@
                     <tr class="color-font">
                         <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
                         <th>Channel</th>
+                        <th>State</th>
                         <th>Serial Number</th>
                         <th>Test Procedure</th>
                         <th>Step Name</th>
@@ -193,9 +194,10 @@
                         <!-- <td><i class="fa fa-square-o" aria-hidden="true"></i></td> -->
                         <td class="color-moniker"><img src="{{icon}}" height="35" style="padding-right:10px;" /><span
                                 style="padding-right:10px;">{{name}}</span></td>
+                        <td>{{batch_state}}</td>
                         <td>{{uut}}</td>
-                        <td>TXW467v3</td>
-                        <td>Constant Current Discharge</td>
+                        <td>{{test}}</td>
+                        <td>{{step}}</td>
                         <td class="color-voltage">{{v}}</td>
                         <td class="color-current">{{i}}</td>
                         <td class="color-time">{{st}}</td>
@@ -273,6 +275,7 @@
                         <tr class="color-font">
                             <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
                             <th width=150>Channel</th>
+                            <th width=150>State</th>
                             <th class="w3-center" style="border-left:0px solid;"> 18-Jul</th>
                             <th class="w3-center" style="border-left:1px solid;"> 19-Jul</th>
                             <th class="w3-center" style="border-left:1px solid;"> 20-Jul</th>
@@ -286,6 +289,7 @@
                             onclick="clickRow(this.rowIndex)">
                             <td class="color-moniker"><img src="{{icon}}" height="35"
                                     style="padding-right:10px;" /><span style="padding-right:10px;">{{name}}</span></td>
+                            <td>{{batch_state}}</td>
                             <td colspan="5">
                                 <span class="w3-small" style="display:flex;margin-top:5px;">
                                     {{history}}
@@ -878,6 +882,7 @@
                 chart_options: JSON.parse(JSON.stringify(card_chart_options)),
                 uut,
                 test,
+                step: isCharging ? 'CC Charge' : 'CC Discharge',
                 battery: `LG-23463-${uut}`,
                 cycles: Math.floor(50 * Math.random()),
                 requested_cycles: 50,
@@ -923,7 +928,8 @@
             if (v.state === 'empty') {
                 v.icon = './assets/empty.png';
                 v.test = '';
-                v.battery = '';
+                v.step = '',
+                    v.battery = '';
                 v.dataV = [];
                 v.dataI = [];
                 v.v = '';
@@ -936,6 +942,8 @@
             }
             if (v.state === 'error') {
                 v.icon = './assets/empty.png';
+                v.test = '';
+                v.battery = '';
                 v.dataV = [];
                 v.dataI = [];
                 v.v = '';
@@ -949,10 +957,12 @@
             if (v.state === 'paused') {
                 v.icon = './assets/empty.png';
                 v.batch_state = '<span class="w3-text-yellow">PAUSED</span>';
+                v.step = '';
             }
             if (v.state === 'complete') {
                 v.icon = './assets/empty.png';
                 v.batch_state = '<span class="color-current">COMPLETE</span>';
+                v.step = '';
             }
             if (v.state === 'on_test') {
                 v.batch_state = '<span class="w3-text-green">ON TEST</span>';
