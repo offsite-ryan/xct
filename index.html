@@ -35,124 +35,133 @@
     </div> -->
 
     <!-- TOP -->
-    <div id="content" class="" style="display:none;margin-left:30px;">
-        <a _href="" id="" class="w3-xlarge" style="float:right;min-width:0px;padding-left:10px;cursor:pointer;"
-            onclick="showModal()"><i class="fa fa-ellipsis-v color-zero" aria-hidden="true"></i></a>
-        <span class="header">
-            <h1 class="color-font">
-                <div class="w3-dropdown-hover" _style="">
-                    <div class="" style="background-color:#272727;border:0px solid;padding-left:0px;">
-                        <i id="menu" class="fa fa-bars" style="cursor:pointer;padding-right:25px;color:#1599ac;_color:#23a638;"
-                            aria-hidden="true"></i>
-                    </div>
-                    <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-xlarge"
-                        style="min-width:250px;">
-                        <a class="card-menu-option-selected w3-bar-item w3-button" onclick=""><i
-                                class="fa fa-battery-three-quarters" aria-hidden="true"></i> Test System</a>
-                        <!-- <hr /> -->
-                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i class="fa fa-cube"
+    <div style="">
+        <div id="content" class="" style="display:none;">
+            <a _href="" id="" class="w3-xlarge" style="float:right;min-width:0px;padding-left:10px;cursor:pointer;"
+                onclick="showModal()"><i class="fa fa-ellipsis-v color-zero" aria-hidden="true"></i></a>
+            <span class="header">
+                <h1 class="color-font">
+                    <div class="w3-dropdown-hover" _style="">
+                        <div class="" style="background-color:#272727;border:0px solid;padding-left:0px;">
+                            <i id="menu" class="fa fa-bars" style="cursor:pointer;padding-right:25px;color:#1599ac;"
                                 aria-hidden="true"></i>
-                            Virtualization</a>
-                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
-                                class="fa fa-television" aria-hidden="true"></i>
-                            Monitoring</a>
-                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
-                                class="fa fa-database" aria-hidden="true"></i> Data Processing</a>
-                        <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
-                                class="fa fa-calendar" aria-hidden="true"></i>
-                            Scheduler</a>
+                        </div>
+                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                            style="min-width:250px;">
+                            <a class="card-menu-option-selected w3-bar-item w3-button" onclick=""><i
+                                    class="fa fa-battery-three-quarters" aria-hidden="true"></i> Test System</a>
+                            <!-- <hr /> -->
+                            <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
+                                    class="fa fa-cube" aria-hidden="true"></i>
+                                Virtualization</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
+                                    class="fa fa-television" aria-hidden="true"></i>
+                                Monitoring</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
+                                    class="fa fa-database" aria-hidden="true"></i> Data Processing</a>
+                            <a class="card-menu-option-unselected w3-bar-item w3-button" onclick=""><i
+                                    class="fa fa-calendar" aria-hidden="true"></i>
+                                Scheduler</a>
+                        </div>
                     </div>
-                </div>
-                <span class="">TS0937 - <span id="view" class="" style="_padding-left:65px;">Runtime </span>
-                    <span class="">
-                        <div class="w3-dropdown-hover  w3-xlarge" style="background-color:#2f2f2f;">
-                            <i class="fa fa-caret-down w3-xxlarge" style="padding-left:20px;color:white;" aria-hidden="true"></i>
+                    <span class=""><span class="color-zero" style="display:none;">Test System:&nbsp;&nbsp;</span>TS0937
+                        - <span id="view" class="" style="_padding-left:65px;">Runtime </span>
+                        <span class="">
+                            <div class="w3-dropdown-hover  w3-xlarge" style="background-color:#2f2f2f;">
+                                <i class="fa fa-caret-down w3-xxlarge"
+                                    style="padding-left:20px;color:white;background-color:#272727;"
+                                    aria-hidden="true"></i>
+                                <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                    style="background-color:#2f2f2f;color:white;min-width:250px;">
+                                    <a href="#runtime" class="w3-bar-item w3-button"><i class="fa fa-th"
+                                            aria-hidden="true"></i> Runtime</a>
+                                    <a href="#batch" class="w3-bar-item w3-button"><i class="fa fa-table"
+                                            aria-hidden="true"></i> Batch Operations</a>
+                                    <a href="#configuration" class="w3-bar-item w3-button"><i
+                                            class="fa fa-pencil-square-o" aria-hidden="true"></i> Setup</a>
+                                    <a href="#system" class="w3-bar-item w3-button"><i class="fa fa-cog"
+                                            aria-hidden="true"></i> System</a>
+                                    <a href="#contextual-help" class="w3-bar-item w3-button"><i
+                                            class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+                                </div>
+                            </div>
+                        </span>
+
+                        <!--  -->
+                    </span>
+                </h1>
+                <img class="logo2" src="avl-logo-300x300.png" />
+            </span>
+
+            <div id="overview-counts" class="w3-row w3-center _w3-right-align" style="padding-top:20px;">
+                <div class="w3-col s1 w3-left-align">
+                    <span class="color-font w3-xlarge">
+                        <div class="w3-dropdown-hover  w3-xlarge" _style="">
+                            <div class="" style="background-color:#1e1e1e;color:white;border:0px solid;"><i id="filter"
+                                    class="fa fa-filter" style="cursor:pointer;"
+                                    aria-hidden="true">&nbsp;&nbsp;&nbsp;All
+                                </i><i class="fa fa-caret-down" style="padding-left:20px;" aria-hidden="true"></i></div>
                             <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
-                                style="background-color:#2f2f2f;color:white;min-width:250px;">
-                                <a href="#runtime" class="w3-bar-item w3-button"><i class="fa fa-th" aria-hidden="true"></i> Runtime</a>
-                                <a href="#batch" class="w3-bar-item w3-button"><i class="fa fa-table" aria-hidden="true"></i> Batch Operations</a>
-                                <a href="#configuration" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Setup</a>
-                                <a href="#system" class="w3-bar-item w3-button"><i class="fa fa-cog" aria-hidden="true"></i> System</a>
-                                <a href="#contextual-help" class="w3-bar-item w3-button"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+                                style="background-color:#2f2f2f;color:white;">
+                                <a class="w3-bar-item w3-button" onclick="filter('')">All</a>
+                                <a class="w3-bar-item w3-button" onclick="filter('Project A')">Project A</a>
+                                <a class="w3-bar-item w3-button" onclick="filter('Project B')">Project B</a>
+                                <a class="w3-bar-item w3-button" onclick="filter('Project C')">Project C</a>
+                                <a class="w3-bar-item w3-button" onkeyup="filter(this.value)"><input type="text"
+                                        placeholder="Search..."></input></a>
                             </div>
                         </div>
                     </span>
-
-                    <!--  -->
-                </span>
-            </h1>
-            <img class="logo2" src="avl-logo-300x300.png" />
-        </span>
-
-        <div id="overview-counts" class="w3-row w3-center _w3-right-align" style="padding-top:20px;_margin-left:100px;">
-            <div class="w3-col s1 w3-left-align">
-                <span class="color-font w3-xlarge">
-                    <div class="w3-dropdown-hover  w3-xlarge" _style="">
-                        <div class="" style="background-color:#2f2f2f;color:white;border:0px solid;"><i id="filter"
-                                class="fa fa-filter" style="cursor:pointer;"
-                                aria-hidden="true">&nbsp;&nbsp;&nbsp;All </i><i class="fa fa-caret-down"
-                                style="padding-left:20px;" aria-hidden="true"></i></div>
-                        <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge" style="background-color:#2f2f2f;color:white;">
-                            <a class="w3-bar-item w3-button" onclick="filter('')">All</a>
-                            <a class="w3-bar-item w3-button"
-                                onclick="filter('Project A')">Project A</a>
-                            <a class="w3-bar-item w3-button"
-                                onclick="filter('Project B')">Project B</a>
-                            <a class="w3-bar-item w3-button"
-                                onclick="filter('Project C')">Project C</a>
-                            <a class="w3-bar-item w3-button"
-                                onkeyup="filter(this.value)"><input type="text" placeholder="Search..."></input></a>
+                </div>
+                <div id="filter_on_test" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('on_test')">
+                    <span class="color-font">On Test: <span id="count_on_test" class=""
+                            style="font-weight:bold;margin-left:10px;">41</span></span>
+                </div>
+                <div id="filter_paused" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('paused')">
+                    <span class="color-font">Paused: <span id="count_paused" class=""
+                            style="font-weight:bold;margin-left:10px;">7</span></span>
+                </div>
+                <div id="filter_empty" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('empty')">
+                    <span class="color-font">Empty: <span id="count_empty" class=""
+                            style="font-weight:bold;margin-left:10px;">0</span></span>
+                </div>
+                <div id="filter_complete" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('complete')">
+                    <span class="color-font">Complete: <span id="count_complete" class=""
+                            style="font-weight:bold;margin-left:10px;">9</span></span>
+                </div>
+                <div id="filter_error" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('error')">
+                    <span class="color-font">Errors: <span id="count_error" class=""
+                            style="font-weight:bold;margin-left:10px;">0</span></span>
+                </div>
+                <div id="" class="w3-col s1 clickable w3-xlarge">
+                    <div class="w3-dropdown-hover w3-right" _style="">
+                        <div class="" style="background-color:#272727;color:white;border:0px solid;padding-left:30px;">
+                            <i id="menu" class="fa fa-ellipsis-v w3-xlarge" style="cursor:pointer;"
+                                aria-hidden="true"></i>
                         </div>
-                    </div>
-                </span>
-            </div>
-            <div id="filter_on_test" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('on_test')">
-                <span class="color-font">On Test: <span id="count_on_test" class=""
-                        style="font-weight:bold;margin-left:10px;">41</span></span>
-            </div>
-            <div id="filter_paused" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('paused')">
-                <span class="color-font">Paused: <span id="count_paused" class=""
-                        style="font-weight:bold;margin-left:10px;">7</span></span>
-            </div>
-            <div id="filter_empty" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('empty')">
-                <span class="color-font">Empty: <span id="count_empty" class=""
-                        style="font-weight:bold;margin-left:10px;">0</span></span>
-            </div>
-            <div id="filter_complete" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('complete')">
-                <span class="color-font">Complete: <span id="count_complete" class=""
-                        style="font-weight:bold;margin-left:10px;">9</span></span>
-            </div>
-            <div id="filter_error" class="w3-col s2 clickable w3-xlarge" onclick="filterRuntime('error')">
-                <span class="color-font">Errors: <span id="count_error" class=""
-                        style="font-weight:bold;margin-left:10px;">0</span></span>
-            </div>
-            <div id="" class="w3-col s1 clickable w3-xlarge">
-                <div class="w3-dropdown-hover w3-right" _style="">
-                    <div class="" style="background-color:#272727;color:white;border:0px solid;padding-left:30px;"><i id="menu"
-                            class="fa fa-ellipsis-v w3-xlarge" style="cursor:pointer;" aria-hidden="true"></i></div>
-                    <div class=" w3-dropdown-content w3-bar-block w3-border w3-xlarge"
-                        style="right:0;width:125px;min-width:250px;background-color:#2f2f2f;color:white;">
-                        <a id="menu-view-large" class="w3-bar-item w3-button"
-                            onclick="selectCardType('large')"><i class="fa fa-area-chart" aria-hidden="true"></i> Large
-                            Card</a>
-                        <a id="menu-view-small" class="w3-bar-item w3-button"
-                            onclick="selectCardType('small')"><i class="fa fa-list-alt" aria-hidden="true"></i> Small
-                            Card</a>
-                        <a id="menu-view-table" class="w3-bar-item w3-button"
-                            onclick="selectCardType('table')"><i class="fa fa-table" aria-hidden="true"></i> Table</a>
-                        <a id="menu-view-timeline" class="w3-bar-item w3-button"
-                            onclick="selectCardType('timeline')"><i class="fa fa-table" aria-hidden="true"></i>
-                            Timeline</a>
+                        <div class=" w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                            style="right:0;width:125px;min-width:250px;background-color:#2f2f2f;color:white;">
+                            <a id="menu-view-large" class="w3-bar-item w3-button" onclick="selectCardType('large')"><i
+                                    class="fa fa-area-chart" aria-hidden="true"></i> Large
+                                Card</a>
+                            <a id="menu-view-small" class="w3-bar-item w3-button" onclick="selectCardType('small')"><i
+                                    class="fa fa-list-alt" aria-hidden="true"></i> Small
+                                Card</a>
+                            <a id="menu-view-table" class="w3-bar-item w3-button" onclick="selectCardType('table')"><i
+                                    class="fa fa-table" aria-hidden="true"></i> Table</a>
+                            <a id="menu-view-timeline" class="w3-bar-item w3-button"
+                                onclick="selectCardType('timeline')"><i class="fa fa-table" aria-hidden="true"></i>
+                                Timeline</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- CARDS -->
-    <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;margin-left:30px;">
-        <hr />
-        <!-- <div class="w3-container w3-xlarge color-font"
+        <!-- CARDS -->
+        <div id="cards" class="w3-row" style="display:none;margin-bottom:25px;padding-bottom:50px;">
+            <hr />
+            <!-- <div class="w3-container w3-xlarge color-font"
                 style="border-top:1px solid#c5c5c5;margin-top:8px;padding-top:10px;padding-right:6px;margin-bottom:10px;">
                 <div class="w3-col s4">
                     &nbsp;
@@ -164,178 +173,253 @@
 
             </div> -->
 
-        <!-- TABLE -->
-        <div id="table-view" class="w3-col s12 w3-large" style="display:block;">
-            <table class="w3-table w3-bordered">
-                <tr class="color-font">
-                    <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
-                    <th>Channel</th>
-                    <th>Serial Number</th>
-                    <th>Test Procedure</th>
-                    <th>Step Name</th>
-                    <th>V</th>
-                    <th>I (mA)</th>
-                    <th>t (h)</th>
-                    <th>Cycles</th>
-                    <!-- <th></th> -->
-                </tr>
-                <tr w3-repeat="items" id="table-row-{{name}}" onclick="clickRow(this.rowIndex)" style="cursor:pointer;">
-                    <!-- <td><i class="fa fa-square-o" aria-hidden="true"></i></td> -->
-                    <td class="color-moniker">{{name}}</td>
-                    <td>{{uut}}</td>
-                    <td>TXW467v3</td>
-                    <td>Constant Current Discharge</td>
-                    <td class="color-voltage">{{v}}</td>
-                    <td class="color-current">{{i}}</td>
-                    <td class="color-time">{{st}}</td>
-                    <td><span class="color-current">{{cycles}}</span> / <span class="color-time">50</span></td>
-                    <!-- <td><i class="fa fa-pause color-font" style="cursor:pointer;" aria-hidden="true"></i></td> -->
-                </tr>
-            </table>
-        </div>
-
-        <!-- LARGE / SMALL CARDS -->
-        <div id="card-view" class="w3-col s12 w3-large"
-            style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content: center;">
-            <div w3-repeat="items" class="w3-col s12 m3 l2"
-                style="display:block;max-width:300px;min-width:300px;padding:12px;">
-                <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
-                    <span class="" style="display:flex;justify-content: space-between;padding-bottom:10px;">
-                        <span id="card-name-{{name}}" class="color-moniker">{{name}}</span>
-                        <span id="" class="color-moniker w3-right"
-                            style="margin-top:8px;font-size:20px !important;">{{uut}}</span>
-                    </span>
-
-                    <div class="w3-center" style="padding:5px;margin-left:5px;margin-right:5px;padding-bottom:20px;">
-                        <div class="" style="display:flex;align-items:center;border-radius:30px;">
-                            <div style="padding-right:20px;">{{cycles}}</div>
-                            <div id="{{name}}-progress-complete" class="" style="max-height:15px;background-color:rgb(106, 190, 223);">&nbsp;
-                            </div>
-                            <div id="{{name}}-progress-requested" class="" style="max-height:15px;background-color:#6abedf1a;">
-                                &nbsp;</div>
-                            <div style="padding-left:10px;">{{requested_cycles}}</div>
-                        </div>
-                    </div>
-
-                    <span id="card-view-"
-                        style="font-size:20px;margin-top:3px;display:flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-between;">
-                        <span class="color-voltage">{{v}}V</span>
-                        <span class="color-current">{{i}}A</span>
-                        <span class="color-time">{{st}}h</span>
-                    </span>
-
-                    <span class="w3-medium" style="display:flex;justify-content: space-between;display:none;">
-                        <!-- <span class="color-current">{{uut}}</span> -->
-                        <span style="_font-size:12px;margin-top:3px;">
-                            <span class="color-current">{{cycles}}</span>
-                            <span class="color-font"> / </span>
-                            <span class="color-time">50</span>
-                        </span>
-                    </span>
-
-                    <div id="card-chart-{{name}}" name="card-chart" style="margin-top:3px;padding-top:10px;"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TIMELINE -->
-        <div id="timeline-view" class="w3-col s12 w3-large" style="display:none;">
-            <div id="" class="w3-col s12 w3-large" _style="display:block;">
-                <table class="w3-table w3-bordered">
+            <!-- TABLE -->
+            <div id="table-view" class="w3-col s12 w3-large" style="display:block;">
+                <table class="w3-table w3-bordered w3-xlarge">
                     <tr class="color-font">
                         <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
-                        <th width=100>Channel</th>
-                        <th class="w3-center" style="border-left:0px solid;"> 27-Jun</th>
-                        <th class="w3-center" style="border-left:1px solid;"> 28-Jun</th>
-                        <th class="w3-center" style="border-left:1px solid;"> 29-Jun</th>
-                        <th class="w3-center" style="border-left:1px solid;"> 30-Jun</th>
-                        <th class="w3-center" style="border-left:1px solid;"> 01-Jul</th>
-                        <!-- <th class="w3-center">Timeline: <spam class="color-current">Last 5 days</spam></th> -->
+                        <th>Channel</th>
+                        <th>Serial Number</th>
+                        <th>Test Procedure</th>
+                        <th>Step Name</th>
+                        <th>V</th>
+                        <th>I (mA)</th>
+                        <th>t (h)</th>
+                        <th>Cycles</th>
+                        <!-- <th></th> -->
                     </tr>
-
-                    <!-- TIMELINE ROWS - REPEAT -->
-                    <tr id="timeline-row-{{name}}" w3-repeat="items" id="timeline-row-CH04"
-                        onclick="clickRow(this.rowIndex)">
-                        <td class="color-moniker" style="cursor:pointer;">{{name}}</td>
-                        <td colspan="5">
-                            <span class="w3-small" style="display:flex;margin-top:5px;">
-                                {{history}}
-                            </span>
-
+                    <tr w3-repeat="items" id="table-row-{{name}}" onclick="clickRow(this.rowIndex)"
+                        style="cursor:pointer;">
+                        <!-- <td><i class="fa fa-square-o" aria-hidden="true"></i></td> -->
+                        <td class="color-moniker"><img src="{{icon}}" height="35" style="padding-right:10px;" /><span
+                                style="padding-right:10px;">{{name}}</span></td>
+                        <td>{{uut}}</td>
+                        <td>TXW467v3</td>
+                        <td>Constant Current Discharge</td>
+                        <td class="color-voltage">{{v}}</td>
+                        <td class="color-current">{{i}}</td>
+                        <td class="color-time">{{st}}</td>
+                        <td>
+                            <div class="" style="display:flex;align-items:center;border-radius:30px;">
+                                <div style="padding-right:20px;">{{cycles}}</div>
+                                <div id="{{name}}-progress-complete-table" class=""
+                                    style="max-height:15px;background-color:rgb(106, 190, 223);">&nbsp;
+                                </div>
+                                <div id="{{name}}-progress-requested-table" class=""
+                                    style="max-height:15px;background-color:#6abedf1a;">
+                                    &nbsp;</div>
+                                <div style="padding-left:10px;">{{requested_cycles}}</div>
+                            </div>
                         </td>
+                        <!-- <td><span class="color-current">{{cycles}}</span> / <span class="color-time">50</span></td> -->
+                        <!-- <td><i class="fa fa-pause color-font" style="cursor:pointer;" aria-hidden="true"></i></td> -->
                     </tr>
                 </table>
             </div>
-        </div>
 
-        <!-- PAGER -->
-        <br />
-        <div id="pages" class="w3-col s12 w3-center">
-            <span id="pager" style="display:flex;justify-content:center;display:none;margin:3px;font-size:1.1rem;">
-                <span w3-repeat="pages" id="page-{{name}}" class="color-font pager-button" _style=""
-                    onclick="clickPager(this.innerText)">{{name}}</span>
-                <span id="page-all" class="w3-white-text _color-font pager-button" _style=""
-                    onclick="clickPager(this.innerText)">ALL</span>
-            </span>
-        </div>
+            <!-- LARGE / SMALL CARDS -->
+            <div id="card-view" class="w3-col s12 w3-large"
+                style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content: center;">
+                <div w3-repeat="items" class="w3-col s12 m3 l2"
+                    style="display:block;max-width:300px;min-width:300px;padding:12px;">
+                    <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
+                        <div class="" style="padding-bottom:10px;font-size:28px;">
+                            <img id="card-icon-{{name}}" src="{{icon}}" height="35"
+                                style="padding-right:10px;display:none;" />
+                            <span id="card-name-{{name}}" class="color-moniker" style="">{{name}}</span>
+                            <span id="" class="color-moniker w3-right"
+                                style="margin-top:8px;font-size:20px !important;">{{uut}}</span>
+                        </div>
 
-        <!-- DETAIL -->
-        <div id="detail" class="w3-padding _card w3-col s12"
-            style="display:none;cursor:default;background-color: #1e1e1e;_border:1px solid;">
-            <div class="w3-row w3-padding">
+                        <div class="w3-center"
+                            style="padding:5px;margin-left:5px;margin-right:5px;padding-bottom:10px;">
+                            <div class="" style="display:flex;align-items:center;border-radius:30px;">
+                                <div style="padding-right:20px;">{{cycles}}</div>
+                                <div id="{{name}}-progress-complete" class=""
+                                    style="max-height:15px;background-color:rgb(106, 190, 223);">&nbsp;
+                                </div>
+                                <div id="{{name}}-progress-requested" class=""
+                                    style="max-height:15px;background-color:#6abedf1a;">
+                                    &nbsp;</div>
+                                <div style="padding-left:10px;">{{requested_cycles}}</div>
+                            </div>
+                        </div>
 
-                <!-- COLUMN 1 -->
-                <div class="w3-col s2">
-                    <span class="color-moniker w3-xxlarge"><img src="./assets/discharge.png" height="45" /> <span
-                            id="detail-name">CHANNEL </span></span>
-                    <br />
-                    <span class="w3-large"><span id="detail-uut"
-                            class="w3-xlarge" style="padding-left:30px;">UUT</span></span>
+                        <span id="card-view-"
+                            style="font-size:20px;margin-top:3px;display:flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-between;">
+                            <span class="color-voltage">{{v}}V</span>
+                            <span class="color-current">{{i}}A</span>
+                            <span class="color-time">{{st}}h</span>
+                        </span>
+
+                        <span class="w3-medium" style="display:flex;justify-content: space-between;display:none;">
+                            <!-- <span class="color-current">{{uut}}</span> -->
+                            <span style="_font-size:12px;margin-top:3px;">
+                                <span class="color-current">{{cycles}}</span>
+                                <span class="color-font"> / </span>
+                                <span class="color-time">50</span>
+                            </span>
+                        </span>
+
+                        <div id="card-chart-{{name}}" name="card-chart" style="margin-top:3px;padding-top:10px;"></div>
+                    </div>
                 </div>
+            </div>
 
-                <!-- COLUMN 2 -->
-                <div class="w3-col s3 w3-padding"
-                    style="_margin-top:23px;display:flex;flex-direction:column;align-items:flex-end;">
-                    <!-- <span class="color-font w3-large" style="margin-top: 3px;margin-right: 10px;"><span>V | I (mA) |
+            <!-- TIMELINE -->
+            <div id="timeline-view" class="w3-col s12 w3-large" style="display:none;">
+                <div id="" class="w3-col s12 w3-large" _style="display:block;">
+                    <table class="w3-table w3-bordered w3-xlarge">
+                        <tr class="color-font">
+                            <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
+                            <th width=150>Channel</th>
+                            <th class="w3-center" style="border-left:0px solid;"> 18-Jul</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 19-Jul</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 20-Jul</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 21-Jul</th>
+                            <th class="w3-center" style="border-left:1px solid;"> 22-Jul</th>
+                            <!-- <th class="w3-center">Timeline: <spam class="color-current">Last 5 days</spam></th> -->
+                        </tr>
+
+                        <!-- TIMELINE ROWS - REPEAT -->
+                        <tr id="timeline-row-{{name}}" w3-repeat="items" id="timeline-row-CH04"
+                            onclick="clickRow(this.rowIndex)">
+                            <td class="color-moniker"><img src="{{icon}}" height="35"
+                                    style="padding-right:10px;" /><span style="padding-right:10px;">{{name}}</span></td>
+                            <td colspan="5">
+                                <span class="w3-small" style="display:flex;margin-top:5px;">
+                                    {{history}}
+                                </span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PAGER -->
+            <br />
+            <div id="pages" class="w3-col s12 w3-center">
+                <span id="pager" style="display:flex;justify-content:center;display:none;margin:3px;font-size:1.1rem;">
+                    <span w3-repeat="pages" id="page-{{name}}" class="color-font pager-button" _style=""
+                        onclick="clickPager(this.innerText)">{{name}}</span>
+                    <span id="page-all" class="w3-white-text _color-font pager-button" _style=""
+                        onclick="clickPager(this.innerText)">ALL</span>
+                </span>
+            </div>
+
+            <div style="padding-top:25px">&nbsp;</div>
+
+            <!-- DETAIL -->
+            <div id="detail" class="w3-padding _card w3-col s12"
+                style="display:none;cursor:default;background-color: #1e1e1e;_border:1px solid;">
+                <div class="w3-row w3-padding">
+
+                    <!-- COLUMN 1 -->
+                    <div class="w3-col s1">
+                        <span class="color-moniker w3-xxlarge"><img src="./assets/discharge.png" height="45" /> <span
+                                id="detail-name">CHANNEL </span></span>
+                        <br />
+                        <span class="w3-large"><span id="detail-uut" class="w3-xlarge"
+                                style="padding-left:30px;">UUT</span></span>
+                    </div>
+
+                    <!-- COLUMN 2 -->
+                    <div class="w3-col s3 w3-padding"
+                        style="_margin-top:23px;display:flex;flex-direction:column;align-items:flex-end;">
+                        <!-- <span class="color-font w3-large" style="margin-top: 3px;margin-right: 10px;"><span>V | I (mA) |
                             t
                             (hrs)</span></span> -->
-                    <span class="color-font" style="font-size: 28px;margin-right:10px;">
-                        <span id="" class="color-voltage" style="margin-right:20px;">3.312V </span>
-                        <!-- <span id="" class="color-font"> | </span> -->
-                        <span id="" class="color-current" style="margin-right:20px;">-0.612A </span>
-                        <!-- <span id="" class="color-font"> | </span> -->
-                        <span id="" class="color-time">3.8h</span>
-                    </span>
-                </div>
+                        <span class="color-font" style="font-size: 28px;margin-right:10px;">
+                            <span id="" class="color-voltage" style="margin-right:20px;">3.312V </span>
+                            <!-- <span id="" class="color-font"> | </span> -->
+                            <span id="" class="color-current" style="margin-right:20px;">-0.612A </span>
+                            <!-- <span id="" class="color-font"> | </span> -->
+                            <span id="" class="color-time">3.8h</span>
+                        </span>
+                    </div>
 
-                <!-- COLUMN 3 -->
-                <div class="w3-col s4" style="display:flex;flex-direction:column;align-items:flex-start;">
-                    <span class="color-current w3-medium" style="margin-top: 12px;margin-left:10px;"><span
-                            class="color-font">Procedure: </span>TXW2345-02 <span class="color-time">...</span></span>
-                    <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Step
-                            Name: </span>Constant
-                        Current Charge</span>
-                    <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Run
-                            Time: </span>21h 41m</span>
-                    <span class="color-current w3-medium" style="margin-left:10px;"><span class="color-font">Num
-                            Cycles: </span>17 / <span class="color-time">50</span></span>
-                </div>
+                    <!-- COLUMN 3 -->
+                    <div class="w3-col s4" _style="display:flex;flex-direction:column;align-items:flex-start;">
+                        <span class="" style="">
+                            <span class="color-zero w3-large">Procedure:&nbsp;&nbsp;
+                                <span class="w3-text-white w3-xlarge" style=""><span
+                                        id="test-6-detail-test">TXW2345-02</span> <span><i
+                                            class="fa fa-external-link color-current" style="padding-left:20px;"
+                                            aria-hidden="true"></i></span>
+                                </span>
+                            </span>
 
-                <!-- COLUMN 4 -->
-                <div class="w3-col s2" style="display:flex;flex-direction:column;align-items:flex-start;">
+                            <br />
+                            <span class="" style="">
+                                <span class="color-zero w3-large">Step Name:&nbsp;&nbsp;
+                                    <span class="w3-text-white w3-xlarge" style="">Constant Current Charge</span>
+                                </span>
+                            </span>
+
+                            <br />
+                            <span class="" style="">
+                                <span class="color-zero w3-large">Run Time:&nbsp;&nbsp;
+                                    <span class="w3-text-white w3-xlarge" style="">21h 41m</span>
+                                </span>
+                            </span>
+
+                            <br />
+                            <span class="" style="">
+                                <span class="color-zero w3-large">Num Cycles:&nbsp;&nbsp;
+                                    <span class="w3-text-white w3-xlarge" style="">31 / 50</span>
+                                </span>
+                            </span>
+                    </div>
+
+                    <!-- COLUMN 4 -->
+                    <div class="w3-col s4">
+                        <span class="" style="">
+                            <span class="color-zero w3-large">Battery:&nbsp;&nbsp;
+                                <span class="w3-text-white w3-xlarge" style="">TXW2345-02 <span><i
+                                            class="fa fa-external-link color-current" style="padding-left:20px;"
+                                            aria-hidden="true"></i></span>
+                                </span>
+                                <i class="fa fa-close w3-xlarge w3-right w3-text-white clickable" aria-hidden="true"
+                                    onclick="closeDetail()"></i>
+                            </span>
+
+                            <br />
+                            <span class="" style="">
+                                <span class="color-zero w3-large">Rated Capacity:&nbsp;&nbsp;
+                                    <span class="w3-text-white w3-xlarge" style="">Constant Current Charge</span>
+                                </span>
+                            </span>
+
+                            <br />
+                            <span class="" style="">
+                                <span class="color-zero w3-large">Max Voltage:&nbsp;&nbsp;
+                                    <span class="w3-text-white w3-xlarge" style="">21h 41m</span>
+                                </span>
+                            </span>
+
+                            <br />
+                            <span class="" style="">
+                                <span class="color-zero w3-large">Max Current:&nbsp;&nbsp;
+                                    <span class="w3-text-white w3-xlarge" style="">31 / 50</span>
+                                </span>
+                            </span>
+                    </div>
+
+                    <!-- <div class="w3-col s2" style="display:flex;flex-direction:column;align-items:flex-start;">
                     <span class="color-current w3-medium" style="margin-top: 12px;"><span class="color-font">Battery:
                         </span>2987-08 <span class="color-time">...</span></span>
                     <span class="color-current w3-medium"><span class="color-font">Rated Capacity: </span>2</span>
                     <span class="color-current w3-medium"><span class="color-font">Max Voltage: </span>3.8</span>
                     <span class="color-current w3-medium"><span class="color-font">Max Current:
                         </span>2.2</span></span>
-                </div>
+                </div> -->
 
-                <!-- SCREEN GRAB & UI SWITCH -->
-                <div class="w3-col s1"
-                    style="display:flex;flex-direction:row;align-items:flex-end;justify-content:flex-end">
+                    <!-- SCREEN GRAB & UI SWITCH -->
+                    <!-- <div class="w3-col s1"
+                    style="display:flex;flex-direction:row;align-items:flex-end;justify-content:flex-end;">
                     <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="closeDetail()"><i
-                            class="fa fa-times w3-xlarge" aria-hidden="true"></i></span>
+                            class="fa fa-times w3-xlarge" aria-hidden="true"></i></span> -->
 
                     <!-- <span class="color-font" style="cursor:pointer;padding-top:5px;" onclick="copyDetail()"><i
                                 class="fa fa-files-o w3-xlarge" aria-hidden="true"></i></span> -->
@@ -361,8 +445,8 @@
                 </div>
 
                 <div class="w3-col s12">
-                    <div class="w3-container">
-                        <hr />
+                    <div class="w3-container" style="padding-top:30px;">
+                        <!-- <hr />
                         <div class="w3-col s12 w3-center" _style="">
                             <span><i class="fa fa-play w3-xlarge color-zero" aria-hidden="true"
                                     style="padding:5px 25px 15px 25px;"></i></span>
@@ -370,7 +454,7 @@
                                     style="padding:5px 25px 15px 25px;"></i></i></span>
                             <span><i class="fa fa-eject w3-xlarge color-zero" aria-hidden="true"
                                     style="padding:5px 25px 15px 25px;"></i></i></span>
-                        </div>
+                        </div> -->
 
                         <!-- CALCULATED FIELDS -->
                         <div class="w3-padding" style="display:flex;flex-direction:row;justify-content:space-between;">
@@ -396,28 +480,24 @@
                         <!-- TOP CHART -->
                         <span _style="">
                             <div class=""
-                                style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
+                                style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;_padding-top:20px;">
                                 <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
                                     <div class="w3-xlarge"
-                                        style="background-color:#2f2f2f00;border:0px solid;margin-left:30px;">
+                                        style="background-color:#272727;border:0px solid;margin-left:30px;">
                                         <i id="menu" class="fa fa-ellipsis-v color-font" style="cursor:pointer;"
                                             aria-hidden="true"></i>
                                     </div>
                                     <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
                                         style="right:0">
-                                        <a class="card-menu-option-selected w3-bar-item w3-button"
+                                        <a class="w3-bar-item w3-button w3-text-white"
                                             onclick="selectChartType('V')">V</a>
-                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                            onclick="selectChartType('I')">V / t</a>
-                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                        <a class=" w3-text-whitew3-bar-item w3-button w3-text-white"
                                             onclick="selectChartType('I')">I</a>
-                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
-                                            onclick="selectChartType('I')">I / t</a>
-                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                        <a class="w3-bar-item w3-button w3-text-white"
                                             onclick="selectChartType('T')">T°</a>
-                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                        <a class="w3-bar-item w3-button w3-text-white"
                                             onclick="selectChartType('T')">E</a>
-                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                        <a class="w3-bar-item w3-button w3-text-white"
                                             onclick="selectChartType('T')">P</a>
                                     </div>
                                 </div>
@@ -431,21 +511,21 @@
                                 style="height:0px;float:right;padding-right:20px;position:relative;z-index:9999;">
                                 <div id="menu-detail" class="w3-dropdown-hover" style="background-color:#2f2f2f00;">
                                     <div class="w3-xlarge"
-                                        style="background-color:#2f2f2f00;border:0px solid;margin-left:30px;;">
+                                        style="background-color:#272727;border:0px solid;margin-left:30px;;">
                                         <i id="menu" class="fa fa-ellipsis-v color-font" style="cursor:pointer;"
                                             aria-hidden="true"></i>
                                     </div>
                                     <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium"
                                         style="right:0">
-                                        <a class="card-menu-option-selected w3-bar-item w3-button"
+                                        <a class="w3-bar-item w3-button w3-text-white"
                                             onclick="selectChartType('V')">V</a>
-                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                        <a class="w3-bar-item w3-button w3-text-white"
                                             onclick="selectChartType('I')">I</a>
-                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                        <a class="w3-bar-item w3-button w3-text-white"
                                             onclick="selectChartType('T')">T°</a>
-                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                        <a class="w3-bar-item w3-button w3-text-white"
                                             onclick="selectChartType('T')">E</a>
-                                        <a class="card-menu-option-unselected w3-bar-item w3-button"
+                                        <a class="w3-bar-item w3-button w3-text-white"
                                             onclick="selectChartType('T')">P</a>
                                     </div>
                                 </div>
@@ -454,31 +534,31 @@
                         <div id="chart-detail-2" style="margin-top:3px;margin-bottom:20px;"></div>
 
                         <!-- ADDITIONAL CHANNELS -->
-                        <div class="w3-container w3-padding _color-font"
+                        <div class="w3-container w3-padding _color-zero w3-text-white w3-large"
                             style="display:flex;flex-direction:row;justify-content:space-around;">
                             <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
-                                <span style="_margin:15px;">POUCH_TAB_POS</span>
-                                <span class="w3-right w3-large color-current" style="_margin:15px;">27.31 <span
+                                <span style="_margin:15px;">POUCH_TAB_POS</span><br />
+                                <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.31 <span
                                         class="color-font">°C</span></span>
                             </div>
                             <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
-                                <span style="_margin:15px;">POUCH_TAB_NEG</span>
-                                <span class="w3-right w3-large color-current" style="_margin:15px;">27.33 <span
+                                <span style="_margin:15px;">POUCH_TAB_NEG</span><br />
+                                <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.33 <span
                                         class="color-font">°C</span></span>
                             </div>
                             <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
-                                <span style="_margin:15px;">POUCH_BOTTOM_LEFT</span>
-                                <span class="w3-right w3-large color-current" style="_margin:15px;">27.32 <span
+                                <span style="_margin:15px;">POUCH_BOTTOM_LEFT</span><br />
+                                <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.32 <span
                                         class="color-font">°C</span></span>
                             </div>
                             <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
-                                <span style="_margin:15px;">POUCH_BOTTOM_RIGHT</span>
-                                <span class="w3-right w3-large color-current" style="_margin:15px;">27.35 <span
+                                <span style="_margin:15px;">POUCH_BOTTOM_RIGHT</span><br />
+                                <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.35 <span
                                         class="color-font">°C</span></span>
                             </div>
                             <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
-                                <span style="_margin:15px;">POUCH_CENTER</span>
-                                <span class="w3-right w3-large color-current" style="_margin:15px;">27.28 <span
+                                <span style="_margin:15px;">POUCH_CENTER</span><br />
+                                <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.28 <span
                                         class="color-font">°C</span></span>
                             </div>
                         </div>
@@ -490,10 +570,10 @@
     </div>
 
     <!-- BATCH OPERATIONS -->
-    <div id="view-batch" style="display:none;margin-left:30px;">
+    <div id="view-batch" style="display:none;margin-left:0px;">
         <hr />
-        <div class="w3-container w3-padding w3-large">
-            <table class="w3-table w3-bordered">
+        <div class="w3-container w3-padding w3-xlarge">
+            <!-- <table class="w3-table w3-bordered">
                 <tr class="color-font">
                     <th><i class="fa fa-square-o color-current" aria-hidden="true"></i></th>
                     <th>Channel</th>
@@ -542,7 +622,34 @@
                     <td>TXW87689v3</td>
                     <td class="w3-text-yellow">Paused</td>
                 </tr>
-            </table>
+            </table> -->
+            <div id="batch-view" class="w3-col s12 w3-large" style="display:block;">
+                <table class="w3-table w3-bordered w3-xlarge">
+                    <tr class="color-font">
+                        <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
+                        <th><i class="fa fa-square-o color-current" aria-hidden="true"></i></th>
+                        <th>Channel</th>
+                        <th>Status</th>
+                        <th>Serial Number</th>
+                        <th>Battery File</th>
+                        <th>Test Procedure</th>
+                    </tr>
+                    <tr w3-repeat="items" id="batch-row-{{name}}" onclick="clickRow(this.rowIndex)"
+                        style="cursor:pointer;">
+                        <td><i class="fa fa-square-o color-current" aria-hidden="true"></i></td>
+                        <td class="color-moniker">
+                            <img src="{{icon}}" height="35" style="padding-right:10px;" />
+                            <!-- <span>{{state}}</span> -->
+                            <span style="padding-right:10px;">{{name}}</span>
+                        </td>
+                        <td>{{batch_state}}</td>
+                        <td>{{uut}}</td>
+                        <td>{{battery}}</td>
+                        <td>{{test}}</td>
+                    </tr>
+                </table>
+            </div>
+
             <div class="w3-roww-padding" style="margin-top:25px;">
                 <div class="w3-col s3 w3-center">&nbsp;</div>
                 <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load battery
@@ -556,34 +663,34 @@
     </div>
 
     <!-- BATTERY SETUP -->
-    <div id="view-battery-setup" style="display:none;margin-left:30px;">
+    <div id="view-battery-setup" style="display:none;margin-left:0px;">
         <hr />
     </div>
 
     <!-- TEST SETUP -->
-    <div id="view-test-setup" style="display:none;margin-left:30px;">
+    <div id="view-test-setup" style="display:none;margin-left:0px;">
         <hr />
     </div>
 
     <!-- SYSTEM SETUP -->
-    <div id="view-system-setup" style="display:none;margin-left:30px;">
+    <div id="view-system-setup" style="display:none;margin-left:0px;">
         <hr />
     </div>
 
     <!-- SYSTEM -->
-    <div id="view-setup" style="display:none;margin-left:30px;">
+    <div id="view-setup" style="display:none;margin-left:0px;">
         <hr />
         <div w3-include-html="system.html"></div>
     </div>
 
     <!-- PARAMETERS -->
-    <div id="view-parameters" style="display:none;margin-left:30px;">
+    <div id="view-parameters" style="display:none;margin-left:0px;">
         <hr />
         <div w3-include-html="configuration.html"></div>
     </div>
 
     <!-- CONTEXTUAL HELP -->
-    <div id="view-contextual-help" style="display:none;margin-left:30px;">
+    <div id="view-contextual-help" style="display:none;margin-left:0px;">
         <hr />
         <div w3-include-html="contextual-help.html"></div>
     </div>
@@ -720,14 +827,17 @@
         let empty = 0;
         let complete = 0;
         let error = 0;
-        for (let x = 1; x <= 48; x++) {
+        const numChannels = 48;
+        for (let x = 1; x <= numChannels; x++) {
             const offset = (Math.random() * 700);
             const count = 800;
             const uut = `${(Math.random() * 10000).toFixed().padStart(4, '0')}-${(Math.random() * 100).toFixed().padStart(2, '0')}`
-            const dataV = chartData.getData('v', offset, count);
-            const dataI = chartData.getData('i', offset, count);
+            const test = '19d C/2 Charge - Discharge (6)';
+            const dataV = chartData.getData('v', offset, count).reverse();
+            const dataI = chartData.getData('i', offset, count).reverse();
             const v = dataV[dataV.length - 1].toString().padEnd(5, '0');
             const i = dataI[dataI.length - 1].toString().padEnd(5, '0');
+            const isCharging = dataV[dataV.length - 1] > dataV[dataV.length - 2]
             let state = null;
 
             let history = '';
@@ -748,16 +858,17 @@
 
                 if (index === temp.length - 1) {
                     if (h.className === 'charge' || h.className === 'discharge' || h.className === 'on-test') { on_test++; state = 'on_test'; }
-                    if (h.className === 'paused') { paused++; state = 'paused'; }
-                    if (h.className === '') { complete++; state = 'complete'; }
-                    if (h.className === 'empty') { empty++; state = 'empty'; }
-                    if (h.className === 'error') { error++; state = 'error'; }
+                    if (h.className === 'paused') { paused++; state = 'paused'; state = 'paused'; }
+                    if (h.className === '') { complete++; state = 'complete'; state = 'complete'; }
+                    if (h.className === 'empty') { empty++; state = 'empty'; state = 'empty'; }
+                    if (h.className === 'error') { error++; state = 'error'; state = 'error'; }
                 }
 
             })
 
             cards.items.push({
                 name: `CH${x < 10 ? '0' + x : x}`,
+                icon: isCharging ? './assets/charge.png' : './assets/discharge.png',
                 // data: chartData.getData('v', (Math.random() * 100), 50),
                 v,
                 i,
@@ -766,6 +877,8 @@
                 dataI,
                 chart_options: JSON.parse(JSON.stringify(card_chart_options)),
                 uut,
+                test,
+                battery: `LG-23463-${uut}`,
                 cycles: Math.floor(50 * Math.random()),
                 requested_cycles: 50,
                 de: null,
@@ -808,6 +921,9 @@
         // /** ALTER CARDS BASED ON STATE */
         cards.items.forEach((v) => {
             if (v.state === 'empty') {
+                v.icon = './assets/empty.png';
+                v.test = '';
+                v.battery = '';
                 v.dataV = [];
                 v.dataI = [];
                 v.v = '';
@@ -815,9 +931,11 @@
                 v.st = '';
                 v.cycles = '';
                 v.requested_cycles = '';
-                v.uut = `<span class="color-zero">EMPTY</span>`;
+                v.uut = `<span class="color-zero"></span>`;
+                v.batch_state = '<span class="color-zero">EMPTY</span>';
             }
             if (v.state === 'error') {
+                v.icon = './assets/empty.png';
                 v.dataV = [];
                 v.dataI = [];
                 v.v = '';
@@ -825,31 +943,48 @@
                 v.st = '';
                 v.cycles = '';
                 v.requested_cycles = '';
-                v.uut = '<span style="color:red">ERROR</span>';
+                // v.uut = '<span style="color:red">ERROR</span>';
+                v.batch_state = '<span style="color:red">ERROR</span>';
+            }
+            if (v.state === 'paused') {
+                v.icon = './assets/empty.png';
+                v.batch_state = '<span class="w3-text-yellow">PAUSED</span>';
+            }
+            if (v.state === 'complete') {
+                v.icon = './assets/empty.png';
+                v.batch_state = '<span class="color-current">COMPLETE</span>';
+            }
+            if (v.state === 'on_test') {
+                v.batch_state = '<span class="w3-text-green">ON TEST</span>';
             }
         })
 
         document.getElementById('content').style.display = 'block';
         w3.displayObject("cards", cards);
+        w3.displayObject("batch-view", cards);
         selectCardType(card_type);
 
 
-        // /** ALTER CARDS BASED ON STATE */
-        // cards.items.forEach((v) => {
-        //     if (v.state === 'error') {
-        //         document.getElementById(v.name).style.borderColor = 'red';
-        //         document.getElementById(v.name).style.backgroundColor = '#ff000021';
-        //         document.getElementById(`card-chart-${v.name}`).style.display = 'none';
-        //     }
-        //     if (v.state === 'empty') {
-        //         // document.getElementById(v.name).style.borderColor = '#f9f9f963';
-        //         // document.getElementById(v.name).style.backgroundColor = '#64646421';
-        //         document.getElementById(`card-chart-${v.name}`).style.display = 'none';
-        //         const elem = document.getElementById(`card-name-${v.name}`);
-        //         elem.classList.remove('color-moniker');
-        //         elem.classList.add('color-zero');
-        //     }
-        // })
+        /** ALTER CARDS BASED ON STATE */
+        cards.items.forEach((v) => {
+            if (!v.icon.endsWith('empty.png')) {
+                document.getElementById(`card-icon-${v.name}`).style.display = ''
+            }
+
+            //     if (v.state === 'error') {
+            //         document.getElementById(v.name).style.borderColor = 'red';
+            //         document.getElementById(v.name).style.backgroundColor = '#ff000021';
+            //         document.getElementById(`card-chart-${v.name}`).style.display = 'none';
+            //     }
+            //     if (v.state === 'empty') {
+            //         // document.getElementById(v.name).style.borderColor = '#f9f9f963';
+            //         // document.getElementById(v.name).style.backgroundColor = '#64646421';
+            //         document.getElementById(`card-chart-${v.name}`).style.display = 'none';
+            //         const elem = document.getElementById(`card-name-${v.name}`);
+            //         elem.classList.remove('color-moniker');
+            //         elem.classList.add('color-zero');
+            //     }
+        })
 
         w3.includeHTML(() => {
             const searchParams = new URLSearchParams(window.location.search);
@@ -871,14 +1006,20 @@
                 let elem = document.getElementById(`${v.name}-progress-complete`);
                 elem.style.width = `${pct}%`;
                 elem = document.getElementById(`${v.name}-progress-requested`);
-                elem.style.width = `${100-pct}%`;
+                elem.style.width = `${100 - pct}%`;
+
+                elem = document.getElementById(`${v.name}-progress-complete-table`);
+                elem.style.width = `${pct}%`;
+                elem = document.getElementById(`${v.name}-progress-requested-table`);
+                elem.style.width = `${100 - pct}%`;
             })
         }
 
+        let chartDetailV = null;
+        let chartDetailI = null;
         let monikers = {};
         function init() {
             update();
-            showView();
 
             // QR CODE
             const qrcode = new QRCode(document.getElementById('qrcode'), {
@@ -890,51 +1031,6 @@
                 colorLight: '#000',
                 correctLevel: QRCode.CorrectLevel.H
             });
-        }
-
-        // ----- SHOW DETAIL -----
-        function clickRow(rowNum) {
-            const name = `CH${rowNum.toString().padStart(2, '0')}`
-            clickCard(name);
-            document.getElementById(`table-row-${name}`).classList.add('table-row-selected');
-            // /* ENABLE WHEN TIMELINE TESTBEDS EXIST */
-            document.getElementById(`timeline-row-${name}`).classList.add('table-row-selected');
-        }
-        function clickCard(name) {
-
-            document.getElementById('title').innerText = `BTS - ${name}`
-
-            const channel = name.replace('CH', '');
-            const channelNum = +(channel);
-
-            location.hash = `#detail-${name}`;
-
-            const row = Math.floor((channelNum % 6 === 0) ? (channelNum / 6) - 1 : channelNum / 6);
-            let col = +(name.substring(2)) - (row * 6);
-            col = col === 0 ? 5 : col - 1;
-            console.log(name, row, col);
-
-            const start = row * 6;
-            const end = start + 6;
-            // console.log(start, end);
-
-            let filtered = { items: [] };
-            filtered = { items: cards.items.filter((v, i) => i >= start && i < end) };
-            filtered.pages = temp.pages;
-            w3.displayObject("cards", filtered);
-            document.getElementById('cards').style.display = '';
-            filtered.items.forEach((v) => {
-                updateChart(v.name, v.dataV, v.chart_options);
-            })
-
-            document.getElementById('detail').style.display = '';
-            document.getElementById('overview-counts').style.display = '';
-
-            // document.getElementById('card-view').style.display = 'none';
-            // document.getElementById('table-view').style.display = 'none';
-            // document.getElementById('pager').style.display = 'none';
-
-            const selected = cards.items.find((v) => v.name === name);
 
             card_chart_options.chart.height = '250';
             card_chart_options.series[0].name = 'V';
@@ -950,9 +1046,9 @@
             delete card_chart_options.fill;
             card_chart_options.colors = ['#adff2f'];
 
-            card_chart_options.series[0].data = selected.dataV;
-            var chart = new ApexCharts(document.getElementById(`chart-detail-1`), card_chart_options);
-            chart.render();
+            card_chart_options.series[0].data = cards.items[0].dataV;
+            chartDetailV = new ApexCharts(document.getElementById(`chart-detail-1`), card_chart_options);
+            chartDetailV.render();
 
             card_chart_options.series[0].name = 'I';
             card_chart_options.stroke.curve = 'stepline';
@@ -963,33 +1059,84 @@
             card_chart_options.yaxis[0].title.text = 'Current';
             card_chart_options.colors = ['#75e0f0'];
 
-            card_chart_options.series[0].data = selected.dataI;
-            var chart = new ApexCharts(document.getElementById(`chart-detail-2`), card_chart_options);
-            chart.render();
+            card_chart_options.series[0].data = cards.items[0].dataI;
+            chartDetailI = new ApexCharts(document.getElementById(`chart-detail-2`), card_chart_options);
+            chartDetailI.render();
 
-            card_chart_options.chart.toolbar.show = false;
-            card_chart_options.stroke.curve = 'smooth';
-            card_chart_options.chart.height = '70';
-            card_chart_options.chart.sparkline.enabled = true;
-            card_chart_options.tooltip.enabled = false;
-            card_chart_options.chart.group = undefined;
-            card_chart_options.chart.id = undefined;
-            card_chart_options.yaxis[0].min = undefined;
-            card_chart_options.yaxis[0].max = undefined;
-            card_chart_options.chart.type = 'area';
 
-            let elem = document.getElementById('chart-detail-1');
-            // document.getElementById('menu-chart-1').style.right = `${(elem.offsetLeft + 18)}px`;
-            // document.getElementById('menu-chart-2').style.right = `${(elem.offsetLeft + 18)}px`;
+            showView();
+        }
+
+        // ----- SHOW DETAIL -----
+        function clickRow(rowNum) {
+            const name = `CH${rowNum.toString().padStart(2, '0')}`
+            clickCard(name);
+
+            cards.items.forEach((v) => {
+                document.getElementById(`table-row-${v.name}`).classList.remove('table-row-selected');
+            })
+
+            document.getElementById(`table-row-${name}`).classList.add('table-row-selected');
+            // /* ENABLE WHEN TIMELINE TESTBEDS EXIST */
+            document.getElementById(`timeline-row-${name}`).classList.add('table-row-selected');
+        }
+        function clickCard(name) {
+
+            document.getElementById('title').innerText = `BTS - ${name}`
+            const channel = name.replace('CH', '');
+            const channelNum = +(channel);
+
+            location.hash = `#detail-${name}`;
+
+            const row = Math.floor((channelNum % 6 === 0) ? (channelNum / 6) - 1 : channelNum / 6);
+            let col = +(name.substring(2)) - (row * 6);
+            col = col === 0 ? 5 : col - 1;
+            console.log(name, row, col);
+
+            const start = row * 6;
+            const end = start + 6;
+            // console.log(start, end);
+
+            // let filtered = { items: [] };
+            // filtered = { items: cards.items.filter((v, i) => i >= start && i < end) };
+            // filtered.pages = temp.pages;
+            // w3.displayObject("cards", filtered);
+            document.getElementById('cards').style.display = '';
+            // filtered.items.forEach((v) => {
+            //     updateChart(v.name, v.dataV, v.chart_options);
+            // })
+
+            document.getElementById('detail').style.display = '';
+            document.getElementById('overview-counts').style.display = '';
+
+            // document.getElementById('card-view').style.display = 'none';
+            // document.getElementById('table-view').style.display = 'none';
+            // document.getElementById('pager').style.display = 'none';
+
+            const selected = cards.items.find((v) => v.name === name);
+            document.getElementById('test-6-detail-test').innerHTML = selected.test;
+
+            let indexCards = 0;
+            let countCards = 0
+            for (let x = 1; x <= numChannels; x++) {
+                elem = document.getElementById(`CH${x.toString().padStart(2, '0')}`);
+                elem.classList.remove('card-selected');
+                countCards += elem.parentElement.classList.contains('w3-hide') ? 0 : 1;
+                if (elem.id === name) {
+                    indexCards = countCards;
+                }
+            }
+            chartDetailV.updateSeries([{ data: selected.dataV }]);
+            chartDetailI.updateSeries([{ data: selected.dataI }]);
+
 
             document.getElementById(name).classList.add('card-selected');
-            // document.getElementById(name).classList.add('row-selected');
             document.getElementById('detail-name').innerText = name;
             document.getElementById('detail-uut').innerHTML = selected.uut;
-            document.getElementById('pager').style.display = 'block';
+            document.getElementById('pager').style.display = 'none';
 
-            selectCardType(card_type);
-            selectPage(row + 1);
+            // selectCardType(card_type);
+            // selectPage(row + 1);
 
             // HIDE TOP ON DETAIL
             if (!show_row_monikers) {
@@ -998,18 +1145,51 @@
                 document.getElementById('timeline-view').style.display = 'none';
                 document.getElementById('pager').style.display = 'none';
             }
+
+            elem = document.getElementById('card-view');
+            elem.style.flexFlow = '';
+            elem.style.justifyContent = 'flex-start';
+            elem.style.overflowX = 'scroll';
+            // elem.style.marginBottom = '40px;';
+            elem.style.scrollbarColor = '#5d5d5d #2f2f2f';
+            elem.scrollLeft = document.getElementById('card-view').scrollWidth * ((indexCards - 1) / countCards);
+
+            elem = document.getElementById('table-view');
+            elem.style.maxHeight = '300px';
+            elem.style.overflowY = 'scroll';
+            elem.style.scrollbarColor = '#5d5d5d #2f2f2f';
+            elem.scrollTop = indexCards * 53.5
+
+            elem = document.getElementById('timeline-view');
+            elem.style.maxHeight = '300px';
+            elem.style.overflowY = 'scroll';
+            elem.style.scrollbarColor = '#5d5d5d #2f2f2f';
+            elem.scrollTop = indexCards * 53.5
         }
 
         function closeDetail() {
             document.getElementById('detail').style.display = 'none';
             document.getElementById('overview-counts').style.display = '';
             document.getElementById('pager').style.display = 'none';
-            w3.displayObject("cards", cards);
-            document.getElementById('cards').style.display = '';
+
+            for (let x = 1; x <= numChannels; x++) {
+                document.getElementById(`CH${x.toString().padStart(2, '0')}`).classList.remove('card-selected');
+            }
+            let elem = document.getElementById('card-view');
+            elem.style.flexDirection = 'row';
+            elem.style.flexWrap = 'wrap';
+            elem.style.justifyContent = 'center';
+            elem.style.overflowX = '';
+
+            document.getElementById('table-view').style.maxHeight = '';
             cards.items.forEach((v) => {
-                updateChart(v.name, v.dataV, v.chart_options);
+                document.getElementById(`table-row-${v.name}`).classList.remove('table-row-selected');
             })
-            selectCardType(card_type);
+
+            document.getElementById('timeline-view').style.maxHeight = '';
+            cards.items.forEach((v) => {
+                document.getElementById(`timeline-row-${v.name}`).classList.remove('table-row-selected');
+            })
             location.hash = `#runtime`;
         }
 
@@ -1254,21 +1434,45 @@
 
         // FILTER RUNTIME
         function filterRuntime(name) {
+            isSelected = document.getElementById(`filter_${name}`).classList.contains('filter-selected');
             ['on_test', 'paused', 'empty', 'complete', 'error'].forEach((v) => {
                 document.getElementById(`filter_${v}`).classList.remove('filter-selected');
             });
-            document.getElementById(`filter_${name}`).classList.add('filter-selected');
-            cards.items.forEach((v) => {
-                ['', 'table-row-', 'timeline-row-'].forEach((v2) => {
-                    const elem = document.getElementById(`${v2}${v.name}`).parentElement;
-                    if (v.state !== name) {
-                        elem.classList.add('w3-hide');
-                    } else {
+            if (isSelected === true) {
+                cards.items.forEach((v) => {
+                    document.getElementById(`filter_${name}`).classList.remove('filter-selected');
+                    [''].forEach((v2) => {
+                        const elem = document.getElementById(`${v2}${v.name}`).parentElement;
                         elem.classList.remove('w3-hide');
-                        // elem.classList.add('w3-show');
-                    }
+                    });
+                    ['table-row-', 'timeline-row-', 'batch-row-'].forEach((v2) => {
+                        const elem = document.getElementById(`${v2}${v.name}`);
+                        elem.classList.remove('w3-hide');
+                    });
                 });
-            })
+            } else {
+                document.getElementById(`filter_${name}`).classList.add('filter-selected');
+                cards.items.forEach((v) => {
+                    [''].forEach((v2) => {
+                        const elem = document.getElementById(`${v2}${v.name}`).parentElement;
+                        if (v.state !== name) {
+                            elem.classList.add('w3-hide');
+                        } else {
+                            elem.classList.remove('w3-hide');
+                            // elem.classList.add('w3-show');
+                        }
+                    });
+                    ['table-row-', 'timeline-row-', 'batch-row-'].forEach((v2) => {
+                        const elem = document.getElementById(`${v2}${v.name}`);
+                        if (v.state !== name) {
+                            elem.classList.add('w3-hide');
+                        } else {
+                            elem.classList.remove('w3-hide');
+                            // elem.classList.add('w3-show');
+                        }
+                    });
+                })
+            }
             // const filtered = cards.items.filter((v) => v.state === name);
             // w3.displayObject("cards", cards);
             // w3.displayObject("cards", {items: filtered });

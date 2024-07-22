@@ -1,0 +1,346 @@
+<div class="w3-container _w3-padding w3-large">
+    <div class="w3-row-padding" style="padding-bottom:25px;padding-top:35px;">
+        <div class="w3-col s12">
+            <div class="w3-col s12 _w3-padding w3-xlarge" style="min-height:120px;">
+                <span class="color-font">Shared I/O <i class="fa fa-info-circle" aria-hidden="true"
+                        style="cursor:pointer;color:#cecece;"></i>
+
+                    <div id="table-channel-configuration"
+                        style="max-height: 290px;overflow: auto;scrollbar-color: #5d5d5d #2f2f2f;">
+                        <table class="w3-table w3-bordered w3-large"
+                            style="margin-top:10px;margin-bottom:0px;color:#cecece;">
+                            <tr class="color-font">
+                                <th style="width:18%;">Variable Name
+                                    <div class="w3-dropdown-hover" _style="">
+                                        <div class=""
+                                            style="background-color:#2f2f2f;color:#cecece;;border:0px solid;_padding-left:30px;left:25px;">
+                                            <i id="menu" class="fa fa-info-circle" style="cursor:pointer;"
+                                                aria-hidden="true"></i>
+                                        </div>
+                                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium w3-padding"
+                                            style="width:400px;color:#cecece">
+                                            <span style="padding-left:15px;">a bunch of info</span>
+                                        </div>
+                                    </div>
+                                    </i>
+                                </th>
+                                <th style="width:12%;">Location <i class="fa fa-info-circle" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></th>
+                                <th style="width:25%;">Assignment <i class="fa fa-info-circle" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></th>
+                                <th>Comment
+                                    <i class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                        style="cursor:pointer;"></i>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>AMBIENT_TEMP</td>
+                                <td>CH01_T1</td>
+                                <td>*</td>
+                                <td>Ambient Temp provided to all Channels in the sytem <i
+                                        class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CHAMBER_1_TEMP</td>
+                                <td>CH01_T2</td>
+                                <td>CH01-10, CH18</td>
+                                <td> <i
+                                        class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CHILLER_1_TEMP</td>
+                                <td>CH02_T1</td>
+                                <td>*</td>
+                                <td> <i
+                                        class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                        </table>
+                    </div>
+            </div>
+
+            <div class="w3-col s12 _w3-padding w3-xlarge" style="min-height:120px;">
+                <br />
+                <span class="color-font">Channel I/O Assignment <i class="fa fa-info-circle" aria-hidden="true"
+                        style="cursor:pointer;color:#cecece;"></i>
+                    <!-- <span class="w3-large w3-right"
+                        style="cursor:pointer;padding:3px 18px 3px 18px;border:0px solid #cecece;">Apply Template <i
+                            class="fa fa-folder-open-o" aria-hidden="true"></i></span> -->
+                </span>
+
+                <div class="w3-bar" style="border-bottom:1px solid white;">
+                    <!-- <a id="system-setup-channel-assignment-shared" class="w3-bar-item card-menu-option-selected"
+                        style="cursor:pointer;border-bottom:5px solid #75e0f0;"
+                        onclick="changeChannelAssignmentView('shared')">Shared</a> -->
+                    <a id="system-setup-channel-assignment-channels" class="w3-bar-item card-menu-option-selected"
+                        style="cursor:pointer;" onclick="changeChannelAssignmentView('channels')">Channels</a>
+                    <a id="system-setup-channel-assignment-locations" class="w3-bar-item"
+                        style="cursor:pointer;" onclick="changeChannelAssignmentView('locations')">Locations</a>
+                </div>
+
+                <!-- <div id="channel-assignment-view-shared" class="" style="display:block">
+                    <div id="table-mapping-configuration"
+                        style="_max-height:370px;overflow: auto;scrollbar-color: #5d5d5d #2f2f2f;">
+                        <table class="w3-table w3-bordered w3-large"
+                            style="margin-top:10px;margin-bottom:0px;color:#cecece;">
+                            <tr class="color-font">
+                                <th style="width:18%;">Variable Name
+                                    <div class="w3-dropdown-hover" _style="">
+                                        <div class=""
+                                            style="background-color:#2f2f2f;color:#cecece;;border:0px solid;_padding-left:30px;left:25px;">
+                                            <i id="menu" class="fa fa-info-circle" style="cursor:pointer;"
+                                                aria-hidden="true"></i>
+                                        </div>
+                                        <div class="card-menu-options w3-dropdown-content w3-bar-block w3-border w3-medium w3-padding"
+                                            style="width:400px;color:#cecece">
+                                            <span style="padding-left:15px;">a bunch of info</span>
+                                        </div>
+                                    </div>
+                                    </i>
+                                </th>
+                                <th style="width:12%;">Location <i class="fa fa-info-circle" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></th>
+                                <th>Comment
+                                    <i class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+                                        style="cursor:pointer;"></i>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>AMBIENT_TEMP</td>
+                                <td>CH01_T1</td>
+                                <td>Ambient Temp provided to all Channels in the sytem <i
+                                        class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CHAMBER_TEMP</td>
+                                <td>CH01_T2</td>
+                                <td>Chamber Temp provided to all Channels in the sytem <i
+                                        class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CHILLER_TEMP</td>
+                                <td>CH02_T1</td>
+                                <td>Chiller Temp provided to all Channels in the sytem <i
+                                        class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div> -->
+
+                <div id="channel-assignment-view-channels" class="" style="display:block;">
+                    <div class="w3-row w3-large" style="padding-bottom:25px;padding-top:10px;">
+                        <div class=" w3-col s2 _w3-padding">
+                            <div class="w3-col s10 _w3-padding">
+                                <table class="w3-table w3-bordered w3-xlarge">
+                                    <!-- <tr class="color-font w3-large color-font">
+                                        <th>Channel <i class="fa fa-info-circle" aria-hidden="true"
+                                                style="cursor:pointer;color:#cecece;"></i></th>
+                                    </tr> -->
+                                    <tr style="cursor:pointer;">
+                                        <td>CH01</td>
+                                    </tr>
+                                    <tr class="card-menu-option-selected" style="cursor:pointer;">
+                                        <td>CH02</td>
+                                    </tr>
+                                    <tr style="cursor:pointer;">
+                                        <td>CH03</td>
+                                    </tr>
+                                    <tr style="cursor:pointer;">
+                                        <td>CH04</td>
+                                    </tr>
+                                    <tr style="cursor:pointer;">
+                                        <td>CH05</td>
+                                    </tr>
+                                    <tr style="cursor:pointer;">
+                                        <td>CH06</td>
+                                    </tr>
+                                    <tr style="cursor:pointer;">
+                                        <td>CH07</td>
+                                    </tr>
+                                    <tr style="cursor:pointer;">
+                                        <td>CH08</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="w3-col s10 _w3-padding" style="border-left:1px solid;border-right:1px solid;">
+                            <table class="w3-table w3-bordered">
+                                <tr class="color-font">
+                                    <th width="15%">Location <i class="fa fa-info-circle" aria-hidden="true"
+                                            style="cursor:pointer;color:#cecece;"></i></th>
+                                    <th width="25%">Variable Name</th>
+                                    <th>Comment<i class="fa fa-plus-square-o w3-right w3-xlarge color-font" aria-hidden="true"
+                                        style="cursor:pointer;"></i></th>
+                                </tr>
+                                <tr>
+                                    <td class="color-zero"><i class="fa fa-share-alt" aria-hidden="true"></i> CH01-T1</td>
+                                    <td class="color-zero">AMBIENT_TEMP</td>
+                                    <td class="color-zero">Ambient Temp provided to all Channels in the sytem</td>
+                                </tr>
+                                <tr>
+                                    <td class="color-zero"><i class="fa fa-share-alt" aria-hidden="true"></i> CH01_T2</td>
+                                    <td class="color-zero">CHAMBER_1_TEMP</td>
+                                    <td class="color-zero"></td>
+                                </tr>
+                                <tr>
+                                    <td class="color-zero"><i class="fa fa-share-alt" aria-hidden="true"></i> T1</td>
+                                    <td class="color-zero">CHILLER_1_TEMP</td>
+                                    <td class="color-zero"></td>
+                                </tr>
+                                <tr>
+                                    <td class="">T2</td>
+                                    <td class="" contenteditable="true">POUCH_TAB_POS</td>
+                                    <td class="" contenteditable="true"></td>
+                                </tr>
+                                <tr>
+                                    <td class="">T3</td>
+                                    <td class="" contenteditable="true">POUCH_TAB_NEG</td>
+                                    <td class="" contenteditable="true"></td>
+                                </tr>
+                                <tr>
+                                    <td class="">T4</td>
+                                    <td class="" contenteditable="true">POUCH_CENTER</td>
+                                    <td class="" contenteditable="true"></td>
+                                </tr>
+                                <tr>
+                                    <td class="">CH03_T1</td>
+                                    <td class="" contenteditable="true">POUCH_BOTTOM_LEFT</td>
+                                    <td class="" contenteditable="true"></td>
+                                </tr>
+                                <tr>
+                                    <td class="">CH03_T2</td>
+                                    <td class="" contenteditable="true">POUCH_BOTTOM_RIGHT</td>
+                                    <td class="" contenteditable="true"></td>
+                                </tr>
+                                <!-- <tr>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                </tr> -->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="channel-assignment-view-locations" class="" style="display:none;">
+                    <div id="table-mapping-configuration"
+                        style="_max-height:370px;overflow: auto;scrollbar-color: #5d5d5d #2f2f2f;">
+                        <table class="w3-table w3-bordered w3-large" style="margin-top:10px;margin-bottom:25px;">
+                            <tr class="color-font">
+                                <th style="width:18%;"><i class="fa fa-filter" aria-hidden="true"></i> Location <i
+                                        class="fa fa-info-circle" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></th>
+                                <th style="width:20%;">Variable Name <i class="fa fa-info-circle" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></th>
+                                <th style="width:15%;">Assignment <i class="fa fa-info-circle" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></th>
+                                <th>Comment
+                                    <!-- <i class="fa fa-expand w3-right"
+                                        aria-hidden="true" style="cursor:pointer;"
+                                        onclick="expandTable('table-mapping-configuration', this)"></i> -->
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>CH01_T1</td>
+                                <td class="color-zero">Shared</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>CH01_T2</td>
+                                <td class="color-zero">Shared</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>CH01_T3</td>
+                                <td></td>
+                                <td></td>
+                                <td> <i class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CH01_T4</td>
+                                <td></td>
+                                <td></td>
+                                <td> <i class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CH02_T1</td>
+                                <td class="color-zero">Shared</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>CH02_T2</td>
+                                <td>POUCH_TAB_POS</td>
+                                <td>-</td>
+                                <td> <i class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CH02_T3</td>
+                                <td>POUCH_TAB_NEG</td>
+                                <td>-</td>
+                                <td> <i class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CH02_T4</td>
+                                <td>POUCH_BOTTOM_CENTER</td>
+                                <td>-</td>
+                                <td> <i class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CH03_T1</td>
+                                <td>POUCH_BOTTOM_LEFT</td>
+                                <td>CH02</td>
+                                <td> <i class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CH03_T2</td>
+                                <td>POUCH_BOTTOM_RIGHT</td>
+                                <td>CH02</td>
+                                <td> <i class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CH03_T3</td>
+                                <td></td>
+                                <td></td>
+                                <td> <i class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>CH03_T4</td>
+                                <td></td>
+                                <td></td>
+                                <td> <i class="fa fa-pencil-square-o w3-right" aria-hidden="true"
+                                        style="cursor:pointer;color:#cecece;"></i></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="w3-col s12 w3-padding w3-center w3-large" style="min-height:120px;padding-bottom:20px;">
+                <span class="button w3-right color-font">Cancel</span>
+                <span class="button w3-right color-zero">Save</span>
+            </div>
+
+        </div>
+
+    </div>
+</div>

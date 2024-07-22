@@ -1,0 +1,242 @@
+<div id="" class="_w3-padding w3-col s12 w3-large" style="">
+    <!-- <div style="height:100px;background: linear-gradient(to bottom right, white, white 50%, green 50%, green);">&nbsp;</div> -->
+    <span class="w3-xlarge"><span contenteditable='true' class="color-current">19d C/2 Charge - Discharge (5)
+        <i class="fa fa-close color-font w3-xlarge w3-right" aria-hidden="true"
+            style="padding-left:10px;cursor:pointer;" onclick="closeTest()"> Close</i>
+        <i class="fa fa-floppy-o color-zero w3-xlarge w3-right" aria-hidden="true"
+            style="padding-left:10px;cursor:pointer;"> Save</i></span>
+        <span class="w3-medium color-zero">v005</span>
+        <!-- <i class="fa fa-trash-o color-font w3-xlarge w3-right" aria-hidden="true"
+            style="padding-left:10px;cursor:pointer;"></i>
+        <i class="fa fa-plus-square-o color-font w3-xlarge w3-right" aria-hidden="true"
+            style="padding-left:10px;cursor:pointer;"></i>
+        <i class="fa fa-folder-open-o color-font w3-xlarge w3-right" aria-hidden="true"
+            style="padding-left:10px;cursor:pointer;"></i> -->
+
+        <img src="./assets/test-profile.png" width="100%" style="padding-top:30px;padding-bottom:30px;" />
+        <br />
+
+        <div class="w3-col s12 w3-left color-font">
+            <!-- <i class="fa fa-save" aria-hidden="true" style="cursor:pointer;padding:5px;"></i> -->
+            <!-- <i class="fa fa-pencil-square-o color-font" aria-hidden="true" style="cursor:pointer;padding:5px;"></i> -->
+            <!-- <i class="fa fa-list" aria-hidden="true" style="cursor:pointer;padding:5px;"></i> -->
+            <i class="fa fa-plus" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-cut" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-copy" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-paste" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-trash" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+
+            <i class="fa fa-download w3-right color-font" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-globe w3-right color-font" aria-hidden="true" style="cursor:pointer;padding:5px;"
+                onclick="document.getElementById('modal-test-global-limits').style.display = 'block'"></i>
+        </div>
+
+        <div id="" _style="max-height: 290px;overflow: auto;scrollbar-color: #5d5d5d #2f2f2f;">
+            <span>
+
+                <table id="test-5-table" class="w3-table _w3-bordered w3-large"
+                    style="margin-top:10px;margin-bottom:0px;color:#cecece;"
+                    onclick="testEditorTableClick(event, this)">
+                    <tr class="color-font">
+                        <th style="_width:25%;">Step</th>
+                        <th>Desription</th>
+                        <th>Setpoint</th>
+                        <th>End Condition</th>
+                        <th>Step Limits</th>
+                        <th>Duration</th>
+                        <th></th>
+                    </tr>
+                    <tr id="test-5-editor-row-1" class=""
+                        _onclick="toggleTestEditorRowDetail(event, this.rowIndex)" style="border-top:1px solid #ddd;">
+                        <td contenteditable><span style="padding-left:0px;display:flex;">
+                                <div class="" style="border-left:10px solid #419c39;">&nbsp;</div>&nbsp;
+                                <span>CC</span>
+                            </span></td>
+                        <!-- <td>CH01</td> -->
+                        <td contenteditable='true'>C/5 Charge</td>
+                        <td contenteditable='true'>C/5</td>
+                        <td contenteditable='true'>V > MAX_V * 0.9</td>
+                        <td></td>
+                        <td></td>
+                        <td><i id="test-5-editor-row-1-detail-icon"
+                                class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
+                                style="cursor:pointer;"
+                                onclick="toggleTestEditorRowDetail(this.parentElement.parentElement.id)"></i>
+                        </td>
+                    </tr>
+                    <tr id="test-5-editor-row-1" class=""
+                        _onclick="toggleTestEditorRowDetail(event, this.rowIndex)" style="_border-top:1px solid #ddd;">
+                        <td contenteditable><span style="padding-left:0px;display:flex;">
+                                <div class="" style="border-left:10px solid #185812;">&nbsp;</div>&nbsp;
+                                <span>CV</span>
+                            </span></td>
+                        <!-- <td>CH01</td> -->
+                        <td contenteditable='true'>CV Charge</td>
+                        <td contenteditable='true'>MAX_V</td>
+                        <td contenteditable='true'>I < 100 mA</td>
+                        <td></td>
+                        <td></td>
+                        <td><i id="test-5-editor-row-1-detail-icon"
+                                class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
+                                style="cursor:pointer;"
+                                onclick="toggleTestEditorRowDetail(this.parentElement.parentElement.id)"></i>
+                        </td>
+                    </tr>
+                    <tr id="test-5-editor-row-3" style="border-top:1px solid #ddd;">
+                        <td><span style="display:flex;">
+                                <div class="" style="border-left:10px solid blue;">&nbsp;</div>&nbsp;
+                                <span>Loop - Start</span>
+                            </span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><!--<i class="fa fa-compress w3-right w3-xlarge" style="rotate:-45deg;" aria-hidden="true"></i>--></td>
+                    </tr>
+                    <tr id="test-5-editor-row-3" style="border-top:1px solid #ddd;">
+                        <td><span style="padding-left:30px;display:flex;">
+                                <div class="" style="border-left:10px solid rgb(122, 196, 245);">&nbsp;</div>
+                                &nbsp;CC
+                            </span></td>
+                        <td>Discharge</td>
+                        <td>C/2</td>
+                        <tc></tc>
+                        <td>V <= MIN_V</td>
+                        <td></td>
+                        <td></td>
+                        <td><i class="fa fa-caret-right w3-right w3-xlarge" aria-hidden="true"
+                                style="cursor:pointer;color:#cecece;"
+                                _onclick="document.getElementById('modal-test-setup').style.display='block'"></i>
+                        </td>
+                    </tr>
+                    <tr id="test-5-editor-row-4" style="border-top:1px solid #ddd;">
+                        <td><span style="padding-left:30px;display:flex;">
+                                <div class="" style="border-left:10px solid darkgray;">&nbsp;</div>&nbsp;Rest
+                            </span></td>
+                        <!-- <td>CH01</td> -->
+                        <td></td>
+                        <td></td>
+                        <td>t > 45 m</td>
+                        <td></td>
+                        <td></td>
+                        <td><i class="fa fa-caret-right w3-right w3-xlarge" aria-hidden="true"
+                                style="cursor:pointer;color:#cecece;"
+                                _onclick="document.getElementById('modal-test-setup').style.display='block'"></i>
+                        </td>
+                    </tr>
+
+
+
+                    <tr rowspan="2" id="test-5-editor-row-1" _onclick="toggleTestEditorRowDetail(event, this.rowIndex)"
+                        style="border-top:1px solid #ddd;">
+                        <td contenteditable><span style="padding-left:30px;display:flex;">
+                                <div class="" style="border-left:10px solid #2d6b27;">&nbsp;</div>&nbsp;
+                                <span>CC/CV</span>
+                            </span></td>
+                        <td contenteditable='true'>C/2 Charge</td>
+                        <td contenteditable='true'>C/2</td>
+                        <td contenteditable='true'>V > MAX_V * 0.95</td>
+                        <td></td>
+                        <td></td>
+                        <td><i id="test-5-editor-row-1-detail-icon" class="fa fa-caret-right w3-right w3-xlarge"
+                                aria-hidden="true" style="cursor:pointer;"
+                                onclick="toggleTestEditorRowDetail(this.parentElement.parentElement.id)"></i>
+                        </td>
+                    </tr>
+                    <tr id="test-5-editor-row-3" style="_border-bottom:0px;">
+                        <!-- <td contenteditable><span style="padding-left:0px;display:flex;">
+                            <div class="" style="border-left:10px solid #2d6b27;">&nbsp;</div>&nbsp;
+                            <span>CC/CV <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                        </span></td> -->
+                        <td></td>
+                        <td contenteditable='true'>CV Charge</td>
+                        <td contenteditable='true'>MAX_V</td>
+                        <td contenteditable='true'>I < 100 mA</td>
+                        <td></td>
+                        <td></td>
+                        <td><i id="test-5-editor-row-3-detail-icon" class="fa fa-caret-right w3-right w3-xlarge"
+                                aria-hidden="true" style="cursor:pointer;color:#cecece;"
+                                onclick="toggleTestEditorRowDetail(this.parentElement.parentElement.id)"></i>
+                        </td>
+                    </tr>
+                    <tr id="test-5-editor-row-3-detail" style="display:none;"
+                        _onclick="selectTestEditorRow(event, this.rowIndex)" style="_display:none;">
+                        <td style="border-bottom:0px !important;"></td>
+                        <td colspan="6">
+                            <table>
+                                <tr>
+                                    <td class="color-font">Limits</td>
+                                    <td contenteditable='true'>POUCH_CENTER > 60 °C, t > 1.5 h</td>
+                                </tr>
+                                <tr>
+                                    <td class="color-font">Log Points</td>
+                                    <td contenteditable='true' onkeydown="onKeyDown(event)">0.1 Hz</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <!-- <td colspan="6" class="_w3-center"><span class="color-font">Limits:</span> T
+                        < 60 °C<br /><span class="color-font">Log Points:</span> 0.1 mA -->
+                        </td>
+                    </tr>
+
+
+
+                    <tr style="border-top:1px solid #ddd;">
+                        <td><span style="padding-left:30px;display:flex;">
+                                <div class="" style="border-left:10px solid darkgray;">&nbsp;</div>&nbsp;Rest
+                            </span></td>
+                        <!-- <td>CH01</td> -->
+                        <td></td>
+                        <td></td>
+                        <td>t > 30 m</td>
+                        <td></td>
+                        <td></td>
+                        <td><i class="fa fa-caret-right w3-right w3-xlarge" aria-hidden="true"
+                                style="cursor:pointer;color:#cecece;"
+                                _onclick="document.getElementById('modal-test-setup').style.display='block'"></i>
+                        </td>
+                    </tr>
+                    <tr style="border-top:1px solid #ddd;">
+                        <td><span style="display:flex;">
+                                <div class="" style="border-left:10px solid blue;">&nbsp;</div>&nbsp;Loop - End
+                            </span></td>
+                        <!-- <td>CH01</td> -->
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>50x</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr style="border-top:1px solid #ddd;">
+                        <td><span style="display:flex;">
+                                <div class="" style="border-left:10px solid purple;">&nbsp;</div>&nbsp;<span><i
+                                        class="fa fa-bookmark-o" aria-hidden="true"></i> Storage Prep</span>
+                            </span></td>
+                        <!-- <td>CH01</td> -->
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><i class="fa fa-caret-down w3-right w3-xlarge color-font" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr class="color-font _card-menu-option-selected"
+                        style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;">
+                        <td colspan="5"><b>Total Estimated Test Duration</b></td>
+                        <td><b>18d 20h 30m</b></td>
+                    </tr>
+                    <!-- <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td> <i class="fa fa-plus-square-o w3-xlarge w3-right color-current" aria-hidden="true"
+                            style="cursor:pointer;color;"></i></td>
+                </tr> -->
+                </table>
+
+            </span>
+        </div>
+</div>

@@ -6,7 +6,7 @@ var card_chart_options = {
     chart: {
         id: undefined,
         height: 100,
-        type: 'line',
+        type: 'area',
         sparkline: {
             enabled: true
         },
@@ -34,16 +34,16 @@ var card_chart_options = {
             }
         },
     },
-    // fill: {
-    //     type: 'gradient',
-    //     gradient: {
-    //         shadeIntensity: 1,
-    //         inverseColors: false,
-    //         opacityFrom: 0.6,
-    //         opacityTo: 0,
-    //         // stops: [20, 100, 100, 100]
-    //     },
-    // },
+    fill: {
+        type: 'gradient',
+        gradient: {
+            shadeIntensity: 1,
+            inverseColors: false,
+            opacityFrom: 0.6,
+            opacityTo: 0,
+            // stops: [20, 100, 100, 100]
+        },
+    },
     // stroke: {
     //     width: [15]
     // },

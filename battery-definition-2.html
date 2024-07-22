@@ -1,92 +1,97 @@
 <div class="w3-container w3-padding w3-large">
     <div class="w3-row-padding">
         <div class="w3-col s12 w3-medium">
-            <span class="w3-xlarge color-current">3027-85 <span class="w3-medium color-zero">v003</span>
-                <i class="fa fa-trash-o color-font w3-xlarge w3-right" aria-hidden="true"
+            <span class="w3-xxlarge">3027-85 <span class="w3-large color-zero">v003</span>
+                <!-- <i class="fa fa-trash-o color-font w3-xlarge w3-right" aria-hidden="true"
                     style="padding-left:10px;cursor:pointer;"></i>
                 <i class="fa fa-plus-square-o color-font w3-xlarge w3-right" aria-hidden="true"
                     style="padding-left:10px;cursor:pointer;"></i>
                 <i class="fa fa-folder-open-o color-font w3-xlarge w3-right" aria-hidden="true"
-                    style="padding-left:10px;cursor:pointer;"></i>
+                    style="padding-left:10px;cursor:pointer;"></i> -->
+                <i class="fa fa-close color-font w3-xlarge w3-right" aria-hidden="true"
+                    style="padding-left:12px;padding-right:24px;cursor:pointer;" onclick="closeBattery()"> Close</i>
+                <i class="fa fa-floppy-o color-zero w3-xlarge w3-right" aria-hidden="true"
+                    style="padding-left:24px;padding-right:12px;cursor:pointer;"> Save</i>
             </span>
 
             <form class="w3-container color-font">
 
-                <div class="w3-col s4 w3-padding">
-                    <label>Serial Number <span class="w3-small color-zero">(optional)</span> <i
+                <div class="w3-col s4 w3-padding w3-large">
+                    <label>Serial Number <span class="w3-large color-zero">(optional)</span> <i
                             class="fa fa-info-circle color-time" aria-hidden="true" style="cursor:pointer;"></i></label>
-                    <input name="serial_number" class="w3-input w3-large color-time" type="text" value="2987-08">
+                    <input name="serial_number" class="w3-input w3-xlarge color-time" type="text" value="2987-08">
                 </div>
 
-                <div class="w3-col s4 w3-padding">
+                <div class="w3-col s4 w3-padding w3-large">
                     <label>Work Request <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="work_request" class="w3-input w3-large color-time" type="text" value="ABCD-1234">
+                    <input name="work_request" class="w3-input w3-xlarge color-time" type="text" value="ABCD-1234">
                 </div>
 
                 <div class="w3-col s4 w3-padding" style="min-height:120px;">
                 </div>
 
-                <div class="w3-col s4 w3-padding">
+                <div class="w3-col s4 w3-padding w3-large">
                     <label>Project Name <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="project" class="w3-input w3-large color-time" type="text" value="Project B">
+                    <input name="project" class="w3-input w3-xlarge color-time" type="text" value="Project B">
                 </div>
 
-                <div class="w3-col s4 w3-padding">
+                <div class="w3-col s4 w3-padding w3-large">
                     <label>Project Engineer <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="project" class="w3-input w3-large color-time" type="text" value="Joe Smith">
+                    <input name="project" class="w3-input w3-xlarge color-time" type="text" value="Joe Smith">
                 </div>
 
-                <div class="w3-col s4 w3-padding" style="min-height:120px;">
+                <div class="w3-col s4 w3-padding w3-large" style="min-height:120px;">
                     <label>Manufacturer <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="manufacturer" class="w3-input w3-large color-time" type="text" value="XCYZ">
+                    <input name="manufacturer" class="w3-input w3-xlarge color-time" type="text" value="XCYZ">
                 </div>
 
-                <div class="w3-col s4 w3-padding">
+                <div class="w3-col s4 w3-padding w3-large">
                     <label>Chemistry <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="chemistry" class="w3-input w3-large color-time" type="text" value="LiFePO">
+                    <input name="chemistry" class="w3-input w3-xlarge color-time" type="text" value="LiFePO">
                 </div>
 
-                <div class="w3-col s4 w3-padding">
+                <div class="w3-col s4 w3-padding w3-large">
                     <label>Batch / Lot <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="batch" class="w3-input w3-large color-time" type="text" value="ABCD">
+                    <input name="batch" class="w3-input w3-xlarge color-time" type="text" value="ABCD">
                 </div>
 
-                <div class="w3-col s4 w3-padding" style="min-height:120px;">
-                    <label>Mass <i class="fa fa-info-circle color-time" aria-hidden="true" style="cursor:pointer;"></i></label>
-                    <input name="mass" class="w3-input w3-large color-time" type="text" value="2.3g">
+                <div class="w3-col s4 w3-padding w3-large" style="min-height:120px;">
+                    <label>Mass <i class="fa fa-info-circle color-time" aria-hidden="true"
+                            style="cursor:pointer;"></i></label>
+                    <input name="mass" class="w3-input w3-xlarge color-time" type="text" value="2.3g">
                 </div>
 
                 <!-- <div class="w3-col s4 w3-padding" style="min-height:120px;">
                 </div> -->
 
-                <div class="w3-col s4 w3-padding">
+                <div class="w3-col s4 w3-padding w3-large">
                     <label>Rated Capacity <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="rated_capacity" class="w3-input w3-large color-time" type="text" value="2.0">
+                    <input name="rated_capacity" class="w3-input w3-xlarge color-time" type="text" value="2.0">
                 </div>
 
-                <div class="w3-col s4 w3-padding">
+                <div class="w3-col s4 w3-padding w3-large">
                     <label>Max Voltage <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="max_voltage" class="w3-input w3-large color-time" type="text" value="3.8">
+                    <input name="max_voltage" class="w3-input w3-xlarge color-time" type="text" value="3.8">
                 </div>
 
-                <div class="w3-col s4 w3-padding" style="min-height:120px;">
+                <div class="w3-col s4 w3-padding w3-large" style="min-height:120px;">
                     <label>Max Current <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="max_current" class="w3-input w3-large color-time" type="text" value="2.2">
+                    <input name="max_current" class="w3-input w3-xlarge color-time" type="text" value="2.2">
                 </div>
 
-                <div class="w3-col s12 w3-padding" style="min-height:120px;">
+                <div class="w3-col s12 w3-padding w3-large" style="min-height:120px;">
                     <label>Description <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <textarea name="description" class="w3-input w3-large color-time" type="text" value=""></textarea>
+                    <textarea name="description" class="w3-input w3-xlarge color-time" type="text" value=""></textarea>
                 </div>
 
             </form>

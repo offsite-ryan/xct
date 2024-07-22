@@ -1,0 +1,283 @@
+<div class="w3-container _w3-padding w3-large">
+    <div class="w3-row" style="padding-bottom:25px;padding-top:35px;">
+
+        <div id="" class="" style="">
+
+            <div id="table-tests-recent" style="_max-height:370px;overflow: auto;scrollbar-color: #5d5d5d #2f2f2f;">
+                <span class="w3-xlarge color-current">
+                    <span class="">
+                        <i class="fa fa-history" aria-hidden="true"></i> Recent
+                        <input class="w3-large w3-right" style="margin:3px;padding-bottom:5px;" placeholder="Search" />
+                    </span>
+                </span>
+                <table class="w3-table w3-bordered w3-large" style="margin-top:15px;margin-bottom:25px;">
+                    <tr class="color-font">
+                        <th style="_width:18%;"><i class="fa fa-filter" aria-hidden="true"></i> Name</th>
+                        <th style="_width:20%;"><i class="fa fa-filter" aria-hidden="true"></i> Author</th>
+                        <th style="_width:25%;">Cloned From</th>
+                        <th style="_width:25%;">Date Modified</th>
+                    </tr>
+                    <tr class="" style="cursor:pointer;" onclick="viewTest(this.rowIndex)">
+                        <td>19d C/2 Charge - Discharge (1)</td>
+                        <td class="color-zero">Group 1st Attempt</td>
+                        <td class="color-zero">TXW-5842<span class="color-zero w3-medium"> v007</span></td>
+                        <td class="color-zero">2024-06-24 11:36 AM</td>
+                        <td></td>
+                    </tr>
+                    <tr style="cursor:pointer;" onclick="viewTest(this.rowIndex)">
+                        <td>19d C/2 Charge - Discharge (2)</td>
+                        <td class="color-zero">Ryan D</td>
+                        <td class="color-zero"></td>
+                        <td class="color-zero">2024-05-24 3:45 PM</td>
+                        <td></td>
+                    </tr>
+                    <tr style="cursor:pointer;" onclick="viewTest(this.rowIndex)">
+                        <td>19d C/2 Charge - Discharge (3)</td>
+                        <td class="color-zero">Ryan D - Side Menu</td>
+                        <td class="color-zero"></td>
+                        <td class="color-zero">2024-06-24 11:36 AM</td>
+                        <td></td>
+                    </tr>
+                    <tr style="cursor:pointer;" onclick="viewTest(this.rowIndex)">
+                        <td>19d C/2 Charge - Discharge (4)</td>
+                        <td class="color-zero">Ben S</td>
+                        <td class="color-zero"></td>
+                        <td class="color-zero">2024-06-24 11:36 AM</td>
+                        <td></td>
+                    </tr>
+                    <tr style="cursor:pointer;" onclick="viewTest(this.rowIndex)">
+                        <td>19d C/2 Charge - Discharge (5)</td>
+                        <td class="color-zero">David T</td>
+                        <td class="color-zero"></td>
+                        <td class="color-zero">2024-06-24 11:36 AM</td>
+                        <td></td>
+                    </tr>
+                    <tr style="cursor:pointer;" onclick="viewTest(this.rowIndex)">
+                        <td>19d C/2 Charge - Discharge (6)</td>
+                        <td class="color-zero">Ryan D (Merged Approach + defaults + test render)</td>
+                        <td class="color-zero"></td>
+                        <td class="color-zero">2024-07-15 09:36 AM</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <div id="test-view-1" class="_w3-padding w3-col s12 w3-large" style="display:none;">
+            <div w3-include-html="test-definition-1.html"></div>
+        </div>
+
+        <div id="test-view-2" class="_w3-padding w3-col s12 w3-large" style="display:none;">
+            <div w3-include-html="test-definition-2.html"></div>
+        </div>
+
+        <div id="test-view-3" class="_w3-padding w3-col s12 w3-large" style="display:none;">
+            <div w3-include-html="test-definition-3.html"></div>
+        </div>
+
+        <div id="test-view-4" class="_w3-padding w3-col s12 w3-large" style="display:none;">
+            <div w3-include-html="test-definition-4.html"></div>
+        </div>
+
+        <div id="test-view-5" class="_w3-padding w3-col s12 w3-large" style="display:none;">
+            <div w3-include-html="test-definition-5.html"></div>
+        </div>
+
+        <div id="test-view-6" class="_w3-padding w3-col s12 w3-large" style="display:none;">
+            <div w3-include-html="test-definition-6.html"></div>
+        </div>
+
+    </div>
+
+
+    <!-- MODAL -->
+    <div id="modal-test-setup" class="w3-modal w3-xlarge" style="background-color: rgba(0,0,0,0.65);">
+        <div class="w3-modal-content modal-dark w3-padding" style="height:900px;">
+            <div class="w3-container">
+                <div class="w3-row">
+                    <h3 class="color-font">Test Step Definition</h3>
+                    <span onclick="document.getElementById('modal-test-setup').style.display='none'"
+                        class="w3-button w3-display-topright w3-xxlarge">&times;</span>
+                    <hr />
+                    <!-- <span><input type="color" value="#2d6b27" style="width:35px;height:35px;" /> <input value="Charge CV"/></span> -->
+                    <div class="w3-col s12 w3-medium">
+
+                        <form class="w3-container color-font">
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Step Name <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text"
+                                    value="Charge CV">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding" _style="min-height:120px;">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding" style="min-height:100px;">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Control Mode <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="CV">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Setpoint <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text"
+                                    value="3.6 V">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Est. Duration (hours) <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="1">
+                            </div>
+
+                            <div class="w3-col s12 w3-padding color-font w3-xlarge" _style=""><br />End Condition
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Variable <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="I">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Condition <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="<">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Value <i class="fa fa-info-circle color-time" aria-hidden="true"
+                                        style="cursor:pointer;"></i></label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text"
+                                    value="100 mA">
+                            </div>
+
+                            <div class="w3-col s12 w3-padding color-font w3-xlarge" _style=""><br />Step Limits
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Variable</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text"
+                                    value="POUCH_CENTER">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Min</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="">
+                            </div>
+
+                            <div class="w3-col s4 w3-padding">
+                                <label>Max</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text"
+                                    value="60 °C">
+                            </div>
+
+                            <div class="w3-col s12 w3-padding w3-center w3-large"
+                                style="min-height:120px;padding-top:30px !important;">
+                                <span class="button w3-right color-font"
+                                    onclick="document.getElementById('modal-test-setup').style.display='none'">Cancel</span>
+                                <span class="button w3-right color-zero">Save</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL - GLOBAL TEST LIMITS -->
+    <div id="modal-test-global-limits" class="w3-modal w3-xlarge" style="background-color: rgba(0,0,0,0.65);">
+        <div class="w3-modal-content modal-dark w3-padding" style="_height:900px;">
+            <div class="w3-container">
+                <div class="w3-row">
+                    <h3 class="color-font">Global Test Limits</h3>
+                    <span onclick="document.getElementById('modal-test-global-limits').style.display='none'"
+                        class="w3-button w3-display-topright w3-xxlarge">&times;</span>
+                    <hr />
+                    <!-- <span><input type="color" value="#2d6b27" style="width:35px;height:35px;" /> <input value="Charge CV"/></span> -->
+                    <div class="w3-col s12 w3-medium">
+
+                        <table class="w3-table w3-large w3-bordered">
+                            <tr class="color-font">
+                                <th>Condition<i class="fa fa-plus w3-right" aria-hidden="true"></i></th>
+                            </tr>
+                            <tr>
+                                <td contenteditable="true">POUCH_CENTER > 60°C</td>
+                            </tr>
+                            <tr>
+                                <td contenteditable="true">t > STEP_ESTIMATED_DURATION*1.5</td>
+                            </tr>
+                            <tr>
+                                <td contenteditable="true">V > MAX_V</td>
+                            </tr>
+                            <tr>
+                                <td contenteditable="true">I > MAX_I</td>
+                            </tr>
+                        </table>
+
+
+                        <div class="w3-col s12 w3-padding w3-center w3-large"
+                            style="min-height:120px;padding-top:30px !important;">
+                            <span class="button w3-right color-font"
+                                onclick="document.getElementById('modal-test-global-limits').style.display='none'">Cancel</span>
+                            <span class="button w3-right color-zero">Save</span>
+                        </div>
+
+                        <!-- 
+                        <br/>
+                        <form class="w3-container color-font">
+
+                            <div class="w3-col s12 w3-padding">
+                                <label>Limit 1</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text"
+                                    value="POUCH_CENTER > 60 °C">
+                            </div>
+
+                            <div class="w3-col s12 w3-padding">
+                                <label>Limit 2</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text" value="t > Est*1.5">
+                            </div>
+
+                            <div class="w3-col s12 w3-padding">
+                                <label>Limit 3</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text"
+                                    value="V > VMAX">
+                            </div>
+                            
+                            <div class="w3-col s12 w3-padding">
+                                <label>Limit 4</label>
+                                <input name="serial_number" class="w3-input w3-large color-time" type="text"
+                                    value="I > IMAX">
+                            </div>
+
+                            <div class="w3-col s12 w3-padding w3-center w3-large"
+                                style="min-height:120px;padding-top:30px !important;">
+                                <span class="button w3-right color-font"
+                                    onclick="document.getElementById('modal-test-setup').style.display='none'">Cancel</span>
+                                <span class="button w3-right color-zero">Save</span>
+                            </div>
+                        </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="test-save-cancel" class="w3-col s12 w3-padding w3-center w3-large"
+        style="min-height:120px;padding-bottom:20px;display:none;">
+        <span class="button w3-right color-font" onclick="closeTest()">Close</span>
+        <span class="button w3-right color-zero">Save</span>
+    </div> -->
+
+
+    <!-- <div class="" style="padding-bottom:60px;">
+        <img src="./assets/test-setup.png" width="1350" />
+    </div> -->
+</div>

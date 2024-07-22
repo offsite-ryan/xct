@@ -67,6 +67,9 @@ body {
     margin: 5px;
     background-color: #1e1e1e;
 }
+table {
+    background-color: #1e1e1e;
+}
 
 .detail-button {
     background-color: #1599ac !important;
@@ -94,7 +97,7 @@ body {
 .color-moniker {
     /* color: #ffd861; */
     color: white;
-    font-size:28px !important;
+    /* font-size:28px !important; */
 }
 
 .color-voltage {
