@@ -1058,17 +1058,17 @@
             cards.items.forEach((v) => {
                 updateChart(v.name, v.dataV, v.chart_options);
 
-                // /** update percent complete */
-                // const pct = 100 * (v.cycles / 50);
+                /** update percent complete */
+                const pct = 100 * (v.cycles / v.requested_cycles);
                 // let elem = document.getElementById(`${v.name}-progress-complete`);
                 // elem.style.width = `${pct}%`;
                 // elem = document.getElementById(`${v.name}-progress-requested`);
                 // elem.style.width = `${100 - pct}%`;
 
-                // elem = document.getElementById(`${v.name}-progress-complete-table`);
-                // elem.style.width = `${pct}%`;
-                // elem = document.getElementById(`${v.name}-progress-requested-table`);
-                // elem.style.width = `${100 - pct}%`;
+                let elem = document.getElementById(`${v.name}-progress-complete-table`);
+                elem.style.width = `${pct}%`;
+                elem = document.getElementById(`${v.name}-progress-requested-table`);
+                elem.style.width = `${100 - pct}%`;
             })
         }
 
