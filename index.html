@@ -670,7 +670,7 @@
                         <th>Battery File</th>
                         <th>Test Procedure</th>
                     </tr>
-                    <tr w3-repeat="items" id="batch-row-{{name}}" onclick="clickRow(this.rowIndex)"
+                    <tr w3-repeat="items" id="batch-row-{{name}}" _onclick="clickRow(this.rowIndex)"
                         style="cursor:pointer;">
                         <td><i class="fa fa-square-o color-current" aria-hidden="true"></i></td>
                         <td class="color-moniker">
@@ -964,8 +964,8 @@
             if (v.state === 'empty') {
                 v.icon = './assets/charge-empty.png';
                 v.test = '';
-                v.step = '',
-                    v.battery = '';
+                v.step = '';
+                v.battery = '';
                 v.dataV = [];
                 v.dataI = [];
                 v.v = '';
@@ -979,6 +979,7 @@
             if (v.state === 'error') {
                 v.icon = './assets/error.png';
                 v.test = '';
+                v.step = '';
                 v.battery = '';
                 v.dataV = [];
                 v.dataI = [];
