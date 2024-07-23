@@ -9,14 +9,14 @@ class data {
             rows.push(v.split(','));
         })
         const json = [];
-        rows.forEach((v, i) => {
-            if (i > 0) {
+        rows.forEach((v, i2) => {
+            if (i2 > 0) {
                 json.push({
                     // /** not sure why but the data for I (current) is opposite of what it should be */
-                    i: -(+(v[5])), 
-                    v: +(v[6]),
-                    c: +(v[7]),
-                    t: +(v[8]),
+                    i: -(+(v[5])), // current
+                    v: +(v[6]), // voltage
+                    c: +(v[7]), // capacity
+                    t: +(v[8]), // temperature
                 })
             }
         })

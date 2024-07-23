@@ -228,14 +228,13 @@
                         <td class="color-time">{{st}}</td>
                         <td>
                             <div class="" style="display:flex;align-items:center;border-radius:30px;">
-                                <div style="padding-right:20px;">{{cycles}}</div>
                                 <div id="{{name}}-progress-complete-table" class=""
                                     style="max-height:15px;background-color:rgb(106, 190, 223);">&nbsp;
                                 </div>
                                 <div id="{{name}}-progress-requested-table" class=""
-                                    style="max-height:15px;background-color:#6abedf1a;">
-                                    &nbsp;</div>
-                                <div style="padding-left:10px;">{{requested_cycles}}</div>
+                                    _style="max-height:15px;background-color:pink;">
+                                </div>
+                                <div style="padding-left:10px;">{{cycles}}</div>
                             </div>
                         </td>
                         <!-- <td><span class="color-current">{{cycles}}</span> / <span class="color-time">50</span></td> -->
@@ -248,7 +247,7 @@
             <div id="card-view" class="w3-col s12 w3-large"
                 style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content: center;">
                 <div w3-repeat="items" class="w3-col s12 m3 l2"
-                    style="display:block;max-width:300px;min-width:300px;padding:12px;">
+                    style="display:block;max-width:315px;min-width:315px;padding:12px;">
                     <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
                         <div class="" style="padding-bottom:10px;font-size:28px;">
                             <img id="card-icon-{{name}}" src="{{icon}}" height="35"
@@ -378,7 +377,8 @@
                     <!-- COLUMN 3 -->
                     <div class="w3-col s4" _style="display:flex;flex-direction:column;align-items:flex-start;">
                         <span class="" style="">
-                            <span class="color-zero w3-large">Procedure:&nbsp;&nbsp;
+                            <span class="color-zero w3-large"
+                                onclick="changeView('configuration',null)">Procedure:&nbsp;&nbsp;
                                 <span class="w3-text-white w3-xlarge" style=""><span
                                         id="test-6-detail-test">TXW2345-02</span> <span><i
                                             class="fa fa-external-link color-current" style="padding-left:20px;"
@@ -606,73 +606,32 @@
     </div>
 
     <!-- BATCH OPERATIONS -->
-    <div id="view-batch" style="display:none;margin-left:0px;">
+    <div id="view-batch" style="display:none;margin-left:0px;background-color: #1e1e1e;">
         <hr />
         <div class="w3-container w3-padding w3-xlarge">
-            <!-- <table class="w3-table w3-bordered">
-                <tr class="color-font">
-                    <th><i class="fa fa-square-o color-current" aria-hidden="true"></i></th>
-                    <th>Channel</th>
-                    <th>Serial Number</th>
-                    <th>Battery File</th>
-                    <th>Test Procedure</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
-                    <td class="color-moniker">CH01</td>
-                    <td>1287-03</td>
-                    <td>LiPh-108 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                    <td>TXW87689v3</td>
-                    <td class="w3-text-green">On Test</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
-                    <td class="color-moniker">CH02</td>
-                    <td></td>
-                    <td class=" color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                    <td></td>
-                    <td class="color-zero">Empty</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
-                    <td class="color-moniker">CH03</td>
-                    <td>1287-13</td>
-                    <td>LiPh-108 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                    <td>TXW87689v3</td>
-                    <td class="w3-text-green">On Test</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-check-square-o color-current" aria-hidden="true"></i></td>
-                    <td class="color-moniker">CH04</td>
-                    <td></td>
-                    <td class="color-zero">Select &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                    <td></td>
-                    <td class="color-zero">Empty</td>
-                </tr>
-                <tr>
-                    <td><i class="fa fa-square-o color-font" aria-hidden="true"></i></td>
-                    <td class="color-moniker">CH05</td>
-                    <td>1287-67</td>
-                    <td>1287-67 &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></td>
-                    <td>TXW87689v3</td>
-                    <td class="w3-text-yellow">Paused</td>
-                </tr>
-            </table> -->
-            <div id="batch-view" class="w3-col s12 w3-large" style="display:block;">
+            <div id="batch-view" class="w3-col s12 w3-large" style="display:block;background-color:#1e1e1e;">
+                <div class="w3-xxlarge w3-center color-zero" style="background-color: #1e1e1e;">
+                    <span class="w3-left color-font">Channels</span>
+                    <i class="fa fa-eject w3-right" aria-hidden="true" style="margin:20px;"></i>
+                    <i class="fa fa-pause w3-right" aria-hidden="true" style="margin:20px;"></i>
+                    <i class="fa fa-play w3-right" aria-hidden="true" style="margin:20px;"></i>
+                    <i class="fa fa-folder-o w3-right clickable color-current" aria-hidden="true"
+                        style="margin:20px;"></i>
+                </div>
                 <table class="w3-table w3-bordered w3-xlarge">
                     <tr class="color-font">
                         <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
-                        <th><i class="fa fa-square-o color-current" aria-hidden="true"></i></th>
+                        <th width="50"><i class="fa fa-square-o color-current" id="batch-row-{{name}}-select-all"
+                                onclick="toggleBathSelected(this.id)" aria-hidden="true"></i></th>
                         <th>Channel</th>
                         <th>Status</th>
                         <th>Serial Number</th>
                         <th>Battery File</th>
                         <th>Test Procedure</th>
                     </tr>
-                    <tr w3-repeat="items" id="batch-row-{{name}}" _onclick="clickRow(this.rowIndex)"
-                        style="cursor:pointer;">
-                        <td><i class="fa fa-square-o color-current" aria-hidden="true"></i></td>
+                    <tr w3-repeat="items" id="batch-row-{{name}}" style="">
+                        <td><i class="fa fa-square-o color-current w3-xlarge" id="batch-row-{{name}}-selected"
+                                onclick="toggleBathSelected(this.id)" aria-hidden="true"></i></td>
                         <td class="color-moniker">
                             <img src="{{icon}}" height="35" style="padding-right:10px;" />
                             <!-- <span>{{state}}</span> -->
@@ -686,7 +645,7 @@
                 </table>
             </div>
 
-            <div class="w3-roww-padding" style="margin-top:25px;">
+            <!-- <div class="w3-roww-padding" style="margin-top:25px;">
                 <div class="w3-col s3 w3-center">&nbsp;</div>
                 <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">load battery
                 </div>
@@ -694,7 +653,7 @@
                 </div>
                 <div class="w3-col s2 w3-center w3-margin w3-padding" style="border:1px solid white">start test
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -1538,6 +1497,30 @@
             // document.getElementById('content').style.display = 'block';
             // w3.displayObject("cards", cards);
             // selectCardType(card_type);
+        }
+
+        function toggleBathSelected(id) {
+            const elem = document.getElementById(id);
+            const isSelected = elem.classList.contains('fa-square-o');
+            if (id.endsWith('-select-all')) {
+                if (isSelected) {
+                    cards.items.forEach((v) => {
+                        const e = document.getElementById(`batch-row-${v.name}`);
+                        if (e.classList.contains('w3-hide') === false) {
+                            document.getElementById(`batch-row-${v.name}-selected`).classList.replace('fa-square-o', 'fa-check-square-o');
+                        }
+                    })
+                } else {
+                    cards.items.forEach((v) => {
+                        document.getElementById(`batch-row-${v.name}-selected`).classList.replace('fa-check-square-o', 'fa-square-o');
+                    })
+                }
+            }
+            if (isSelected) {
+                elem.classList.replace('fa-square-o', 'fa-check-square-o');
+            } else {
+                elem.classList.replace('fa-check-square-o', 'fa-square-o');
+            }
         }
 
         //#region SETUP i/O ASSIGNMENT
