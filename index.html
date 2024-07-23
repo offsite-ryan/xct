@@ -263,8 +263,8 @@
                                 <span class="w3-right">
                                     <span class="">{{cycles}}</span>
                                     <span class=""> / </span>
-                                    <span class="color-current">50</span>
-                                <!-- <div class="" style="display:flex;align-items:center;border-radius:30px;">
+                                    <span class="color-current">{{requested_cycles}}</span>
+                                    <!-- <div class="" style="display:flex;align-items:center;border-radius:30px;">
                                     <div style="padding-right:20px;">{{cycles}}</div>
                                     <div id="{{name}}-progress-complete" class=""
                                         style="max-height:15px;background-color:rgb(106, 190, 223);">&nbsp;
@@ -274,8 +274,8 @@
                                         &nbsp;</div>
                                     <div style="padding-left:10px;">{{requested_cycles}}</div>
                                 </div> -->
-                            </span>
-                            <br/>
+                                </span>
+                                <br />
                         </div>
 
                         <span id="card-view-"
@@ -971,8 +971,8 @@
                 v.v = '';
                 v.i = ''
                 v.st = '';
-                v.cycles = '';
-                v.requested_cycles = '';
+                v.cycles = '0';
+                v.requested_cycles = '0';
                 v.uut = `<span class="color-zero"></span>`;
                 v.batch_state = '<span class="color-zero">EMPTY</span>';
             }
@@ -1004,6 +1004,7 @@
                 v.icon = './assets/empty.png';
                 v.batch_state = '<span class="color-current">COMPLETE</span>';
                 v.step = '';
+                v.cycles = '50';
                 start = Math.floor(150 * Math.random());
                 for (let y = start; y >= 0; y--) {
                     v.dataV[v.dataV.length - y] = null; // v.dataV[start] ;
