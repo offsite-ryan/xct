@@ -36,7 +36,7 @@
 
     <!-- Sidebar -->
     <div class="w3-xxlarge w3-animate-left" style="background-color:#272727;border:0px solid;padding-left:0px;">
-        <div style="position:fixed;top:0;width:95%;padding-top:20px;background-color: #272727;">
+        <div style="position:fixed;top:0;width:95%;padding-top:20px;background-color: #272727;z-index: 9999999;">
             <i id="menu" class="fa fa-bars" style="cursor:pointer;padding-right:25px;color:#1599ac;"
                 onclick="toggleSidebar()" aria-hidden="true"></i>
             <span class="">TS0937 </span>
@@ -74,6 +74,7 @@
                         aria-hidden="true"></i><br />Test System&nbsp;<i id="expand-caret" class="fa fa-caret-down"
                         aria-hidden="true"></i></a>
             </span>
+            <hr />
             <span id="subitems" class="" style="display:flex;font-size:24px;">
                 <a id="subitem-runtime" href="#runtime" class="w3-button"><i class="fa fa-th w3-xlarge"
                         aria-hidden="true"></i></a>
