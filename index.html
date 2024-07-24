@@ -942,26 +942,41 @@
         elem.innerText = on_test;
         elem.classList.add(on_test > 0 ? 'color-current' : 'color-zero');
         document.getElementById('filter_on_test').style.width = `${on_test / numChannels * 100 * 0.6}%`;
+        if (on_test === 0) {
+            document.getElementById('filter_on_test').style.borderBottom = '';
+        }
 
         elem = document.getElementById('count_paused');
         elem.innerText = paused;
         elem.classList.add(paused > 0 ? 'color-current' : 'color-zero');
         document.getElementById('filter_paused').style.width = `${paused / numChannels * 100 * 0.6}%`;
+        if (paused === 0) {
+            document.getElementById('filter_paused').style.borderBottom = '';
+        }
 
         elem = document.getElementById('count_complete');
         elem.innerText = complete;
         elem.classList.add(complete > 0 ? 'color-current' : 'color-zero');
         document.getElementById('filter_complete').style.width = `${complete / numChannels * 100 * 0.6}%`;
+        if (complete === 0) {
+            document.getElementById('filter_complete').style.borderBottom = '';
+        }
 
         elem = document.getElementById('count_empty');
         elem.innerText = empty;
         elem.classList.add(empty > 0 ? 'color-current' : 'color-zero');
         document.getElementById('filter_empty').style.width = `${empty / numChannels * 100 * 0.6}%`;
+        if (empty === 0) {
+            document.getElementById('filter_empty').style.borderBottom = '';
+        }
 
         elem = document.getElementById('count_error');
         elem.innerText = error;
         elem.classList.add(error > 0 ? 'color-current' : 'color-zero');
         document.getElementById('filter_error').style.width = `${error / numChannels * 100 * 0.6}%`;
+        if (error === 0) {
+            document.getElementById('filter_error').style.borderBottom = '';
+        }
 
         // /** ALTER CARDS BASED ON STATE */
         cards.items.forEach((v) => {
