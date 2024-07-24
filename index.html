@@ -36,7 +36,7 @@
 
     <!-- Sidebar -->
     <div class="w3-xxlarge w3-animate-left" style="background-color:#272727;border:0px solid;padding-left:0px;">
-        <div style="position:fixed;top:0;width:95%;padding-top:20px;">
+        <div style="position:fixed;top:0;width:95%;padding-top:20px;background-color: #272727;">
             <i id="menu" class="fa fa-bars" style="cursor:pointer;padding-right:25px;color:#1599ac;"
                 onclick="toggleSidebar()" aria-hidden="true"></i>
             <span class="">TS0937 </span>
@@ -1557,7 +1557,6 @@
             });
             if (isSelected === true) {
                 cards.items.forEach((v) => {
-                    document.getElementById(`filter_${name}`).style.border='1px solid white';
                     document.getElementById(`filter_${name}`).classList.remove('filter-selected');
                     [''].forEach((v2) => {
                         const elem = document.getElementById(`${v2}${v.name}`).parentElement;
