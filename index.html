@@ -460,21 +460,21 @@
                                 <br />
                                 <span class="" style="">
                                     <span class="color-zero w3-large">Rated Capacity:&nbsp;&nbsp;
-                                        <span class="w3-text-white w3-xlarge" style="">Constant Current Charge</span>
+                                        <span class="w3-text-white w3-xlarge" style="">2</span>
                                     </span>
                                 </span>
 
                                 <br />
                                 <span class="" style="">
                                     <span class="color-zero w3-large">Max Voltage:&nbsp;&nbsp;
-                                        <span class="w3-text-white w3-xlarge" style="">21h 41m</span>
+                                        <span class="w3-text-white w3-xlarge" style="">4.6</span>
                                     </span>
                                 </span>
 
                                 <br />
                                 <span class="" style="">
                                     <span class="color-zero w3-large">Max Current:&nbsp;&nbsp;
-                                        <span class="w3-text-white w3-xlarge" style="">31 / 50</span>
+                                        <span class="w3-text-white w3-xlarge" style="">2.2</span>
                                     </span>
                                 </span>
                         </div>
@@ -1557,6 +1557,7 @@
             });
             if (isSelected === true) {
                 cards.items.forEach((v) => {
+                    document.getElementById(`filter_${name}`).style.border='1px solid white';
                     document.getElementById(`filter_${name}`).classList.remove('filter-selected');
                     [''].forEach((v2) => {
                         const elem = document.getElementById(`${v2}${v.name}`).parentElement;
