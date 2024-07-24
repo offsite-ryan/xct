@@ -182,11 +182,13 @@ table {
 .filter-selected {
     /* background-color: #2f2f2f !important; */
     /* color: #75e0f0 !important; */
-    background-color: #3d3d3d !important;
-    border:1px solid white;
+    /* background-color: #3d3d3d !important;
+    border:1px solid white; */
     /* color: white !important; */
     /* border-bottom:5px solid #75e0f0; */
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    /* color: #1599ac; */
+    font-size: 32px;
 }
 
 .modal-dark {

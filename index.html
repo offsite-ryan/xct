@@ -167,23 +167,23 @@
                     <!-- ORIGINAL COUNTS END -->
 
                     <span class="w3-col s10 w3-center w3-xlarge" style="display: flex;justify-content: space-evenly;">
-                        <div id="filter_on_test"
+                        <div id="filter_on_test" onclick="filterRuntime('on_test')"
                             style="padding:5px 10px 5px 10px;width:32%;border-bottom:8px solid green;">On
                             Test&nbsp;<span id="count_on_test" class=""
                                 style="font-weight:bold;margin-left:10px;">0</span></div>
-                        <div id="filter_paused"
+                        <div id="filter_paused" onclick="filterRuntime('paused')"
                             style="padding:5px 10px 5px 10px;width:10%;border-bottom:8px solid yellow;">
                             Paused&nbsp;<span id="count_paused" class=""
                                 style="font-weight:bold;margin-left:10px;">0</span></div>
-                        <div id="filter_empty"
+                        <div id="filter_empty" onclick="filterRuntime('empty')"
                             style="padding:5px 10px 5px 10px;width:6%;border-bottom:8px solid rgb(78, 78, 78);">
                             Empty&nbsp;<span id="count_empty" class=""
                                 style="font-weight:bold;margin-left:10px;">0</span></div>
-                        <div id="filter_complete"
+                        <div id="filter_complete" onclick="filterRuntime('complete')"
                             style="padding:5px 10px 5px 10px;width:8%;border-bottom:8px solid #399dbd;">
                             Complete&nbsp;<span id="count_complete" class=""
                                 style="font-weight:bold;margin-left:10px;">0</span></div>
-                        <span id="filter_error"
+                        <span id="filter_error" onclick="filterRuntime('error')"
                             style="padding:5px 10px 5px 10px;width:1%;border-bottom:8px solid red;">Error&nbsp;<span
                                 id="count_error" class="" style="font-weight:bold;margin-left:10px;">0</span></span>
                     </span>
