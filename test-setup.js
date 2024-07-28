@@ -57,6 +57,7 @@ function onKeyDown(event) {
 //     ]
 // }
 function viewTest(index) {
+    window.location.hash = `configuration-test-${index}`;
     document.getElementById('table-tests-recent').style.display = 'none';
     document.getElementById(`test-view-${index}`).style.display = 'block';
     // document.getElementById('test-save-cancel').style.display = 'block';
@@ -256,6 +257,7 @@ function closeTest() {
     document.getElementById('test-view-4').style.display = 'none';
     document.getElementById('test-view-5').style.display = 'none';
     document.getElementById('test-view-6').style.display = 'none';
+    window.location.hash = 'configuration';
     // document.getElementById('test-save-cancel').style.display = 'none';
 }
 
@@ -409,6 +411,6 @@ function renderTest(id, testSteps) {
     ctx.lineTo(getX(start + end - 1), getY(h + 3));
 
     ctx.fillStyle = "black";
-    ctx.fillText("50x", getX(start + ((end) / 2)), getY(98.5));
+    ctx.fillText("50 times", getX(start + ((end) / 2)) - 50, getY(98.5));
     ctx.stroke();
 }

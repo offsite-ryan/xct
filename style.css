@@ -13,6 +13,7 @@ body {
     padding-top: 40px;
     /* padding-right: 20px; */
     /* padding-top: 20px; */
+    scrollbar-color: #5d5d5d #2f2f2f;
 }
 
 .center {
@@ -116,7 +117,7 @@ table {
 
 
 .color-zero {
-    color: rgb(138, 138, 138);
+    color: #8a8a8a;
 }
 
 .detail {
@@ -182,8 +183,8 @@ table {
 .filter-selected {
     /* background-color: #2f2f2f !important; */
     /* color: #75e0f0 !important; */
-    /* background-color: #3d3d3d !important;
-    border:1px solid white; */
+    background-color: #3d3d3d !important;
+    border:3px solid white;
     /* color: white !important; */
     /* border-bottom:5px solid #75e0f0; */
     /* border-radius: 5px; */
@@ -234,10 +235,10 @@ input a:hover {
     background-color: #048004;
 }
 .paused {
-    background-color: #A5A5A5;
+    background-color: #fcd00e;
 }
 .error {
-    background-color: red;
+    background-color: #ff0000;
 }
 .chip {
     display: inline-block;
@@ -257,4 +258,66 @@ input a:hover {
 }
 th {
     color:#1599ac;
+}
+/* .apexcharts-menu-open {
+    background-color: '';
+} */
+
+/* table {
+    width: 100%;
+}
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+tbody {
+    display: block;
+    overflow-y: auto;
+    table-layout: fixed;
+    max-height: 990px;
+} */
+div.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 105px;
+    z-index: 999999;
+}
+thead.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 315px;
+    z-index: 999999;
+    background-color: #1e1e1e;
+    /* border-bottom: 3px solid white; */
+}
+tr.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 317px;
+    /* z-index: 999999; */
+    /* background-color: #1e1e1e; */
+    background-color: #272727;
+    /* border-bottom: 3px solid white !important; */
+}
+tr.sticky-detail {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0px;
+    /* z-index: 999999; */
+    /* background-color: #1e1e1e; */
+    background-color: #272727;
+    /* border-bottom: 3px solid white !important; */
+}
+
+/* MUST BE AT THE BOTTOM - NOT SURE WHY */
+.apexcharts-tooltip {
+    background: #000;
+    color: white;
+}
+.apexcharts-menu {
+    background-color: #000 !important;
+}
+.xyz {
+    /* MUST BE HERE FOR SOME REASON */
 }

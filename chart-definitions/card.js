@@ -14,9 +14,36 @@ var card_chart_options = {
             enabled: false,
         },
         toolbar: {
-            show: false
+            show: false,
+            tools: {
+                download: false,
+                zoomin: false,
+                zoomout: false,
+            }
         },
-        group: undefined,
+        // group: undefined,
+        // events: {
+        //     click: function (event, chartContext, opts) {
+        //         // The last parameter opts contains additional information like `seriesIndex` and `dataPointIndex` for cartesian charts
+        //         const text = prompt('enter text', null);
+        //         if (text) {
+        //             chartContext.addPointAnnotation({
+        //                 x: opts.dataPointIndex,
+        //                 y: opts.config.series[opts.seriesIndex].data[opts.dataPointIndex],
+        //                 label: {
+        //                     text,
+        //                     style: {
+        //                         fontSize:'28px',
+        //                     }
+        //                 },
+        //                 marker: {
+        //                     size: 5
+        //                 }
+        //             })
+        //         }
+        //         console.log(event);
+        //     },
+        // },
     },
     grid: {
         show: true,
@@ -27,7 +54,7 @@ var card_chart_options = {
             lines: {
                 show: true
             }
-        },   
+        },
         yaxis: {
             lines: {
                 show: true
@@ -101,6 +128,17 @@ var card_chart_options = {
     }],
     tooltip: {
         enabled: false,
+        marker: {
+            show: false,
+        },
+        custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+            // alert(JSON.stringify({ series, seriesIndex, dataPointIndex, w },null,2));
+            return '<div class="w3-padding color-font w3-large" style="background-color:black;">' +
+                `<span><span class="color-current">X:</span> ${dataPointIndex}</span>` +
+                '<br/>' +
+                `<span><span class="color-current">Y:</span> ${series[seriesIndex][dataPointIndex]}</span>` +
+                '</div>'
+        },
         x: {
             format: 'dd/MM/yy HH:mm'
         },
