@@ -870,20 +870,24 @@
                                                 aria-hidden="true"></i></th>
                                         <th width="200">Channel</th>
                                         <th width="250">Status</th>
-                                        <th>Serial Number</th>
+                                        <th class="">
+                                            Serial Number
+                                            <i class="fa fa-qrcode clickable" aria-hidden="true"
+                                                style="margin:3px 20px 3px 20px;padding-right:45px;"
+                                                onclick="document.getElementById('modal-batch-scan-qr-codes').style.display='block'"></i>
+                                        </th>
                                         <th>Battery File</th>
                                         <th>
                                             Test Procedure
-                                            <i class="fa fa-files-o w3-right clickable color-zero" aria-hidden="true"
-                                                style="margin:3px 20px 3px 20px;"></i>
                                             <i class="fa fa-minus-circle w3-right color-zero" aria-hidden="true"
                                                 style="margin:3px 20px 3px 20px;"></i>
                                             <i class="fa fa-pause w3-right color-zero" aria-hidden="true"
                                                 style="margin:3px 20px 3px 20px;"></i>
                                             <i class="fa fa-play w3-right color-zero" aria-hidden="true"
                                                 style="margin:3px 20px 3px 20px;"></i>
-                                            <i class="fa fa-folder-o w3-right clickable color-zero" aria-hidden="true"
-                                                style="margin:3px 20px 3px 20px;"></i>
+                                            <i class="fa fa-folder-o clickable"
+                                                aria-hidden="true" style="margin:3px 20px 3px 20px;"
+                                                onclick="document.getElementById('modal-batch-select-test').style.display='block'"></i>
                                         </th>
                                         <!-- <th width="300">
                                         </th> -->
@@ -900,9 +904,30 @@
                                             <span style="padding-right:10px;">{{name}}</span>
                                         </td>
                                         <td>{{batch_state}}</td>
-                                        <td>{{uut}}</td>
-                                        <td>{{battery}}</td>
-                                        <td>{{test}}</td>
+                                        <td class="" contenteditable="true" style="padding-right:50px;">
+                                            <!-- <span class="w3-right" style="padding-right:20px;">
+                                                <i class="fa fa-qrcode"></i>
+                                            </span> -->
+                                            {{uut}}
+                                            <span class="w3-right" style="padding-right:20px;">
+                                                <i class="fa fa-caret-down"></i>
+                                            </span>
+                                        </td>
+                                        <td class="color-zero">{{battery}}</td>
+                                        <td class="_color-zero">
+                                            {{test}}
+                                            <!-- <span class="w3-right" style="padding-right:20px;">
+                                                <i class="fa fa-caret-down"></i>
+                                            </span> -->
+                                            <!-- <div class="w3-dropdown-hover" style="padding-left:25px;">
+                                                <i class="fa fa-caret-down"></i>
+                                                <div class="w3-dropdown-content w3-bar-block w3-border">
+                                                    <a href="#" class="w3-bar-item w3-button">Link 1</a>
+                                                    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                                                    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+                                                </div>
+                                            </div> -->
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -983,65 +1008,80 @@
         Tooltip Text
     </div>
 
-    <!-- MODAL -->
-    <div id="modal" class="w3-modal w3-xlarge" style="background-color: rgba(0,0,0,0.65);">
+    <!-- MODAL TEST SELECTION -->
+    <div id="modal-batch-select-test" class="w3-modal w3-xlarge"
+        style="_display:block;z-index: 9999999999;background-color: rgba(0,0,0,0.65);">
         <div class="w3-modal-content modal-dark" style="_min-height:900px;">
             <div class="w3-container w3-padding">
-                <div class="w3-row-padding">
-                    <h3 class="color-time">UI Options</h3>
+                <div class="w3-padding">
+                    <h3 class="color-time">Select Configuration
+                        <i class="fa fa-close w3-xlarge w3-right clickable"
+                            onclick="document.getElementById('modal-batch-select-test').style.display='none'"></i>
+                    </h3>
                     <hr />
-                    <span onclick="document.getElementById('modal').style.display='none'"
-                        class="w3-button w3-display-topright w3-xxlarge">&times;</span>
-                    <span><i id="option-show-row-monikers" class="fa fa-toggle-on w3-xxlarge color-font w3-right"
-                            aria-hidden="true" onclick="showRowMonikersOnDetailPage()"></i> Show Row Channels on Detail
-                        Page</span>
+                    <div>
+                        <span class="w3-large color-input-label">Test Procedure:</span>
+                        <input id="batch-selected-test" name="batch-selected-test" type="select" placeholder="Search"
+                            style="width:100%">
+                        <!-- <i class="fa fa-caret-down w3-xxlarge" style="padding-left:25px;"></i> -->
+                        <div class="w3-padding" style="width:92%;max-height:500px;overflow-y:auto;">
+                            <div>19d C/2 Charge - Discharge (1)</div>
+                            <div>19d C/2 Charge - Discharge (2)</div>
+                            <div>19d C/2 Charge - Discharge (3)</div>
+                            <div>19d C/2 Charge - Discharge (4)</div>
+                            <div>19d C/2 Charge - Discharge (5)</div>
+                            <div>19d C/2 Charge - Discharge (6)</div>
+                        </div>
+                    </div>
                     <br />
-                    <span><i id="option_show_charge_discharge" class="fa fa-toggle-on w3-xxlarge color-font w3-right"
-                            aria-hidden="true" onclick="showChargeDischargeOnTimeline()"></i> Show Charge / Discharge on
-                        Timeline
-                        View</span>
-                    <!-- <br />
-                    <span><i id="option_menu_location" class="fa fa-toggle-off w3-xxlarge color-font w3-right"
-                            aria-hidden="true" onclick="toggleMenuLocation()"></i> Bottom Menu</span> -->
                 </div>
             </div>
             <br />
-            <!-- <div class="w3-container w3-padding">
-                <div class="w3-row-padding">
-                    Tasks:
+        </div>
+    </div>
+
+    <!-- MODAL SCAN BATTERY QR CODES -->
+    <div id="modal-batch-scan-qr-codes" class="w3-modal w3-xlarge"
+        style="_display:block;z-index: 9999999999;background-color: rgba(0,0,0,0.65);">
+        <div class="w3-modal-content modal-dark" style="_min-height:900px;">
+            <div class="w3-container w3-padding">
+                <div class="w3-padding">
+                    <h3 class="color-time">Scan QR Codes
+                        <i class="fa fa-close w3-xlarge w3-right clickable"
+                            onclick="document.getElementById('modal-batch-scan-qr-codes').style.display='none'"></i>
+                    </h3>
                     <hr />
-                    <ol>
-                        <li>Runtime</li>
-                        <ul>
-                            <li>update counts from timeline simulation</li>
-                            <li>sticky filters</li>
-                            <li>filter by info in battery file</li>
-                        </ul>
-                        <li>Runtime Detail</li>
-                        <ul>[X] VCR buttons to control channel</ul>
-                        <ul>... on battery set to view</ul>
-                        <ul>... on test to view</ul>
-                        <li>Timeline</li>
-                        <ul>
-                            <li>[X] create simulated history</li>
-                            <li>[X] colors too bright</li>
-                            <li>update column titles to last 5 days</li>
-                        </ul>
-                        <li>Test Setup</li>
-                        <ul>
-                            <li>[x] change to table (graphic still an image)</li>
-                            <li>create graphic from table entries</li>
-                            <li>edit modal iterations</li>
-                        </ul>
-                        <li>Batch Operations (needs simulation of battery files)</li>
-                        <ul>
-                            <li>dropdowns</li>
-                            <li>honor filters</li>
-                            <li>buttons that make sense vs edit row vs inline edit of row</li>
-                        </ul>
-                    </ol>
+                    <div>
+                        <span class="w3-large color-input-label">CH01 Serial Number:</span>
+                        <input id="batch-selected-test" name="batch-selected-test" type="select"
+                            style="width:92%" disabled />
+                        <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
+                    </div>
+                    <br />
+                    <div>
+                        <span class="w3-large color-input-label">CH02 Serial Number:</span>
+                        <input id="batch-selected-test" name="batch-selected-test" type="select"
+                            style="width:92%" disabled />
+                        <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
+                    </div>
+                    <br />
+                    <div>
+                        <span class="w3-large color-input-label">CH03 Serial Number:</span>
+                        <input id="batch-selected-test" name="batch-selected-test" type="select"
+                            style="width:92%" disabled />
+                        <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
+                    </div>
+                    <br />
+                    <div>
+                        <span class="w3-large color-input-label">CH04 Serial Number:</span>
+                        <input id="batch-selected-test" name="batch-selected-test" type="select"
+                            style="width:92%" disabled />
+                        <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
+                    </div>
+                    <br />
                 </div>
-            </div> -->
+            </div>
+            <br />
         </div>
     </div>
 
@@ -1077,10 +1117,11 @@
         // console.log(navigator.userAgent);
         const now = Date.now();
         let show_row_monikers = localStorage.getItem('show_row_monikers') === 'false' ? false : true;
-        showRowMonikersOnDetailPage(false);
+        // showRowMonikersOnDetailPage(false);
         let show_charge_discharge = localStorage.getItem('show_charge_discharge') === 'false' ? false : true;
-        showChargeDischargeOnTimeline(false);
+        // showChargeDischargeOnTimeline(false);
         let card_type = localStorage.getItem('card_type') || 'large';
+
         // let menu_location_bottom = localStorage.getItem('menu_location_bottom') === 'true' ? true : false;
         // toggleMenuLocation(false);
 
@@ -1137,7 +1178,7 @@
 
             cards.items.push({
                 name: `CH${x < 10 ? '0' + x : x}`,
-                icon: isCharging ? './assets/charge.png' : './assets/discharge.png',
+                icon: isCharging ? './assets/runtime/charge.png' : './assets/runtime/discharge.png',
                 // data: chartData.getData('v', (Math.random() * 100), 50),
                 v,
                 i,
@@ -1195,7 +1236,7 @@
         // /** ALTER CARDS BASED ON STATE */
         cards.items.forEach((v) => {
             if (v.state === 'empty') {
-                v.icon = './assets/charge-empty.png';
+                v.icon = './assets/runtime/empty.png';
                 v.test = '';
                 v.step = '';
                 v.battery = '';
@@ -1210,7 +1251,7 @@
                 v.batch_state = '<span class="color-zero">EMPTY</span>';
             }
             if (v.state === 'error') {
-                v.icon = './assets/error.png';
+                v.icon = './assets/runtime/error.png';
                 v.test = '';
                 v.step = '';
                 v.battery = '';
@@ -1225,7 +1266,7 @@
                 v.batch_state = '<span style="color:red">ERROR</span>';
             }
             if (v.state === 'paused') {
-                v.icon = './assets/paused.png';
+                v.icon = './assets/runtime/paused.png';
                 v.batch_state = '<span class="w3-text-yellow">PAUSED</span>';
                 v.step = '';
                 start = Math.floor(150 * Math.random());
@@ -1235,7 +1276,7 @@
                 }
             }
             if (v.state === 'complete') {
-                v.icon = './assets/empty.png';
+                v.icon = './assets/runtime/complete.png';
                 v.batch_state = '<span class="color-current">COMPLETE</span>';
                 v.step = '';
                 v.cycles = '50';
@@ -1349,7 +1390,7 @@
             optionsV.chart.sparkline.enabled = false;
             optionsV.tooltip.enabled = true;
             optionsV.chart.toolbar.show = true;
-            optionsV.chart.toolbar.offsetX = -40;
+            optionsV.chart.toolbar.offsetX = -60;
             optionsV.yaxis[0].min = 2;
             optionsV.yaxis[0].max = 5;
             optionsV.yaxis[0].title.text = 'Voltage';
@@ -1371,7 +1412,7 @@
             optionsI.chart.sparkline.enabled = false;
             optionsI.tooltip.enabled = true;
             optionsI.chart.toolbar.show = true;
-            optionsI.chart.toolbar.offsetX = -40;
+            optionsI.chart.toolbar.offsetX = -60;
             optionsI.yaxis[0].min = -1;
             optionsI.yaxis[0].max = 1;
             optionsI.yaxis[0].title.text = 'Current';
@@ -1757,35 +1798,35 @@
             document.getElementById('modal').style.display = 'block';
         }
 
-        function showRowMonikersOnDetailPage(toggle = true) {
-            if (toggle) {
-                show_row_monikers = !show_row_monikers;
-                localStorage.setItem('show_row_monikers', show_row_monikers);
-            }
-            const elem = document.getElementById('option-show-row-monikers');
-            elem.classList.remove('fa-toggle-on', 'fa-toggle-off', 'color-current', 'color-time');
-            const classes = show_row_monikers === true ? ['fa-toggle-on', 'color-font'] : ['fa-toggle-off', 'color-time'];
-            elem.classList.add(...classes);
+        // function showRowMonikersOnDetailPage(toggle = true) {
+        //     if (toggle) {
+        //         show_row_monikers = !show_row_monikers;
+        //         localStorage.setItem('show_row_monikers', show_row_monikers);
+        //     }
+        //     const elem = document.getElementById('option-show-row-monikers');
+        //     elem.classList.remove('fa-toggle-on', 'fa-toggle-off', 'color-current', 'color-time');
+        //     const classes = show_row_monikers === true ? ['fa-toggle-on', 'color-font'] : ['fa-toggle-off', 'color-time'];
+        //     elem.classList.add(...classes);
 
-            if (toggle) {
-                window.location.reload();
-            }
-        }
+        //     if (toggle) {
+        //         window.location.reload();
+        //     }
+        // }
 
-        function showChargeDischargeOnTimeline(toggle = true) {
-            if (toggle) {
-                show_charge_discharge = !show_charge_discharge;
-                localStorage.setItem('show_charge_discharge', show_charge_discharge);
-            }
-            const elem = document.getElementById('option_show_charge_discharge');
-            elem.classList.remove('fa-toggle-on', 'fa-toggle-off', 'color-current', 'color-time');
-            const classes = show_charge_discharge === true ? ['fa-toggle-on', 'color-font'] : ['fa-toggle-off', 'color-time'];
-            elem.classList.add(...classes);
+        // function showChargeDischargeOnTimeline(toggle = true) {
+        //     if (toggle) {
+        //         show_charge_discharge = !show_charge_discharge;
+        //         localStorage.setItem('show_charge_discharge', show_charge_discharge);
+        //     }
+        //     const elem = document.getElementById('option_show_charge_discharge');
+        //     elem.classList.remove('fa-toggle-on', 'fa-toggle-off', 'color-current', 'color-time');
+        //     const classes = show_charge_discharge === true ? ['fa-toggle-on', 'color-font'] : ['fa-toggle-off', 'color-time'];
+        //     elem.classList.add(...classes);
 
-            if (toggle) {
-                window.location.reload();
-            }
-        }
+        //     if (toggle) {
+        //         window.location.reload();
+        //     }
+        // }
 
         function toggleMenuLocation(toggle = true) {
             if (toggle) {
@@ -2019,6 +2060,17 @@
                 e.innerText = translate(e.innerText, language, name);
             }
             language = name;
+        }
+
+        function toggleTestSelection() {
+            function myFunction() {
+                var x = document.getElementById("Demo");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
         }
     </script>
 

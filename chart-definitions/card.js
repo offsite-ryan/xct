@@ -16,7 +16,7 @@ var card_chart_options = {
         toolbar: {
             show: false,
             tools: {
-                download: false,
+                // download: false,
                 zoomin: false,
                 zoomout: false,
             }

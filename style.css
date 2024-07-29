@@ -120,9 +120,14 @@ table {
     color: #8a8a8a;
 }
 
+.color-input-label {
+    color: #1599ac;
+}
+
 .detail {
     min-height: 700px;
 }
+
 
 .card-selected {
     /* width: 250px; */
@@ -286,7 +291,7 @@ div.sticky {
 thead.sticky {
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    top: 315px;
+    top: 313px;
     z-index: 999999;
     background-color: #1e1e1e;
     /* border-bottom: 3px solid white; */
