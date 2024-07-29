@@ -174,49 +174,47 @@
             <a class="" style="" onclick=""><i class="fa fa-question-circle" aria-hidden="true"></i><br /><span
                     class="translate">Help</span></a>
         </div>
-
-        <!-- <div class="clickable color-zero" style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style="" onclick=""><img src="./assets/ms-teams-white.png" height="45" /><br /><span
-                    class="translate">Teams</span></a>
-        </div> -->
-
-        <!-- <div class="clickable" style="background-color: #1e1e1e;border:2px solid white;padding:20px;">
-            <span class="w3-center" onclick="toggleSubItems()">
-                <a class="w3-center" style="color:#1599ac;" onclick=""><i class="fa fa-battery-three-quarters"
-                        aria-hidden="true"></i><br />Test System&nbsp;<i id="expand-caret" class="fa fa-caret-down"
-                        aria-hidden="true"></i></a>
-            </span>
-            <hr />
-            <span id="subitems" class="" style="display:flex;font-size:24px;">
-                <a id="subitem-runtime" href="#runtime" class="w3-button"><i class="fa fa-th w3-xlarge"
-                        aria-hidden="true"></i></a>
-                <a id="subitem-batch" href="#batch" class="w3-button"><i class="fa fa-table w3-xlarge"
-                        aria-hidden="true"></i></a>
-                <a id="subitem-configuration" href="#configuration" class="w3-button"><i
-                        class="fa fa-pencil-square-o w3-xlarge" aria-hidden="true"></i></a>
-                <a id="subitem-system" href="#system" class="w3-button"><i class="fa fa-cog w3-xlarge"
-                        aria-hidden="true"></i></a>
-                <a id="subitem-help" href="#contextual-help" class="w3-button"><i
-                        class="fa fa-question-circle w3-xlarge" aria-hidden="true"></i></a>
-            </span>
-        </div>
-
-        <div class="clickable color-zero" style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style="" onclick=""><i class="fa fa-cube" aria-hidden="true"></i><br />Virtualization</a>
-        </div>
-        <div class="clickable" style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style="" onclick=""><i class="fa fa-television" aria-hidden="true"></i><br />Monitoring</a>
-        </div>
-        <div class="clickable" style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style="" onclick=""><i class="fa fa-database" aria-hidden="true"></i><br />Processing</a>
-        </div>
-        <div class="clickable color-zero" style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style="" onclick=""><i class="fa fa-calendar" aria-hidden="true"></i><br />Scheduler</a>
-        </div>
-        <div class="clickable" style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style="" onclick=""><img src="./assets/ms-teams-white.png" height="45" /><br />Teams</a>
-        </div> -->
     </div>
+
+    <!-- <div id="mySidebar-small" class="noPrint w3-sidebar w3-bar-block _w3-border w3-center w3-xlarge"
+        style="display:none;scrollbar-color:#5d5d5d #272727;width:200px;color:white;background-color: #272727;border:1px solid #5d5d5d;top:110px;font-size:28px;padding-bottom: 125px;">
+
+        <div id="subitem-runtime" onclick="window.location.hash = '#runtime'" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:50px;">
+            <a class="" style=""><i class="fa fa-th" aria-hidden="true"></i><br /><span
+                    class="translate">Channels</span></a>
+        </div>
+
+        <div id="subitem-batch" onclick="window.location.hash = '#batch'" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:50px;">
+            <a class="" style=""><i class="fa fa-power-off w3-xxlarge" aria-hidden="true"></i><br /><span
+                    class="translate">Control</span></a>
+        </div>
+
+        <div id="subitem-configuration" onclick="window.location.hash = '#configuration'" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:50px;">
+            <a class="" style="" onclick=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i><br /><span
+                    class="translate">Setup</span></a>
+        </div>
+
+        <div id="subitem-system" onclick="window.location.hash = '#system'" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:50px;">
+            <a class="" style="" onclick=""><i class="fa fa-cog" aria-hidden="true"></i><br /><span
+                    class="translate">System</span></a>
+        </div>
+
+        <div id="subitem-transfer" onclick="window.location.hash = '#transfer'" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:50px;">
+            <a class="" style="" onclick=""><i class="fa fa-exchange" aria-hidden="true"></i><br /><span
+                    class="translate">Transfer</span></a>
+        </div>
+
+        <div id="subitem-help" onclick="window.location.hash = '#contextual-help'" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:50px;">
+            <a class="" style="" onclick=""><i class="fa fa-question-circle" aria-hidden="true"></i><br /><span
+                    class="translate">Help</span></a>
+        </div>
+    </div> -->
 
     <!-- MAIN PAGE -->
     <div id="main-page">
@@ -536,15 +534,20 @@
                                         <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
                                         <th width=150>Channel</th>
                                         <th width=150>State</th>
-                                        <th id="day-minus-4" class="w3-center" style="border-left:0px solid;"> 18-Jul
+                                        <th id="day-minus-4" class="w3-center" style="border-left:0px solid;">
+                                            18-Jul
                                         </th>
-                                        <th id="day-minus-3" class="w3-center" style="border-left:1px solid;"> 19-Jul
+                                        <th id="day-minus-3" class="w3-center" style="border-left:1px solid;">
+                                            19-Jul
                                         </th>
-                                        <th id="day-minus-2" class="w3-center" style="border-left:1px solid;"> 20-Jul
+                                        <th id="day-minus-2" class="w3-center" style="border-left:1px solid;">
+                                            20-Jul
                                         </th>
-                                        <th id="day-minus-1" class="w3-center" style="border-left:1px solid;"> 21-Jul
+                                        <th id="day-minus-1" class="w3-center" style="border-left:1px solid;">
+                                            21-Jul
                                         </th>
-                                        <th id="day-minus-0" class="w3-center" style="border-left:1px solid;"> 22-Jul
+                                        <th id="day-minus-0" class="w3-center" style="border-left:1px solid;">
+                                            22-Jul
                                         </th>
                                         <!-- <th class="w3-center">Timeline: <spam class="color-current">Last 5 days</spam></th> -->
                                     </tr>
@@ -817,28 +820,28 @@
                                     style="display:flex;flex-direction:row;justify-content:space-around;">
                                     <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
                                         <span style="_margin:15px;">POUCH_TAB_POS</span><br />
-                                        <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.31 <span
-                                                class="color-font">°C</span></span>
+                                        <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.31
+                                            <span class="color-font">°C</span></span>
                                     </div>
                                     <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
                                         <span style="_margin:15px;">POUCH_TAB_NEG</span><br />
-                                        <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.33 <span
-                                                class="color-font">°C</span></span>
+                                        <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.33
+                                            <span class="color-font">°C</span></span>
                                     </div>
                                     <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
                                         <span style="_margin:15px;">POUCH_BOTTOM_LEFT</span><br />
-                                        <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.32 <span
-                                                class="color-font">°C</span></span>
+                                        <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.32
+                                            <span class="color-font">°C</span></span>
                                     </div>
                                     <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
                                         <span style="_margin:15px;">POUCH_BOTTOM_RIGHT</span><br />
-                                        <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.35 <span
-                                                class="color-font">°C</span></span>
+                                        <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.35
+                                            <span class="color-font">°C</span></span>
                                     </div>
                                     <div class="w3-card w3-padding w3-col s2" style="border:1px solid #cecece;">
                                         <span style="_margin:15px;">POUCH_CENTER</span><br />
-                                        <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.28 <span
-                                                class="color-font">°C</span></span>
+                                        <span class="w3-right w3-xlarge color-current" style="_margin:15px;">27.28
+                                            <span class="color-font">°C</span></span>
                                     </div>
                                 </div>
                                 &nbsp;<br />
@@ -887,8 +890,8 @@
                                                 style="margin:3px 20px 3px 20px;"></i>
                                             <i class="fa fa-play w3-right color-zero" aria-hidden="true"
                                                 style="margin:3px 20px 3px 20px;"></i>
-                                            <i class="fa fa-folder-o clickable"
-                                                aria-hidden="true" style="margin:3px 20px 3px 20px;"
+                                            <i class="fa fa-folder-o clickable" aria-hidden="true"
+                                                style="margin:3px 20px 3px 20px;"
                                                 onclick="document.getElementById('modal-batch-select-test').style.display='block'"></i>
                                         </th>
                                         <!-- <th width="300">
@@ -1055,29 +1058,29 @@
                     <hr />
                     <div>
                         <span class="w3-large color-input-label">CH01 - Serial Number:</span>
-                        <input id="batch-selected-test" name="batch-selected-test" type="select"
-                            style="width:92%" disabled />
+                        <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
+                            disabled />
                         <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
                     </div>
                     <br />
                     <div>
                         <span class="w3-large color-input-label">CH02 - Serial Number:</span>
-                        <input id="batch-selected-test" name="batch-selected-test" type="select"
-                            style="width:92%" disabled />
+                        <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
+                            disabled />
                         <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
                     </div>
                     <br />
                     <div>
                         <span class="w3-large color-input-label">CH03 - Serial Number:</span>
-                        <input id="batch-selected-test" name="batch-selected-test" type="select"
-                            style="width:92%" disabled />
+                        <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
+                            disabled />
                         <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
                     </div>
                     <br />
                     <div>
                         <span class="w3-large color-input-label">CH04 - Serial Number:</span>
-                        <input id="batch-selected-test" name="batch-selected-test" type="select"
-                            style="width:92%" disabled />
+                        <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
+                            disabled />
                         <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
                     </div>
                     <br />
