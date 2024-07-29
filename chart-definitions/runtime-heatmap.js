@@ -90,7 +90,8 @@ var optionsHeatmap = {
         '#70AD47',
         '#fcd00e',
         '#3d3d3d',
-        '#888888',
+        // '#888888',
+        '#FFF',
         '#ff0000',
     ],
     plotOptions: {
