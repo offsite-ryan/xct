@@ -69,18 +69,21 @@ var optionsHeatmap = {
         animations: {
             enabled: false,
         },
-        background: '#3d3d3d',
     },
-    plotOptions: {
-        heatmap: {
-            useFillColorAsStroke: true,
-        }
+    theme: {
+        mode: 'dark'
     },
+    // plotOptions: {
+    //     heatmap: {
+    //         // useFillColorAsStroke: true,
+    //     }
+    // },
     tooltip: {
         enabled: false,
     },
     grid: {
-        show: false,
+        show: true,
+        borderColor: '#000',
     },
     title: {
         text: '',

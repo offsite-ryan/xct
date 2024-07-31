@@ -230,6 +230,17 @@
                                     class="translate">Channels</span></span>
                         </span>
                         <div id="chart-heatmap" class="w3-right" style="padding-right:0px;"></div>
+                        <!-- <span class="w3-right" style="padding-top:20px;width:300px;min-height:80px;display:flex;">
+                            <div id="_count_on_test" class="w3-green" style="width:38%;border:3px solid black;">&nbsp;
+                            </div>
+                            <div id="_count_paused" class="w3-yellow" style="width:18%;border:3px solid black;">&nbsp;
+                            </div>
+                            <div id="_count_empty" class="color-empty" style="width:38%;border:3px solid black;">&nbsp;
+                            </div>
+                            <div id="_count_complete" class="w3-white" style="width:38%;border:3px solid black;">&nbsp;
+                            </div>
+                            <div id="_count_error" class="w3-red" style="width:5%;border:3px solid black;">&nbsp;</div>
+                        </span> -->
                     </span>
 
                     <div id="overview-counts" class="w3-row w3-center _w3-right-align" style="padding-top:20px;">
@@ -432,26 +443,28 @@
                                 <tr w3-repeat="items" id="table-row-{{name}}" onclick="clickRow(this.rowIndex)"
                                     style="cursor:pointer;">
                                     <!-- <td><i class="fa fa-square-o" aria-hidden="true"></i></td> -->
-                                    <td class="color-moniker" _style="width:10%;"><img src="{{icon}}" height="35"
-                                            style="padding-right:10px;" /><span
-                                            style="padding-right:10px;">{{name}}</span>
+                                    <td class="color-moniker" _style="width:10%;">
+                                        <!-- <img src="{{icon}}" height="35" style="padding-right:10px;" /> -->
+                                        <!-- <i class="fa {{state_icon}} {{state_color}} w3-xlarge"></i> -->
+                                        {{state_icon}}
+                                        <span style="padding-right:10px;">{{name}}</span>
                                     </td>
                                     <td>{{batch_state}}</td>
                                     <td>{{uut}}</td>
                                     <td>{{test}}</td>
-                                    <td>{{step}}</td>
+                                    <td>{{table_step_icon}} {{step}}</td>
                                     <td class="color-voltage">{{v}}</td>
                                     <td class="color-current">{{i}}</td>
                                     <td class="color-time">{{st}}</td>
                                     <td>
                                         <div class="" style="display:flex;align-items:center;border-radius:30px;">
+                                            <div style="padding-right:10px;min-width:40px;">{{cycles}}</div>
                                             <div id="{{name}}-progress-complete-table" class=""
-                                                style="max-height:15px;background-color:rgb(106, 190, 223);">&nbsp;
+                                                style="height:15px;background-color:rgb(106, 190, 223);">&nbsp;
                                             </div>
                                             <div id="{{name}}-progress-requested-table" class=""
-                                                _style="max-height:15px;background-color:pink;">
+                                                style="height:15px;background-color:#3d3d3d;">
                                             </div>
-                                            <div style="padding-left:10px;">{{cycles}}</div>
                                         </div>
                                     </td>
                                     <!-- <td><span class="color-current">{{cycles}}</span> / <span class="color-time">50</span></td> -->
@@ -468,8 +481,10 @@
                             style="display:block;max-width:305px;min-width:305px;padding:12px;">
                             <div id="{{name}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
                                 <div class="" style="padding-bottom:10px;font-size:28px;">
-                                    <img id="card-icon-{{name}}" src="{{icon}}" height="35"
-                                        style="padding-right:10px;display:none;" />
+                                    <!-- <img id="card-icon-{{name}}" src="{{icon}}" height="35"
+                                        style="padding-right:10px;display:none;" /> -->
+                                    <!-- <i class="fa {{state_icon}} {{state_color}} w3-xlarge"></i> -->
+                                    {{icon}}
                                     <span id="card-name-{{name}}" class="color-moniker" style="">{{name}}</span>
                                     <span id="" class="color-moniker w3-right"
                                         style="margin-top:8px;font-size:20px !important;">{{uut}}</span>
@@ -477,6 +492,8 @@
 
                                 <div class="_w3-center" style="padding-bottom:10px;">
                                     <span><b>{{batch_state}}</b>
+                                        <!-- <span>{{icon}} {{step}} -->
+                                        <!-- <span><b>{{uut}}</b> -->
                                         <span class="w3-right">
                                             <span class="">{{cycles}}</span>
                                             <span class=""> / </span>
@@ -557,9 +574,10 @@
                                 <tbody>
                                     <tr id="timeline-row-{{name}}" w3-repeat="items" id="timeline-row-CH04"
                                         onclick="clickRow(this.rowIndex)">
-                                        <td class="color-moniker"><img src="{{icon}}" height="35"
-                                                style="padding-right:10px;" /><span
-                                                style="padding-right:10px;">{{name}}</span>
+                                        <td class="color-moniker">
+                                            <!-- <i class="fa {{state_icon}} {{state_color}} w3-xlarge"></i> -->
+                                            {{state_icon}}
+                                            <span style="padding-right:10px;"> {{name}}</span>
                                         </td>
                                         <td>{{batch_state}}</td>
                                         <td colspan="5">
@@ -904,9 +922,10 @@
                                                 id="batch-row-{{name}}-selected" onclick="toggleBathSelected(this.id)"
                                                 aria-hidden="true"></i></td>
                                         <td class="color-moniker">
-                                            <img src="{{icon}}" height="35" style="padding-right:10px;" />
+                                            <!-- <i class="fa {{state_icon}} {{state_color}} w3-xlarge"></i> -->
                                             <!-- <span>{{state}}</span> -->
-                                            <span style="padding-right:10px;">{{name}}</span>
+                                            {{state_icon}}
+                                            <span style="padding-right:10px;"> {{name}}</span>
                                         </td>
                                         <td>{{batch_state}}</td>
                                         <td class="" style="padding-right:50px;">
@@ -1177,13 +1196,18 @@
                     if (h.className === '') { complete++; state = 'complete'; state = 'complete'; }
                     if (h.className === 'empty') { empty++; state = 'empty'; state = 'empty'; }
                     if (h.className === 'error') { error++; state = 'error'; state = 'error'; }
+                    if (h.className === 'wait') { on_test++; state = 'wait'; }
+                    if (h.className === 'rest') { on_test++; state = 'rest'; }
                 }
 
             })
 
             cards.items.push({
                 name: `CH${x < 10 ? '0' + x : x}`,
-                icon: isCharging ? './assets/runtime/charge.png' : './assets/runtime/discharge.png',
+                state_icon: 'fa-square',
+                state_color: 'w3-text-green',
+                icon: isCharging ? `<img src="./assets/runtime/charge.png" height="35" style="padding-right:10px;" />` : `<img src="./assets/runtime/discharge.png" height="35" style="padding-right:10px;" />`,
+                card_icon: isCharging ? `<img src="./assets/runtime/charge.png" height="30" style="" />` : `<img src="./assets/runtime/discharge.png" height="30" style="" />`,
                 // data: chartData.getData('v', (Math.random() * 100), 50),
                 v,
                 i,
@@ -1241,7 +1265,13 @@
         // /** ALTER CARDS BASED ON STATE */
         cards.items.forEach((v) => {
             if (v.state === 'empty') {
-                v.icon = './assets/runtime/empty.png';
+                v.batch_state = '<span class="color-zero">EMPTY</span>';
+                v.card_icon = '<span class="color-zero">EMPTY</span>';
+                v.card_step = v.batch_state;
+                v.state_icon = '<i class="fa fa-circle-o w3-xlarge color-zero"></i>';
+                v.state_color = 'color-empty';
+                v.icon = '<i class="fa fa-circle-o w3-xlarge color-zero"></i>';
+                v.table_step_icon = '';
                 v.test = '';
                 v.step = '';
                 v.battery = '';
@@ -1251,29 +1281,85 @@
                 v.i = ''
                 v.st = '';
                 v.cycles = '0';
-                v.requested_cycles = '0';
+                // v.requested_cycles = '';
                 v.uut = `<span class="color-zero"></span>`;
-                v.batch_state = '<span class="color-zero">EMPTY</span>';
+            }
+            if (v.state === 'wait') {
+                v.batch_state = '<span class="w3-text-green">ON TEST</span>';
+                // v.card_icon = '<i class="fa fa-thermometer-three-quarters w3-xlarge w3-text-orange" style="padding-left:10px;padding-right:10px;"></i>';
+                v.card_icon = v.batch_state;
+                v.card_step = v.batch_state;
+                v.state_icon = '<i class="fa fa-clock-o w3-xlarge w3-text-green"></i>';
+                v.state_color = 'w3-text-green';
+                // v.icon = '<img src="./assets/hourglass.png" height="35" style="padding-right:10px;" />';
+                v.icon = '<i class="fa fa-thermometer-three-quarters w3-xlarge w3-text-orange" style="padding-left:10px;padding-right:10px;"></i>';
+                // v.test = '';
+                v.step = 'Wait';
+                v.table_step_icon = v.icon;
+                // v.battery = '';
+                v.dataV = [];
+                v.dataI = [];
+                // v.v = '';
+                // v.i = ''
+                // v.st = '';
+                // v.cycles = '0';
+                // v.requested_cycles = '';
+                // v.uut = `<span class="color-zero"></span>`;
+            }
+            if (v.state === 'rest') {
+                v.batch_state = '<span class="w3-text-green">ON TEST</span>';
+                v.card_icon = '<i class="fa fa-clock-o w3-xlarge w3-text-green" style="padding-left:10px;padding-right:10px;"></i>';
+                v.icon = '<i class="fa fa-hourglass-half w3-large w3-text-light-gray" style="padding-left:10px;padding-right:10px;"></i>';
+                v.card_icon = '';
+                v.card_step = '';
+                v.state_icon = '<i class="fa fa-clock-o w3-xlarge w3-text-green"></i>';
+                v.state_color = 'w3-text-green';
+                // v.icon = '<img src="./assets/hourglass.png" height="35" style="padding-right:10px;" />';
+                // v.test = '';
+                v.step = 'Rest';
+                v.table_step_icon = v.icon;
+                // v.battery = '';
+                v.dataV = [];
+                v.dataI = [];
+                // v.v = '';
+                // v.i = ''
+                // v.st = '';
+                // v.cycles = '0';
+                // v.requested_cycles = '';
+                // v.uut = `<span class="color-zero"></span>`;
             }
             if (v.state === 'error') {
-                v.icon = './assets/runtime/error.png';
-                v.test = '';
+                v.batch_state = '<span style="color:red">ERROR</span>';
+                v.card_icon = '<span class="w3-text-red">ERROR</span>';
+                v.card_step = v.batch_state;
+                v.state_icon = '<i class="fa fa-check-circle-o w3-xlarge w3-text-red"></i>';
+                v.state_color = 'w3-text-red';
+                v.icon = '';
+                // v.test = '';
                 v.step = '';
+                v.table_step_icon = v.icon;
                 v.battery = '';
                 v.dataV = [];
                 v.dataI = [];
                 v.v = '';
                 v.i = ''
                 v.st = '';
-                v.cycles = '';
-                v.requested_cycles = '';
+                // v.cycles = '';
+                // v.requested_cycles = '';
                 // v.uut = '<span style="color:red">ERROR</span>';
-                v.batch_state = '<span style="color:red">ERROR</span>';
             }
             if (v.state === 'paused') {
-                v.icon = './assets/runtime/paused.png';
                 v.batch_state = '<span class="w3-text-yellow">PAUSED</span>';
+                v.card_icon = '<span class="w3-text-yellow">PAUSED</span>';
+                v.card_step = v.batch_state;
+                v.state_icon = '<i class="fa fa-pause-circle-o w3-xlarge w3-text-yellow"></i>';
+                v.state_color = 'w3-text-yellow';
+                v.icon = '<i class="fa fa-pause-circle-o w3-xlarge w3-text-yellow"></i>';
+                v.v = '';
+                v.i = ''
+                v.st = '';
                 v.step = '';
+                v.table_step_icon = '';
                 start = Math.floor(150 * Math.random());
                 for (let y = start; y >= 0; y--) {
                     v.dataV[v.dataV.length - y] = null; // v.dataV[start] ;
@@ -1281,9 +1367,18 @@
                 }
             }
             if (v.state === 'complete') {
-                v.icon = './assets/runtime/complete-white-2.png';
                 v.batch_state = '<span class="w3-text-white">COMPLETE</span>';
+                v.card_icon = '<span class="">COMPLETE</span>';
+                v.card_step = v.batch_state;
+                v.state_icon = '<i class="fa fa-check w3-xlarge w3-text-white"></i>';
+                v.state_color = 'w3-text-white';
+                v.icon = '<i class="fa fa-check w3-xlarge w3-text-white"></i>';
+                v.v = '';
+                v.i = ''
+                v.st = '';
                 v.step = '';
+
+                v.table_step_icon = '';
                 v.cycles = '50';
                 start = Math.floor(150 * Math.random());
                 for (let y = start; y >= 0; y--) {
@@ -1293,6 +1388,26 @@
             }
             if (v.state === 'on_test') {
                 v.batch_state = '<span class="w3-text-green">ON TEST</span>';
+                v.card_icon = v.batch_state;
+                v.card_step = v.step;
+                v.state_icon = '<i class="fa fa-clock-o w3-xlarge w3-text-green"></i>';
+                v.table_step_icon = v.icon;
+                // v.state_icon = 'fa-clock-o w3-xlarge';
+                // v.state_icon = 'fa-circle-o-notch w3-xlarge';
+
+                if (Math.floor(Math.random() * 100) % 5 === 0) {
+                    if (Math.floor(Math.random() * 100) % 2 === 0) {
+                        v.step = 'Rest';
+                        v.i = '0.000';
+                        v.table_step_icon = '<i class="fa fa-hourglass-half w3-large w3-text-light-gray" style="padding-left:10px;padding-right:10px;"></i>';
+                        v.icon = '<i class="fa fa-hourglass-half w3-large w3-text-light-gray" style="padding-left:10px;padding-right:10px;"></i>';
+                    } else {
+                        v.step = 'Wait';
+                        v.i = '0.000';
+                        v.table_step_icon = '<i class="fa fa-thermometer-half w3-large w3-text-orange" style="padding-left:10px;padding-right:10px;"></i>';
+                        v.icon = '<i class="fa fa-thermometer-half w3-large w3-text-orange" style="padding-left:10px;padding-right:10px;"></i>';
+                    }
+                }
             }
         })
 
@@ -1316,9 +1431,9 @@
 
         /** ALTER CARDS BASED ON STATE */
         cards.items.forEach((v) => {
-            if (!v.icon.endsWith('empty.png')) {
-                document.getElementById(`card-icon-${v.name}`).style.display = ''
-            }
+            // if (!v.icon.endsWith('empty.png')) {
+            //     document.getElementById(`card-icon-${v.name}`).style.display = ''
+            // }
 
             //     if (v.state === 'error') {
             //         document.getElementById(v.name).style.borderColor = 'red';
@@ -1900,11 +2015,16 @@
                             if (name === 'all') {
                                 elem.classList.remove('w3-hide');
                             } else {
-                                elem.classList.add('w3-hide');
+                                if (name === 'on_test') {
+                                    if (v.state !== name) {
+                                        elem.classList.add('w3-hide');
+                                    }
+                                } else {
+                                    elem.classList.add('w3-hide');
+                                }
                             }
                         } else {
                             elem.classList.remove('w3-hide');
-                            // elem.classList.add('w3-show');
                         }
                     });
                     ['table-row-', 'timeline-row-', 'batch-row-'].forEach((v2) => {
@@ -1913,7 +2033,11 @@
                             if (name === 'all') {
                                 elem.classList.remove('w3-hide');
                             } else {
-                                elem.classList.add('w3-hide');
+                                // if (v.state !== 'wait' || v.state !== 'rest' || v.state !== 'on_test') {
+                                //     elem.classList.add('w3-hide');
+                                // } else {
+                                    elem.classList.add('w3-hide');
+                                // }
                             }
                         } else {
                             elem.classList.remove('w3-hide');

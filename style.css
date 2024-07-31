@@ -90,6 +90,9 @@ table {
     color: #1599ac;
 } */
 
+.color-empty {
+    color: #3d3d3d;
+}
 .color-font {
     /* color: #1599ac; */
     /* color: #41aadc; */
@@ -238,6 +241,14 @@ input a:hover {
 .on-test {
     /* background-color: green; */
     background-color: #048004;
+}
+.wait {
+    /* background-color: green; */
+    background-color: purple;
+}
+.rest {
+    /* background-color: green; */
+    background-color: rgb(184, 184, 184);
 }
 .paused {
     background-color: #fcd00e;

@@ -108,6 +108,9 @@ class data {
         for (let x = 0; x < 1; x++) {
             fill(1, 'error');
         }
+        // for (let x = 0; x < 10; x++) {
+        //     fill(4, 'wait');
+        // }
         fill(48, 'empty');
         // index = Math.round(Math.random() * 100);
         // for (let x = index; x < index + 48; x++) {
@@ -119,7 +122,11 @@ class data {
             let state = 'charge';
             history.forEach((v, i) => {
                 if (i % 5 === 0) {
-                    state = state === 'charge' ? 'discharge' : 'charge';
+                    // if (Math.floor(Math.random()*100) % 5 === 0) {
+                    //     state = (Math.floor(Math.random()*100) % 2 === 0) ? 'wait' : 'rest';
+                    // } else {
+                        state = state === 'charge' ? 'discharge' : 'charge';
+                    // }
                 }
                 if (v.className === 'on-test') {
                     v.className = state;
