@@ -70,9 +70,9 @@ var optionsHeatmap = {
             enabled: false,
         },
     },
-    theme: {
-        mode: 'dark'
-    },
+    // theme: {
+    //     mode: 'dark'
+    // },
     // plotOptions: {
     //     heatmap: {
     //         // useFillColorAsStroke: true,
@@ -82,8 +82,11 @@ var optionsHeatmap = {
         enabled: false,
     },
     grid: {
-        show: true,
+        show: false,
         borderColor: '#000',
+    },
+    stroke: {
+        colors: ["#272727"],
     },
     title: {
         text: '',
@@ -94,7 +97,8 @@ var optionsHeatmap = {
         '#fcd00e',
         '#3d3d3d',
         // '#888888',
-        '#FFF',
+        // '#FFF',
+        '#c0c0c0',
         '#ff0000',
     ],
     plotOptions: {
