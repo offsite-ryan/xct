@@ -9,6 +9,7 @@ function closeBattery() {
     document.getElementById('table-batteries-recent').style.display = 'block';
     document.getElementById('battery-view-1').style.display = 'none';
     document.getElementById('battery-view-2').style.display = 'none';
+    document.getElementById('battery-view-3').style.display = 'none';
     window.location.hash = 'configuration';
     // document.getElementById('battery-save-cancel').style.display = 'none';
 }

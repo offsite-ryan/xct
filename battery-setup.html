@@ -34,12 +34,12 @@
                         <td class="color-zero">2024-05-24 3:45 PM</td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td>LiFePOx67</td>
-                        <td>GHI</td>
-                        <td class="color-zero">Eric Smith</td>
+                    <tr style="cursor:pointer;" onclick="viewBattery(this.rowIndex)">
+                        <td>2567-23</td>
+                        <td>DEF</td>
+                        <td class="color-zero">Amy Lynn</td>
                         <td class="color-zero"></td>
-                        <td class="color-zero">2024-06-24 11:36 AM</td>
+                        <td class="color-zero">2024-05-24 3:45 PM</td>
                         <td></td>
                     </tr>
                 </table>
@@ -47,10 +47,14 @@
         </div>
 
         <div id="battery-view-1" class="_w3-padding w3-col s12 w3-large" style="display:none;">
-            <div w3-include-html="battery-definition-1.html"></div>
+            <div w3-include-html="battery-definition-2.html"></div>
         </div>
 
         <div id="battery-view-2" class="_w3-padding w3-col s12 w3-large" style="display:none;">
+            <div w3-include-html="battery-definition-2.html"></div>
+        </div>
+
+        <div id="battery-view-3" class="_w3-padding w3-col s12 w3-large" style="display:none;">
             <div w3-include-html="battery-definition-2.html"></div>
         </div>
 
