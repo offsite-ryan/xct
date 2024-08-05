@@ -299,10 +299,10 @@ div.sticky {
     top: 105px;
     z-index: 999999;
 }
-thead.sticky {
+_thead.sticky {
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    top: 313px;
+    top: 312px;
     z-index: 999999;
     background-color: #1e1e1e;
     /* border-bottom: 3px solid white; */
@@ -310,7 +310,7 @@ thead.sticky {
 tr.sticky {
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    top: 317px;
+    top: 312px;
     /* z-index: 999999; */
     /* background-color: #1e1e1e; */
     background-color: #272727;
@@ -324,6 +324,13 @@ tr.sticky-detail {
     /* background-color: #1e1e1e; */
     background-color: #272727;
     /* border-bottom: 3px solid white !important; */
+}
+
+.w3-bordered tr, .w3-table-all tr {
+    border-bottom: 1px solid #ffffff49 !important;
+}
+.w3-hoverable tbody tr:hover, .w3-ul.w3-hoverable li:hover {
+    background-color: #3a3a3a !important;
 }
 
 /* MUST BE AT THE BOTTOM - NOT SURE WHY */
