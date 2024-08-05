@@ -676,8 +676,7 @@
                             <!-- COLUMN 4 -->
                             <div class="w3-col s4">
                                 <span class="" style="">
-                                    <span
-                                        class="color-zero w3-large">
+                                    <span class="color-zero w3-large">
                                         <span style="padding-right:75px;">Battery:</span>
                                         <span class="w3-text-white w3-xlarge" style="cursor: pointer;"
                                             onclick="viewBattery(2)"><span id="detail-uut">XYZ</span><span><i
@@ -1058,24 +1057,63 @@
         <div class="w3-modal-content modal-dark" style="_min-height:900px;">
             <div class="w3-container w3-padding">
                 <div class="w3-padding">
-                    <h3 class="color-time">Select Configuration
+                    <h3 class="color-time">Batch Contol Options
                         <i class="fa fa-close w3-xlarge w3-right clickable"
                             onclick="document.getElementById('modal-batch-select-test').style.display='none'"></i>
                     </h3>
                     <hr />
                     <div>
-                        <span class="w3-large color-input-label">Test Procedure:</span>
-                        <input id="batch-selected-test" name="batch-selected-test" type="select" placeholder="Search"
-                            style="width:100%">
-                        <!-- <i class="fa fa-caret-down w3-xxlarge" style="padding-left:25px;"></i> -->
-                        <div class="w3-padding" style="width:92%;max-height:500px;overflow-y:auto;">
+                        <div>
+                            <span class="w3-xlarge color-input-label">Test Procedure:</span>
+                            <input id="batch-selected-test" name="batch-selected-test" type="select"
+                                placeholder="Select Test Procedure" style="width:95%" />
+                            <i class="fa fa-caret-down w3-xxlarge w3-right" style="_padding-left:25px;"></i>
+                        </div>
+                        <!-- <div class="w3-padding" style="width:92%;max-height:500px;overflow-y:auto;">
                             <div>19d C/2 Charge - Discharge (1)</div>
                             <div>19d C/2 Charge - Discharge (2)</div>
                             <div>19d C/2 Charge - Discharge (3)</div>
                             <div>19d C/2 Charge - Discharge (4)</div>
                             <div>19d C/2 Charge - Discharge (5)</div>
                             <div>19d C/2 Charge - Discharge (6)</div>
+                        </div> -->
+
+                        <div style="padding-top:50px;">
+                            <span class="w3-xlarge color-input-label">Battery Template:</span>
+                            <input id="batch-selected-test" name="batch-selected-test" type="select"
+                                placeholder="Select Battery Lot File" style="width:95%">
                         </div>
+
+                        <div class="w3-center" style="padding-top:50px;padding-right:5%;">
+                            <button class="w3-padding clickable w3-text-white" style="width:220px;background-color:#272727;">
+                                <i class="fa fa-qrcode"></i> Scan Code
+                            </button>
+                            <button class="w3-padding clickable w3-text-white" style="width:220px;background-color:#272727;">
+                                <i class="fa fa-keyboard-o"></i> Enter Code
+                            </button>
+                            <button class="w3-padding clickable w3-text-white" style="width:220px;background-color:#272727;">
+                                <i class="fa fa-ellipsis-h"></i> Generate Code
+                            </button>
+                        </div>
+
+                        <!-- <div style="padding-top:50px;">
+                            <span class="w3-xlarge color-input-label">Serial Number Assignment:</span>
+                            <input id="batch-selected-test" name="batch-selected-test" type="select"
+                                placeholder="Select Creation Method" style="width:95%">
+                                <span class="">
+                                    <div class="w3-dropdown-hover w3-right" style="background-color:#272727;">
+                                    <i class="fa fa-caret-down w3-xxlarge w3-text-white" style=""
+                                        aria-hidden="true"></i>
+                                    <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                        style="background-color:#272727;color:white;min-width:200px;">
+                                        <span class="w3-bar-item clickable">QR Code</span>
+                                        <span class="w3-bar-item clickable">Input</span>
+                                        <span class="w3-bar-item clickable">Generate</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div> -->
+
                     </div>
                     <br />
                 </div>
@@ -1289,9 +1327,9 @@
                     chemistry: 'LiFePO',
                     lot: v.lot,
                     mass: '2.3g',
-                    rated_capacity: '2.0',
-                    max_voltage: '3.8',
-                    max_current: '2.2',
+                    rated_capacity: '2.0Ah',
+                    max_voltage: '3.8V',
+                    max_current: '2.2A',
                     result_naming: '',
                     description: '',
                     card_index: index,
@@ -1327,7 +1365,8 @@
                 uut,
                 test,
                 step: isCharging ? 'CC Charge' : 'CC Discharge',
-                battery: `LG-23463-${uut}`,
+                step_description: isCharging ? 'Charge C/2' : 'Discharge C/2',
+                battery: `${uut}`,
                 cycles: Math.floor(50 * Math.random()),
                 requested_cycles: 50,
                 de: null,
@@ -1534,6 +1573,7 @@
                         v.icon = '<i class="fa fa-hourglass-half w3-medium w3-text-light-gray" style="padding-left:10px;padding-right:10px;"></i>';
                     } else {
                         v.step = 'Wait';
+                        v.step_description = 'Wait for Chamber Temp'
                         v.i = '0.000';
                         v.table_step_icon = '<i class="fa fa-thermometer-half w3-xlarge w3-text-orange" style="padding-left:10px;padding-right:10px;"></i>';
                         v.icon = '<i class="fa fa-thermometer-half w3-large w3-text-orange" style="padding-left:10px;padding-right:10px;"></i>';
@@ -1774,7 +1814,7 @@
             document.getElementById('detail-name').innerText = name;
             document.getElementById('detail-batch-state').innerHTML = selected.batch_state;
             document.getElementById('detail-uut').innerHTML = selected.uut;
-            document.getElementById('detail-step').innerHTML = selected.step;
+            document.getElementById('detail-step').innerHTML = selected.step_description;
 
             document.getElementById('detail-v').innerText = selected.v + 'V';
             document.getElementById('detail-i').innerText = selected.i + 'A';
