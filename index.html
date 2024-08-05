@@ -434,7 +434,7 @@
                                     <th>Test Procedure</th>
                                     <!-- <th>Step Name</th> -->
                                     <th>V</th>
-                                    <th>I (mA)</th>
+                                    <th>I (A)</th>
                                     <th>t (h)</th>
                                     <th># Cycles</th>
                                     <!-- <th></th> -->
@@ -605,10 +605,15 @@
 
                             <!-- COLUMN 1 -->
                             <div class="w3-col s3">
-                                <div class="color-moniker w3-xxlarge" style="padding-right:50px;padding-bottom:10px;">
+                                <div class="color-moniker w3-xxlarge" style="padding-right:20px;padding-bottom:10px;">
                                     <!-- <img src="./assets/discharge.png" height="45" /> -->
                                     <span id="detail-name">CHANNEL </span>
                                     <!-- <span id="detail-uut" class="w3-right w3-xlarge" style="display:none;">UUT</span> -->
+                                    <span class="w3-right w3-large" style="">
+                                        <i id="detail-play" class="fa fa-play color-zero clickable w3-padding"></i>
+                                        <i id="detail-pause" class="fa fa-pause color-zero clickable w3-padding"></i>
+                                        <i id="detail-stop" class="fa fa-stop color-zero clickable w3-padding"></i>
+                                    </span>
                                 </div>
                                 <span id="detail-batch-state">STATE </span></span>
                                 <br />
