@@ -166,8 +166,8 @@
 
         <div id="subitem-transfer" onclick="window.location.hash = '#transfer'" class="clickable"
             style="border:1px solid #5d5d5d;;padding:30px;">
-            <a class="" style="" onclick=""><i class="fa fa-exchange" aria-hidden="true"></i><br /><span
-                    class="translate">Transfer</span></a>
+            <a class="" style="" onclick=""><i class="fa fa-database" aria-hidden="true"></i><br /><span
+                    class="translate">Data</span></a>
         </div>
 
         <div id="subitem-help" onclick="window.location.hash = '#contextual-help'" class="clickable"
@@ -1067,7 +1067,20 @@
                             <span class="w3-xlarge color-input-label">Test Procedure:</span>
                             <input id="batch-selected-test" name="batch-selected-test" type="select"
                                 placeholder="Select Test Procedure" style="width:95%" />
-                            <i class="fa fa-caret-down w3-xxlarge w3-right" style="_padding-left:25px;"></i>
+                                                            
+                                <div class="w3-dropdown-hover w3-right" style="background-color:#272727;">
+                                    <i class="fa fa-caret-down w3-xxlarge w3-text-white" style=""
+                                        aria-hidden="true"></i>
+                                    <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                        style="background-color:#272727;color:white;min-width:400px;">
+                                        <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (2)</span>
+                                        <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (3)</span>
+                                        <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (4)</span>
+                                        <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (5)</span>
+                                        <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (6)</span>
+                                    </div>
+                                </div>
+                            <!-- <i class="fa fa-caret-down w3-xxlarge w3-right" style="_padding-left:25px;"></i> -->
                         </div>
                         <!-- <div class="w3-padding" style="width:92%;max-height:500px;overflow-y:auto;">
                             <div>19d C/2 Charge - Discharge (1)</div>
@@ -1082,17 +1095,31 @@
                             <span class="w3-xlarge color-input-label">Battery Template:</span>
                             <input id="batch-selected-test" name="batch-selected-test" type="select"
                                 placeholder="Select Battery Lot File" style="width:95%">
+                            
+                                <div class="w3-dropdown-hover w3-right" style="background-color:#272727;">
+                                    <i class="fa fa-caret-down w3-xxlarge w3-text-white" style=""
+                                        aria-hidden="true"></i>
+                                    <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                        style="background-color:#272727;color:white;min-width:200px;">
+                                        <span class="w3-bar-item clickable">TXW-2670</span>
+                                        <span class="w3-bar-item clickable">LG-1203</span>
+                                        <span class="w3-bar-item clickable">TXW-MI</span>
+                                    </div>
+                                </div>
                         </div>
 
-                        <div class="w3-center" style="padding-top:50px;padding-right:5%;">
-                            <button class="w3-padding clickable w3-text-white" style="width:220px;background-color:#272727;">
-                                <i class="fa fa-qrcode"></i> Scan Code
+                        <div class="w3-center" style="padding-top:50px;display:flex;justify-content:space-evenly;">
+                            <button class="w3-padding clickable w3-text-white"
+                                style="width:220px;background-color:#272727;">
+                                <i class="fa fa-qrcode"></i> Scan SN
                             </button>
-                            <button class="w3-padding clickable w3-text-white" style="width:220px;background-color:#272727;">
-                                <i class="fa fa-keyboard-o"></i> Enter Code
+                            <button class="w3-padding clickable w3-text-white"
+                                style="width:220px;background-color:#272727;">
+                                <i class="fa fa-keyboard-o"></i> Enter SN
                             </button>
-                            <button class="w3-padding clickable w3-text-white" style="width:220px;background-color:#272727;">
-                                <i class="fa fa-ellipsis-h"></i> Generate Code
+                            <button class="w3-padding clickable w3-text-white"
+                                style="width:220px;background-color:#272727;">
+                                <i class="fa fa-ellipsis-h"></i> Generate SN
                             </button>
                         </div>
 
@@ -1741,7 +1768,7 @@
                     });
                 }
             })
-            w3.displayObject("batteries", obj);
+            // w3.displayObject("batteries", obj);
 
             showView();
             changeLanguage(language);
@@ -2042,9 +2069,9 @@
             } else if (name === 'transfer') {
                 document.getElementById('subitem-transfer').style.color = '#1599ac';
                 document.getElementById('subitem-transfer').style.backgroundColor = '#1e1e1e';
-                document.getElementById('title').innerText = 'BTS - Transfer'
+                document.getElementById('title').innerText = 'BTS - Data'
                 document.getElementById('overview-counts').style.display = 'none';
-                document.getElementById('view').innerText = 'Transfer';
+                document.getElementById('view').innerText = 'Data';
                 document.getElementById('view-transfer').style.display = 'block';
                 document.getElementById('runtime-select-view').style.display = 'none';
                 document.getElementById('chart-heatmap').style.display = 'none';
