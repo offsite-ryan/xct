@@ -492,11 +492,11 @@
                                         style="margin-top:8px;font-size:20px !important;">{{uut}}</span>
                                 </div>
 
-                                <div class="_w3-center" style="padding-bottom:5px;">
+                                <div class="_w3-center" style="padding-bottom:2px;">
                                     <span>{{batch_state}}
                                         <!-- <span>{{icon}} {{step}} -->
                                         <!-- <span><b>{{uut}}</b> -->
-                                        <span class="w3-right">
+                                        <span class="w3-right" style="padding-top:3px;">
                                             <span class="">{{cycles}}</span>
                                             <span class=""> / </span>
                                             <span class="color-current">{{requested_cycles}}</span>
@@ -604,38 +604,40 @@
                         <div class="w3-row w3-padding">
 
                             <!-- COLUMN 1 -->
-                            <div class="w3-col s1">
-                                <span class="color-moniker w3-xxlarge"><img src="./assets/discharge.png" height="45" />
-                                    <span id="detail-name">CHANNEL </span></span>
+                            <div class="w3-col s3">
+                                <div class="color-moniker w3-xxlarge" style="padding-right:50px;padding-bottom:10px;">
+                                    <!-- <img src="./assets/discharge.png" height="45" /> -->
+                                    <span id="detail-name">CHANNEL </span>
+                                    <!-- <span id="detail-uut" class="w3-right w3-xlarge" style="display:none;">UUT</span> -->
+                                </div>
+                                <span id="detail-batch-state">STATE </span></span>
                                 <br />
-                                <span class="w3-large"><span id="detail-uut" class="w3-xlarge"
-                                        style="padding-left:30px;">UUT</span></span>
+                                <div style="padding-right: 25px;padding-top:10px;">
+                                    <span class="color-font" style="font-size: 28px;margin-right:10px;">
+                                        <span id="detail-v" class="color-voltage" style="margin-right:20px;">3.312V
+                                        </span>
+                                        <span id="detail-i" class="color-current" style="margin-right:20px;">-0.612A
+                                        </span>
+                                        <span id="detail-t" class="color-time">3.8h</span>
+                                    </span>
+                                </div>
                             </div>
 
                             <!-- COLUMN 2 -->
-                            <div class="w3-col s3 w3-padding"
+                            <!-- <div class="w3-col s2 w3-padding"
                                 style="_margin-top:23px;display:flex;flex-direction:column;align-items:flex-end;">
-                                <!-- <span class="color-font w3-large" style="margin-top: 3px;margin-right: 10px;"><span>V | I (mA) |
-                            t
-                            (hrs)</span></span> -->
-                                <span style="padding-right: 25px;">
-                                    <span class="color-font" style="font-size: 28px;margin-right:10px;">
-                                        <span id="" class="color-voltage" style="margin-right:20px;">3.312V </span>
-                                        <!-- <span id="" class="color-font"> | </span> -->
-                                        <span id="" class="color-current" style="margin-right:20px;">-0.612A </span>
-                                        <!-- <span id="" class="color-font"> | </span> -->
-                                        <span id="" class="color-time">3.8h</span>
-                                    </span>
-                                </span>
-                            </div>
+                                <span class="w3-large"><span id="detail-uut" class="w3-xlarge"
+                                        style="padding-left:30px;">UUT</span></span>
+                            </div> -->
 
                             <!-- COLUMN 3 -->
-                            <div class="w3-col s4" _style="display:flex;flex-direction:column;align-items:flex-start;">
+                            <div class="w3-col s5" _style="display:flex;flex-direction:column;align-items:flex-start;">
                                 <span class="" style="">
                                     <span class="color-zero w3-large "
-                                        onclick="changeView('configuration-test-6',null)">Procedure:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <span class="w3-text-white w3-xlarge" style="cursor: pointer;"><span
-                                                id="test-6-detail-test">TEST</span> <span><i
+                                        onclick="changeView('configuration-test-6',null)">
+                                        <span style="padding-right:52px;">Procedure:</span>
+                                        <span class="w3-text-white w3-xlarge" style="cursor: pointer;">
+                                            <span id="test-6-detail-test">TEST</span> <span><i
                                                     class="fa fa-external-link color-current" style="padding-left:20px;"
                                                     aria-hidden="true"></i></span>
                                         </span>
@@ -643,24 +645,30 @@
 
                                     <br />
                                     <span class="" style="">
-                                        <span class="color-zero w3-large">Step Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <span class="w3-text-white w3-xlarge" style="">Constant Current
+                                        <span class="color-zero w3-large">
+                                            <span style="padding-right:10px;">Step Description:</span>
+                                            <span id="detail-step" class="w3-text-white w3-xlarge" style="">Constant
+                                                Current
                                                 Charge</span>
                                         </span>
                                     </span>
 
                                     <br />
                                     <span class="" style="">
-                                        <span class="color-zero w3-large">Run
-                                            Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <span class="w3-text-white w3-xlarge" style="">21h 41m</span>
+                                        <span class="color-zero w3-large">
+                                            <span style="padding-right:68px;">Run Time:</span>
+                                            <span id="detail-run-time" class="w3-text-white w3-xlarge" style="">21h
+                                                41m</span>
                                         </span>
                                     </span>
 
                                     <br />
                                     <span class="" style="">
-                                        <span class="color-zero w3-large">Num Cycles:&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <span class="w3-text-white w3-xlarge" style="">31 / 50</span>
+                                        <span class="color-zero w3-large">
+                                            <span style="padding-right:47px;">Num Cycles:</span>
+                                            <span class="w3-text-white w3-xlarge" style=""><span
+                                                    id="detail-cycles">32</span> / <span
+                                                    id="detail-requested">50</span></span>
                                         </span>
                                     </span>
                             </div>
@@ -669,9 +677,10 @@
                             <div class="w3-col s4">
                                 <span class="" style="">
                                     <span
-                                        class="color-zero w3-large">Battery:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        class="color-zero w3-large">
+                                        <span style="padding-right:75px;">Battery:</span>
                                         <span class="w3-text-white w3-xlarge" style="cursor: pointer;"
-                                            onclick="viewBattery(2)">TXW2345-02 <span><i
+                                            onclick="viewBattery(2)"><span id="detail-uut">XYZ</span><span><i
                                                     class="fa fa-external-link color-current" style="padding-left:20px;"
                                                     aria-hidden="true"></i></span>
                                         </span>
@@ -682,24 +691,28 @@
 
                                     <br />
                                     <span class="" style="">
-                                        <span class="color-zero w3-large">Rated Capacity:&nbsp;&nbsp;&nbsp;
-                                            <span class="w3-text-white w3-xlarge" style="">2</span>
+                                        <span class="color-zero w3-large">
+                                            <span style="padding-right:12px;">Rated Capacity:</span>
+                                            <span id="detail-rated-capacity" class="w3-text-white w3-xlarge"
+                                                style=""></span>
                                         </span>
                                     </span>
 
                                     <br />
                                     <span class="" style="">
-                                        <span class="color-zero w3-large">Max
-                                            Voltage:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <span class="w3-text-white w3-xlarge" style="">4.6</span>
+                                        <span class="color-zero w3-large">
+                                            <span style="padding-right:32px;">Max Voltage:</span>
+                                            <span id="detail-max-voltage" class="w3-text-white w3-xlarge"
+                                                style=""></span>
                                         </span>
                                     </span>
 
                                     <br />
                                     <span class="" style="">
-                                        <span class="color-zero w3-large">Max
-                                            Current:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <span class="w3-text-white w3-xlarge" style="">2.2</span>
+                                        <span class="color-zero w3-large">
+                                            <span style="padding-right:34px;">Max Current:</span>
+                                            <span id="detail-max-current" class="w3-text-white w3-xlarge"
+                                                style=""></span>
                                         </span>
                                     </span>
                             </div>
@@ -895,8 +908,9 @@
                                         style="margin:3px 20px 3px 20px;"></i>
                                     <i class="fa fa-play w3-right color-zero" aria-hidden="true"
                                         style="margin:3px 20px 3px 20px;"></i>
-                                    <i class="fa fa-folder-o clickable" aria-hidden="true" style="margin:3px 20px 3px 20px;"
-                                    onclick="document.getElementById('modal-batch-select-test').style.display='block'"></i>
+                                    <i class="fa fa-folder-o clickable" aria-hidden="true"
+                                        style="margin:3px 20px 3px 20px;"
+                                        onclick="document.getElementById('modal-batch-select-test').style.display='block'"></i>
                                 </span>
                             </div>
                             <table class="w3-table w3-bordered w3-xlarge w3-hoverable">
@@ -1167,7 +1181,7 @@
         for (let x = 1; x <= numChannels; x++) {
             const offset = (Math.random() * 700);
             const count = 800;
-            const uut = `${(Math.random() * 10000).toFixed().padStart(4, '0')}-${(Math.random() * 100).toFixed().padStart(2, '0')}`
+            const uut = `TXW${(Math.random() * 10000).toFixed().padStart(4, '0')}-${(Math.random() * 100).toFixed().padStart(2, '0')}`
             const test = '19d C/2 Charge - Discharge (6)';
             const dataV = chartData.getData('v', offset, count).reverse();
             let dataI = chartData.getData('i', offset, count).reverse();
@@ -1205,8 +1219,97 @@
                     if (h.className === 'wait') { on_test++; state = 'wait'; }
                     if (h.className === 'rest') { on_test++; state = 'rest'; }
                 }
-
             })
+            // const battery_info = (
+            //     template_name,
+            //     template_version,
+            //     serial_number,
+            //     work_request,
+            //     project_name,
+            //     project_engineer,
+            //     lot
+            // ) => {
+            //     return {
+            //         template_name,
+            //         template_version,
+            //         serial_number,
+            //         work_request,
+            //         project_name,
+            //         project_engineer,
+            //         manufacturer: 'TXW',
+            //         chemistry: 'LiFePO',
+            //         lot,
+            //         mass: '2.3g',
+            //         rated_capacity: '2.0',
+            //         max_voltage: '3.8',
+            //         max_current: '2.2',
+            //         result_naming: '',
+            //         description: ''
+            //     }
+            // }
+            const templates = [
+                {
+                    template_name: 'TXW-IN',
+                    template_version: 'v003',
+                    serial_number: '',
+                    work_request: '278561',
+                    project_name: 'Project A',
+                    project_engineer: 'Dan O.',
+                    lot: '2180'
+                },
+                {
+                    template_name: 'TXW-MI',
+                    template_version: 'v007',
+                    serial_number: '',
+                    work_request: '329014',
+                    project_name: 'Project B',
+                    project_engineer: 'Eric S.',
+                    lot: '3207'
+                },
+                {
+                    template_name: 'TXW-CA',
+                    template_version: 'v019',
+                    serial_number: '',
+                    work_request: 'WR5436',
+                    project_name: 'Project C',
+                    project_engineer: 'Dave E.',
+                    lot: '9327'
+                }
+            ];
+            const getBatteryInfo = (index) => {
+                const v = templates[index];
+                const batteryInfo = {
+                    template_name: v.template_name,
+                    template_version: v.template_version,
+                    serial_number: v.serial_number,
+                    work_request: v.work_request,
+                    project_name: v.project_name,
+                    project_engineer: v.project_engineer,
+                    manufacturer: 'TXW',
+                    chemistry: 'LiFePO',
+                    lot: v.lot,
+                    mass: '2.3g',
+                    rated_capacity: '2.0',
+                    max_voltage: '3.8',
+                    max_current: '2.2',
+                    result_naming: '',
+                    description: '',
+                    card_index: index,
+                }
+                return batteryInfo;
+            }
+            cards.battery_templates = templates;
+            // cards.batteries = [];
+            // cards.batteries.push(
+            //     battery_info(
+            //         `TXW-IN`,
+            //         'v003',
+            //         `TXW${(Math.random() * 10000).toFixed().padStart(4, '0')}-${(Math.random() * 100).toFixed().padStart(2, '0')}`,
+            //         '278651',
+            //         'Project A',
+            //         'Dan O.',
+            //         '1260'
+            //     ))
 
             cards.items.push({
                 name: `CH${x < 10 ? '0' + x : x}`,
@@ -1233,6 +1336,7 @@
                 ce: null,
                 state,
                 history,
+                battery_info: getBatteryInfo(Math.floor((3 * Math.random())))
             });
         }
         const numPages = Math.ceil(cards.items.length / 6);
@@ -1270,6 +1374,13 @@
 
         // /** ALTER CARDS BASED ON STATE */
         cards.items.forEach((v) => {
+            const getBatchState = (icon, text, backgroundColor, color) => {
+                // width:175px; + change to div
+                return `<span class="" style="font-size:20px;color:${color};;background-color:${backgroundColor};border-radius:10px;padding:3px;padding-right:10px;">
+                    <i class="fa ${icon} w3-large" style="color:${color};padding-left:5px;padding-right:5px;padding-top:0px;"></i>
+                    ${text}
+                    </span>`
+            }
             if (v.state === 'empty') {
                 v.batch_state = '<span class="color-zero">EMPTY</span>';
                 v.card_icon = '<span class="color-zero">EMPTY</span>';
@@ -1290,7 +1401,11 @@
                 // v.requested_cycles = '';
                 v.uut = `<span class="color-zero"></span>`;
                 v.badge_icon = 'fa-circle-o';
-                v.batch_state = `<span class="" style="font-size:20px;color:#969696;;background-color:#3d3d3d;border-radius:10px;padding:3px;padding-right:15px;"><i class="fa ${v.badge_icon} w3-large" style="color:#969696;padding-left:10px;padding-right:10px;padding-top:0px;"></i>Empty</span>`;
+                // v.batch_state = `<span class="" style="font-size:20px;color:#969696;;background-color:#3d3d3d;border-radius:10px;padding:3px;padding-right:15px;"><i class="fa ${v.badge_icon} w3-large" style="color:#969696;padding-left:10px;padding-right:10px;padding-top:0px;"></i>Empty</span>`;
+                v.batch_state = getBatchState('fa-circle-o', 'Empty', '#3d3d3d', '#969696');
+                v.battery_info.rated_capacity = '';
+                v.battery_info.max_voltage = '';
+                v.battery_info.max_current = '';
             }
             // if (v.state === 'wait') {
             //     v.batch_state = '<span class="w3-text-green">ON TEST</span>';
@@ -1355,8 +1470,10 @@
                 // v.cycles = '';
                 // v.requested_cycles = '';
                 // v.uut = '<span style="color:red">ERROR</span>';
-                v.badge_icon = 'fa-times-circle';
-                v.batch_state = `<span class="w3-text-white" style="font-size:20px;background-color:red;border-radius:10px;padding:3px;padding-right:15px;"><i class="fa ${v.badge_icon} w3-large w3-text-white" style="padding-left:10px;padding-right:10px;"></i>Error</span>`;
+
+                // v.badge_icon = 'fa-times-circle';
+                // v.batch_state = `<span class="w3-text-white" style="font-size:20px;background-color:red;border-radius:10px;padding:3px;padding-right:15px;"><i class="fa ${v.badge_icon} w3-large w3-text-white" style="padding-left:10px;padding-right:10px;"></i>Error</span>`;
+                v.batch_state = getBatchState('fa-times-circle', 'Error', 'Red', 'white');
             }
             if (v.state === 'paused') {
                 v.batch_state = '<span class="w3-text-black" style="font-size:20px;background-color:#fcd00e;border-radius:10px;padding:3px;padding-right:15px;"><i class="fa fa-pause w3-large w3-text-black" style="padding-left:10px;padding-right:10px;padding-top:0px;"></i>Paused</span>';
@@ -1395,8 +1512,9 @@
                     v.dataV[v.dataV.length - y] = null; // v.dataV[start] ;
                     v.dataI[v.dataI.length - y] = null; // 0 ;
                 }
-                v.badge_icon = 'fa-check';
-                v.batch_state = `<span class="w3-text-black" style="font-size:20px;background-color:#c0c0c0;border-radius:10px;padding:3px;padding-right:15px;"><i class="fa ${v.badge_icon} w3-large w3-text-black" style="padding-left:10px;padding-right:10px;padding-top:0px;"></i>Complete</span>`;
+                // v.badge_icon = 'fa-check';
+                // v.batch_state = `<span class="w3-text-black" style="font-size:20px;background-color:#c0c0c0;border-radius:10px;padding:3px;padding-right:15px;"><i class="fa ${v.badge_icon} w3-large w3-text-black" style="padding-left:10px;padding-right:10px;padding-top:0px;"></i>Complete</span>`;
+                v.batch_state = getBatchState('fa-check', 'Complete', '#c0c0c0', 'black');
             }
             if (v.state === 'on_test') {
                 const isCharging = v.dataI[v.dataV.length - 1] > 0;
@@ -1426,7 +1544,8 @@
                 v.badge_icon = !isCharging ? 'fa-arrow-down' : v.badge_icon;
                 v.badge_icon = v.step === 'Wait' ? 'fa-thermometer-half' : v.badge_icon;
                 v.badge_icon = v.step === 'Rest' ? 'fa-clock-o' : v.badge_icon;
-                v.batch_state = `<span class="w3-text-black" style="font-size:20px;background-color:#70ad47;border-radius:10px;padding:3px;padding-right:15px;"><i class="fa ${v.badge_icon} w3-large w3-text-black" style="padding-left:10px;padding-right:10px;padding-top:0px;"></i>${v.step}</span>`;
+                // v.batch_state = `<span class="w3-text-black" style="font-size:20px;background-color:#70ad47;border-radius:10px;padding:3px;padding-right:15px;"><i class="fa ${v.badge_icon} w3-large w3-text-black" style="padding-left:10px;padding-right:10px;padding-top:0px;"></i>${v.step}</span>`;
+                v.batch_state = getBatchState(v.badge_icon, v.step, '#70ad47', 'black');
             }
         })
 
@@ -1475,6 +1594,7 @@
         });
 
         filterRuntime('all');
+
 
         function update(onDemand = false) {
             // this.get(`${config.urlLocationTracking}/status/${config.facility}/*/true?token=123`).then((v) => {
@@ -1566,6 +1686,23 @@
             chartDetailI.render();
 
 
+            // BATTERIES
+            const obj = { batteries: [] };
+            cards.items.forEach((v, i) => {
+                if (v.uut.startsWith('<span') === false) {
+                    obj.batteries.push({
+                        serial_number: v.uut,
+                        location: v.name,
+                        project_name: v.battery_info.project_name,
+                        project_engineer: v.battery_info.project_engineer,
+                        template_name: v.battery_info.template_name,
+                        template_version: v.battery_info.template_version,
+                        card_index: i,
+                    });
+                }
+            })
+            w3.displayObject("batteries", obj);
+
             showView();
             changeLanguage(language);
         }
@@ -1635,7 +1772,20 @@
 
             document.getElementById(name).classList.add('card-selected');
             document.getElementById('detail-name').innerText = name;
+            document.getElementById('detail-batch-state').innerHTML = selected.batch_state;
             document.getElementById('detail-uut').innerHTML = selected.uut;
+            document.getElementById('detail-step').innerHTML = selected.step;
+
+            document.getElementById('detail-v').innerText = selected.v + 'V';
+            document.getElementById('detail-i').innerText = selected.i + 'A';
+            document.getElementById('detail-t').innerText = selected.st + 'h';
+
+            document.getElementById('detail-cycles').innerHTML = selected.cycles;
+            document.getElementById('detail-requested').innerText = selected.requested_cycles;
+
+            document.getElementById('detail-rated-capacity').innerText = selected.battery_info.rated_capacity;
+            document.getElementById('detail-max-voltage').innerText = selected.battery_info.max_voltage;
+            document.getElementById('detail-max-current').innerText = selected.battery_info.max_current;
             // document.getElementById('pager').style.display = 'none';
 
             // selectCardType(card_type);
