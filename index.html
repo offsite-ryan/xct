@@ -914,7 +914,10 @@
                                         style="margin:3px 20px 3px 20px;"></i>
                                     <i class="fa fa-folder-o clickable" aria-hidden="true"
                                         style="margin:3px 20px 3px 20px;"
-                                        onclick="document.getElementById('modal-batch-select-test').style.display='block'"></i>
+                                        onclick="document.getElementById('modal-batch-load').style.display='block'"></i>
+                                    <i class="fa fa-pencil-square-o clickable" aria-hidden="true"
+                                        style="margin:3px 20px 3px 20px;"
+                                        onclick="document.getElementById('modal-batch-edit').style.display='block'"></i>
                                 </span>
                             </div>
                             <table class="w3-table w3-bordered w3-xlarge w3-hoverable">
@@ -1056,15 +1059,15 @@
         Tooltip Text
     </div>
 
-    <!-- MODAL TEST SELECTION -->
-    <div id="modal-batch-select-test" class="w3-modal w3-xlarge"
+    <!-- MODAL LOAD SELECTION -->
+    <div id="modal-batch-load" class="w3-modal w3-xlarge"
         style="_display:block;z-index: 9999999999;background-color: rgba(0,0,0,0.65);">
         <div class="w3-modal-content modal-dark" style="_min-height:900px;">
             <div class="w3-container w3-padding">
                 <div class="w3-padding">
                     <h3 class="color-time">Batch Contol Options
                         <i class="fa fa-close w3-xlarge w3-right clickable"
-                            onclick="document.getElementById('modal-batch-select-test').style.display='none'"></i>
+                            onclick="document.getElementById('modal-batch-load').style.display='none'"></i>
                     </h3>
                     <hr />
                     <div>
@@ -1072,19 +1075,18 @@
                             <span class="w3-xlarge color-input-label">Test Procedure:</span>
                             <input id="batch-selected-test" name="batch-selected-test" type="select"
                                 placeholder="Select Test Procedure" style="width:95%" />
-                                                            
-                                <div class="w3-dropdown-hover w3-right" style="background-color:#272727;">
-                                    <i class="fa fa-caret-down w3-xxlarge w3-text-white" style=""
-                                        aria-hidden="true"></i>
-                                    <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
-                                        style="background-color:#272727;color:white;min-width:400px;">
-                                        <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (2)</span>
-                                        <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (3)</span>
-                                        <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (4)</span>
-                                        <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (5)</span>
-                                        <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (6)</span>
-                                    </div>
+
+                            <div class="w3-dropdown-hover w3-right" style="background-color:#272727;">
+                                <i class="fa fa-caret-down w3-xxlarge w3-text-white" style="" aria-hidden="true"></i>
+                                <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                    style="background-color:#272727;color:white;min-width:400px;">
+                                    <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (2)</span>
+                                    <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (3)</span>
+                                    <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (4)</span>
+                                    <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (5)</span>
+                                    <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (6)</span>
                                 </div>
+                            </div>
                             <!-- <i class="fa fa-caret-down w3-xxlarge w3-right" style="_padding-left:25px;"></i> -->
                         </div>
                         <!-- <div class="w3-padding" style="width:92%;max-height:500px;overflow-y:auto;">
@@ -1100,17 +1102,16 @@
                             <span class="w3-xlarge color-input-label">Battery Template:</span>
                             <input id="batch-selected-test" name="batch-selected-test" type="select"
                                 placeholder="Select Battery Lot File" style="width:95%">
-                            
-                                <div class="w3-dropdown-hover w3-right" style="background-color:#272727;">
-                                    <i class="fa fa-caret-down w3-xxlarge w3-text-white" style=""
-                                        aria-hidden="true"></i>
-                                    <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
-                                        style="background-color:#272727;color:white;min-width:200px;">
-                                        <span class="w3-bar-item clickable">TXW-2670</span>
-                                        <span class="w3-bar-item clickable">LG-1203</span>
-                                        <span class="w3-bar-item clickable">TXW-MI</span>
-                                    </div>
+
+                            <div class="w3-dropdown-hover w3-right" style="background-color:#272727;">
+                                <i class="fa fa-caret-down w3-xxlarge w3-text-white" style="" aria-hidden="true"></i>
+                                <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                    style="background-color:#272727;color:white;min-width:200px;">
+                                    <span class="w3-bar-item clickable">TXW-2670</span>
+                                    <span class="w3-bar-item clickable">LG-1203</span>
+                                    <span class="w3-bar-item clickable">TXW-MI</span>
                                 </div>
+                            </div>
                         </div>
 
                         <div class="w3-center" style="padding-top:50px;display:flex;justify-content:space-evenly;">
@@ -1146,6 +1147,66 @@
                             </span>
                         </div> -->
 
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+
+    <!-- MODAL EDIT SELECTION -->
+    <div id="modal-batch-edit" class="w3-modal w3-xlarge"
+        style="_display:block;z-index: 9999999999;background-color: rgba(0,0,0,0.65);">
+        <div class="w3-modal-content modal-dark" style="_min-height:900px;">
+            <div class="w3-container w3-padding">
+                <div class="w3-padding">
+                    <h3 class="color-time">Edit Selected Options
+                        <i class="fa fa-close w3-xlarge w3-right clickable"
+                            onclick="document.getElementById('modal-batch-edit').style.display='none'"></i>
+                    </h3>
+                    <hr />
+                    <div>
+                        <div>
+                            <span class="w3-xlarge color-input-label">Test Procedure:</span>
+                            <input id="batch-selected-test" name="batch-selected-test" type="select"
+                                placeholder="Select Test Procedure" style="width:95%" />
+
+                            <div class="w3-dropdown-hover w3-right" style="background-color:#272727;">
+                                <i class="fa fa-caret-down w3-xxlarge w3-text-white" style="" aria-hidden="true"></i>
+                                <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                    style="background-color:#272727;color:white;min-width:400px;">
+                                    <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (2)</span>
+                                    <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (3)</span>
+                                    <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (4)</span>
+                                    <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (5)</span>
+                                    <span class="w3-bar-item clickable">19d C/2 Charge - Discharge (6)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="padding-top:50px;">
+                            <span class="w3-xlarge color-input-label">Battery Template:</span>
+                            <input id="batch-selected-test" name="batch-selected-test" type="select"
+                                placeholder="Select Battery Lot File" style="width:95%">
+
+                            <div class="w3-dropdown-hover w3-right" style="background-color:#272727;">
+                                <i class="fa fa-caret-down w3-xxlarge w3-text-white" style="" aria-hidden="true"></i>
+                                <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                    style="background-color:#272727;color:white;min-width:200px;">
+                                    <span class="w3-bar-item clickable">TXW-2670</span>
+                                    <span class="w3-bar-item clickable">LG-1203</span>
+                                    <span class="w3-bar-item clickable">TXW-MI</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w3-center" style="padding-top:50px;display:flex;justify-content:space-evenly;">
+                            <button class="w3-padding clickable w3-text-white"
+                                style="width:220px;background-color:#272727;">
+                                <i class="fa fa-check"></i> Apply
+                            </button>
+                        </div>
                     </div>
                     <br />
                 </div>
