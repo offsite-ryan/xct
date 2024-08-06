@@ -310,7 +310,7 @@ _thead.sticky {
 tr.sticky {
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    top: 312px;
+    top: 295px;
     /* z-index: 999999; */
     /* background-color: #1e1e1e; */
     background-color: #272727;
