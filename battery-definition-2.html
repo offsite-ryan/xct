@@ -1,18 +1,20 @@
 <div class="w3-container w3-padding w3-large">
     <div class="w3-row-padding">
         <div class="w3-col s12 w3-medium">
-            <span class="w3-xxlarge">TXW2067 <span class="w3-large color-zero">v003</span>
+            <span class="w3-xxlarge">TXW-MI <span class="w3-large color-zero">06-Jun-2024 11:34</span>
                 <!-- <i class="fa fa-trash-o color-font w3-xlarge w3-right" aria-hidden="true"
                     style="padding-left:10px;cursor:pointer;"></i>
                 <i class="fa fa-plus-square-o color-font w3-xlarge w3-right" aria-hidden="true"
                     style="padding-left:10px;cursor:pointer;"></i>
                 <i class="fa fa-folder-open-o color-font w3-xlarge w3-right" aria-hidden="true"
                     style="padding-left:10px;cursor:pointer;"></i> -->
-                <span class=" color-font w3-xlarge w3-right" style="padding-left:12px;padding-right:24px;cursor:pointer;" onclick="closeBattery()">
+                <span class=" color-font w3-xlarge w3-right"
+                    style="padding-left:12px;padding-right:24px;cursor:pointer;" onclick="closeBattery()">
                     <i class="fa fa-close" aria-hidden="true"></i>
                     Close
                 </span>
-                <span class=" color-zero w3-xlarge w3-right" style="padding-left:12px;padding-right:24px;cursor:pointer;" onclick="closeBattery()">
+                <span class=" color-zero w3-xlarge w3-right"
+                    style="padding-left:12px;padding-right:24px;cursor:pointer;" onclick="closeBattery()">
                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                     Save
                 </span>
@@ -23,7 +25,8 @@
                 <div class="w3-col s4 w3-padding w3-large">
                     <label>Serial Number Pattern
                         <i class="fa fa-info-circle color-time" aria-hidden="true" style="cursor:pointer;"></i></label>
-                    <input name="serial_number" class="w3-input w3-xlarge color-time" type="text" placeholder="<MANUFACTURER>-<LOT>-">
+                    <input name="serial_number" class="w3-input w3-xlarge color-time" type="text"
+                        placeholder="<MANUFACTURER>-<LOT>-<###>">
                 </div>
 
                 <div class="w3-col s4 w3-padding w3-large">
@@ -50,7 +53,7 @@
                 <div class="w3-col s4 w3-padding w3-large" style="min-height:120px;">
                     <label>Manufacturer <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="manufacturer" class="w3-input w3-xlarge color-time" type="text" value="XCYZ">
+                    <input name="manufacturer" class="w3-input w3-xlarge color-time" type="text" value="TXW">
                 </div>
 
                 <div class="w3-col s4 w3-padding w3-large">
@@ -62,7 +65,7 @@
                 <div class="w3-col s4 w3-padding w3-large">
                     <label>Batch / Lot <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="batch" class="w3-input w3-xlarge color-time" type="text" value="ABCD">
+                    <input name="batch" class="w3-input w3-xlarge color-time" type="text" value="2607">
                 </div>
 
                 <div class="w3-col s4 w3-padding w3-large" style="min-height:120px;">
@@ -93,15 +96,39 @@
                 </div>
 
                 <div class="w3-col s12 w3-padding w3-large" style="min-height:120px;">
-                    <label>Result Naming <i class="fa fa-info-circle color-time" aria-hidden="true"
+                    <label>Result Location <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
-                    <input name="max_current" class="w3-input w3-xlarge color-time" type="text" placeholder="\<MANUFACTURER>\<PROJECT>\<SERIAL_NUMBER>\">
+                    <input name="max_current" class="w3-input w3-xlarge color-time" type="text"
+                        placeholder="\<MANUFACTURER>\<PROJECT>\">
                 </div>
 
                 <div class="w3-col s12 w3-padding w3-large" style="min-height:120px;">
                     <label>Description <i class="fa fa-info-circle color-time" aria-hidden="true"
                             style="cursor:pointer;"></i></label>
                     <textarea name="description" class="w3-input w3-xlarge color-time" type="text" value=""></textarea>
+                </div>
+
+                <div class="w3-col s12 w3-padding w3-large" style="min-height:120px;">
+                    <br/>
+                    <hr/>
+                    <span class="w3-xlarge">Active Batteries</span>
+                    <table class="w3-table w3-bordered">
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Location</th>
+                            <th>Creation Date</th>
+                        </tr>
+                        <tr>
+                            <td>TXW-2607-001</td>
+                            <td>CH07</td>
+                            <td>2024.06.23 18:45:00</td>
+                        </tr>
+                        <tr>
+                            <td>TXW-2607-002</td>
+                            <td>CH08</td>
+                            <td>2024.06.23 18:45:00</td>
+                        </tr>
+                    </table>
                 </div>
 
             </form>

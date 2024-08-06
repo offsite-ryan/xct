@@ -507,10 +507,10 @@
                                 </div>
 
                                 <span id="card-view-"
-                                    style="font-size:20px;margin-top:3px;display:flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-between;">
-                                    <span class="color-voltage">{{v}}V</span>
-                                    <span class="color-current">{{i}}A</span>
-                                    <span class="color-time">{{st}}h</span>
+                                    style="min-height:30px;font-size:20px;margin-top:3px;display:flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-between;">
+                                    <span class="color-voltage">{{v}}</span>
+                                    <span class="color-current">{{i}}</span>
+                                    <span class="color-time">{{st}}</span>
                                 </span>
 
                                 <span class="w3-medium"
@@ -1312,8 +1312,8 @@
                 v = -v;
             })
 
-            const v = dataV[dataV.length - 1].toString().padEnd(5, '0');
-            const i = dataI[dataI.length - 1].toString().padEnd(5, '0');
+            const v = dataV[dataV.length - 1].toString().padEnd(5, '0') + 'V';
+            const i = dataI[dataI.length - 1].toString().padEnd(5, '0') + 'A';
             const isCharging = dataI[dataV.length - 1] > 0;
             let state = null;
 
@@ -1411,6 +1411,7 @@
                     manufacturer: 'TXW',
                     chemistry: 'LiFePO',
                     lot: v.lot,
+                    lot_date_time: null, // TODO: not a version control system
                     mass: '2.3g',
                     rated_capacity: '2.0Ah',
                     max_voltage: '3.8V',
@@ -1443,7 +1444,7 @@
                 // data: chartData.getData('v', (Math.random() * 100), 50),
                 v,
                 i,
-                st: (8 * Math.random()).toString().substring(0, 3), /** step time */
+                st: (8 * Math.random()).toString().substring(0, 3) + 'h', /** step time */
                 dataV,
                 dataI,
                 chart_options: JSON.parse(JSON.stringify(card_chart_options)),
@@ -1901,9 +1902,9 @@
             document.getElementById('detail-uut').innerHTML = selected.uut;
             document.getElementById('detail-step').innerHTML = selected.step_description;
 
-            document.getElementById('detail-v').innerText = selected.v + 'V';
-            document.getElementById('detail-i').innerText = selected.i + 'A';
-            document.getElementById('detail-t').innerText = selected.st + 'h';
+            document.getElementById('detail-v').innerText = selected.v;
+            document.getElementById('detail-i').innerText = selected.i;
+            document.getElementById('detail-t').innerText = selected.st;
 
             document.getElementById('detail-cycles').innerHTML = selected.cycles;
             document.getElementById('detail-requested').innerText = selected.requested_cycles;
