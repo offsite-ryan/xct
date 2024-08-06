@@ -56,6 +56,16 @@ function onKeyDown(event) {
 //         {name: 'CC/CV', indent: '0px', description: 'C/2 Charge', mode:'CC', setpoint:'C/2'}
 //     ]
 // }
+
+const WAIT = '#f5c80a'
+const CC_DISCHARGE = '#41abde';
+const CV_DISCHARGE = '#386c85';
+const CC_CHARGE = '#28c31e';
+const CV_CHARGE = '#2b7926';
+const REST = '#474747';
+const NOTIFY = '#9c27b0';
+const LOOP = 'blue';
+
 function viewTest(index) {
     window.location.hash = `configuration-test-${index}`;
     document.getElementById('table-tests-recent').style.display = 'none';
@@ -66,7 +76,7 @@ function viewTest(index) {
         steps: [
             {
                 indent: 0,
-                color: 'orange',
+                color: WAIT,
                 name: 'Wait',
                 description: 'Wait for Chamber Temp',
                 setpoint: '',
@@ -78,10 +88,10 @@ function viewTest(index) {
             },
             {
                 indent: 0,
-                color: '#17d305',
-                name: 'CC',
+                color: CC_CHARGE,
+                name: 'CC Charge',
                 description: 'Charge C/5',
-                setpoint: '+C/5',
+                setpoint: 'C/5',
                 end_condition: '<span class="color-zero">V > MAX_V * 0.9</span>',
                 step_safety_limits: 'POUCH_CENTER > 30 °C',
                 estimated_duration: '<span class="color-zero">5h</span>',
@@ -89,8 +99,8 @@ function viewTest(index) {
             },
             {
                 indent: 0,
-                color: '#2d6b27',
-                name: 'CV',
+                color: CV_CHARGE,
+                name: 'CV Charge',
                 description: 'Charge CV',
                 setpoint: 'MAX_V',
                 end_condition: '<span class="color-zero">I < 100 mA</span>',
@@ -100,8 +110,8 @@ function viewTest(index) {
             },
             {
                 indent: 0,
-                color: '',
-                name: 'Rest',
+                color: REST,
+                name: "Rest",
                 description: '',
                 setpoint: '',
                 end_condition: '<span class="_color-zero">t > 30m</span>',
@@ -111,7 +121,7 @@ function viewTest(index) {
             },
             {
                 indent: 0,
-                color: 'blue',
+                color: LOOP,
                 name: 'Loop',
                 description: '',
                 setpoint: '',
@@ -122,8 +132,8 @@ function viewTest(index) {
             },
             {
                 indent: 1,
-                color: '#7ac4f5',
-                name: 'CC',
+                color: CC_DISCHARGE,
+                name: 'CC Discharge',
                 description: 'Discharge C/2',
                 setpoint: '-C/2',
                 end_condition: '<span class="color-zero">V <= MIN_V</span>',
@@ -133,7 +143,7 @@ function viewTest(index) {
             },
             {
                 indent: 1,
-                color: '',
+                color: REST,
                 name: 'Rest',
                 description: '',
                 setpoint: '',
@@ -144,8 +154,8 @@ function viewTest(index) {
             },
             {
                 indent: 1,
-                color: '#17d305',
-                name: 'CC',
+                color: CC_CHARGE,
+                name: 'CC Charge',
                 description: 'Charge C/2',
                 setpoint: '+C/2',
                 end_condition: '<span class="color-zero">V > MAX_V * 0.9</span>',
@@ -155,8 +165,8 @@ function viewTest(index) {
             },
             {
                 indent: 1,
-                color: '#2d6b27',
-                name: 'CV',
+                color: CV_CHARGE,
+                name: 'CV Charge',
                 description: 'Charge CV',
                 setpoint: 'MAX_V',
                 end_condition: '<span class="color-zero">I < 100 mA</span>',
@@ -166,7 +176,7 @@ function viewTest(index) {
             },
             {
                 indent: 1,
-                color: '',
+                color: REST,
                 name: 'Rest',
                 description: '',
                 setpoint: '',
@@ -177,7 +187,7 @@ function viewTest(index) {
             },
             {
                 indent: 0,
-                color: 'blue',
+                color: LOOP,
                 name: 'Loop - End',
                 description: '',
                 setpoint: '',
@@ -188,8 +198,8 @@ function viewTest(index) {
             },
             {
                 indent: 0,
-                color: '#7ac4f5',
-                name: 'CC',
+                color: CC_DISCHARGE,
+                name: 'CC Discharge',
                 description: 'Storage Prep',
                 setpoint: '-C/5',
                 end_condition: '<span class="color-zero">V <= MAX_V * 0.30</span>',
@@ -199,7 +209,7 @@ function viewTest(index) {
             },
             {
                 indent: 0,
-                color: '#f8e263',
+                color: NOTIFY,
                 name: 'NOTIFY',
                 description: 'Test Complete',
                 setpoint: '',
@@ -339,17 +349,17 @@ function renderTest(id, testSteps) {
     }
 
     const steps = [
-        { label: 'WAIT', pct: 14.9, color: '#ffa500c4', endY: 50 },
-        { label: 'CC', pct: 21.3, color: '#70FE4750', endY: 22 }, // charge cc
-        { label: 'CV', pct: 4.3, color: '#70AD4750', endY: 20 }, // charge cv
-        { label: 'REST', pct: 2.1, color: 'grey', endY: 20 },
-        { label: 'CC', pct: 17, color: '#7ac4f5c4', endY: 80 }, // discharge
-        { label: 'REST', pct: 2.1, color: 'grey', endY: 80 },
-        { label: 'CC', pct: 14.9, color: '#70FE4750', endY: 22 },
-        { label: 'CV', pct: 4.3, color: '#70AD4750', endY: 20 },
-        { label: 'REST', pct: 2.1, color: 'grey', endY: 20 },
-        { label: 'CC', pct: 16.7, color: '#7ac4f5c4', endY: 60 },
-        { label: '', pct: 0.3, color: '#f8e263', endY: 60 },
+        { label: 'WAIT', pct: 14.9, color: WAIT, endY: 50 },
+        { label: 'CC', pct: 21.3, color: CC_CHARGE, endY: 22 }, // charge cc
+        { label: 'CV', pct: 4.3, color: CV_CHARGE, endY: 20 }, // charge cv
+        { label: 'REST', pct: 2.1, color: REST, endY: 20 },
+        { label: 'CC', pct: 17, color: CC_DISCHARGE, endY: 80 }, // discharge
+        { label: 'REST', pct: 2.1, color: REST, endY: 80 },
+        { label: 'CC', pct: 14.9, color: CC_CHARGE, endY: 22 },
+        { label: 'CV', pct: 4.3, color: CV_CHARGE, endY: 20 },
+        { label: 'REST', pct: 2.1, color: REST, endY: 20 },
+        { label: 'CC', pct: 16.7, color: CC_DISCHARGE, endY: 60 },
+        { label: '', pct: 0.3, color: NOTIFY, endY: 60 },
     ];
     // background
     ctx.beginPath()
