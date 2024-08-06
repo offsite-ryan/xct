@@ -61,7 +61,7 @@ var optionsHeatmap = {
         show: false
     },
     chart: {
-        height: 75,
+        height: 50,
         type: 'treemap',
         sparkline: {
             enabled: true
