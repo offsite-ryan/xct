@@ -14,6 +14,9 @@
 
                 <form id="myForm" class="w3-container" _onsubmit="submit()">
                     <div class="w3-section">
+                        <label id="key"><b>Username</b></label>
+                        <input id="user-input" class="w3-input w3-border w3-margin-bottom" type="text"
+                            placeholder="Enter username" name="user" autocomplete="username" required>
                         <label id="key"><b>Key</b></label>
                         <input id="key-input" class="w3-input w3-border w3-margin-bottom" type="password"
                             placeholder="Enter Key" name="key" required>
@@ -29,15 +32,18 @@
         </div>
     </div>
     <script>
-        localStorage.removeItem('key');
-        document.getElementById("key-input").focus();
+        // localStorage.removeItem('key');
+        // localStorage.removeItem('user');
+        document.getElementById("user-input").focus();
         document.getElementById("myForm").addEventListener("submit", function (e) {
             e.preventDefault();
             var formData = new FormData(e.target);
             const obj = Object.fromEntries(formData)
             console.log(obj);
-            if (submit(obj)) {
+            const isValidUser = obj.user === 'admin' || obj.user === 'engineer' || obj.user === 'operator';
+            if (submit(obj) && isValidUser) {
                 document.getElementById('myForm').style.backgroundColor = '#4f4848';
+                localStorage.setItem('user', obj.user);
                 localStorage.setItem('key', obj.key);
                 window.location.href = `./`;
             } else {

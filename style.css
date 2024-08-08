@@ -296,7 +296,7 @@ tbody {
 div.sticky {
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    top: 105px;
+    top: 80px;
     z-index: 999999;
 }
 _thead.sticky {
@@ -310,7 +310,7 @@ _thead.sticky {
 tr.sticky {
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    top: 295px;
+    top: 270px;
     /* z-index: 999999; */
     /* background-color: #1e1e1e; */
     background-color: #272727;

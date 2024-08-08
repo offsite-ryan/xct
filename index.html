@@ -39,15 +39,33 @@
     <div class="w3-xxlarge"
         style="padding-right:75px;z-index: 9999999;position:fixed;top:0;width:100%;background-color:#272727;border:0px solid;padding-left:0px;">
         <div style="_width:95%;padding-top:20px;background-color: #272727;">
-            <i id="menu" class="fa fa-bars" style="cursor:pointer;padding-right:25px;color:#1599ac;"
-                onclick="toggleSidebar()" aria-hidden="true"></i>
-            <span class=""><!--<i class="fa fa-battery-three-quarters" aria-hidden="true"></i> -->TS0937
-                &nbsp;
+            <i id="menu" class="fa fa-bars" style="cursor:pointer;padding-right:25px;_color:#1599ac;"
+                onclick="toggleSidebar(true)" aria-hidden="true" _onmouseenter="toggleSidebar(true)"
+                _onmouseleave="toggleSidebar(false)"></i>
+            <span class=""><!--<i class="fa fa-battery-three-quarters" aria-hidden="true"></i> -->
+                <span style="padding-right:20px;">TS0937</span>
+                <span class="">
+                    <i id="subitem-systems" class="fa fa-sitemap w3-xxlarge clickable"
+                        style="padding-right:30px;color:white;" aria-hidden="true"
+                        onclick="window.location.hash = '#systems'"></i>
+                    <img id="subitem-apps" class="clickable" src="/assets/cloud.png" height="40"
+                        style="padding-right:30px;color:white;"
+                        onclick="window.location.hash = '#apps'"></i>
+                    <!-- <div class="w3-dropdown-hover w3-xlarge color-font" style="background-color:#272727;">
+                        <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge w3-left"
+                            style="background-color:#272727;color:white;min-width:200px;">
+                            <span class="w3-bar-item" style=""> TS0937</span>
+                            <span class="w3-bar-item" style=""> TS0938</span>
+                            <span class="w3-bar-item" style=""> TS0939</span>
+                        </div>
+                    </div> -->
+                </span>
+
+                <!-- &nbsp;
                 &nbsp;
                 &nbsp;
                 <i class="fa fa-battery-three-quarters" aria-hidden="true"></i>
                 &nbsp;
-                <!-- <i class="fa fa-caret-down" aria-hidden="true"></i> -->
                 <span class="">
                     <div class="w3-dropdown-hover  w3-xlarge" style="background-color:#272727;">
                         <i class="fa fa-caret-down w3-xxlarge w3-text-white" style="padding-right:30px;"
@@ -76,12 +94,6 @@
                                     <br />
                                     Schedule
                                 </span>
-                                <!-- <span class="w3-center w3-padding w3-xlarge color-zero"
-                                    style="min-height:250px;min-width:250px;border:1px solid;">
-                                    <i class="fa fa-cube w3-xxlarge" style="padding-top:70px;" aria-hidden="true"></i>
-                                    <br />
-                                    Virtualization Studio
-                                </span> -->
                                 <span class="w3-center w3-padding w3-xlarge color-zero"
                                     style="min-height:200px;min-width:200px;border:1px solid;">
                                     <i class="fa fa-bolt w3-xxlarge" style="padding-top:50px;" aria-hidden="true"></i>
@@ -106,28 +118,85 @@
                             </span>
                         </div>
                     </div>
-                </span>
+                </span> -->
             </span>
 
             <span class="w3-right">
-                <div class="w3-xlarge"><i class="fa fa-user-circle-o _fa-language w3-xxlarge"
-                        style="padding-right:10px;padding-bottom:50px;" aria-hidden="true"></i> Admin&nbsp;
+                <div class="w3-xlarge">
                     <span class="">
                         <div class="w3-dropdown-hover  w3-xlarge" style="background-color:#272727;">
-                            <i class="fa fa-caret-down w3-xxlarge w3-text-white" style="padding-right:30px;"
-                                aria-hidden="true"></i>
+                            <i class="fa fa-user-circle-o w3-xxlarge color-font" style="padding-right:10px;"
+                                aria-hidden="true"></i> &nbsp;
+                            <span id="user" class="color-font" style="padding-right:24px;"></span>
+                            <!-- <i class="fa fa-caret-down w3-xxlarge w3-text-white" style="padding-right:30px;"
+                                aria-hidden="true"></i> -->
                             <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
                                 style="background-color:#272727;color:white;min-width:200px;">
-                                <span class="w3-bar-item" style="border-bottom:1px solid;">Language</span>
-                                <span class="w3-bar-item clickable" onclick="changeLanguage('en')">English</span>
-                                <span class="w3-bar-item clickable" onclick="changeLanguage('de')">German</span>
-                                <span class="w3-bar-item color-zero">Chinese</span>
-                                <span class="w3-bar-item color-zero">Italian</span>
-                                <span class="w3-bar-item color-zero">Japanese</span>
-                                <span class="w3-bar-item color-zero">French</span>
+                                <span class="w3-bar-item clickable" style="border-bottom:1px solid;"
+                                    onclick="signout()"><i class="fa fa-sign-out"></i> Sign out</span>
+                                <span class="w3-bar-item" style="">Language
+                                    <li class="clickable" onclick="changeLanguage('en')">English</li>
+                                    <li class="clickable" onclick="changeLanguage('de')">German</li>
+                                    <li class="">Chinese</li>
+                                </span>
                             </div>
                         </div>
                     </span>
+                    <!-- <span class="w3-right">
+                        <div class="w3-dropdown-hover  w3-xlarge" style="background-color:#272727;">
+                            <i class="fa fa-caret-down w3-xxlarge w3-text-white" style="padding-right:30px;"
+                                aria-hidden="true"></i>
+                            <div class="w3-dropdown-hover  w3-xlarge" style="background-color:#272727;right:230px;">
+                                <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                    style="background-color:#272727;color:white;min-width:200px;">
+                                    <span style="display:flex;flex-direction:column;border:1px solid;">
+                                        <span class="w3-center w3-padding w3-xlarge"
+                                            style="min-height:150px;min-width:200px;background-color:#1e1e1e;color:#1599ac;">
+                                            <i class="fa fa-battery-three-quarters w3-xxlarge" style="padding-top:30px;"
+                                                aria-hidden="true"></i>
+                                            <br />
+                                            Test System
+                                        </span>
+                                        <span class="w3-center w3-padding w3-xlarge color-zero"
+                                            style="min-height:150px;min-width:200px;border:1px solid;">
+                                            <i class="fa fa-television w3-xxlarge" style="padding-top:30px;"
+                                                aria-hidden="true"></i>
+                                            <br />
+                                            Monitor
+                                        </span>
+                                        <span class="w3-center w3-padding w3-xlarge color-zero"
+                                            style="min-height:150px;min-width:200px;border:1px solid;">
+                                            <i class="fa fa-calendar w3-xxlarge" style="padding-top:30px;"
+                                                aria-hidden="true"></i>
+                                            <br />
+                                            Schedule
+                                        </span>
+                                        <span class="w3-center w3-padding w3-xlarge color-zero"
+                                            style="min-height:150px;min-width:200px;border:1px solid;">
+                                            <i class="fa fa-bolt w3-xxlarge" style="padding-top:30px;" aria-hidden="true"></i>
+                                            <br />
+                                            Energy
+                                        </span>
+                                        <span class="w3-center w3-padding w3-xlarge color-zero"
+                                            style="min-height:150px;min-width:200px;border:1px solid;">
+                                            <i class="fa fa-database w3-xxlarge" style="padding-top:30px;"
+                                                aria-hidden="true"></i>
+                                            <br />
+                                            Analysis
+                                        </span>
+                                        <span class="w3-center w3-padding w3-xlarge color-zero"
+                                            style="min-height:150px;min-width:200px;border:1px solid;">
+                                            <div style="padding-top:25px;">
+                                                <img src="./assets/ms-teams-white.png" height="52" />
+                                                <br />
+                                                Collaboration
+                                            </div>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </span> -->
                     <img class="logo2 w3-right" src="./assets/avl-logo.png" />
                 </div>
             </span>
@@ -140,11 +209,19 @@
             <a class="" style="" onclick="">Applications <i class="fa fa-caret-down" aria-hidden="true"></i></a>
         </div> -->
 
+        <!-- <div id="subitem-systems" onclick="window.location.hash = '#systems'" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:30px;">
+            <a class="" style="">
+                <i class="fa fa-sitemap" aria-hidden="true"></i>
+                <br />
+                <span class="translate">Systems</span></a>
+        </div> -->
+
         <div id="subitem-runtime" onclick="window.location.hash = '#runtime'" class="clickable"
             style="border:1px solid #5d5d5d;;padding:30px;">
             <a class="" style="">
                 <i class="fa fa-th" aria-hidden="true"></i>
-                <!-- <img src="/assets/channels.png" height="45"/> -->
+                <!-- <img src="/assets/channels.png" height="45" style="padding-bottom:5px;"/> -->
                 <br />
                 <span class="translate">Channels</span></a>
         </div>
@@ -180,55 +257,17 @@
         </div>
     </div>
 
-    <!-- <div id="mySidebar-small" class="noPrint w3-sidebar w3-bar-block _w3-border w3-center w3-xlarge"
-        style="display:none;scrollbar-color:#5d5d5d #272727;width:200px;color:white;background-color: #272727;border:1px solid #5d5d5d;top:110px;font-size:28px;padding-bottom: 125px;">
-
-        <div id="subitem-runtime" onclick="window.location.hash = '#runtime'" class="clickable"
-            style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style=""><i class="fa fa-th" aria-hidden="true"></i><br /><span
-                    class="translate">Channels</span></a>
-        </div>
-
-        <div id="subitem-batch" onclick="window.location.hash = '#batch'" class="clickable"
-            style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style=""><i class="fa fa-power-off w3-xxlarge" aria-hidden="true"></i><br /><span
-                    class="translate">Control</span></a>
-        </div>
-
-        <div id="subitem-configuration" onclick="window.location.hash = '#configuration'" class="clickable"
-            style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style="" onclick=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i><br /><span
-                    class="translate">Setup</span></a>
-        </div>
-
-        <div id="subitem-system" onclick="window.location.hash = '#system'" class="clickable"
-            style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style="" onclick=""><i class="fa fa-cog" aria-hidden="true"></i><br /><span
-                    class="translate">System</span></a>
-        </div>
-
-        <div id="subitem-transfer" onclick="window.location.hash = '#transfer'" class="clickable"
-            style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style="" onclick=""><i class="fa fa-exchange" aria-hidden="true"></i><br /><span
-                    class="translate">Transfer</span></a>
-        </div>
-
-        <div id="subitem-help" onclick="window.location.hash = '#contextual-help'" class="clickable"
-            style="border:1px solid #5d5d5d;;padding:50px;">
-            <a class="" style="" onclick=""><i class="fa fa-question-circle" aria-hidden="true"></i><br /><span
-                    class="translate">Help</span></a>
-        </div>
-    </div> -->
-
     <!-- MAIN PAGE -->
     <div id="main-page">
 
         <!-- TOP -->
-        <div style="padding:60px 30px 0px 30px;;">
+        <div style="padding:30px 30px 0px 30px;;">
             <div class="sticky">
                 <div id="content" class="sticky" style="display:none;background-color:#272727;">
 
-                    <div id="chart-heatmap" class="w3-right" style="padding-right:0px;padding-top:8px;"></div>
+                    <!-- CHART TREEMAP -->
+                    <div id="chart-heatmap" class="w3-right" style="padding-right:5px;"></div>
+
                     <span class="header" style="padding-top:10px;">
                         <span class="color-font w3-xxlarge">
                             <span class="" style="_padding-left:65px;"><span id="view"
@@ -236,30 +275,7 @@
                         </span>
                     </span>
 
-                    <div id="overview-counts" class="w3-row w3-center _w3-right-align" style="padding-top:20px;">
-                        <!-- <div class="w3-col s1 w3-left-align">
-                        <span class="color-font w3-xlarge">
-                            <div class="w3-dropdown-hover  w3-xlarge"
-                                style="background-color:#272727;border:1px solid;padding-top:13px;">
-                                <div class=""
-                                    style="background-color:#1e1e1e;color:white;border:1px solid;padding:10px 20px 10px 20px;">
-                                    <i id="filter" class="fa fa-filter" style="cursor:pointer;"
-                                        aria-hidden="true">&nbsp;&nbsp;&nbsp;Filter
-                                    </i><i class="fa fa-caret-down" style="padding-left:20px;" aria-hidden="true"></i>
-                                </div>
-                                <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
-                                    style="background-color:#2f2f2f;color:white;">
-                                    <a class="w3-bar-item w3-button" onclick="filter('')">All</a>
-                                    <a class="w3-bar-item w3-button" onclick="filter('Project A')">Project A</a>
-                                    <a class="w3-bar-item w3-button" onclick="filter('Project B')">Project B</a>
-                                    <a class="w3-bar-item w3-button" onclick="filter('Project C')">Project C</a>
-                                    <a class="w3-bar-item w3-button" onkeyup="filter(this.value)"><input type="text"
-                                            placeholder="Search..."></input></a>
-                                </div>
-                            </div>
-                        </span>
-                    </div> -->
-
+                    <div id="overview-counts" class="w3-row w3-center _w3-right-align" style="padding-top:5px;">
                         <div class="w3-col s12 w3-center" style="display:flex;justify-content:space-evenly;">
                             <!-- FILTER -->
                             <div id="_filter_paused" class="w3-padding w3-margin  w3-col clickable w3-xlarge"
@@ -991,6 +1007,16 @@
             </div>
         </div>
 
+        <!-- SYSTEMS -->
+        <div id="view-systems" style="display:none;margin-left:0px;">
+            <div w3-include-html="systems.html"></div>
+        </div>
+
+        <!-- APPS -->
+        <div id="view-apps" style="display:none;margin-left:0px;">
+            <div w3-include-html="apps.html"></div>
+        </div>
+
         <!-- BATTERY SETUP -->
         <div id="view-battery-setup" style="display:none;margin-left:0px;">
         </div>
@@ -1257,6 +1283,7 @@
     <script src="data/16h.js"></script>
     <script src="data/data.js"></script>
     <script src="test-setup.js"></script>
+    <script src="test-defintion.js"></script>
     <script src="battery-setup.js"></script>
     <script src="system.js"></script>
     <script src="configuration.js"></script>
@@ -1279,6 +1306,23 @@
 
     <script>
         let language = 'en';
+        const split = localStorage.getItem('user').split('');
+        split[0] = split[0].toUpperCase();
+        const user = split.join('');
+        document.getElementById('user').innerText = user;
+        if (user === 'Operator') {
+            document.getElementById('subitem-configuration').style.display = 'none';
+            document.getElementById('subitem-system').style.display = 'none';
+            document.getElementById('subitem-transfer').style.display = 'none';
+        } else if (user === 'Engineer') {
+            // document.getElementById('subitem-configuration').style.display = 'none';
+            document.getElementById('subitem-system').style.display = 'none';
+            // document.getElementById('subitem-transfer').style.display = 'none';
+        } else if (user === 'Admin') {
+            // document.getElementById('subitem-configuration').style.display = 'none';
+            // document.getElementById('subitem-system').style.display = 'none';
+            // document.getElementById('subitem-transfer').style.display = 'none';
+        }
         toggleSidebar();
 
         // console.log(navigator.userAgent);
@@ -1969,7 +2013,7 @@
             cards.items.forEach((v) => {
                 document.getElementById(`table-row-${v.name}`).classList.remove('table-row-selected');
             })
-            document.getElementById('table-view-header').style.top = '295px';
+            document.getElementById('table-view-header').style.top = '280px';
             // document.getElementById('table-view-header').classList.replace('sticky-detail','sticky');
 
             elem = document.getElementById('timeline-view')
@@ -1979,7 +2023,7 @@
             cards.items.forEach((v) => {
                 document.getElementById(`timeline-row-${v.name}`).classList.remove('table-row-selected');
             })
-            document.getElementById('timeline-view-header').style.top = '317px';
+            document.getElementById('timeline-view-header').style.top = '302px';
             location.hash = `#runtime`;
         }
 
@@ -2084,15 +2128,16 @@
                 //     }
                 // })
             }
-            ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup', 'view-setup', 'view-parameters', 'view-transfer', 'view-transfer', 'view-contextual-help'].forEach((v) => {
+            ['cards', 'overview-counts', 'view-systems', 'view-apps', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup', 'view-setup', 'view-parameters', 'view-transfer', 'view-transfer', 'view-contextual-help'].forEach((v) => {
                 document.getElementById(v).style.display = 'none';
             });
 
-            ['runtime', 'batch', 'configuration', 'system', 'transfer', 'help'].forEach((v) => {
+            ['runtime', 'batch', 'configuration', 'systems', 'apps', 'system', 'transfer', 'help'].forEach((v) => {
                 const elem = document.getElementById(`subitem-${v}`);
                 elem.style.backgroundColor = '#272727';
                 elem.style.color = '';
             });
+            document.getElementById('subitem-systems').style.color = 'white';
 
             if (name === 'runtime') {
                 const formatDate = (offset) => {
@@ -2114,6 +2159,26 @@
                 document.getElementById('runtime-select-view').style.display = 'block';
                 document.getElementById('chart-heatmap').style.display = 'block';
                 // closeDetail();
+                updateMenu(name);
+            } else if (name === 'systems') {
+                document.getElementById('subitem-systems').style.color = '#1599ac';
+                // document.getElementById('subitem-systems').style.color = 'red';
+                document.getElementById('title').innerText = 'BTS - Site Overview'
+                document.getElementById('overview-counts').style.display = 'none';
+                document.getElementById('view').innerText = 'Site Overview';
+                document.getElementById('view-systems').style.display = 'block';
+                document.getElementById('runtime-select-view').style.display = 'none';
+                document.getElementById('chart-heatmap').style.display = 'none';
+                updateMenu(name);
+            } else if (name === 'apps') {
+                document.getElementById('subitem-apps').style.color = '#1599ac';
+                // document.getElementById('subitem-systems').style.color = 'red';
+                document.getElementById('title').innerText = 'BTS - Applications'
+                document.getElementById('overview-counts').style.display = 'none';
+                document.getElementById('view').innerText = 'Applications';
+                document.getElementById('view-apps').style.display = 'block';
+                document.getElementById('runtime-select-view').style.display = 'none';
+                document.getElementById('chart-heatmap').style.display = 'none';
                 updateMenu(name);
             } else if (name === 'batch') {
                 document.getElementById('subitem-batch').style.color = '#1599ac';
@@ -2181,6 +2246,9 @@
                     if (name.indexOf('-test-') > 0) {
                         const index = +(name.replace('configuration-test-', ''));
                         viewTest(index);
+                    } else if (name.indexOf('-test') > 0) {
+                        const index = +(name.replace('configuration-test', ''));
+                        viewTest(7);
                     }
                 }
                 if (name.indexOf('-battery') > 0) {
@@ -2191,7 +2259,10 @@
                     }
                 }
                 updateMenu(name);
+                // if (name.indexOf('-battery') < 0 && name.indexOf('-test') < 0) {
+                // }
             }
+            toggleSidebar(false);
         }
 
         function showView() {
@@ -2419,13 +2490,18 @@
         }
         //#endregion
 
-        function toggleSidebar() {
-            const isOpen = document.getElementById('mySidebar').style.display === 'block';
-            document.getElementById('mySidebar').style.display = isOpen ? 'none' : 'block';
-            document.getElementById('main-page').style.paddingLeft = isOpen ? '' : '250px';
-            // document.getElementById('content').style.width = '70%';
-            // document.getElementById('cards').style.paddingLeft = isOpen ? '' : '330px';
-            // document.getElementById('cards').style.width = '70%';
+        // function toggleSidebar() {
+        //     const isOpen = document.getElementById('mySidebar').style.display === 'block';
+        //     document.getElementById('mySidebar').style.display = isOpen ? 'none' : 'block';
+        //     document.getElementById('main-page').style.paddingLeft = isOpen ? '' : '250px';
+        //     // document.getElementById('content').style.width = '70%';
+        //     // document.getElementById('cards').style.paddingLeft = isOpen ? '' : '330px';
+        //     // document.getElementById('cards').style.width = '70%';
+        // }
+
+        function toggleSidebar(open = false) {
+            document.getElementById('mySidebar').style.display = open ? 'block' : 'none';
+            document.getElementById('main-page').style.paddingLeft = open ? '250px' : '';
         }
         function toggleSubItems() {
             const elem = document.getElementById('subitems');
@@ -2495,6 +2571,11 @@
                     x.className = x.className.replace(" w3-show", "");
                 }
             }
+        }
+
+        function signout() {
+            localStorage.removeItem('key');
+            window.location.href = './';
         }
     </script>
 
