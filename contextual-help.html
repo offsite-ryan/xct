@@ -1,6 +1,186 @@
 <!-- <h1 class="color-font">Help</h1> -->
 
 <div class="_w3-container _w3-padding w3-large">
+
+    <!-- <div>
+
+        <h1>
+            General Terminology
+        </h1>
+        <p>
+            This is help meant for the discussion of the click dummy internal to AVL.
+        </p>
+        <h3>
+            Physical Items
+        </h3>
+        <p>
+            Battery Testing System (BTS): The system contained within the rack or enclosure which allows for testing of
+            batteries.
+        </p>
+        <p>
+            IPC: An integrated PC into the BTS which runs the Interaction, and execution layers.
+        </p>
+        <p>
+            Channel Module: A self-contained module that houses the power electronics which allow for energetic cycling
+            of batteries.&nbsp;
+        </p>
+        <p>
+            External I/O: Additional measurement devices that come from separate devices not originally contained in the
+            BTS.
+        </p>
+        <p>
+            Battery: The unit under test. A secondary battery that is connected to the BTS via a Main Channel.
+        </p>
+        <p>
+            Main Channel: A set of positive and negative leads for voltage measurement and current delivery from the
+            Battery Testing system that connects to exactly one Battery. Note if only “Channel” is written outside of
+            any context, then it refers to a main channel.
+        </p>
+        <p>
+            Auxiliary channel: A measurement apparatus for any additional parameters that a Main Channel does not
+            capture. These channels may be located on channel modules or external I/O. For example, temperature, or
+            pressure would be measured via Aux Channels.
+        </p>
+        <p>
+            Thermal Chamber: Environmental enclosure that allows for control of the ambient temperature that a battery
+            operates in. For simplicity environmental chambers that control relative humidity, or atmospheric pressure
+            will also be referred to as Thermal Chambers.
+        </p>
+        <p>
+            Metric: a measured or calculated value received from a physical device. Example of, Voltage, Temperature, or
+            Ah Discharge.
+        </p>
+        <p>
+            <strong>Software Items</strong>
+        </p>
+        <p>
+            Page: Used in conjunction with name of the page to reference a view with different functionality.
+        </p>
+        <p style="margin-left:28.35pt">
+            Channel Page: A Live view of the data with functionality to look into a channel in more detail.
+        </p>
+        <p style="margin-left:28.35pt">
+            Control Page: A view of all channels with functionality to effect changes on the BTS such as the list of
+            testing steps on a given channel.
+        </p>
+        <p style="margin-left:28.35pt">
+            Setup Page: View and create Test Procedures, Battery Lots and individuals, Calculations, and I/O Assignment
+        </p>
+        <p style="margin-left:28.35pt">
+            System Page: Settings that control the BTS, pages, and defaults in the software.
+        </p>
+        <p style="margin-left:28.35pt">
+            Data Page: View Data in depth with comparison, and more tools, import and export this data from this page as
+            well.
+        </p>
+        <p>
+            Side Bar / Navigation Bar: menu available at the side of the software that allows user to travel from one
+            page to another.
+        </p>
+        <p>
+            Users: Accounts that have different amounts of access to the system. These tie 1 to 1 to our personas with
+            Admin allowing for all privileges
+        </p>
+        <h1>
+            Channels Page
+        </h1>
+        <p>
+            Active Filters: At the first line from the top down of Channels Page there are a row of status filters which
+            relate to the number of channels with each status.
+        </p>
+        <p>
+            Status definition <span style="width:3.72pt; display:inline-block">&nbsp;</span>
+        </p>
+        <p style="text-indent:28.35pt">
+            On Test: Actively being tested
+        </p>
+        <p>
+            <span style="width:28.35pt; display:inline-block">&nbsp;</span>Paused: Pause that can be restarted at any
+            time
+        </p>
+        <p style="margin-left:28.35pt">
+            Empty: Insufficient information has been input to start a test, this could be that a file is missing that
+            would define steps to work or there is no physical connection to a battery.
+        </p>
+        <p style="text-indent:28.35pt">
+            Complete: Test has completed and is awaiting to be tested again
+        </p>
+        <p style="margin-left:28.35pt">
+            Errors: A safety alarm has been triggered for this channel, or unexpected behavior has occurred.
+        </p>
+        <p>
+            Channel Summary: Where the information on a given channel is shown depending on the view option this will be
+            either a row or a card.
+        </p>
+        <p>
+            Channel Status Badge: A quick visual indicator that shows both channel status and testing step on the
+            summary.
+        </p>
+        <p>
+            Focus View: The view of a selected channel which allows for more information to be viewed along with an
+            adjustable timeseries plot of the voltage and current by default where you can view cycle metrics and cycle
+            to cycle metrics.&nbsp;
+        </p>
+        <p style="margin-left:28.35pt">
+            Cycle Metrics: performance values for the cycle that is being performed. For example, Ah Discharge
+        </p>
+        <p style="margin-left:28.35pt">
+            Cycle to Cycle Metrics: Comparing the metrics for the current cycle to the previous cycle. For example,
+            Coulombic Efficiency.
+        </p>
+        <h1>
+            Control
+        </h1>
+        <p>
+            Batch Operations: The ability to start, pause, or change parameters for multiple channels at once such as
+            battery file or test procedure.
+        </p>
+        <h1>
+            Setup
+        </h1>
+        <p>
+            Test Procedure: A file that contains the list of steps and limits which communicate to the BTS the
+            conditions to induce on the battery.
+        </p>
+        <p>
+            Energetic Step: control methodology where there is a transfer of energy. Often one value is held constant,
+            such as constant current (CC), until an end condition is reached.
+        </p>
+        <p>
+            Non Energetic Step: control methodology where there is no transfer of energy. These are often steps to wait
+            for battery temperature to change, or section data for easier post processing.
+        </p>
+        <p>
+            Safety limits: Values that comprise the safe operating envelope for a battery.
+        </p>
+        <p>
+            Log Point Conditions: Absolute value or relative changes of a metric that triggers a data point to be
+            captured for all main channel, aux channel and system data.
+        </p>
+        <p>
+            End Conditions: The value of a metric that once reached will transition the procedure to the next step.
+        </p>
+        <p>
+            Battery Lot File: A template for a given purchase or creation of batteries. These files will contain all
+            common parameters of the batteries to be tested. (Previously this was called Battery Class)
+        </p>
+        <p>
+            Battery Individual File: A file that ties one to one with a specific battery. This contains the data
+            pertinent to the individual battery such as history of the tests performed on the battery, access to the
+            timeseries data, as well as summary data.
+        </p>
+        <h1>
+            System
+        </h1>
+        <h1>
+            Data
+        </h1>
+
+    </div> -->
+
+
+
+    
     <div class="w3-row-padding" style="padding:25px;padding-bottom:60px;background-color: #1e1e1e;">
         <div class="w3-col s12 w3-xlarge w3-padding">
             <span class="color-font">Table of Contents</span>
@@ -20,7 +200,7 @@
         </div>
 
         <div class="w3-col s12 w3-xlarge">
-            <hr/>
+            <hr />
             <span class="color-font">Runtime</span>
             <p class="w3-padding w3-large">
                 Runtime Information
@@ -28,7 +208,7 @@
         </div>
 
         <div class="w3-col s12 w3-xlarge">
-            <hr/>
+            <hr />
             <span class="color-font">Batch Operations</span>
             <p class="w3-padding w3-large">
                 Batch Operations Information
@@ -36,7 +216,7 @@
         </div>
 
         <div class="w3-col s12 w3-xlarge">
-            <hr/>
+            <hr />
             <span class="color-font">Battery Setup</span>
             <p class="w3-padding w3-large">
                 Battery Setup Information
@@ -44,7 +224,7 @@
         </div>
 
         <div class="w3-col s12 w3-xlarge">
-            <hr/>
+            <hr />
             <span class="color-font">Test Setup</span>
             <p class="w3-padding w3-large">
                 Test Setup Information
@@ -52,7 +232,7 @@
         </div>
 
         <div class="w3-col s12 w3-xlarge">
-            <hr/>
+            <hr />
             <span class="color-font">System Setup</span>
             <p class="w3-padding w3-large">
                 System Setup Information
