@@ -348,12 +348,12 @@ function updateTestDefinition() {
     var table = document.getElementById("test-steps");
     for (var i = 1; i < table.rows.length - 2; i++) {
         row = table.rows[i];
-        test_definitions[0].steps[(i)-1].description = row.cells[1].innerText;
-        test_definitions[0].steps[(i)-1].setpoint = row.cells[2].innerText;
-        test_definitions[0].steps[(i)-1].end_condition = row.cells[3].innerText;
-        test_definitions[0].steps[(i)-1].step_safety_limits = row.cells[4].innerText;
-        test_definitions[0].steps[(i)-1].log_rate = row.cells[5].innerText;
-        test_definitions[0].steps[(i)-1].estimated_duration = row.cells[6].innerText;
+        test_definitions[0].steps[(i) - 1].description = row.cells[1].innerText;
+        test_definitions[0].steps[(i) - 1].setpoint = row.cells[2].innerText;
+        test_definitions[0].steps[(i) - 1].end_condition = row.cells[3].innerText;
+        test_definitions[0].steps[(i) - 1].step_safety_limits = row.cells[4].innerText;
+        test_definitions[0].steps[(i) - 1].log_rate = row.cells[5].innerText;
+        test_definitions[0].steps[(i) - 1].estimated_duration = row.cells[6].innerText;
     }
 }
 
@@ -414,32 +414,34 @@ function stepAdd(elem) {
         }
     }
 
-    if (elem.innerText === 'LOOP') {
+    if (index) {
+        if (elem.innerText === 'LOOP') {
+            test_definitions[0].steps.splice((index), 0, {
+                color: elem.style.borderLeft.replace('10px solid ', ''),
+                description: '',
+                duration: 1,
+                end_condition: '',
+                indent: test_definitions[0].steps[(index) - 1].name === 'LOOP' ? test_definitions[0].steps[(index) - 1].indent + 1 : test_definitions[0].steps[(index) - 1].indent,
+                name: elem.innerText + ' - END',
+                setpoint: '',
+                estimated_duration: '1h',
+                log_rate: '',
+                step_safety_limits: '',
+            })
+        }
         test_definitions[0].steps.splice((index), 0, {
             color: elem.style.borderLeft.replace('10px solid ', ''),
             description: '',
             duration: 1,
             end_condition: '',
             indent: test_definitions[0].steps[(index) - 1].name === 'LOOP' ? test_definitions[0].steps[(index) - 1].indent + 1 : test_definitions[0].steps[(index) - 1].indent,
-            name: elem.innerText + ' - END',
+            name: elem.innerText,
             setpoint: '',
             estimated_duration: '1h',
             log_rate: '',
             step_safety_limits: '',
         })
     }
-    test_definitions[0].steps.splice((index), 0, {
-        color: elem.style.borderLeft.replace('10px solid ', ''),
-        description: '',
-        duration: 1,
-        end_condition: '',
-        indent: test_definitions[0].steps[(index) - 1].name === 'LOOP' ? test_definitions[0].steps[(index) - 1].indent + 1 : test_definitions[0].steps[(index) - 1].indent,
-        name: elem.innerText,
-        setpoint: '',
-        estimated_duration: '1h',
-        log_rate: '',
-        step_safety_limits: '',
-    })
 
     const a = [];
     test_definitions[0].steps.forEach((v) => {
