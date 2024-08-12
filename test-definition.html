@@ -113,17 +113,40 @@
 
         <br />
 
-        <div class="w3-col s12 w3-large" style="padding-bottom:10px;border-bottom:1px solid;">
+        <!-- TTOLBAR -->
+        <div class="w3-col s12 w3-xlarge" style="padding-bottom:10px;border-bottom:1px solid;">
             <span class="w3-xlarge color-font">Test Definition</span>
-            <i class="fa fa-code w3-right color-current w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;" onclick="downloadTest()"></i>
-            <i class="fa fa-trash w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;" onclick="stepDelete()"></i>
-            <i class="fa fa-plus w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-paste w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-copy w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-cut w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-list w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-pencil-square-o color-font w3-right w3-padding" aria-hidden="true"
-                style="cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-code w3-right color-current w3-padding" aria-hidden="true"
+                style="cursor:pointer;padding:5px;" onclick="downloadTest()"></i>
+            <i class="fa fa-paste w3-right w3-padding color-zero" aria-hidden="true"
+                style="_cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-copy w3-right w3-padding color-zero" aria-hidden="true"
+                style="_cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-cut w3-right w3-padding color-zero" aria-hidden="true"
+                style="_cursor:pointer;padding:5px;"></i>
+            <i class="fa fa-trash w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"
+                onclick="stepDelete()"></i>
+            <!-- <i class="fa fa-plus w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"
+                onclick="stepAdd()"></i> -->
+
+            <span class="w3-right w3-dropdown-hover color-font" style="padding:5px;_padding-top:3px;padding-left:10px;background-color:#1e1e1e;">
+                <i class="fa fa-plus" style="padding-right:5px;" aria-hidden="true" onclick="showStepPicker()"></i>
+
+                <div id="step-picker-{{index}}" class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                    style="background-color:#272727;color:white;min-width:230px;">
+                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #28c31e;" onclick="stepAdd(this)">CC CHARGE</span></span>
+                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #2b7926;" onclick="stepAdd(this)">CV CHARGE</span></span>
+                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #41abde;" onclick="stepAdd(this)">CC DISCHARGE</span></span>
+                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #f5c80a;" onclick="stepAdd(this)">WAIT</span></span>
+                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #474747;" onclick="stepAdd(this)">REST</span></span>
+                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #9c27b0;" onclick="stepAdd(this)">NOTIFY</span></span>
+                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #795548;" onclick="stepAdd(this)">REPORT</span></span>
+                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid blue;" onclick="stepAdd(this)">LOOP</span></span>
+                </div>
+            </span>
+            <!-- <i class="fa fa-list w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"></i> -->
+            <!-- <i class="fa fa-pencil-square-o color-font w3-right w3-padding" aria-hidden="true"
+                style="cursor:pointer;padding:5px;"></i> -->
         </div>
 
         <table id="test-steps" class="w3-table w3-bordered w3-large"
@@ -136,7 +159,7 @@
                 <th>End Condition</th>
                 <th>Step Safety Limits</th>
                 <th>Log Rate</th>
-                <th style="width:10%">Duration
+                <th style="width:10%">Duration (h)
                     <!-- <i class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
                         style="cursor:pointer;"></i> -->
                 </th>
@@ -144,10 +167,16 @@
             </tr>
 
             <!-- REPEAT -->
-            <tr w3-repeat="steps" id="test-step-row-{{index}}" style="_border-top:1px solid #ddd;" onclick="testEditorTableClick(this, this.rowIndex, this)">
+            <tr w3-repeat="steps" id="test-step-row-{{index}}" style="_border-top:1px solid #ddd;"
+                onclick="testEditorTableClick(this, this.rowIndex, this)">
                 <td><span id="test-step-row-{{index}}-indent" style="display:flex;">
                         <div id="test-step-row-{{index}}-indicator" class="" style="border-left:10px solid;">
-                            &nbsp;</div>&nbsp;{{name}}
+                            &nbsp;</div>
+                        <span>{{name}}</span>
+                        <span>
+                            <!-- <i class="fa fa-caret-down" style="padding-left:10px;"></i> -->
+
+                        </span>
                     </span>
                 </td>
                 <td contenteditable="true">{{description}}</td>
@@ -155,7 +184,8 @@
                 <td contenteditable="true" class="">{{end_condition}}</td>
                 <td contenteditable="true" class="">{{step_safety_limits}}<span style="_display:none;"></span></td>
                 <td contenteditable="true" class="">{{log_rate}}</td>
-                <td contenteditable="true">{{estimated_duration}}</td>
+                <!-- <td contenteditable="true">{{estimated_duration}}</td> -->
+                <td contenteditable="true" class="">{{duration}}</td>
                 <!-- <td><i id="test-step-row-{{index}}-icon" class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
                         style="cursor:pointer;color:white;"
                         onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i></td> -->

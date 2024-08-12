@@ -28,21 +28,21 @@ function toggleTestEditorRowDetail(id) {
     // elem.style.width = '22%';
 }
 
-let selectedRow = null;
-function testEditorTableClick(elem, index) {
-    // console.log(e, table);
-    selectedRow = null;
-    const table = elem.parentElement;
-    const isSelected = table.rows[index].classList.contains('table-row-selected');
-    var list = table.rows;
-    for (let item of list) {
-        item.classList.remove('table-row-selected');
-    }
-    if (!isSelected) {
-        table.rows[index].classList.add('table-row-selected');
-        selectedRow = index;
-    }
-}
+// let selectedRow = null;
+// function testEditorTableClick(elem, index) {
+//     // console.log(e, table);
+//     selectedRow = null;
+//     const table = elem.parentElement;
+//     const isSelected = table.rows[index].classList.contains('table-row-selected');
+//     var list = table.rows;
+//     for (let item of list) {
+//         item.classList.remove('table-row-selected');
+//     }
+//     if (!isSelected) {
+//         table.rows[index].classList.add('table-row-selected');
+//         selectedRow = index;
+//     }
+// }
 
 function toggleTestRowDetail(id) {
     let elem = document.getElementById(`${id}-detail`);

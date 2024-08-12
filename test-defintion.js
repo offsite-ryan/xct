@@ -197,15 +197,15 @@ function viewTest(index) {
         document.getElementById(`test-step-row-${v.index}-indicator`).style.borderLeft = `10px solid ${v.color}`;
         document.getElementById(`test-step-row-${v.index}-indent`).style.paddingLeft = `${v.indent * 30}px`;
 
-        const row = table.insertRow(insertAt);
-        row.id = `test-step-row-${v.index}-detail`;
-        row.style.display = 'none';
-        let cell = row.insertCell(0);
-        cell.innerHTML = `&nbsp;`;
-        cell = row.insertCell(1);
-        cell.colSpan = '6';
-        cell.innerHTML = `<div class="_color-font"></span> <span contentEditable="true" placeholder="Add Comment..."></div>`;
-        insertAt += 2;
+        // const row = table.insertRow(insertAt);
+        // row.id = `test-step-row-${v.index}-detail`;
+        // row.style.display = 'none';
+        // let cell = row.insertCell(0);
+        // cell.innerHTML = `&nbsp;`;
+        // cell = row.insertCell(1);
+        // cell.colSpan = '6';
+        // cell.innerHTML = `<div class="_color-font"></span> <span contentEditable="true" placeholder="Add Comment..."></div>`;
+        // insertAt += 2;
         if (v.name === 'CV') {
             document.getElementById(`test-step-row-${v.index}`).style.borderTop = '';
         }
@@ -240,8 +240,10 @@ function renderTest(id, testSteps) {
 
     const totalTime = testSteps.map((v) => v.duration).reduce((p, c) => p + c);
     const steps = [];
+    let loopStart = 0;
+    let loopEnd = 0;
     let prevEndY = 50;
-    testSteps.forEach((step) => {
+    testSteps.forEach((step, i) => {
         let endY = prevEndY;
         endY = step.name === 'CC CHARGE' ? 22 : endY;
         endY = step.name === 'CV CHARGE' ? 20 : endY;
@@ -254,6 +256,8 @@ function renderTest(id, testSteps) {
                 endY,
             }
         )
+        loopStart = step.name === 'LOOP' ? i : loopStart;
+        loopEnd = step.name === 'LOOP - END' ? i + 1 : loopEnd;
         prevEndY = endY;
     })
     // const steps = [
@@ -312,8 +316,8 @@ function renderTest(id, testSteps) {
     ctx.stroke();
 
     // loop
-    const loopStart = 4;
-    const loopEnd = 9
+    // const loopStart = 4;
+    // const loopEnd = 10
     start = steps.slice(0, loopStart).map((v) => v.pct).reduce((p, c) => p + c);
     let end = steps.slice(loopStart, loopEnd).map((v) => v.pct).reduce((p, c) => p + c);
     console.log(start, end);
@@ -340,7 +344,21 @@ function renderTest(id, testSteps) {
     ctx.stroke();
 }
 
+function updateTestDefinition() {
+    var table = document.getElementById("test-steps");
+    for (var i = 1; i < table.rows.length - 2; i++) {
+        row = table.rows[i];
+        test_definitions[0].steps[(i)-1].description = row.cells[1].innerText;
+        test_definitions[0].steps[(i)-1].setpoint = row.cells[2].innerText;
+        test_definitions[0].steps[(i)-1].end_condition = row.cells[3].innerText;
+        test_definitions[0].steps[(i)-1].step_safety_limits = row.cells[4].innerText;
+        test_definitions[0].steps[(i)-1].log_rate = row.cells[5].innerText;
+        test_definitions[0].steps[(i)-1].estimated_duration = row.cells[6].innerText;
+    }
+}
+
 function downloadTest() {
+    updateTestDefinition();
     downloadObjectAsJson(test_definitions[0], `${test_definitions[0].name} - ${new Date().toLocaleString()}`)
 }
 function downloadObjectAsJson(exportObj, exportName) {
@@ -357,6 +375,100 @@ function stepDelete() {
     const table = document.getElementById('test-steps');
     let index = null;
     var list = table.rows;
+    // let row = 0
+    // for (let item of list) {
+    //     row++;
+    //     if (item.classList.contains('table-row-selected')) {
+    //         index = row;
+    //     }
+    // }
+    for (let i = 1; i < table.rows.length - 2; i++) {
+        if (table.rows[i].classList.contains('table-row-selected')) {
+            index = i;
+        }
+    }
+    delete test_definitions[0].steps[(index) - 1];
+
+    const a = [];
+    test_definitions[0].steps.forEach((v) => {
+        a.push(v);
+    });
+    test_definitions[0].steps = a;
+    viewTest(0);
+}
+
+function stepAdd(elem) {
+    const table = document.getElementById('test-steps');
+    let index = null;
+    var list = table.rows;
+    // let row = 0
+    // for (let item of list) {
+    //     row++;
+    //     if (item.classList.contains('table-row-selected')) {
+    //         index = row;
+    //     }
+    // }
+    for (let i = 1; i < table.rows.length - 2; i++) {
+        if (table.rows[i].classList.contains('table-row-selected')) {
+            index = i;
+        }
+    }
+
+    if (elem.innerText === 'LOOP') {
+        test_definitions[0].steps.splice((index), 0, {
+            color: elem.style.borderLeft.replace('10px solid ', ''),
+            description: '',
+            duration: 1,
+            end_condition: '',
+            indent: test_definitions[0].steps[(index) - 1].name === 'LOOP' ? test_definitions[0].steps[(index) - 1].indent + 1 : test_definitions[0].steps[(index) - 1].indent,
+            name: elem.innerText + ' - END',
+            setpoint: '',
+            estimated_duration: '1h',
+            log_rate: '',
+            step_safety_limits: '',
+        })
+    }
+    test_definitions[0].steps.splice((index), 0, {
+        color: elem.style.borderLeft.replace('10px solid ', ''),
+        description: '',
+        duration: 1,
+        end_condition: '',
+        indent: test_definitions[0].steps[(index) - 1].name === 'LOOP' ? test_definitions[0].steps[(index) - 1].indent + 1 : test_definitions[0].steps[(index) - 1].indent,
+        name: elem.innerText,
+        setpoint: '',
+        estimated_duration: '1h',
+        log_rate: '',
+        step_safety_limits: '',
+    })
+
+    const a = [];
+    test_definitions[0].steps.forEach((v) => {
+        a.push(v);
+    });
+    test_definitions[0].steps = a;
+    viewTest(0);
+}
+
+// let selectedRow = null;
+function testEditorTableClick(elem, index) {
+    // console.log(e, table);
+    selectedRow = null;
+    const table = elem.parentElement;
+    const isSelected = table.rows[index].classList.contains('table-row-selected');
+    var list = table.rows;
+    for (let item of list) {
+        item.classList.remove('table-row-selected');
+    }
+    // if (!isSelected) {
+    table.rows[index].classList.add('table-row-selected');
+    selectedRow = index;
+    // }
+}
+
+function showStepPicker() {
+    const table = document.getElementById('test-steps');
+    let index = null;
+    var list = table.rows;
     let row = 0
     for (let item of list) {
         row++;
@@ -364,14 +476,7 @@ function stepDelete() {
             index = row;
         }
     }
-    delete test_definitions[0].steps[(index / 2) - 1];
-
-    const a = [];
-    test_definitions[0].steps.forEach((v)=>{
-        a.push(v);
-    });
-    test_definitions[0].steps = a;
-    viewTest(0);
+    document.getElementById(`step-picker-${(index / 2) - 1}`).classList.add('w3-show');
 }
 let test_definitions = [
     {
@@ -454,7 +559,7 @@ let test_definitions = [
                 color: CC_DISCHARGE,
                 name: 'CC Discharge',
                 description: 'Discharge C/2',
-                setpoint: '-C/2',
+                setpoint: 'C/2',
                 end_condition: '<span class="color-zero">V <= MIN_V</span>',
                 step_safety_limits: '',
                 estimated_duration: '<span class="color-zero">4h</span>',
@@ -480,7 +585,7 @@ let test_definitions = [
                 color: CC_CHARGE,
                 name: 'CC Charge',
                 description: 'Charge C/2',
-                setpoint: '+C/2',
+                setpoint: 'C/2',
                 end_condition: '<span class="color-zero">V > MAX_V * 0.9</span>',
                 step_safety_limits: '',
                 estimated_duration: '<span class="color-zero">3h 30m</span>',
@@ -532,7 +637,7 @@ let test_definitions = [
                 color: CC_DISCHARGE,
                 name: 'CC Discharge',
                 description: 'Storage Prep',
-                setpoint: '-C/5',
+                setpoint: 'C/5',
                 end_condition: '<span class="color-zero">V <= MAX_V * 0.30</span>',
                 step_safety_limits: '',
                 estimated_duration: '<span class="color-zero">4h</span>',
@@ -571,7 +676,8 @@ let test_definitions = [
             // { index: 11, indent: 0, color: '#17d305', name: 'NAME 2', description: 'DESCRIPTION', setpoint: '', end_condition: '', step_safety_limits: '', log_rate: '', estimated_duration: '' },
         ]
     },
-    { steps: [
+    {
+        steps: [
             {
                 indent: 0,
                 color: WAIT,
@@ -643,7 +749,7 @@ let test_definitions = [
                 color: CC_DISCHARGE,
                 name: 'CC Discharge',
                 description: 'Discharge C/2',
-                setpoint: '-C/2',
+                setpoint: 'C/2',
                 end_condition: '<span class="color-zero">V <= MIN_V</span>',
                 step_safety_limits: '',
                 estimated_duration: '<span class="color-zero">4h</span>',
@@ -669,7 +775,7 @@ let test_definitions = [
                 color: CC_CHARGE,
                 name: 'CC Charge',
                 description: 'Charge C/2',
-                setpoint: '+C/2',
+                setpoint: 'C/2',
                 end_condition: '<span class="color-zero">V > MAX_V * 0.9</span>',
                 step_safety_limits: '',
                 estimated_duration: '<span class="color-zero">3h 30m</span>',
@@ -721,7 +827,7 @@ let test_definitions = [
                 color: CC_DISCHARGE,
                 name: 'CC Discharge',
                 description: 'Storage Prep',
-                setpoint: '-C/5',
+                setpoint: 'C/5',
                 end_condition: '<span class="color-zero">V <= MAX_V * 0.30</span>',
                 step_safety_limits: '',
                 estimated_duration: '<span class="color-zero">4h</span>',
@@ -758,5 +864,6 @@ let test_definitions = [
             // { index: 10, indent: 0, color: 'orange', name: 'Wait', description: 'Wait for Chamber Temp', setpoint: 'CHAMBER_TEMP >= 30 °C', end_condition: '<span class="color-zero">V > MAX_V * 0.9</span>', step_safety_limits: 'POUCH_CENTER > 30 °C<br/>123', log_rate: '<span class="color-zero">&Delta; t = 10s</span>', estimated_duration: '<span class="color-zero">3h 30m</span>', step_safety_limits: 'POUCH_CENTER > 30 °C<br/>123', log_rate: '<span class="color-zero">&Delta; t = 10s</span>' },
             // // { index: 10, colspan: '6' },
             // { index: 11, indent: 0, color: '#17d305', name: 'NAME 2', description: 'DESCRIPTION', setpoint: '', end_condition: '', step_safety_limits: '', log_rate: '', estimated_duration: '' },
-        ] }
+        ]
+    }
 ];
