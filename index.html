@@ -334,6 +334,7 @@
                                     <th>Battery</th>
                                     <th>Test Procedure</th>
                                     <th>Chamber</th>
+                                    <!-- <th>T (°C)</th> -->
                                     <th>V</th>
                                     <th>I (A)</th>
                                     <th>t (h)</th>
@@ -356,6 +357,7 @@
                                     <td>{{uut}}</td>
                                     <td>{{test}}</td>
                                     <td>{{chamber}}</td>
+                                    <!-- <td>{{chamber_temp}}</td> -->
                                     <td class="color-voltage">{{v}}</td>
                                     <td class="color-current">{{i}}</td>
                                     <td class="color-time">{{st}}</td>
@@ -1401,7 +1403,8 @@
                 state,
                 history,
                 battery_info: getBatteryInfo(Math.floor((3 * Math.random()))),
-                chamber: 'Chamber 106'
+                chamber: '106',
+                chamber_temp: '23'
             });
         }
         const numPages = Math.ceil(cards.items.length / 6);
