@@ -44,7 +44,7 @@
                 _onmouseleave="toggleSidebar(false)"></i>
             <span class=""><!--<i class="fa fa-battery-three-quarters" aria-hidden="true"></i> -->
                 <span style="padding-right:0px;">TS0937</span>
-                <span class="" style="padding-right:30px;"> | <span id="view" class="translate">Channels</span></span>
+                <span class="" style="padding-right:30px;"><span class="color-zero">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><span id="view" class="translate">Channels</span></span>
             </span>
 
             <span class="w3-right" style="padding-top:5px;">
@@ -349,7 +349,7 @@
                                     <td>{{batch_state}}</td>
                                     <td>{{uut}}</td>
                                     <td>{{test}}</td>
-                                    <td>{{step}}</td>
+                                    <td>{{chamber}}</td>
                                     <td class="color-voltage">{{v}}</td>
                                     <td class="color-current">{{i}}</td>
                                     <td class="color-time">{{st}}</td>
@@ -1394,7 +1394,8 @@
                 ce: null,
                 state,
                 history,
-                battery_info: getBatteryInfo(Math.floor((3 * Math.random())))
+                battery_info: getBatteryInfo(Math.floor((3 * Math.random()))),
+                chamber: 'Chamber 106'
             });
         }
         const numPages = Math.ceil(cards.items.length / 6);
