@@ -85,7 +85,7 @@
         </div>
     </div>
     <div id="mySidebar" class="noPrint w3-sidebar w3-bar-block _w3-border w3-center w3-xlarge"
-        style="display:none;scrollbar-color:#5d5d5d #272727;width:200px;color:white;background-color: #272727;border:1px solid #5d5d5d;top:110px;font-size:28px;padding-bottom: 125px;">
+        style="z-index:9999999;display:none;scrollbar-color:#5d5d5d #272727;width:200px;color:white;background-color: #272727;border:1px solid #5d5d5d;top:80px;font-size:28px;padding-bottom: 125px;">
 
         <div id="subitem-runtime" onclick="window.location.hash = '#runtime'" class="clickable"
             style="border:1px solid #5d5d5d;;padding:30px;">
@@ -2391,7 +2391,7 @@
 
         function toggleSidebar(open = false) {
             document.getElementById('mySidebar').style.display = open ? 'block' : 'none';
-            document.getElementById('main-page').style.paddingLeft = open ? '250px' : '';
+            // document.getElementById('main-page').style.paddingLeft = open ? '250px' : '';
         }
         function toggleSubItems() {
             const elem = document.getElementById('subitems');
