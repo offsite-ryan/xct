@@ -1,1 +1,296 @@
-Lab Management
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title id="title">Lab Management</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.png?v3=3">
+    <link rel="apple-touch-icon" sizes="128x128" href="/apple-touch-icon.png?v=13">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../menu.css">
+    <link rel="stylesheet" href="../w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+<body id="body" class="" style="padding:40px;">
+
+    <!-- SIDE MENU -->
+    <!-- <div class="w3-sidebar w3-bar-block w3-xxlarge w3-center"
+        style="_padding-top:20px;width:90px;background-color:#272727;border-right:1px solid;_border-top:1px solid;top:0px;">
+        <a href="#" class="w3-bar-item w3-button color-font"><i class="fa fa-bars"></i></a>
+        <a href="#runtime" class="w3-bar-item w3-button"><i class="fa fa-th"></i></a>
+        <a href="#batch" class="w3-bar-item w3-button"><i class="fa fa-table"></i></a>
+        <a href="#configuration" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o"></i></a>
+        <a href="#system" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+        <a _href="#" class="w3-bar-item _w3-button color-zero"><i class="fa fa-group"></i></a>
+        <a href="#contextual-help" class="w3-bar-item w3-button"><i class="fa fa-question-circle"></i></a>
+    </div> -->
+
+    <!-- Sidebar -->
+    <div class="w3-xxlarge"
+        style="padding-right:75px;z-index: 9999999;position:fixed;top:0;width:100%;background-color:#272727;border:0px solid;padding-left:0px;">
+        <div style="_width:95%;padding-top:20px;background-color: #272727;">
+            <i id="menu" class="fa fa-bars" style="cursor:pointer;padding-right:25px;_color:#1599ac;"
+                onclick="toggleSidebar(true)" aria-hidden="true" _onmouseenter="toggleSidebar(true)"
+                _onmouseleave="toggleSidebar(false)"></i>
+            <span class=""><!--<i class="fa fa-battery-three-quarters" aria-hidden="true"></i> -->
+                <span style="padding-right:0px;">Lab</span>
+                <span class="" style="padding-right:30px;"><span
+                        class="color-zero">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><span id="view"
+                        class="translate">Systems</span></span>
+            </span>
+
+            <span class="w3-right" style="padding-top:5px;">
+                <div class="w3-xlarge">
+
+                    <span class="">
+                        <!-- <i id="subitem-systems" class="fa fa-battery-quarter w3-xxlarge clickable"
+                            style="padding-right:30px;color:white;" aria-hidden="true"
+                            onclick="window.location.hash = '#systems'"></i> -->
+                        <!-- <i id="subitem-apps" class="fa fa-cube w3-xxlarge clickable"
+                            style="padding-right:30px;color:white;" aria-hidden="true"
+                            onclick="window.location.hash = '#apps'"></i> -->
+                        <i id="subitem-help" class="fa fa-question-circle w3-xxlarge clickable"
+                            style="padding-right:30px;color:white;" aria-hidden="true"
+                            onclick="window.location.hash = '#contextual-help'"></i>
+                    </span>
+
+                    <span class="">
+                        <div class="w3-dropdown-hover  w3-xlarge" style="background-color:#272727;">
+                            <i class="fa fa-user-circle-o w3-xxlarge color-font" style="padding-right:5px;"
+                                aria-hidden="true"></i> &nbsp;
+                            <span id="user" class="color-font" style="padding-right:24px;"></span>
+
+                            <div class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                                style="background-color:#272727;color:white;min-width:200px;">
+                                <span class="w3-bar-item clickable" style="border-bottom:1px solid;"
+                                    onclick="signout()"><i class="fa fa-sign-out"></i> Sign out</span>
+                                <span class="w3-bar-item" style="">Language
+                                    <li class="clickable" onclick="changeLanguage('en')">English</li>
+                                    <li class="clickable" onclick="changeLanguage('de')">German</li>
+                                    <li class="">Chinese</li>
+                                </span>
+                            </div>
+                        </div>
+                    </span>
+
+                    <img class="logo2 w3-right" src="../assets/avl-logo.png" />
+                </div>
+            </span>
+        </div>
+    </div>
+    <div id="mySidebar" class="noPrint w3-sidebar w3-bar-block _w3-border w3-center w3-xlarge"
+        style="z-index:9999999;display:none;scrollbar-color:#5d5d5d #272727;width:200px;color:white;background-color: #272727;border:1px solid #5d5d5d;top:80px;font-size:28px;padding-bottom: 125px;">
+
+        <div id="lab-subitem-systems" onclick="menuSelect('systems')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style="">
+                <i class="fa fa-television" aria-hidden="true"></i>
+                <br />
+                <span class="translate">Systems</span></a>
+        </div>
+
+        <div id="lab-subitem-apps" onclick="menuSelect('apps')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style=""><i class="fa fa-cube" aria-hidden="true"></i><br /><span
+                    class="translate">Applications</span></a>
+        </div>
+
+        <!-- <div id="subitem-configuration" onclick="menuSelect('configuration')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style="" onclick=""><i class="fa fa-list" aria-hidden="true"></i><br /><span
+                    class="translate">Tests</span></a>
+        </div> -->
+
+        <!-- <div id="subitem-configuration" onclick="menuSelect('configuration')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style="" onclick=""><i class="fa fa-list" aria-hidden="true"></i><br /><span
+                    class="translate">Batteries</span></a>
+        </div> -->
+
+        <!-- <div id="subitem-configuration" onclick="menuSelect('configuration')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style="" onclick=""><i class="fa fa-random" aria-hidden="true"></i><br /><span
+                    class="translate">I/O</span></a>
+        </div> -->
+
+        <!-- <div id="subitem-configuration" onclick="menuSelect('configuration')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style="" onclick=""><i class="fa fa-snowflake-o" aria-hidden="true"></i><br /><span
+                    class="translate">Chambers</span></a>
+        </div> -->
+
+        <!-- <div id="subitem-configuration" onclick="window.location.hash = '#configuration'" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:30px;">
+            <a class="" style="" onclick=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i><br /><span
+                    class="translate">Setup</span></a>
+        </div> -->
+        <!-- 
+        <div id="subitem-transfer" onclick="menuSelect('transfer')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style="" onclick=""><i class="fa fa-database" aria-hidden="true"></i><br /><span
+                    class="translate">Data</span></a>
+        </div> -->
+
+        <!-- <div id="subitem-system" onclick="menuSelect('system')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style="" onclick=""><i class="fa fa-cog" aria-hidden="true"></i><br /><span
+                    class="translate">Configuration</span></a>
+        </div> -->
+
+        <!-- <div id="subitem-help" onclick="window.location.hash = '#contextual-help'" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:30px;display:none;">
+            <a class="" style="" onclick=""><i class="fa fa-question-circle" aria-hidden="true"></i><br /><span
+                    class="translate">Help</span></a>
+        </div> -->
+    </div>
+
+    <!-- MAIN PAGE -->
+    <div id="main-page">
+
+        <!-- SYSTEMS -->
+        <div id="lab-view-systems" style="position:relative;top:70px;_display:none;margin-left:0px;">
+            <div w3-include-html="systems.html"></div>
+        </div>
+
+        <!-- APPS -->
+        <div id="lab-view-apps" style="position:relative;top:70px;display:none;margin-left:0px;">
+            <div w3-include-html="apps.html"></div>
+        </div>
+
+        <!-- CONTEXTUAL HELP -->
+        <div id="lab-view-contextual-help" style="display:none;margin-left:0px;">
+            <div w3-include-html="contextual-help.html"></div>
+        </div>
+    </div>
+
+
+    <!-- SCRIPT IMPORTS -->
+    <script src="../key.js"></script>
+    <script src="../mlg.js"></script>
+    <script src="../w3.js"></script>
+    <script src="../HackTimer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
+    <script>
+        if (!submit({ key: localStorage.getItem('key') })) {
+            window.location.href = `./auth.html`;
+        } else {
+            // setTimeout(() => { window.location.reload() }, 15 * 1000)
+        }
+    </script>
+
+    <script>
+        let language = 'en';
+        const split = localStorage.getItem('user').split('');
+        split[0] = split[0].toUpperCase();
+        const user = split.join('');
+        document.getElementById('user').innerText = user;
+        if (user === 'Operator') {
+            document.getElementById('subitem-configuration').style.display = 'none';
+            document.getElementById('subitem-system').style.display = 'none';
+            document.getElementById('subitem-transfer').style.display = 'none';
+        } else if (user === 'Engineer') {
+            document.getElementById('subitem-system').style.display = 'none';
+        } else if (user === 'Admin') {
+        }
+        // toggleSidebar();
+
+        w3.includeHTML(() => {
+            const searchParams = new URLSearchParams(window.location.search);
+            init();
+        });
+
+
+        function init() {
+
+            // QR CODE
+            // const qrcode = new QRCode(document.getElementById('qrcode'), {
+            //     // text: 'https://offsite-ryan.github.io/xct/#runtime',
+            //     text: window.location.origin + window.location.pathname + '#runtime',
+            //     width: 175,
+            //     height: 175,
+            //     colorDark: '#fff',
+            //     colorLight: '#000',
+            //     correctLevel: QRCode.CorrectLevel.H
+            // });
+            showView();
+            changeLanguage(language);
+        }
+
+
+        function toggleSidebar(open = false) {
+            document.getElementById('mySidebar').style.display = open ? 'block' : 'none';
+            // document.getElementById('main-page').style.paddingLeft = open ? '250px' : '';
+        }
+
+        function menuSelect(name) {
+            document.getElementById('mySidebar').style.display = 'none';
+            window.location.hash = `#${name}`;
+        }
+
+        function changeView(name, elem, rowIndex = null) {
+            ['lab-view-systems', 'lab-view-apps'].forEach((v) => {
+                document.getElementById(v).style.display = 'none';
+            });
+
+            ['systems', 'apps'].forEach((v) => {
+                const elem = document.getElementById(`lab-subitem-${v}`);
+                elem.style.backgroundColor = '#272727';
+                elem.style.color = '';
+            });
+            // document.getElementById('subitem-systems').style.color = 'white';
+
+            if (name === 'systems') {
+                document.getElementById('lab-subitem-systems').style.color = '#1599ac';
+                document.getElementById('title').innerText = 'Lab - Systems'
+                document.getElementById('view').innerText = 'Systems';
+                document.getElementById('lab-view-systems').style.display = 'block';
+            } else if (name === 'apps') {
+                document.getElementById('lab-subitem-apps').style.color = '#1599ac';
+                document.getElementById('title').innerText = 'Lab - Applications'
+                document.getElementById('view').innerText = 'Applications';
+                document.getElementById('lab-view-apps').style.display = 'block';
+            }
+            toggleSidebar(false);
+        }
+
+        function showView() {
+            const hash = window.location.hash || '#systems'
+            if (hash) {
+                changeView(hash.substring(1), document.getElementById(hash.substring(1)));
+            }
+        }
+
+        window.addEventListener("popstate", (event) => {
+            showView();
+        });
+
+        function changeLanguage(name) {
+            const elems = document.getElementsByClassName('translate')
+            for (let e of elems) {
+                e.innerText = translate(e.innerText, language, name);
+            }
+            language = name;
+        }
+
+        function signout() {
+            localStorage.removeItem('key');
+            window.location.href = './';
+        }
+    </script>
+
+</body>
+
+</html>
