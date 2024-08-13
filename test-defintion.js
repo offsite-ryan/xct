@@ -217,6 +217,8 @@ function viewTest(index) {
         }
 
     });
+    // document.getElementById(`test-step-row-2`).classList.add('table-row-selected');
+    const row = document.getElementById('test-steps').rows[1].classList.add('table-row-selected');
     renderTest('test-canvas', test_definitions[index].steps);
 }
 
