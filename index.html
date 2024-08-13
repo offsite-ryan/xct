@@ -44,7 +44,9 @@
                 _onmouseleave="toggleSidebar(false)"></i>
             <span class=""><!--<i class="fa fa-battery-three-quarters" aria-hidden="true"></i> -->
                 <span style="padding-right:0px;">TS0937</span>
-                <span class="" style="padding-right:30px;"><span class="color-zero">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><span id="view" class="translate">Channels</span></span>
+                <span class="" style="padding-right:30px;"><span
+                        class="color-zero">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><span id="view"
+                        class="translate">Channels</span></span>
             </span>
 
             <span class="w3-right" style="padding-top:5px;">
@@ -1797,6 +1799,7 @@
             const channel = name.replace('CH', '');
             const channelNum = +(channel);
 
+            const isDetailShown = location.hash.startsWith(`#detail-`);
             location.hash = `#detail-${name}`;
 
             const row = Math.floor((channelNum % 6 === 0) ? (channelNum / 6) - 1 : channelNum / 6);
@@ -1876,20 +1879,26 @@
             elem.style.overflowX = 'scroll';
             // elem.style.marginBottom = '40px;';
             elem.style.scrollbarColor = '#5d5d5d #2f2f2f';
-            elem.scrollLeft = document.getElementById('card-view').scrollWidth * ((indexCards - 1) / countCards);
+            if (isDetailShown === false) {
+                elem.scrollLeft = document.getElementById('card-view').scrollWidth * ((indexCards - 1) / countCards);
+            }
 
             elem = document.getElementById('table-view');
             elem.style.maxHeight = '210px';
             elem.style.overflowY = 'scroll';
             elem.style.scrollbarColor = '#5d5d5d #2f2f2f';
-            elem.scrollTop = (indexCards * 53.5) - 53.5;
+            if (isDetailShown === false) {
+                elem.scrollTop = (indexCards * 53.5) - 53.5;
+            }
             document.getElementById('table-view-header').style.top = '0px';
 
             elem = document.getElementById('timeline-view');
             elem.style.maxHeight = '300px';
             elem.style.overflowY = 'scroll';
             elem.style.scrollbarColor = '#5d5d5d #2f2f2f';
-            elem.scrollTop = (indexCards * 53.5) - 53.5;
+            if (isDetailShown === false) {
+                elem.scrollTop = (indexCards * 53.5) - 53.5;
+            }
             document.getElementById('timeline-view-header').style.top = '0px';
         }
 
@@ -2033,7 +2042,7 @@
                 //         elem.classList.add('card-menu-option-selected');
                 //     }
                 // })
-                
+
             }
             ['cards', 'overview-counts', 'view-systems', 'view-apps', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup', 'view-setup', 'view-parameters', 'view-transfer', 'view-transfer', 'view-contextual-help'].forEach((v) => {
                 document.getElementById(v).style.display = 'none';
