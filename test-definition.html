@@ -1,206 +1,223 @@
-<div id="" class="_w3-padding w3-col s12 w3-large" style="">
+<div id="" class="_w3-padding w3-col s12 w3-large" style="padding:0px 25px 25px 25px;">
     <!-- <div style="height:100px;background: linear-gradient(to bottom right, white, white 50%, green 50%, green);">&nbsp;</div> -->
-    <span class="w3-xxlarge" style="">
-        <span>
-            <span contenteditable="true">Test Definition</span>
-            <span class="w3-large color-zero">&nbsp;&nbsp;&nbsp;15-Jul-2024</span>
-            <span class=" color-font w3-xlarge w3-right" style="padding-left:12px;padding-right:24px;cursor:pointer;"
-                onclick="closeTest()">
-                <i class="fa fa-close" aria-hidden="true"></i>
-                Close
+    <div class="sticky-test">
+        <span class="w3-xxlarge" style="">
+            <span>
+                <span contenteditable="true">Test Definition</span>
+                <span class="w3-large color-zero">&nbsp;&nbsp;&nbsp;15-Jul-2024</span>
+                <span class=" color-font w3-xlarge w3-right"
+                    style="padding-left:12px;padding-right:24px;cursor:pointer;" onclick="closeTest()">
+                    <i class="fa fa-close" aria-hidden="true"></i>
+                    Close
+                </span>
+                <span class=" color-zero w3-xlarge w3-right"
+                    style="padding-left:12px;padding-right:24px;cursor:pointer;" onclick="closeTest()">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    Save
+                </span>
+
             </span>
-            <span class=" color-zero w3-xlarge w3-right" style="padding-left:12px;padding-right:24px;cursor:pointer;"
-                onclick="closeTest()">
-                <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                Save
-            </span>
 
-        </span>
-
-        <canvas id="test-canvas" width="1000" height="150"
-            style="border:1px solid black;padding-bottom:20px;padding-top:20px;">
-            Sorry, your browser does not support canvas.
-        </canvas>
+            <canvas id="test-canvas" width="1000" height="150"
+                style="border:1px solid black;padding-bottom:20px;padding-top:20px;">
+                Sorry, your browser does not support canvas.
+            </canvas>
+    </div>
 
 
-        <div class="w3-xlarge color-font" style="padding-bottom:20px;">Test Defaults</div>
+    <div class="w3-xlarge color-font" style="padding-bottom:20px;">Test Defaults</div>
 
-        <table id="test-defaults" class="w3-table _w3-bordered w3-large"
-            style="margin-top:0px;margin-bottom:0px;color:white;_display:none;"
-            _onclick="testEditorTableClick(event, this)">
+    <table id="test-defaults" class="w3-table _w3-bordered w3-large"
+        style="margin-top:0px;margin-bottom:0px;color:white;_display:none;"
+        _onclick="testEditorTableClick(event, this)">
 
-            <tr id="test-defaults-row-0" style="border-top:1px solid #ddd;">
-                <td>
-                    <span class="" style="border-left:10px solid #0e707e;">&nbsp;&nbsp;
-                        Safety Limits
-                        <span class="w3-medium color-zero">applies to all steps unless override is provided</span>
-                        <span class="w3-right" style="cursor: pointer;"><i class="fa fa-ellipsis-v w3-xlarge"
-                                aria-hidden="true"
-                                onclick="toggleTestRowDetail(this.parentElement.parentElement.parentElement.parentElement.id)"></i></span>
-                    </span>
-                </td>
-            </tr>
-            <tr id="test-defaults-row-0-detail" style="display:none;">
-                <td style="padding-left:60px;">
-                    <table class="w3-table w3-bordered" style="width:50%;">
-                        <tr>
-                            <th class="color-font">Conditions</th>
-                        </tr>
-                        <tr style="">
-                            <td contenteditable='true' placeholder="Enter Safety Limit"></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr id="test-defaults-row-1" style="border-top:1px solid #ddd;">
-                <td>
-                    <span class="" style="border-left:10px solid #0e707e;">&nbsp;&nbsp;
-                        Log Point Conditions
-                        <span class="w3-right" style="cursor: pointer;"><i class="fa fa-ellipsis-v w3-xlarge"
-                                aria-hidden="true"
-                                onclick="toggleTestRowDetail(this.parentElement.parentElement.parentElement.parentElement.id)"></i></span>
-                    </span>
-                </td>
-            </tr>
-            <tr id="test-defaults-row-1-detail" style="display:none">
-                <td style="padding-left:60px;">
-                    <table class="w3-table w3-bordered" style="width:50%;">
-                        <tr>
-                            <th class="color-font">Mode</th>
-                            <th class="color-font">Setpoint</th>
-                            <th class="color-font" width="200">Condition</th>
-                        </tr>
-                        <tr style="">
-                            <td contenteditable='true' placeholder="Select Mode">*</td>
-                            <td contenteditable="true" placeholder="Enter Setpoint">*</td>
-                            <td><span style="display:inline-flex;"><span contenteditable="true"
-                                        placeholder="Enter Condition">t > 10s</span></span></td>
-                        </tr>
-                        <tr style="">
-                            <td contenteditable='true' placeholder="Select Mode"></td>
-                            <td contenteditable="true" placeholder="Enter Setpoint"></td>
-                            <td><span style="display:inline-flex;"><span contenteditable="true"
-                                        placeholder="Enter Condition"></span></span></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr id="test-defaults-row-2" style="border-top:1px solid #ddd;">
-                <td>
-                    <span class="" style="border-left:10px solid #0e707e;">&nbsp;&nbsp;
-                        End Conditions
-                        <span class="w3-right" style="cursor: pointer;"><i class="fa fa-ellipsis-v w3-xlarge"
-                                aria-hidden="true"
-                                onclick="toggleTestRowDetail(this.parentElement.parentElement.parentElement.parentElement.id)"></i></span>
-                    </span>
-                </td>
-            </tr>
-            <tr id="test-defaults-row-2-detail" style="display:none;">
-                <td style="padding-left:60px;">
-                    <table class="w3-table w3-bordered" style="width:50%;">
-                        <tr>
-                            <th class="color-font">Mode</th>
-                            <th class="color-font">Setpoint</th>
-                            <th class="color-font">Condition</th>
-                        </tr>
-                        <tr style="">
-                            <td contenteditable='true' placeholder="Select Mode"></td>
-                            <td contenteditable="true" placeholder="Enter Setpoint"></td>
-                            <td><span style="display:inline-flex;"><span contenteditable="true"
-                                        placeholder="Enter Condition"></span></span></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr id="test-step-row-0" style="border-top:1px solid #ddd;">
-                <td></td>
-            </tr>
-        </table>
+        <tr id="test-defaults-row-0" style="border-top:1px solid #ddd;">
+            <td>
+                <span class="" style="border-left:10px solid #0e707e;">&nbsp;&nbsp;
+                    Safety Limits
+                    <span class="w3-medium color-zero">applies to all steps unless override is provided</span>
+                    <span class="w3-right" style="cursor: pointer;"><i class="fa fa-ellipsis-v w3-xlarge"
+                            aria-hidden="true"
+                            onclick="toggleTestRowDetail(this.parentElement.parentElement.parentElement.parentElement.id)"></i></span>
+                </span>
+            </td>
+        </tr>
+        <tr id="test-defaults-row-0-detail" style="display:none;">
+            <td style="padding-left:60px;">
+                <table class="w3-table w3-bordered" style="width:50%;">
+                    <tr>
+                        <th class="color-font">Conditions</th>
+                    </tr>
+                    <tr style="">
+                        <td contenteditable='true' placeholder="Enter Safety Limit"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr id="test-defaults-row-1" style="border-top:1px solid #ddd;">
+            <td>
+                <span class="" style="border-left:10px solid #0e707e;">&nbsp;&nbsp;
+                    Log Point Conditions
+                    <span class="w3-right" style="cursor: pointer;"><i class="fa fa-ellipsis-v w3-xlarge"
+                            aria-hidden="true"
+                            onclick="toggleTestRowDetail(this.parentElement.parentElement.parentElement.parentElement.id)"></i></span>
+                </span>
+            </td>
+        </tr>
+        <tr id="test-defaults-row-1-detail" style="display:none">
+            <td style="padding-left:60px;">
+                <table class="w3-table w3-bordered" style="width:50%;">
+                    <tr>
+                        <th class="color-font">Mode</th>
+                        <th class="color-font">Setpoint</th>
+                        <th class="color-font" width="200">Condition</th>
+                    </tr>
+                    <tr style="">
+                        <td contenteditable='true' placeholder="Select Mode">*</td>
+                        <td contenteditable="true" placeholder="Enter Setpoint">*</td>
+                        <td><span style="display:inline-flex;"><span contenteditable="true"
+                                    placeholder="Enter Condition">t
+                                    > 10s</span></span></td>
+                    </tr>
+                    <tr style="">
+                        <td contenteditable='true' placeholder="Select Mode"></td>
+                        <td contenteditable="true" placeholder="Enter Setpoint"></td>
+                        <td><span style="display:inline-flex;"><span contenteditable="true"
+                                    placeholder="Enter Condition"></span></span></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr id="test-defaults-row-2" style="border-top:1px solid #ddd;">
+            <td>
+                <span class="" style="border-left:10px solid #0e707e;">&nbsp;&nbsp;
+                    End Conditions
+                    <span class="w3-right" style="cursor: pointer;"><i class="fa fa-ellipsis-v w3-xlarge"
+                            aria-hidden="true"
+                            onclick="toggleTestRowDetail(this.parentElement.parentElement.parentElement.parentElement.id)"></i></span>
+                </span>
+            </td>
+        </tr>
+        <tr id="test-defaults-row-2-detail" style="display:none;">
+            <td style="padding-left:60px;">
+                <table class="w3-table w3-bordered" style="width:50%;">
+                    <tr>
+                        <th class="color-font">Mode</th>
+                        <th class="color-font">Setpoint</th>
+                        <th class="color-font">Condition</th>
+                    </tr>
+                    <tr style="">
+                        <td contenteditable='true' placeholder="Select Mode"></td>
+                        <td contenteditable="true" placeholder="Enter Setpoint"></td>
+                        <td><span style="display:inline-flex;"><span contenteditable="true"
+                                    placeholder="Enter Condition"></span></span></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr id="test-step-row-0" style="border-top:1px solid #ddd;">
+            <td></td>
+        </tr>
+    </table>
 
-        <br />
+    <br />
 
-        <!-- TTOLBAR -->
-        <div class="w3-col s12 w3-xlarge" style="padding-bottom:10px;border-bottom:1px solid;">
-            <span class="w3-xlarge color-font">Test Definition</span>
-            <i class="fa fa-code w3-right color-current w3-padding" aria-hidden="true"
-                style="cursor:pointer;padding:5px;" onclick="downloadTest()"></i>
-            <i class="fa fa-paste w3-right w3-padding color-zero" aria-hidden="true"
-                style="_cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-copy w3-right w3-padding color-zero" aria-hidden="true"
-                style="_cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-cut w3-right w3-padding color-zero" aria-hidden="true"
-                style="_cursor:pointer;padding:5px;"></i>
-            <i class="fa fa-trash w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"
-                onclick="stepDelete()"></i>
-            <!-- <i class="fa fa-plus w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"
+    <!-- TOOLBAR -->
+    <div class="w3-col s12 w3-xlarge" style="padding-bottom:10px;border-bottom:1px solid;">
+        <span class="w3-xlarge color-font">Test Definition</span>
+        <i class="fa fa-code w3-right color-current w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"
+            onclick="downloadTest()"></i>
+        <i class="fa fa-paste w3-right w3-padding color-zero" aria-hidden="true"
+            style="_cursor:pointer;padding:5px;"></i>
+        <i class="fa fa-copy w3-right w3-padding color-zero" aria-hidden="true"
+            style="_cursor:pointer;padding:5px;"></i>
+        <i class="fa fa-cut w3-right w3-padding color-zero" aria-hidden="true" style="_cursor:pointer;padding:5px;"></i>
+        <i class="fa fa-trash w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"
+            onclick="stepDelete()"></i>
+        <!-- <i class="fa fa-plus w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"
                 onclick="stepAdd()"></i> -->
 
-            <span class="w3-right w3-dropdown-hover color-font" style="padding:5px;_padding-top:3px;padding-left:10px;background-color:#1e1e1e;">
-                <i class="fa fa-plus" style="padding-right:5px;" aria-hidden="true"></i>
+        <span class="w3-right w3-dropdown-hover color-font"
+            style="padding:5px;_padding-top:3px;padding-left:10px;background-color:#1e1e1e;">
+            <i class="fa fa-plus" style="padding-right:5px;" aria-hidden="true"></i>
 
-                <div id="step-picker-{{index}}" class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
-                    style="background-color:#272727;color:white;min-width:230px;">
-                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #28c31e;" onclick="stepAdd(this)">CC CHARGE</span></span>
-                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #2b7926;" onclick="stepAdd(this)">CV CHARGE</span></span>
-                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #41abde;" onclick="stepAdd(this)">CC DISCHARGE</span></span>
-                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #f5c80a;" onclick="stepAdd(this)">WAIT</span></span>
-                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #474747;" onclick="stepAdd(this)">REST</span></span>
-                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #9c27b0;" onclick="stepAdd(this)">NOTIFY</span></span>
-                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid #795548;" onclick="stepAdd(this)">REPORT</span></span>
-                    <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid blue;" onclick="stepAdd(this)">LOOP</span></span>
-                </div>
-            </span>
-            <!-- <i class="fa fa-list w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"></i> -->
-            <!-- <i class="fa fa-pencil-square-o color-font w3-right w3-padding" aria-hidden="true"
+            <div id="step-picker-{{index}}" class="w3-dropdown-content w3-bar-block w3-border w3-xlarge"
+                style="background-color:#272727;color:white;min-width:230px;">
+                <span class="w3-bar-item clickable" style=""><span
+                        style="padding-left:5px;border-left:10px solid #28c31e;" onclick="stepAdd(this)">CC
+                        CHARGE</span></span>
+                <span class="w3-bar-item clickable" style=""><span
+                        style="padding-left:5px;border-left:10px solid #2b7926;" onclick="stepAdd(this)">CV
+                        CHARGE</span></span>
+                <span class="w3-bar-item clickable" style=""><span
+                        style="padding-left:5px;border-left:10px solid #41abde;" onclick="stepAdd(this)">CC
+                        DISCHARGE</span></span>
+                <span class="w3-bar-item clickable" style=""><span
+                        style="padding-left:5px;border-left:10px solid #f5c80a;"
+                        onclick="stepAdd(this)">WAIT</span></span>
+                <span class="w3-bar-item clickable" style=""><span
+                        style="padding-left:5px;border-left:10px solid #474747;"
+                        onclick="stepAdd(this)">REST</span></span>
+                <span class="w3-bar-item clickable" style=""><span
+                        style="padding-left:5px;border-left:10px solid #9c27b0;"
+                        onclick="stepAdd(this)">NOTIFY</span></span>
+                <span class="w3-bar-item clickable" style=""><span
+                        style="padding-left:5px;border-left:10px solid #795548;"
+                        onclick="stepAdd(this)">REPORT</span></span>
+                <span class="w3-bar-item clickable" style=""><span style="padding-left:5px;border-left:10px solid blue;"
+                        onclick="stepAdd(this)">LOOP</span></span>
+            </div>
+        </span>
+        <!-- <i class="fa fa-list w3-right w3-padding" aria-hidden="true" style="cursor:pointer;padding:5px;"></i> -->
+        <!-- <i class="fa fa-pencil-square-o color-font w3-right w3-padding" aria-hidden="true"
                 style="cursor:pointer;padding:5px;"></i> -->
-        </div>
+    </div>
 
-        <table id="test-steps" class="w3-table w3-bordered w3-large"
-            style="margin-bottom:0px;color:white;_display:none;">
+    <table id="test-steps" class="w3-table w3-bordered w3-large" style="margin-bottom:0px;color:white;_display:none;">
 
-            <tr class="color-font" style="">
-                <th style="_width:25%;">Step</th>
-                <th>Description</th>
-                <th>Setpoint</th>
-                <th>End Condition</th>
-                <th>Step Safety Limits</th>
-                <th>Log Rate</th>
-                <th style="width:10%">Duration (h)
-                    <!-- <i class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
+        <tr class="color-font" style="">
+            <th style="_width:25%;">Step</th>
+            <th>Description</th>
+            <th>Setpoint</th>
+            <th>End Condition</th>
+            <th>Step Safety Limits</th>
+            <th>Log Rate</th>
+            <th style="width:10%">Duration (h)
+                <!-- <i class="fa fa-plus-square-o w3-right w3-xlarge" aria-hidden="true"
                         style="cursor:pointer;"></i> -->
-                </th>
-                <!-- <th style="width:1%"></th> -->
-            </tr>
+            </th>
+            <!-- <th style="width:1%"></th> -->
+        </tr>
 
-            <!-- REPEAT -->
-            <tr w3-repeat="steps" id="test-step-row-{{index}}" style="_border-top:1px solid #ddd;"
-                onclick="testEditorTableClick(this, this.rowIndex, this)">
-                <td><span id="test-step-row-{{index}}-indent" style="display:flex;">
-                        <div id="test-step-row-{{index}}-indicator" class="" style="border-left:10px solid;">
-                            &nbsp;</div>
-                        <span>{{name}}</span>
-                        <span>
-                            <!-- <i class="fa fa-caret-down" style="padding-left:10px;"></i> -->
+        <!-- REPEAT -->
+        <tr w3-repeat="steps" id="test-step-row-{{index}}" style="_border-top:1px solid #ddd;"
+            onclick="testEditorTableClick(this, this.rowIndex, this)">
+            <td><span id="test-step-row-{{index}}-indent" style="display:flex;">
+                    <div id="test-step-row-{{index}}-indicator" class="" style="border-left:10px solid;">
+                        &nbsp;</div>
+                    <span style="padding-left:10px;">{{name}}</span>
+                    <span>
+                        <!-- <i class="fa fa-caret-down" style="padding-left:10px;"></i> -->
 
-                        </span>
                     </span>
-                </td>
-                <td contenteditable="true">{{description}}</td>
-                <td contenteditable="true">{{setpoint}}</td>
-                <td contenteditable="true" class="">{{end_condition}}</td>
-                <td contenteditable="true" class="">{{step_safety_limits}}<span style="_display:none;"></span></td>
-                <td contenteditable="true" class="">{{log_rate}}</td>
-                <!-- <td contenteditable="true">{{estimated_duration}}</td> -->
-                <td contenteditable="true" class="">{{duration}}</td>
-                <!-- <td><i id="test-step-row-{{index}}-icon" class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
+                </span>
+            </td>
+            <td contenteditable="true">{{description}}</td>
+            <td contenteditable="true">{{setpoint}}</td>
+            <td contenteditable="true" class="">{{end_condition}}</td>
+            <td contenteditable="true" class="">{{step_safety_limits}}<span style="_display:none;"></span></td>
+            <td contenteditable="true" class="">{{log_rate}}</td>
+            <!-- <td contenteditable="true">{{estimated_duration}}</td> -->
+            <td contenteditable="true" class="">{{duration}}</td>
+            <!-- <td><i id="test-step-row-{{index}}-icon" class="fa fa-ellipsis-v w3-right w3-xlarge" aria-hidden="true"
                         style="cursor:pointer;color:white;"
                         onclick="toggleTestRowDetail(this.parentElement.parentElement.id)"></i></td> -->
-            </tr>
+        </tr>
 
-            <tr class="" style="color:#1599ac;">
-                <td colspan="6"><b>Estimated Test Duration</b></td>
-                <td><b>19d 8h 0m</b></td>
-            </tr>
-        </table>
+        <tr class="" style="color:#1599ac;">
+            <td colspan="6"><b>Estimated Test Duration</b></td>
+            <td><b>19d 8h 0m</b></td>
+        </tr>
+    </table>
 
 </div>

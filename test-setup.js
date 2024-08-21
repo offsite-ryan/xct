@@ -276,18 +276,18 @@ function onKeyDown(event) {
 //     renderTest('test-6-canvas', obj.steps);
 // }
 
-function closeTest() {
-    document.getElementById('table-tests-recent').style.display = 'block';
-    document.getElementById('test-view-1').style.display = 'none';
-    document.getElementById('test-view-2').style.display = 'none';
-    document.getElementById('test-view-3').style.display = 'none';
-    document.getElementById('test-view-4').style.display = 'none';
-    document.getElementById('test-view-5').style.display = 'none';
-    document.getElementById('test-view-6').style.display = 'none';
-    document.getElementById('test-view').style.display = 'none';
-    window.location.hash = 'configuration';
-    // document.getElementById('test-save-cancel').style.display = 'none';
-}
+// function closeTest() {
+//     document.getElementById('table-tests-recent').style.display = 'block';
+//     document.getElementById('test-view-1').style.display = 'none';
+//     document.getElementById('test-view-2').style.display = 'none';
+//     document.getElementById('test-view-3').style.display = 'none';
+//     document.getElementById('test-view-4').style.display = 'none';
+//     document.getElementById('test-view-5').style.display = 'none';
+//     document.getElementById('test-view-6').style.display = 'none';
+//     document.getElementById('test-view').style.display = 'none';
+//     window.location.hash = 'configuration';
+//     // document.getElementById('test-save-cancel').style.display = 'none';
+// }
 
 function collapseRowDetail(index) {
     if (index === 0) {

@@ -46,12 +46,12 @@
                 <span style="padding-left:10px;"> Test System - TS0937</span>
                 <span class="" style="padding-right:30px;"><span
                         class="color-zero">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><span id="view"
-                        class="translate">Channels</span></span>
+                        class="translate">Channels
+                    </span></span>
             </span>
 
             <span class="w3-right" style="padding-top:5px;">
                 <div class="w3-xlarge">
-
                     <span class="">
                         <i id="subitem-systems" class="fa fa-sitemap w3-xxlarge clickable color-current"
                             style="padding-right:30px;" aria-hidden="true"
@@ -59,9 +59,6 @@
                         <i id="subitem-apps" class="fa fa-cube w3-xxlarge clickable"
                             style="display:none;padding-right:30px;color:white;" aria-hidden="true"
                             onclick="window.location.hash = '#apps'"></i>
-                        <!-- <i id="subitem-help" class="fa fa-question-circle w3-xxlarge clickable"
-                            style="display:none;padding-right:30px;color:white;" aria-hidden="true"
-                            onclick="window.location.hash = '#contextual-help'"></i> -->
                     </span>
 
                     <span class="">
@@ -105,29 +102,29 @@
                     class="translate">Control</span></a>
         </div>
 
-        <div id="subitem-configuration" onclick="menuSelect('configuration')" class="clickable"
+        <div id="subitem-tests" onclick="menuSelect('tests')" class="clickable"
             style="border:1px solid #5d5d5d;;padding:15px;">
             <a class="" style="" onclick=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i><br /><span
                     class="translate">Tests</span></a>
         </div>
 
-        <div id="subitem-configuration" onclick="menuSelect('configuration')" class="clickable"
+        <div id="subitem-batteries" onclick="menuSelect('batteries')" class="clickable"
             style="border:1px solid #5d5d5d;;padding:15px;">
             <a class="" style="" onclick=""><i class="fa fa-battery-empty" aria-hidden="true"></i><br /><span
                     class="translate">Batteries</span></a>
         </div>
 
-        <div id="subitem-configuration" onclick="menuSelect('configuration')" class="clickable"
+        <div id="subitem-devices" onclick="menuSelect('devices')" class="clickable"
             style="border:1px solid #5d5d5d;;padding:15px;">
             <a class="" style="" onclick=""><i class="fa fa-random" aria-hidden="true"></i><br /><span
-                    class="translate">I/O</span></a>
+                    class="translate">Devices</span></a>
         </div>
 
-        <div id="subitem-configuration" onclick="menuSelect('configuration')" class="clickable"
+        <!-- <div id="subitem-configuration" onclick="menuSelect('configuration')" class="clickable"
             style="border:1px solid #5d5d5d;;padding:15px;">
-            <a class="" style="" onclick=""><i class="fa fa-snowflake-o" aria-hidden="true"></i><br /><span
-                    class="translate">Chambers</span></a>
-        </div>
+            <a class="" style="" onclick=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i><br /><span
+                    class="translate">Setup</span></a>
+        </div> -->
 
         <!-- <div id="subitem-configuration" onclick="window.location.hash = '#configuration'" class="clickable"
             style="border:1px solid #5d5d5d;;padding:30px;">
@@ -135,7 +132,7 @@
                     class="translate">Setup</span></a>
         </div> -->
 
-        <div id="subitem-transfer" onclick="menuSelect('transfer')" class="clickable"
+        <div id="subitem-data" onclick="menuSelect('data')" class="clickable"
             style="border:1px solid #5d5d5d;;padding:15px;">
             <a class="" style="" onclick=""><i class="fa fa-database" aria-hidden="true"></i><br /><span
                     class="translate">Data</span></a>
@@ -147,7 +144,7 @@
                     class="translate">System</span></a>
         </div>
 
-        <div id="subitem-help" onclick="window.location.hash = '#contextual-help'" class="clickable"
+        <div id="subitem-help" onclick="window.location.hash = '#help'" class="clickable"
             style="border:1px solid #5d5d5d;;padding:15px;">
             <a class="" style="" onclick=""><i class="fa fa-question-circle" aria-hidden="true"></i><br /><span
                     class="translate">Help</span></a>
@@ -172,7 +169,8 @@
                         </span>
                     </span> -->
 
-                    <div id="overview-counts" class="w3-row w3-center _w3-right-align" style="padding-top:5px;">
+                    <div id="overview-counts" class="w3-row w3-center _w3-right-align"
+                        style="display:none;padding-top:5px;">
                         <div class="w3-col s12 w3-center" style="display:flex;justify-content:space-evenly;">
                             <!-- FILTER -->
                             <div id="_filter_paused" class="w3-padding w3-margin  w3-col clickable w3-xlarge"
@@ -182,21 +180,21 @@
                                     style="width:100%;background-color: #272727;">
                                     <i id="" class="fa fa-caret-down w3-xxlarge w3-right" style="cursor:pointer;"
                                         aria-hidden="true"></i>
-                                    <i class="fa fa-filter"></i>&nbsp;&nbsp;Filter
+                                    <i class="fa fa-th-large"></i>&nbsp;&nbsp;Group by
                                     <div class=" w3-dropdown-content w3-bar-block w3-border w3-xlarge"
                                         style="right:0;width:125px;min-width:250px;background-color:#2f2f2f;color:white;">
                                         <a id="menu-view-large" class="w3-bar-item w3-button" onclick="">
-                                            Project A
+                                            Project
                                         </a>
                                         <a id="menu-view-large" class="w3-bar-item w3-button" onclick="">
-                                            Project A
+                                            Chamber
                                         </a>
                                         <a id="menu-view-large" class="w3-bar-item w3-button" onclick="">
-                                            Project A
+                                            Battery Lot
                                         </a>
-                                        <a id="menu-view-large" class="w3-bar-item w3-button" onclick="">
+                                        <!-- <a id="menu-view-large" class="w3-bar-item w3-button" onclick="">
                                             <input placeholder="Search" />
-                                        </a>
+                                        </a> -->
                                     </div>
                                 </span>
                             </div>
@@ -266,6 +264,10 @@
                                             onclick="selectCardType('timeline')"><i class="fa fa-clock-o"
                                                 aria-hidden="true"></i>
                                             Timeline</a>
+                                        <a id="menu-view-chamber" class="w3-bar-item w3-button"
+                                            onclick="selectCardType('chamber')"><i class="fa fa-snowflake-o"
+                                                aria-hidden="true"></i>
+                                            Chamber</a>
                                     </div>
                                 </span>
                             </div>
@@ -447,6 +449,202 @@
                                     <i class="fa fa-pause "></i>
                                     <i class="fa fa-download w3-right"></i>
                                 </span> -->
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- CHAMBER CARDS -->
+                    <div id="chamber-view" class="w3-col s12 w3-large"
+                        style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:left;">
+
+                        <!-- <div class="card w3-padding _w3-margin w3-card w3-col s3 w3-xxlarge" style="_display:none;">
+                            <span class="" style="">Chamber 106</span>
+                            <span class="w3-right color-current" style="">27 °C</span>
+
+                            <div id="chamber-profile-chart" style="padding-right:25px;"></div>
+
+                            <span class="w3-xlarge">
+                                <span
+                                    style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
+                                    <span style="width: 225px;">On&nbsp;Test </span>
+                                    <span
+                                        style="border:0.5px solid #6e6e6e;_margin:2.5px;_padding:2.5px;background: linear-gradient(to right, #70ad47 0%, #70ad47 32%, #ffc000 52%, #4e4e4e 72%, #dadada 92%, red 100%);width:100%;height:20px;">
+                                        &nbsp;
+                                    </span>
+                                    <span style="width: 50px;padding-left:10px;">26</span>
+                                </span>
+
+                                <span
+                                    style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
+                                    <span style="width: 225px;">Paused </span>
+                                    <div
+                                        style="border:0.5px solid #6e6e6e;_margin:2.5px;_padding:2.5px;background: linear-gradient(to right, #ffc000 17%, #1f1f1c 17%);width:100%;height:20px;">
+                                        &nbsp;
+                                    </div>
+                                    <span style="width:50px;padding-left:10px;">&nbsp;&nbsp;9</span>
+                                </span>
+
+                                <span
+                                    style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
+                                    <span style="width: 225px;">Empty </span>
+                                    <div
+                                        style="border:0.5px solid #6e6e6e;margin:2.5px;padding:2.5px;background: linear-gradient(to right, #404040 21%, #1f1f1c 21%);width:100%;height:20px;">
+                                        &nbsp;
+                                    </div>
+                                    <span style="width: 50px;padding-left:10px;">11</span>
+                                </span>
+
+                                <span
+                                    style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
+                                    <span style="width: 225px;">Complete </span>
+                                    <div
+                                        style="border:0.5px solid #6e6e6e;margin:2.5px;padding:2.5px;background: linear-gradient(to right, #c2c2c2 17%, #1f1f1c 17%);width:100%;height:20px;">
+                                        &nbsp;
+                                    </div>
+                                    <span style="width: 50px;padding-left:10px;">11</span>
+                                </span>
+
+                                <span
+                                    style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
+                                    <span style="width: 225px;">Error </span>
+                                    <div
+                                        style="border:0.5px solid #6e6e6e;margin:2.5px;padding:2.5px;background: linear-gradient(to right, red 5%, #1f1f1c 5%);width:100%;height:20px;">
+                                        &nbsp;
+                                    </div>
+                                    <span style="width: 50px;padding-left:10px;">&nbsp;&nbsp;1</span>
+                                </span>
+                            </span>
+                        </div> -->
+
+
+                        <div _w3-repeat="items" class="card w3-padding _w3-margin w3-card w3-col s3 w3-xxlarge"
+                            style="display:none;">
+                            <span class="" style="">
+                                Chamber 106
+                                <span class="_w3-xlarge w3-right" style="padding-top:7px;font-size:23px;">
+                                    <div class=""
+                                        style="border-radius:10px;border:1px solid;background-color:#19c1daa8;">
+                                        <span class="" style="padding:20px;margin:20px;">27&nbsp;°C</span>
+                                    </div>
+                                </span>
+                                <div class="w3-large color-zero" style="">
+                                    12 Channels
+                                    <div class="w3-right w3-large color-zero" style="padding-right:5px;">Setpoint: 0 °C
+                                    </div>
+                                </div>
+                            </span>
+                            <div id="chamber-profile-chart-2" style="padding-right:25px;"></div>
+
+                            <span class=""
+                                style="padding-left:25px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;">
+                                <span class="w3-large" style="width:33%;padding-bottom:10px;">On&nbsp;Test: <span
+                                        class="color-current">
+                                        <span
+                                            style="width:50px;width: 45px;display: inline-flex;background-color: #70ad47;justify-content: center;color: black;border-radius: 10px;">
+                                            5
+                                        </span>
+                                    </span></span>
+                                <span class="w3-large" style="width:33%;padding-bottom:10px;">Paused:&nbsp;
+                                    <span
+                                        style="width:50px;_padding-left:10px;width: 45px;display: inline-flex;background-color: #ffc000;justify-content: center;color: black;border-radius: 10px;">
+                                        9
+                                    </span>
+                                </span>
+                                <span class="w3-large" style="width:33%;padding-bottom:10px;">Empty: <span
+                                        class="color-current">
+                                        <span
+                                            style="width:50px;_padding-left:10px;width: 45px;display: inline-flex;background-color: #404040;justify-content: center;color: #c2c2c2;border-radius: 10px;">
+                                            9
+                                        </span>
+                                    </span></span>
+                                <span class="w3-large" style="width:40%;padding-bottom:10px;">Complete: <span
+                                        class="color-current">
+                                        <span
+                                            style="width:50px;_padding-left:10px;width: 45px;display: inline-flex;background-color: #d3d3d3;justify-content: center;color: black;border-radius: 10px;">
+                                            9
+                                        </span>
+                                    </span></span>
+                                <span class="w3-large" style="width:33%;padding-bottom:10px;">Error: <span
+                                        class="color-current">
+                                        <span
+                                            style="width:50px;_padding-left:10px;width: 45px;display: inline-flex;background-color: red;justify-content: center;color: white;border-radius: 10px;">
+                                            0
+                                        </span>
+                                    </span></span>
+                            </span>
+                        </div>
+
+                        <span>
+                            <img src="./assets/chamber-view-2.png" height="1075"
+                                style="width:100%;padding-top:30px;"></img>
+                        </span>
+
+                        <!-- <span>
+                            <img src="./assets/chamber-view-3.png" height="950"
+                                style="width:100%;padding-top:30px;"></img>
+                        </span> -->
+
+                        <div w3-repeat="items" class="w3-col"
+                            style="display:none;width:20%;_display:block;_max-width:295px;min-width:295px;padding:12px;_min-height:700px;">
+
+                            <!-- <span style="padding-left:20px;padding-right:20px;display:inline-flex;align-items:center;width:100%">
+                                <span style="width: 100px;">On&nbsp;Test </span>
+                                <div
+                                    style="border:0.5px solid #6e6e6e;margin:2.5px;padding:2.5px;background: linear-gradient(to right, #70ad47 32%, #1f1f1c 32%);width:100%;height:20px;">
+                                    &nbsp;
+                                </div>
+                                <span style="width: 50px;padding-left:10px;">26</span>
+                            </span>
+
+                            <span style="padding-left:20px;padding-right:20px;display:inline-flex;align-items:center;width:100%">
+                                <span style="width: 100px;">Paused </span>
+                                <div
+                                    style="border:0.5px solid #6e6e6e;margin:2.5px;padding:2.5px;background: linear-gradient(to right, #ffc000 17%, #1f1f1c 17%);width:100%;height:20px;">
+                                    &nbsp;
+                                </div>
+                                <span style="width: 50px;padding-left:10px;">&nbsp;&nbsp;9</span>
+                            </span>
+
+                            <span style="padding-left:20px;padding-right:20px;display:inline-flex;align-items:center;width:100%">
+                                <span style="width: 100px;">Empty </span>
+                                <div
+                                    style="border:0.5px solid #6e6e6e;margin:2.5px;padding:2.5px;background: linear-gradient(to right, #404040 17%, #1f1f1c 21%);width:100%;height:20px;">
+                                    &nbsp;
+                                </div>
+                                <span style="width: 50px;padding-left:10px;">11</span>
+                            </span> -->
+
+                            <div id="{{chamber}}" class="card w3-padding w3-card" onclick="clickCard(this.id)">
+                                <!-- <div class="" style="padding-bottom:10px;font-size:28px;">
+                                    <span id="card-name-{{name}}" class="color-moniker" style="">{{name}}</span>
+                                    <span id="" class="color-moniker w3-right"
+                                        style="margin-top:8px;font-size:20px !important;">{{uut}}</span>
+                                </div> -->
+
+                                <span>
+                                    <img src="./assets/chamber-1.png" height="350" style="width:100%;"></img>
+                                </span>
+                                <!-- <span id="card-view-"
+                                    style="min-height:30px;font-size:20px;margin-top:3px;display:flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-between;">
+                                    <span class="color-voltage">{{v}}</span>
+                                    <span class="color-current">{{i}}</span>
+                                    <span class="color-time">{{st}}</span>
+                                </span> -->
+
+                                <span class="w3-medium"
+                                    style="display:flex;justify-content: space-between;display:none;">
+                                    <!-- <span class="color-current">{{uut}}</span> -->
+                                    <span style="_font-size:12px;margin-top:3px;">
+                                        <span class="color-current">{{cycles}}</span>
+                                        <span class="color-font"> / </span>
+                                        <span class="color-time">50</span>
+                                    </span>
+                                </span>
+
+                                <div id="card-chart-{{name}}" name="card-chart"
+                                    style="margin-top:3px;padding-top:10px;">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -906,47 +1104,84 @@
             </div>
         </div>
 
-        <!-- SYSTEMS -->
-        <div id="view-systems" style="display:none;margin-left:0px;">
-            <div w3-include-html="systems.html"></div>
+        <!-- VIEW -->
+        <div id="view-view" style="display:none;margin-left:0px;">
+            <!-- <div w3-include-html="./views/view.html"></div> -->
         </div>
 
-        <!-- APPS -->
-        <div id="view-apps" style="display:none;margin-left:0px;">
-            <div w3-include-html="apps.html"></div>
+        <!-- CONTROL -->
+        <div id="view-control" style="display:none;margin-left:0px;">
+            <!-- <div w3-include-html="./views/control.html"></div> -->
         </div>
 
-        <!-- BATTERY SETUP -->
-        <div id="view-battery-setup" style="display:none;margin-left:0px;">
+        <!-- TESTS -->
+        <div id="view-tests" style="display:none;margin-left:0px;">
+            <div w3-include-html="./views/tests.html"></div>
         </div>
 
-        <!-- TEST SETUP -->
-        <div id="view-test-setup" style="display:none;margin-left:0px;">
+        <!-- BATTERIES -->
+        <div id="view-batteries" style="display:none;margin-left:0px;">
+            <div w3-include-html="./views/batteries.html"></div>
         </div>
 
-        <!-- SYSTEM SETUP -->
-        <div id="view-system-setup" style="display:none;margin-left:0px;">
+        <!-- DEVICES -->
+        <div id="view-devices" style="display:none;margin-left:0px;">
+            <div w3-include-html="./views/devices.html"></div>
+        </div>
+
+        <!-- DATA -->
+        <div id="view-data" style="display:none;margin-left:0px;">
+            <!-- <div w3-include-html="./views/data.html"></div> -->
+            <div w3-include-html="./in-development.html"></div>
         </div>
 
         <!-- SYSTEM -->
-        <div id="view-setup" style="display:none;margin-left:0px;">
-            <div w3-include-html="system.html"></div>
+        <div id="view-system" style="display:none;margin-left:0px;">
+            <div w3-include-html="./views/system.html"></div>
         </div>
+
+        <!-- HELP -->
+        <div id="view-help" style="display:none;margin-left:0px;">
+            <div w3-include-html="./views/help.html"></div>
+        </div>
+
+        <!-- ======================================== -->
+
+        <!-- SYSTEM -->
+        <div id="view-control" style="display:none;margin-left:0px;">
+        </div>
+
+        <!-- BATTERY SETUP -->
+        <!-- <div id="view-battery-setup" style="display:none;margin-left:0px;">
+        </div> -->
+
+        <!-- TEST SETUP -->
+        <!-- <div id="view-test-setup" style="display:none;margin-left:0px;">
+        </div> -->
+
+        <!-- SYSTEM SETUP -->
+        <!-- <div id="view-system-setup" style="display:none;margin-left:0px;">
+        </div> -->
+
+        <!-- SYSTEM -->
+        <!-- <div id="view-setup" style="display:none;margin-left:0px;">
+            <div w3-include-html="system.html"></div>
+        </div> -->
 
         <!-- TRANSFER -->
-        <div id="view-transfer" style="display:none;margin-left:0px;">
+        <!-- <div id="view-transfer" style="display:none;margin-left:0px;">
             <div w3-include-html="transfer.html"></div>
-        </div>
+        </div> -->
 
         <!-- PARAMETERS -->
-        <div id="view-parameters" style="display:none;margin-left:0px;">
+        <!-- <div id="view-parameters" style="display:none;margin-left:0px;">
             <div w3-include-html="configuration.html"></div>
-        </div>
+        </div> -->
 
         <!-- CONTEXTUAL HELP -->
-        <div id="view-contextual-help" style="display:none;margin-left:0px;">
+        <!-- <div id="view-contextual-help" style="display:none;margin-left:0px;">
             <div w3-include-html="contextual-help.html"></div>
-        </div>
+        </div> -->
     </div>
 
     <!-- BOTTOM MENU -->
@@ -1189,6 +1424,7 @@
     <script src="mlg.js"></script>
     <script src="w3.js"></script>
     <script src="HackTimer.js"></script>
+    <script src="chart-definitions/chamber-profile-chart.js"></script>
     <script src="chart-definitions/card.js"></script>
     <script src="chart-definitions/runtime-heatmap.js"></script>
     <script src="chart-definitions/semi-circle-guage.js"></script>
@@ -1758,6 +1994,13 @@
             chartDetailI = new ApexCharts(document.getElementById(`chart-detail-2`), optionsI);
             chartDetailI.render();
 
+            // const chartChamber = new ApexCharts(document.getElementById(`chamber-profile-chart`), optionsChamber);
+            // chartChamber.render();
+
+            optionsChamber.chart.height = 300;
+            const chartChamber2 = new ApexCharts(document.getElementById(`chamber-profile-chart-2`), optionsChamber);
+            chartChamber2.render();
+
 
             // BATTERIES
             const obj = { batteries: [] };
@@ -1997,6 +2240,7 @@
             document.getElementById('card-view').style.display = 'none';
             document.getElementById('table-view').style.display = 'none';
             document.getElementById('timeline-view').style.display = 'none';
+            document.getElementById('chamber-view').style.display = 'none';
 
             if (type === 'large') {
                 document.getElementById('card-view').style.display = 'flex';
@@ -2023,6 +2267,8 @@
                 document.getElementById('table-view').style.display = 'block';
             } else if (type === 'timeline') {
                 document.getElementById('timeline-view').style.display = 'block';
+            } else if (type === 'chamber') {
+                document.getElementById('chamber-view').style.display = 'block';
             }
         }
 
@@ -2044,16 +2290,69 @@
                 // })
 
             }
-            ['cards', 'overview-counts', 'view-systems', 'view-apps', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup', 'view-setup', 'view-parameters', 'view-transfer', 'view-transfer', 'view-contextual-help'].forEach((v) => {
-                document.getElementById(v).style.display = 'none';
+            ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup', 'view-setup', 'view-parameters', 'view-transfer', 'view-transfer', 'view-contextual-help'].forEach((v) => {
+                const elem = document.getElementById(v);
+                if (elem) {
+                    elem.style.display = 'none';
+                }
             });
 
-            ['runtime', 'batch', 'configuration', 'systems', 'apps', 'system', 'transfer', 'help'].forEach((v) => {
+            // ['configuration-tab-view-tests','configuration-tab-view-batteries'].forEach((v) => {
+            //     document.getElementById(v).style.display = 'none';
+            // });
+
+            ['runtime', 'batch', 'system', /*'transfer'*/, 'help'].forEach((v) => {
                 const elem = document.getElementById(`subitem-${v}`);
                 elem.style.backgroundColor = '#272727';
                 elem.style.color = '';
             });
-            document.getElementById('subitem-systems').style.color = 'white';
+
+
+            // =============================================================
+
+            if (['runtime', 'control', 'tests', 'batteries', 'devices', 'data', 'system', 'help', 'tests'].indexOf(name) >= 0) {
+                ['runtime', 'batch', 'tests', 'batteries', 'devices', 'data', 'system', 'help', 'tests'].forEach((v) => {
+                    const elem = document.getElementById(`subitem-${v}`);
+                    elem.style.backgroundColor = '#272727';
+                    elem.style.color = '';
+                });
+                ['tests', 'batteries', 'devices'].forEach((v) => {
+                    document.getElementById(`view-${v}`).style.display = 'none';
+                });
+                ['view-data', 'overview-counts', 'configuration-test', 'test-view', 'view-tests', 'view-help', 'view-parameters', 'view-system', 'view-batteries'].forEach((v) => {
+                    const elem = document.getElementById(`${v}`);
+                    if (elem) {
+                        elem.style.display = 'none';
+                    }
+                });
+
+                document.getElementById('title').innerText = `BTS - ${name}`;
+                document.getElementById(`subitem-${name}`).style.color = '#1599ac';
+                document.getElementById(`subitem-${name}`).style.backgroundColor = '#1e1e1e';
+                if (name === 'view') {
+                    document.getElementById('view').innerText = 'Channels';
+                } else if (name === 'control') {
+                    document.getElementById('view').innerText = 'Contol - Batch Operations';
+                } else if (name === 'tests') {
+                    document.getElementById('view').innerText = 'Tests';
+                } else if (name === 'batteries') {
+                    document.getElementById('view').innerText = 'Batteries';
+                } else if (name === 'devices') {
+                    document.getElementById('view').innerText = 'Devices';
+                } else if (name === 'data') {
+                    document.getElementById('view').innerText = 'Data';
+                } else if (name === 'system') {
+                    document.getElementById('view').innerText = 'System';
+                } else if (name === 'help') {
+                    document.getElementById('view').innerText = 'Help';
+                }
+                elem = document.getElementById(`view-${name}`);
+                if (elem) {
+                    elem.style.display = 'block';
+                }
+            }
+
+            // =============================================================
 
             if (name === 'runtime') {
                 const formatDate = (offset) => {
@@ -2076,26 +2375,6 @@
                 // document.getElementById('chart-heatmap').style.display = 'block';
                 // closeDetail();
                 updateMenu(name);
-            } else if (name === 'systems') {
-                document.getElementById('subitem-systems').style.color = '#1599ac';
-                // document.getElementById('subitem-systems').style.color = 'red';
-                document.getElementById('title').innerText = 'BTS - Site Overview'
-                document.getElementById('overview-counts').style.display = 'none';
-                document.getElementById('view').innerText = 'Site Overview';
-                document.getElementById('view-systems').style.display = 'block';
-                document.getElementById('runtime-select-view').style.display = 'none';
-                // document.getElementById('chart-heatmap').style.display = 'none';
-                updateMenu(name);
-            } else if (name === 'apps') {
-                document.getElementById('subitem-apps').style.color = '#1599ac';
-                // document.getElementById('subitem-systems').style.color = 'red';
-                document.getElementById('title').innerText = 'BTS - Applications'
-                document.getElementById('overview-counts').style.display = 'none';
-                document.getElementById('view').innerText = 'Applications';
-                document.getElementById('view-apps').style.display = 'block';
-                document.getElementById('runtime-select-view').style.display = 'none';
-                // document.getElementById('chart-heatmap').style.display = 'none';
-                updateMenu(name);
             } else if (name === 'batch') {
                 document.getElementById('subitem-batch').style.color = '#1599ac';
                 document.getElementById('subitem-batch').style.backgroundColor = '#1e1e1e';
@@ -2106,78 +2385,102 @@
                 document.getElementById('runtime-select-view').style.display = 'none';
                 // document.getElementById('chart-heatmap').style.display = 'block';
                 updateMenu(name);
-            } else if (name === 'transfer') {
-                document.getElementById('subitem-transfer').style.color = '#1599ac';
-                document.getElementById('subitem-transfer').style.backgroundColor = '#1e1e1e';
-                document.getElementById('title').innerText = 'BTS - Data'
-                document.getElementById('overview-counts').style.display = 'none';
-                document.getElementById('view').innerText = 'Data';
-                document.getElementById('view-transfer').style.display = 'block';
-                document.getElementById('runtime-select-view').style.display = 'none';
-                // document.getElementById('chart-heatmap').style.display = 'none';
-                updateMenu(name);
-            } else if (name.startsWith('test-setup')) {
-                document.getElementById('title').innerText = 'BTS - Test Setup'
-                document.getElementById('view').innerText = 'Test Setup';
-                document.getElementById('view-test-setup').style.display = 'block';
-                // document.getElementById('chart-heatmap').style.display = 'none';
-                updateMenu(name);
-            } else if (name === 'battery-setup') {
-                document.getElementById('title').innerText = 'BTS - Battery Setup'
-                document.getElementById('view').innerText = 'Battery Setup';
-                document.getElementById('view-battery-setup').style.display = 'block';
-                // document.getElementById('chart-heatmap').style.display = 'none';
-                updateMenu(name);
-            } else if (name === 'system-setup') {
-                document.getElementById('title').innerText = 'BTS - System Setup'
-                document.getElementById('view').innerText = 'System Setup';
-                document.getElementById('view-system-setup').style.display = 'block';
-                // document.getElementById('chart-heatmap').style.display = 'none';
-                updateMenu(name);
             } else if (name === 'contextual-help') {
                 document.getElementById('subitem-help').style.color = '#1599ac';
                 document.getElementById('subitem-help').style.backgroundColor = '#1e1e1e';
                 document.getElementById('title').innerText = 'BTS - Help'
                 document.getElementById('view').innerText = 'Help';
-                document.getElementById('view-contextual-help').style.display = 'block';
+                // document.getElementById('view-contextual-help').style.display = 'block';
                 // document.getElementById('chart-heatmap').style.display = 'none';
                 updateMenu(name);
-            } else if (name === 'system') {
-                document.getElementById('subitem-system').style.color = '#1599ac';
-                document.getElementById('subitem-system').style.backgroundColor = '#1e1e1e';
-                document.getElementById('title').innerText = 'BTS - System'
-                document.getElementById('view').innerText = 'System';
-                document.getElementById('view-setup').style.display = 'block';
-                // document.getElementById('chart-heatmap').style.display = 'none';
-                updateMenu(name);
-            } else if (name.startsWith('configuration')) {
-                document.getElementById('subitem-configuration').style.color = '#1599ac';
-                document.getElementById('subitem-configuration').style.backgroundColor = '#1e1e1e';
-                document.getElementById('title').innerText = 'BTS - Setup'
-                document.getElementById('view').innerText = 'Setup';
-                document.getElementById('view-parameters').style.display = 'block';
-                // document.getElementById('chart-heatmap').style.display = 'none';
-                if (name.indexOf('-test') > 0) {
-                    changeConfigurationView('tests');
-                    if (name.indexOf('-test-') > 0) {
-                        const index = +(name.replace('configuration-test-', ''));
-                        viewTest(index);
-                    } else if (name.indexOf('-test') > 0) {
-                        const index = +(name.replace('configuration-test', ''));
-                        viewTest(7);
-                    }
-                }
-                if (name.indexOf('-battery') > 0) {
-                    changeConfigurationView('batteries');
-                    if (name.indexOf('-battery-') > 0) {
-                        const index = +(name.replace('configuration-battery-', ''));
-                        viewBattery(index);
-                    }
-                }
-                updateMenu(name);
-                // if (name.indexOf('-battery') < 0 && name.indexOf('-test') < 0) {
-                // }
             }
+
+
+
+            // else if (name === 'systems') {
+            //     document.getElementById('subitem-systems').style.color = '#1599ac';
+            //     // document.getElementById('subitem-systems').style.color = 'red';
+            //     document.getElementById('title').innerText = 'BTS - Site Overview'
+            //     document.getElementById('overview-counts').style.display = 'none';
+            //     document.getElementById('view').innerText = 'Site Overview';
+            //     document.getElementById('view-systems').style.display = 'block';
+            //     document.getElementById('runtime-select-view').style.display = 'none';
+            //     // document.getElementById('chart-heatmap').style.display = 'none';
+            //     updateMenu(name);
+            // } else if (name === 'apps') {
+            //     document.getElementById('subitem-apps').style.color = '#1599ac';
+            //     // document.getElementById('subitem-systems').style.color = 'red';
+            //     document.getElementById('title').innerText = 'BTS - Applications'
+            //     document.getElementById('overview-counts').style.display = 'none';
+            //     document.getElementById('view').innerText = 'Applications';
+            //     document.getElementById('view-apps').style.display = 'block';
+            //     document.getElementById('runtime-select-view').style.display = 'none';
+            //     // document.getElementById('chart-heatmap').style.display = 'none';
+            //     updateMenu(name);
+            // } else if (name === 'transfer') {
+            //     document.getElementById('subitem-transfer').style.color = '#1599ac';
+            //     document.getElementById('subitem-transfer').style.backgroundColor = '#1e1e1e';
+            //     document.getElementById('title').innerText = 'BTS - Data'
+            //     document.getElementById('overview-counts').style.display = 'none';
+            //     document.getElementById('view').innerText = 'Data';
+            //     document.getElementById('view-transfer').style.display = 'block';
+            //     document.getElementById('runtime-select-view').style.display = 'none';
+            //     // document.getElementById('chart-heatmap').style.display = 'none';
+            //     updateMenu(name);
+            // } else if (name.startsWith('test-setup')) {
+            //     document.getElementById('title').innerText = 'BTS - Test Setup'
+            //     document.getElementById('view').innerText = 'Test Setup';
+            //     document.getElementById('view-test-setup').style.display = 'block';
+            //     // document.getElementById('chart-heatmap').style.display = 'none';
+            //     updateMenu(name);
+            // } else if (name === 'battery-setup') {
+            //     document.getElementById('title').innerText = 'BTS - Battery Setup'
+            //     document.getElementById('view').innerText = 'Battery Setup';
+            //     document.getElementById('view-battery-setup').style.display = 'block';
+            //     // document.getElementById('chart-heatmap').style.display = 'none';
+            //     updateMenu(name);
+            // } else if (name === 'system-setup') {
+            //     document.getElementById('title').innerText = 'BTS - System Setup'
+            //     document.getElementById('view').innerText = 'System Setup';
+            //     document.getElementById('view-system-setup').style.display = 'block';
+            //     // document.getElementById('chart-heatmap').style.display = 'none';
+            //     updateMenu(name);
+            // } else if (name === 'system') {
+            //     // document.getElementById('subitem-system').style.color = '#1599ac';
+            //     // document.getElementById('subitem-system').style.backgroundColor = '#1e1e1e';
+            //     // document.getElementById('title').innerText = 'BTS - System'
+            //     // document.getElementById('view').innerText = 'System';
+            //     // document.getElementById('view-setup').style.display = 'block';
+            //     // // document.getElementById('chart-heatmap').style.display = 'none';
+            //     // updateMenu(name);
+            // } else if (name.startsWith('configuration')) {
+            //     document.getElementById('subitem-configuration').style.color = '#1599ac';
+            //     document.getElementById('subitem-configuration').style.backgroundColor = '#1e1e1e';
+            //     document.getElementById('title').innerText = 'BTS - Setup'
+            //     document.getElementById('view').innerText = 'Setup';
+            //     document.getElementById('view-parameters').style.display = 'block';
+            //     // document.getElementById('chart-heatmap').style.display = 'none';
+            //     if (name.indexOf('-test') > 0) {
+            //         changeConfigurationView('tests');
+            //         if (name.indexOf('-test-') > 0) {
+            //             const index = +(name.replace('configuration-test-', ''));
+            //             viewTest(index);
+            //         } else if (name.indexOf('-test') > 0) {
+            //             const index = +(name.replace('configuration-test', ''));
+            //             viewTest(7);
+            //         }
+            //     }
+            //     if (name.indexOf('-battery') > 0) {
+            //         changeConfigurationView('batteries');
+            //         if (name.indexOf('-battery-') > 0) {
+            //             const index = +(name.replace('configuration-battery-', ''));
+            //             viewBattery(index);
+            //         }
+            //     }
+            //     updateMenu(name);
+            //     // if (name.indexOf('-battery') < 0 && name.indexOf('-test') < 0) {
+            //     // }
+            // }
             toggleSidebar(false);
         }
 

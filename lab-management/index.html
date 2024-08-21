@@ -89,20 +89,50 @@
         </div>
     </div>
     <div id="mySidebar" class="noPrint w3-sidebar w3-bar-block _w3-border w3-center w3-xlarge"
-        style="z-index:9999999;display:none;scrollbar-color:#5d5d5d #272727;width:200px;color:white;background-color: #272727;border:1px solid #5d5d5d;top:80px;font-size:28px;padding-bottom: 125px;">
+        style="z-index:9999999;display:none;scrollbar-color:#5d5d5d #272727;width:200px;color:white;background-color: #272727;border:1px solid #5d5d5d;top:100px;font-size:28px;padding-bottom: 125px;">
 
         <div id="lab-subitem-systems" onclick="menuSelect('systems')" class="clickable"
             style="border:1px solid #5d5d5d;;padding:20px;">
             <a class="" style="">
-                <i class="fa fa-television" aria-hidden="true"></i>
+                <i class="fa fa-window-restore" aria-hidden="true"></i>
                 <br />
                 <span class="translate">Systems</span></a>
         </div>
 
-        <div id="lab-subitem-apps" onclick="menuSelect('apps')" class="clickable"
+        <!-- <div id="lab-subitem-apps" onclick="menuSelect('apps')" class="clickable"
             style="border:1px solid #5d5d5d;;padding:20px;">
             <a class="" style=""><i class="fa fa-cube" aria-hidden="true"></i><br /><span
                     class="translate">Applications</span></a>
+        </div> -->
+
+        <div id="lab-subitem-monitoring" onclick="menuSelect('monitoring')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style=""><i class="fa fa-television" aria-hidden="true"></i><br /><span
+                    class="translate">Monitoring</span></a>
+        </div>
+
+        <div id="lab-subitem-planning" onclick="menuSelect('planning')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style=""><i class="fa fa-calendar" aria-hidden="true"></i><br /><span
+                    class="translate">Planning</span></a>
+        </div>
+
+        <div id="lab-subitem-energy" onclick="menuSelect('energy')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style=""><i class="fa fa-bolt" aria-hidden="true"></i><br /><span
+                    class="translate">Energy</span></a>
+        </div>
+
+        <div id="lab-subitem-analysis" onclick="menuSelect('analysis')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style=""><i class="fa fa-database" aria-hidden="true"></i><br /><span
+                    class="translate">Analysis</span></a>
+        </div>
+
+        <div id="lab-subitem-collaboration" onclick="menuSelect('collaboration')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:20px;">
+            <a class="" style=""><i class="fa fa-group" aria-hidden="true"></i><br /><span
+                    class="translate">Collaboration</span></a>
         </div>
 
         <!-- <div id="subitem-configuration" onclick="menuSelect('configuration')" class="clickable"
@@ -167,6 +197,31 @@
             <div w3-include-html="apps.html"></div>
         </div>
 
+        <!-- MONITORING -->
+        <div id="lab-view-monitoring" style="display:none;margin-left:0px;">
+            <!-- <div w3-include-html="contextual-help.html"></div> -->
+        </div>
+
+        <!-- PLANNING -->
+        <div id="lab-view-planning" style="display:none;margin-left:0px;">
+            <!-- <div w3-include-html="contextual-help.html"></div> -->
+        </div>
+
+        <!-- energy -->
+        <div id="lab-view-energy" style="display:none;margin-left:0px;">
+            <!-- <div w3-include-html="contextual-help.html"></div> -->
+        </div>
+
+        <!-- ANALYSIS -->
+        <div id="lab-view-analysis" style="display:none;margin-left:0px;">
+            <!-- <div w3-include-html="contextual-help.html"></div> -->
+        </div>
+
+        <!-- COLLABORATION -->
+        <div id="lab-view-collaboration" style="display:none;margin-left:0px;">
+            <!-- <div w3-include-html="contextual-help.html"></div> -->
+        </div>
+
         <!-- CONTEXTUAL HELP -->
         <div id="lab-view-contextual-help" style="display:none;margin-left:0px;">
             <div w3-include-html="contextual-help.html"></div>
@@ -192,17 +247,14 @@
     </script>
 
     <script>
+
         let language = 'en';
         const split = localStorage.getItem('user').split('');
         split[0] = split[0].toUpperCase();
         const user = split.join('');
         document.getElementById('user').innerText = user;
         if (user === 'Operator') {
-            document.getElementById('subitem-configuration').style.display = 'none';
-            document.getElementById('subitem-system').style.display = 'none';
-            document.getElementById('subitem-transfer').style.display = 'none';
         } else if (user === 'Engineer') {
-            document.getElementById('subitem-system').style.display = 'none';
         } else if (user === 'Admin') {
         }
         // toggleSidebar();
@@ -227,16 +279,18 @@
             // });
             showView();
             changeLanguage(language);
+
+            toggleSidebar(true)
         }
 
 
         function toggleSidebar(open = false) {
             document.getElementById('mySidebar').style.display = open ? 'block' : 'none';
-            // document.getElementById('main-page').style.paddingLeft = open ? '250px' : '';
+            document.getElementById('main-page').style.paddingLeft = open ? '230px' : '';
         }
 
         function menuSelect(name) {
-            document.getElementById('mySidebar').style.display = 'none';
+            // document.getElementById('mySidebar').style.display = 'none';
             window.location.hash = `#${name}`;
         }
 
@@ -245,7 +299,7 @@
                 document.getElementById(v).style.display = 'none';
             });
 
-            ['systems', 'apps'].forEach((v) => {
+            ['systems', /*'apps',*/'monitoring','planning','energy','analysis','collaboration'].forEach((v) => {
                 const elem = document.getElementById(`lab-subitem-${v}`);
                 elem.style.backgroundColor = '#272727';
                 elem.style.color = '';
@@ -262,8 +316,33 @@
                 document.getElementById('title').innerText = 'Lab - Applications'
                 document.getElementById('view').innerText = 'Applications';
                 document.getElementById('lab-view-apps').style.display = 'block';
+            } else if (name === 'monitoring') {
+                document.getElementById('lab-subitem-monitoring').style.color = '#1599ac';
+                document.getElementById('title').innerText = 'Lab - Monitoring'
+                document.getElementById('view').innerText = 'Monitoring';
+                document.getElementById('lab-view-monitoring').style.display = 'block';
+            } else if (name === 'planning') {
+                document.getElementById('lab-subitem-planning').style.color = '#1599ac';
+                document.getElementById('title').innerText = 'Lab - Planning'
+                document.getElementById('view').innerText = 'Planning';
+                document.getElementById('lab-view-planning').style.display = 'block';
+            } else if (name === 'energy') {
+                document.getElementById('lab-subitem-energy').style.color = '#1599ac';
+                document.getElementById('title').innerText = 'Lab - Energy'
+                document.getElementById('view').innerText = 'Energy';
+                document.getElementById('lab-view-energy').style.display = 'block';
+            } else if (name === 'analysis') {
+                document.getElementById('lab-subitem-analysis').style.color = '#1599ac';
+                document.getElementById('title').innerText = 'Lab - Analysis'
+                document.getElementById('view').innerText = 'Analysis';
+                document.getElementById('lab-view-analysis').style.display = 'block';
+            } else if (name === 'collaboration') {
+                document.getElementById('lab-subitem-collaboration').style.color = '#1599ac';
+                document.getElementById('title').innerText = 'Lab - Collaboration'
+                document.getElementById('view').innerText = 'Collaboration';
+                document.getElementById('lab-view-collaboration').style.display = 'block';
             }
-            toggleSidebar(false);
+            // toggleSidebar(false);
         }
 
         function showView() {

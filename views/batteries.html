@@ -1,0 +1,93 @@
+<div class="w3-container _w3-padding w3-large">
+    <div class="w3-row" style="padding-bottom:25px;padding-top:35px;">
+
+        <div _id="" _class="" _style="">
+
+            <div id="table-batteries" style="display:block;">
+                <span class="w3-xlarge w3-text-white">
+                    <span class="">
+                        <i class="fa fa-list" aria-hidden="true"></i> Available Templates
+                        <span class="w3-right">
+                            <i class="fa fa-plus color-zero w3-padding"></i>
+                            <i class="fa fa-download color-zero w3-padding"></i>
+                            <i class="fa fa-download color-zero w3-padding" style="rotate:180deg;"></i>
+                            <i class="fa fa-trash-o color-zero w3-padding"></i>
+                        </span>
+                        <!-- <input class="w3-xlarge w3-right" style="margin:3px;padding-bottom:5px;min-width:300px;" placeholder="Search" /> -->
+                    </span>
+                </span>
+                <table id="" class="w3-table w3-bordered w3-large" style="margin-top:15px;margin-bottom:25px;">
+                    <tr class="color-font">
+                        <th width="25"><i class="fa fa-square-o"></i></th>
+                        <th style="_width:15%;"><i class="fa fa-filter" aria-hidden="true"></i> Name</th>
+                        <th style="_width:18%;"><i class="fa fa-filter" aria-hidden="true"></i> Project</th>
+                        <th style="_width:20%;"><i class="fa fa-filter" aria-hidden="true"></i> Author</th>
+                        <th style="_width:25%;">Cloned From</th>
+                        <th style="_width:25%;">Date Modified</th>
+                    </tr>
+                    <tr class="" style="cursor:pointer;" onclick="viewBattery(this.rowIndex)">
+                        <td><i class="fa fa-square-o"></i></td>
+                        <td>TXW2067</td>
+                        <td>Project A</td>
+                        <td class="color-zero">Tom Jones</td>
+                        <td class="color-zero">LiFePOx67<span class="color-zero w3-medium"> v003</span></td>
+                        <td class="color-zero">2024-06-24 11:36 AM</td>
+                    </tr>
+                    <tr style="cursor:pointer;" onclick="viewBattery(this.rowIndex)">
+                        <td><i class="fa fa-square-o"></i></td>
+                        <td>TXW-MI</td>
+                        <td>Project B</td>
+                        <td class="color-zero">Amy Lynn</td>
+                        <td class="color-zero"></td>
+                        <td class="color-zero">2024-05-24 3:45 PM</td>
+                    </tr>
+                    <tr style="cursor:pointer;" onclick="viewBattery(this.rowIndex)">
+                        <td><i class="fa fa-square-o"></i></td>
+                        <td>LG4567</td>
+                        <td>Project C</td>
+                        <td class="color-zero">Amy Lynn</td>
+                        <td class="color-zero"></td>
+                        <td class="color-zero">2024-05-24 3:45 PM</td>
+                    </tr>
+                </table>
+
+                
+                <!-- <span class="w3-xlarge w3-text-white">
+                    <span class="">
+                        <i class="fa fa-history" aria-hidden="true"></i> Active
+                        <input class="w3-xlarge w3-right" style="margin:3px;padding-bottom:5px;min-width:300px;" placeholder="Search" />
+                    </span>
+                </span>
+                <table id="batteries" class="w3-table w3-bordered w3-large" style="margin-top:15px;margin-bottom:25px;">
+                    <tr class="color-font">
+                        <th style="_width:15%;"><i class="fa fa-filter" aria-hidden="true"></i> Name</th>
+                        <th style="_width:15%;"><i class="fa fa-filter" aria-hidden="true"></i> Location</th>
+                        <th style="_width:18%;"><i class="fa fa-filter" aria-hidden="true"></i> Project</th>
+                        <th style="_width:20%;"><i class="fa fa-filter" aria-hidden="true"></i> Author</th>
+                        <th style="_width:25%;">Cloned From</th>
+                    </tr>
+                    <tr id="active-battery-{{card_index}}" w3-repeat="batteries" style="cursor:pointer;" onclick="viewActiveBattery(this.rowIndex)">
+                        <td>{{serial_number}}</td>
+                        <td>{{location}}</td>
+                        <td>{{project_name}}</td>
+                        <td class="color-zero">{{project_engineer}}</td>
+                        <td class="color-zero">{{template_name}}</td>
+                    </tr>
+                </table> -->
+            </div>
+        </div>
+
+        <div id="battery-view-1" class="_w3-padding w3-col s12 w3-large" style="display:none;">
+            <div w3-include-html="battery-definition-2.html"></div>
+        </div>
+
+        <div id="battery-view-2" class="_w3-padding w3-col s12 w3-large" style="display:none;">
+            <div w3-include-html="battery-definition-2.html"></div>
+        </div>
+
+        <div id="battery-view-3" class="_w3-padding w3-col s12 w3-large" style="display:none;">
+            <div w3-include-html="battery-definition-2.html"></div>
+        </div>
+
+    </div>
+</div>

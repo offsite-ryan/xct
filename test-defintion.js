@@ -1,25 +1,60 @@
 
-const WAIT = '#f5c80a'
-const CC_DISCHARGE = '#41abde';
-const CV_DISCHARGE = '#386c85';
-const CC_CHARGE = '#28c31e';
-const CV_CHARGE = '#2b7926';
-const REST = '#474747';
-const NOTIFY = '#9c27b0';
-const LOOP = 'blue';
-const REPORT = '#795548';
-
-// const WAIT = '#009688'
-// const CC_DISCHARGE = '#41abde';
+// const WAIT = '#f5c80a'
+// // const CC_DISCHARGE = '#41abde';
 // const CV_DISCHARGE = '#386c85';
-// const CC_CHARGE = '#3f51b5';
-// const CV_CHARGE = '#8b9cff';
-// // const CC_CHARGE = '#28c31e';
-// // const CV_CHARGE = '#2b7926';
-// const REST = '#808080';
+// const CC_CHARGE = '#28c31e';
+// const CV_CHARGE = '#2b7926';
+// const REST = '#474747';
 // const NOTIFY = '#9c27b0';
-// const LOOP = '#607d8b';
+// const LOOP = 'blue';
 // const REPORT = '#795548';
+
+// const WAIT = '#939191'
+// const CC_DISCHARGE = '#B5EBE8';
+// // const CV_DISCHARGE = '#386c85';
+// const CC_CHARGE = '#46ccc5';
+// const CV_CHARGE = '#659ba8';
+// // // const CC_CHARGE = '#28c31e';
+// // // const CV_CHARGE = '#2b7926';
+// const REST = '#646464';
+// const NOTIFY = '#85008c';
+// const LOOP = '#256199';
+// const REPORT = '#9c241d';
+
+// const WAIT = '#4F685C '
+// const CC_DISCHARGE = '#687A66';
+// // const CV_DISCHARGE = '#386c85';
+// const CC_CHARGE = '#5a781d';
+// const CV_CHARGE = '#2C5B29';
+// // // const CC_CHARGE = '#28c31e';
+// // // const CV_CHARGE = '#2b7926';
+// const REST = '#646464';
+// const NOTIFY = '#85008c';
+// const LOOP = '#256199';
+// const REPORT = '#9c241d';
+
+const WAIT = '#6e6e6e '
+const CC_DISCHARGE = '#a3bdbd';
+const CV_DISCHARGE = '#386c85';
+const CC_CHARGE = '#beedbb';
+const CV_CHARGE = '#bdd5bd';
+const REST = '#646464';
+const NOTIFY = '#8f6377';
+const LOOP = '#256199';
+const REPORT = '#71471b';
+
+function closeTest() {
+    document.getElementById('table-tests-recent').style.display = 'block';
+    document.getElementById('test-view-1').style.display = 'none';
+    document.getElementById('test-view-2').style.display = 'none';
+    document.getElementById('test-view-3').style.display = 'none';
+    document.getElementById('test-view-4').style.display = 'none';
+    document.getElementById('test-view-5').style.display = 'none';
+    document.getElementById('test-view-6').style.display = 'none';
+    document.getElementById('test-view').style.display = 'none';
+    window.location.hash = 'tests';
+    // document.getElementById('test-save-cancel').style.display = 'none';
+}
 
 function viewTest(index) {
     index = 0;

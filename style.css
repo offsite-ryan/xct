@@ -231,12 +231,11 @@ input a:hover {
 }
 
 .charge {
-    /* background-color: #99ce28; */
-    background-color: #70AD47;
+    background-color: #70ad47;
 }
 .discharge {
-    /* background-color: #75e0f0; */
-    background-color: #9DC3E6;
+    /* border:1px solid #70ad47; */
+    background: repeating-linear-gradient( 90deg, #000 1px, #70ad47 3px);
 }
 .on-test {
     /* background-color: green; */
@@ -249,9 +248,12 @@ input a:hover {
 .rest {
     /* background-color: green; */
     background-color: rgb(184, 184, 184);
+    background: repeating-linear-gradient( 45deg, #000, rgb(184, 184, 184) 25px);
 }
 .paused {
-    background-color: #fcd00e;
+    /* border:1px solid #e6cc5d; */
+    /* background-color: #e6cc5d; */
+    background: repeating-linear-gradient( 0deg, #000, #e6cc5d 1px);
 }
 .error {
     background-color: #ff0000;
@@ -298,6 +300,13 @@ div.sticky {
     position: sticky;
     top: 85px;
     z-index: 999999;
+}
+div.sticky-test {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 100px;
+    z-index: 999999;
+    background-color: #1e1e1e;
 }
 _thead.sticky {
     position: -webkit-sticky; /* Safari */
