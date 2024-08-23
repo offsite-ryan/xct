@@ -114,6 +114,12 @@
                     class="translate">Batteries</span></a>
         </div>
 
+        <div id="subitem-chambers" onclick="menuSelect('chambers')" class="clickable"
+            style="border:1px solid #5d5d5d;;padding:15px;">
+            <a class="" style="" onclick=""><i class="fa fa-snowflake-o" aria-hidden="true"></i><br /><span
+                    class="translate">Chamber</span></a>
+        </div>
+
         <div id="subitem-devices" onclick="menuSelect('devices')" class="clickable"
             style="border:1px solid #5d5d5d;;padding:15px;">
             <a class="" style="" onclick=""><i class="fa fa-random" aria-hidden="true"></i><br /><span
@@ -180,21 +186,21 @@
                                     style="width:100%;background-color: #272727;">
                                     <i id="" class="fa fa-caret-down w3-xxlarge w3-right" style="cursor:pointer;"
                                         aria-hidden="true"></i>
-                                    <i class="fa fa-th-large"></i>&nbsp;&nbsp;Group by
+                                    <i class="fa fa-filter"></i>&nbsp;&nbsp;Filter
                                     <div class=" w3-dropdown-content w3-bar-block w3-border w3-xlarge"
                                         style="right:0;width:125px;min-width:250px;background-color:#2f2f2f;color:white;">
                                         <a id="menu-view-large" class="w3-bar-item w3-button" onclick="">
-                                            Project
+                                            Project A
                                         </a>
                                         <a id="menu-view-large" class="w3-bar-item w3-button" onclick="">
-                                            Chamber
+                                            Project B
                                         </a>
                                         <a id="menu-view-large" class="w3-bar-item w3-button" onclick="">
-                                            Battery Lot
+                                            Project C
                                         </a>
-                                        <!-- <a id="menu-view-large" class="w3-bar-item w3-button" onclick="">
+                                        <a id="menu-view-large" class="w3-bar-item w3-button" onclick="">
                                             <input placeholder="Search" />
-                                        </a> -->
+                                        </a>
                                     </div>
                                 </span>
                             </div>
@@ -519,7 +525,7 @@
 
 
                         <div _w3-repeat="items" class="card w3-padding _w3-margin w3-card w3-col s3 w3-xxlarge"
-                            style="display:none;">
+                            style="_display:none;">
                             <span class="" style="">
                                 Chamber 106
                                 <span class="_w3-xlarge w3-right" style="padding-top:7px;font-size:23px;">
@@ -530,7 +536,7 @@
                                 </span>
                                 <div class="w3-large color-zero" style="">
                                     12 Channels
-                                    <div class="w3-right w3-large color-zero" style="padding-right:5px;">Setpoint: 0 °C
+                                    <div class="w3-right w3-large color-zero" style="padding-right:5px;">Setpoint: 40 °C
                                     </div>
                                 </div>
                             </span>
@@ -540,38 +546,40 @@
                                 style="padding-left:25px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;">
                                 <span class="w3-large" style="width:33%;padding-bottom:10px;">On&nbsp;Test: <span
                                         class="color-current">
-                                        <span
-                                            style="width:50px;width: 45px;display: inline-flex;background-color: #70ad47;justify-content: center;color: black;border-radius: 10px;">
+                                        <span class="color-current" style="padding-left:10px;">5</span>
+                                        <!-- <span
+                                            style="width:50px;height:25px;display: inline-flex;background-color: #70ad47;justify-content: center;color: black;border-radius: 10px;">
                                             5
-                                        </span>
+                                        </span> -->
                                     </span></span>
                                 <span class="w3-large" style="width:33%;padding-bottom:10px;">Paused:&nbsp;
-                                    <span
-                                        style="width:50px;_padding-left:10px;width: 45px;display: inline-flex;background-color: #ffc000;justify-content: center;color: black;border-radius: 10px;">
+                                    <span class="color-current" style="padding-left:10px;">3</span>
+                                    <!-- <span
+                                        style="width:50px;height:25px;display: inline-flex;background-color: #ffc000;justify-content: center;color: black;border-radius: 10px;">
                                         9
-                                    </span>
+                                    </span> -->
                                 </span>
-                                <span class="w3-large" style="width:33%;padding-bottom:10px;">Empty: <span
-                                        class="color-current">
-                                        <span
-                                            style="width:50px;_padding-left:10px;width: 45px;display: inline-flex;background-color: #404040;justify-content: center;color: #c2c2c2;border-radius: 10px;">
+                                <span class="w3-large" style="width:33%;padding-bottom:10px;">Empty
+                                    <span class="color-current" style="padding-left:10px;">2</span>    
+                                    <!-- <span
+                                            style="width:50px;height:25px;display: inline-flex;background-color: #404040;justify-content: center;color: #c2c2c2;border-radius: 10px;">
                                             9
-                                        </span>
-                                    </span></span>
-                                <span class="w3-large" style="width:40%;padding-bottom:10px;">Complete: <span
-                                        class="color-current">
-                                        <span
-                                            style="width:50px;_padding-left:10px;width: 45px;display: inline-flex;background-color: #d3d3d3;justify-content: center;color: black;border-radius: 10px;">
+                                        </span> -->
+                                    </span>
+                                <span class="w3-large" style="width:40%;padding-bottom:10px;">Complete:
+                                    <span class="color-current" style="padding-left:10px;">2</span>    
+                                    <!-- <span
+                                            style="width:50px;height:25px;display: inline-flex;background-color: #d3d3d3;justify-content: center;color: black;border-radius: 10px;">
                                             9
-                                        </span>
-                                    </span></span>
-                                <span class="w3-large" style="width:33%;padding-bottom:10px;">Error: <span
-                                        class="color-current">
-                                        <span
-                                            style="width:50px;_padding-left:10px;width: 45px;display: inline-flex;background-color: red;justify-content: center;color: white;border-radius: 10px;">
+                                        </span> -->
+                                    </span>
+                                <span class="w3-large color-zero" style="width:33%;padding-bottom:10px;">Error: 
+                                    <span class="color-zero" style="padding-left:10px;">0</span>    
+                                    <!-- <span
+                                            style="width:50px;height:25px;display: inline-flex;background-color: #2b2b2b;justify-content: center;border-radius: 10px;">
                                             0
-                                        </span>
-                                    </span></span>
+                                        </span> -->
+                                    </span>
                             </span>
                         </div>
 
@@ -580,10 +588,10 @@
                                 style="width:100%;padding-top:30px;"></img>
                         </span>
 
-                        <!-- <span>
+                        <span>
                             <img src="./assets/chamber-view-3.png" height="950"
                                 style="width:100%;padding-top:30px;"></img>
-                        </span> -->
+                        </span>
 
                         <div w3-repeat="items" class="w3-col"
                             style="display:none;width:20%;_display:block;_max-width:295px;min-width:295px;padding:12px;_min-height:700px;">

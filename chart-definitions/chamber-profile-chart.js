@@ -69,8 +69,8 @@ const optionsChamber = {
     },
     annotations: {
         xaxis: [{
-            x: 105,
-            x2: 106,
+            x: 275,
+            x2: 276,
             strokeDashArray: 0,
             opacity: 1,
             borderColor: '#775DD0',
