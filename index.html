@@ -1798,7 +1798,7 @@
             });
         }
 
-        cards.items.forEach((v)=>{
+        cards.items.forEach((v) => {
             if (v.state === 'on_test') { cards.chambers[v.chamber_index].on_test++; }
             if (v.state === 'paused') { cards.chambers[v.chamber_index].paused++; }
             if (v.state === 'empty') { cards.chambers[v.chamber_index].empty++; }
@@ -2460,6 +2460,21 @@
                 }
             } else if (type === 'table') {
                 document.getElementById('table-view').style.display = 'block';
+
+                const elems = document.getElementsByClassName('card-chamber');
+                active_chamber = null;
+                for (let e of elems) {
+                    e.classList.remove('chamber-selected');
+                }
+                cards.items.forEach((v) => {
+                    ['table-row-'].forEach((v2) => {
+                        const elem = document.getElementById(`${v2}${v.name}`);
+                        elem.classList.remove('w3-hide');
+                        if (v.state !== active_filter && active_filter !== 'all') {
+                            elem.classList.add('w3-hide');
+                        }
+                    });
+                })
             } else if (type === 'timeline') {
                 document.getElementById('timeline-view').style.display = 'block';
             } else if (type === 'chamber') {
