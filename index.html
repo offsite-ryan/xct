@@ -2758,7 +2758,7 @@
         }
 
         // FILTER CHAMBER
-        function filterChamber(name) {
+        function filterChamber(name, toggle = true) {
             console.log(active_filter);
             isSelected = document.getElementById(`chamber_${name}`).classList.contains('chamber-selected');
             const elems = document.getElementsByClassName('card-chamber');
@@ -2773,13 +2773,14 @@
                 });
             })
 
-            if (isSelected) {
+            if (isSelected && toggle) {
                 active_chamber = null;
                 document.getElementById(`chamber_${name}`).classList.remove('chamber-selected');
 
                 cards.items.forEach((v) => {
                     ['table-row-'].forEach((v2) => {
                         const elem = document.getElementById(`${v2}${v.name}`);
+                        elem.classList.remove('w3-hide');
                         if (v.state !== active_filter && active_filter !== 'all') {
                             elem.classList.add('w3-hide');
                         }
@@ -2802,7 +2803,6 @@
                     });
                 })
             }
-            // filterRuntime(active_filter);
         }
 
         // FILTER RUNTIME
@@ -2864,6 +2864,10 @@
                         }
                     });
                 })
+            }
+            console.log(active_chamber);
+            if (active_chamber) {
+                filterChamber(active_chamber, false);
             }
             // const filtered = cards.items.filter((v) => v.state === name);
             // w3.displayObject("cards", cards);
