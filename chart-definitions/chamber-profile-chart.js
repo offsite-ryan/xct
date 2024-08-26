@@ -90,11 +90,11 @@ const optionsChamber = {
         ]
     },
     xaxis: {
-        type: 'category',
+        type: 'datetime',
         labels: {
             show: false,
             style: {
-                colors: '#FFF'
+                colors: '#3d3d3d'
             }
         },
         axisBorder: {
@@ -113,6 +113,8 @@ const optionsChamber = {
         //     show: true,
         // }
         // categories: [-24, '', '', '', '', '', '', '', '', '', '', '', 'Now']
+        // categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+        categories: [0, 1, 2, 3, 4, 5]
     },
     yaxis: [{
         show: true,
@@ -120,7 +122,7 @@ const optionsChamber = {
             show: true,
             minWidth: 30,
             style: {
-                colors: '#FFF',
+                colors: '#929292',
                 fontFamily: 'Verdana',
                 fontSize: '15px',
             }

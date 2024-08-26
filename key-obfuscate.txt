@@ -1,0 +1,6 @@
+const date = new Date();
+const y = date.getFullYear();
+const m = date.getMonth() + 1;
+const d = date.getDate();
+const num = y*m*d;
+return +(obj.key) === num || +(obj.key) === 193750

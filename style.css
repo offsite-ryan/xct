@@ -69,6 +69,17 @@ body {
     margin: 5px;
     background-color: #1e1e1e;
 }
+
+.card-chamber {
+    /* min-height: 190px; */
+    cursor: pointer;
+    /* border: 1px solid #c5c5c5; */
+    margin: 5px;
+    background-color: #1e1e1e;
+    min-width: 400px;
+    max-width: 800px;
+    /* width: 400px; */
+}
 table {
     background-color: #1e1e1e;
 }
@@ -301,6 +312,12 @@ div.sticky {
     top: 85px;
     z-index: 999999;
 }
+div.sticky-chamber {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 195px;
+    /* z-index: 999999; */
+}
 div.sticky-test {
     position: -webkit-sticky; /* Safari */
     position: sticky;
@@ -329,6 +346,15 @@ tr.sticky-detail {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0px;
+    /* z-index: 999999; */
+    /* background-color: #1e1e1e; */
+    background-color: #272727;
+    /* border-bottom: 3px solid white !important; */
+}
+tr.sticky-chamber {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 575px;
     /* z-index: 999999; */
     /* background-color: #1e1e1e; */
     background-color: #272727;

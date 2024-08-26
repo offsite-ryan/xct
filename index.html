@@ -335,6 +335,73 @@
                 <!-- CARDS -->
                 <div id="cards" class="w3-row" style="display:none;_margin-bottom:25px;_padding-bottom:50px;">
 
+                    <!-- CHAMBERS -->
+                    <div id="chamber-view" class="sticky-chamber"
+                        style="display:flex;justify-content:left;padding-top:10px;padding-bottom:10px;border-bottom:1px solid;background-color: #272727;overflow-x:auto;">
+                        <div w3-repeat="chambers"
+                            class="card-chamber w3-padding _w3-margin w3-card _w3-col _s3 w3-xxlarge"
+                            style="_display:none;">
+                            <span class="" style="">
+                                Chamber {{name}}
+                                <span class="_w3-xlarge w3-right" style="padding-top:7px;font-size:23px;">
+                                    <div class=""
+                                        style="border-radius:10px;border:1px solid;background-color:#19c1daa8;">
+                                        <span class="" style="padding:5px;margin:20px;">{{temp}}&nbsp;°C</span>
+                                    </div>
+                                </span>
+                                <!-- <div class="w3-large color-zero" style="">
+                            <span class="color-font">SAE 1437 - +/- 40 °C</span>
+                        </div> -->
+                                <div class="w3-large color-zero" style="">
+                                    <span class="_color-font">SAE 1437 +/- 40 °C</span>
+                                    <div class="w3-right w3-large color-zero" style="padding-right:5px;">{{temp}} °C
+                                    </div>
+                                </div>
+                            </span>
+                            <div id="chamber-profile-chart-{{name}}" style="padding-right:25px;"></div>
+
+                            <span class=""
+                                style="padding-left:75px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;">
+                                <span class="w3-large" style="width:33%;padding-bottom:10px;">On&nbsp;Test: <span
+                                        class="color-current">
+                                        <span class="color-current" style="padding-left:0px;">5</span>
+                                        <!-- <span
+                                    style="width:50px;height:25px;display: inline-flex;background-color: #70ad47;justify-content: center;color: black;border-radius: 10px;">
+                                    5
+                                </span> -->
+                                    </span></span>
+                                <span class="w3-large" style="width:33%;padding-bottom:10px;">Paused:&nbsp;
+                                    <span class="color-current" style="padding-left:0px;">3</span>
+                                    <!-- <span
+                                style="width:50px;height:25px;display: inline-flex;background-color: #ffc000;justify-content: center;color: black;border-radius: 10px;">
+                                9
+                            </span> -->
+                                </span>
+                                <span class="w3-large" style="width:33%;padding-bottom:10px;">Empty
+                                    <span class="color-current" style="padding-left:0px;">2</span>
+                                    <!-- <span
+                                    style="width:50px;height:25px;display: inline-flex;background-color: #404040;justify-content: center;color: #c2c2c2;border-radius: 10px;">
+                                    9
+                                </span> -->
+                                </span>
+                                <span class="w3-large" style="width:40%;padding-bottom:10px;">Complete:
+                                    <span class="color-current" style="padding-left:0px;">2</span>
+                                    <!-- <span
+                                    style="width:50px;height:25px;display: inline-flex;background-color: #d3d3d3;justify-content: center;color: black;border-radius: 10px;">
+                                    9
+                                </span> -->
+                                </span>
+                                <span class="w3-large color-zero" style="width:33%;padding-bottom:10px;">Error:
+                                    <span class="color-zero" style="padding-left:0px;">0</span>
+                                    <!-- <span
+                                    style="width:50px;height:25px;display: inline-flex;background-color: #2b2b2b;justify-content: center;border-radius: 10px;">
+                                    0
+                                </span> -->
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
                     <!-- TABLE -->
                     <div id="table-view" class="w3-col s12 w3-large w3-hoverable" style="display:block;">
                         <table class="w3-table w3-bordered w3-xlarge">
@@ -389,6 +456,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <br />
                     </div>
 
                     <!-- LARGE / SMALL CARDS -->
@@ -461,8 +529,104 @@
 
 
                     <!-- CHAMBER CARDS -->
-                    <div id="chamber-view" class="w3-col s12 w3-large"
-                        style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:left;">
+
+                    <!-- <br />
+                    <div w3-repeat="chambers" class="w3-xxlarge w3-row-padding w3-padding" style="">
+                        <div class="w3-padding w3-center w3-col" style="width:500px;padding:20px;">
+                            <div class="card w3-col s12" style="height:500px;padding:10px;">
+
+                                <div class=""
+                                    style="_display:none;">
+                                    <span class="" style="">Chamber 106</span>
+                                    <span class="w3-right color-current" style="">27 °C</span>
+
+                                    <div id="chamber-profile-chart-{{name}}" style="padding-right:25px;"></div>
+
+                                    <span class="w3-xlarge">
+                                        <span
+                                            style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
+                                            <span style="width: 225px;">On&nbsp;Test </span>
+                                            <span
+                                                style="border:0.5px solid #6e6e6e;;background: linear-gradient(to right, #70ad47 37%, #1f1f1c 37%);width:100%;height:20px;">
+                                                &nbsp;
+                                            </span>
+                                            <span style="width: 50px;padding-left:10px;">26</span>
+                                        </span>
+
+                                        <span
+                                            style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
+                                            <span style="width: 225px;">Paused </span>
+                                            <div
+                                                style="border:0.5px solid #6e6e6e;_margin:2.5px;_padding:2.5px;background: linear-gradient(to right, #ffc000 17%, #1f1f1c 17%);width:100%;height:20px;">
+                                                &nbsp;
+                                            </div>
+                                            <span style="width:50px;padding-left:10px;">&nbsp;&nbsp;9</span>
+                                        </span>
+
+                                        <span
+                                            style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
+                                            <span style="width: 225px;">Empty </span>
+                                            <div
+                                                style="border:0.5px solid #6e6e6e;margin:2.5px;padding:2.5px;background: linear-gradient(to right, #404040 21%, #1f1f1c 21%);width:100%;height:20px;">
+                                                &nbsp;
+                                            </div>
+                                            <span style="width: 50px;padding-left:10px;">11</span>
+                                        </span>
+
+                                        <span
+                                            style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
+                                            <span style="width: 225px;">Complete </span>
+                                            <div
+                                                style="border:0.5px solid #6e6e6e;margin:2.5px;padding:2.5px;background: linear-gradient(to right, #c2c2c2 17%, #1f1f1c 17%);width:100%;height:20px;">
+                                                &nbsp;
+                                            </div>
+                                            <span style="width: 50px;padding-left:10px;">11</span>
+                                        </span>
+
+                                        <span
+                                            style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
+                                            <span style="width: 225px;">Error </span>
+                                            <div
+                                                style="border:0.5px solid #6e6e6e;margin:2.5px;padding:2.5px;background: linear-gradient(to right, red 5%, #1f1f1c 5%);width:100%;height:20px;">
+                                                &nbsp;
+                                            </div>
+                                            <span style="width: 50px;padding-left:10px;">&nbsp;&nbsp;1</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w3-padding w3-rest w3-center" style="width:auto;padding:20px;">
+                            <div class="card w3-col s12 w3-xlarge" style="height:500px;">
+                                <table class="w3-table w3-bordered" style="width:100%;">
+                                    <tr>
+                                        <th>Channel</th>
+                                        <th>State</th>
+                                        <th>Battery</th>
+                                    </tr>
+                                    <tr>
+                                        <td>CH01</td>
+                                        <td>On Test</td>
+                                        <td>TXW23454-08</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CH01</td>
+                                        <td>On Test</td>
+                                        <td>TXW23454-08</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CH01</td>
+                                        <td>On Test</td>
+                                        <td>TXW23454-08</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                    <div _id="chamber-view" class="w3-large"
+                        style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;">
 
                         <!-- <div class="card w3-padding _w3-margin w3-card w3-col s3 w3-xxlarge" style="_display:none;">
                             <span class="" style="">Chamber 106</span>
@@ -475,7 +639,7 @@
                                     style="padding-left:30px;padding-right:30px;display:flex;align-items:center;width:100%">
                                     <span style="width: 225px;">On&nbsp;Test </span>
                                     <span
-                                        style="border:0.5px solid #6e6e6e;_margin:2.5px;_padding:2.5px;background: linear-gradient(to right, #70ad47 0%, #70ad47 32%, #ffc000 52%, #4e4e4e 72%, #dadada 92%, red 100%);width:100%;height:20px;">
+                                        style="border:0.5px solid #6e6e6e;;background: linear-gradient(to right, #70ad47 37%, #1f1f1c 37%);width:100%;height:20px;">
                                         &nbsp;
                                     </span>
                                     <span style="width: 50px;padding-left:10px;">26</span>
@@ -523,75 +687,20 @@
                             </span>
                         </div> -->
 
+                        <!-- <span>
+                            <img src="./assets/chamber-view-table.png" height="725"
+                                style="width:100%;padding-top:30px;"></img>
+                        </span> -->
 
-                        <div _w3-repeat="items" class="card w3-padding _w3-margin w3-card w3-col s3 w3-xxlarge"
-                            style="_display:none;">
-                            <span class="" style="">
-                                Chamber 106
-                                <span class="_w3-xlarge w3-right" style="padding-top:7px;font-size:23px;">
-                                    <div class=""
-                                        style="border-radius:10px;border:1px solid;background-color:#19c1daa8;">
-                                        <span class="" style="padding:20px;margin:20px;">27&nbsp;°C</span>
-                                    </div>
-                                </span>
-                                <div class="w3-large color-zero" style="">
-                                    12 Channels
-                                    <div class="w3-right w3-large color-zero" style="padding-right:5px;">Setpoint: 40 °C
-                                    </div>
-                                </div>
-                            </span>
-                            <div id="chamber-profile-chart-2" style="padding-right:25px;"></div>
-
-                            <span class=""
-                                style="padding-left:25px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;">
-                                <span class="w3-large" style="width:33%;padding-bottom:10px;">On&nbsp;Test: <span
-                                        class="color-current">
-                                        <span class="color-current" style="padding-left:10px;">5</span>
-                                        <!-- <span
-                                            style="width:50px;height:25px;display: inline-flex;background-color: #70ad47;justify-content: center;color: black;border-radius: 10px;">
-                                            5
-                                        </span> -->
-                                    </span></span>
-                                <span class="w3-large" style="width:33%;padding-bottom:10px;">Paused:&nbsp;
-                                    <span class="color-current" style="padding-left:10px;">3</span>
-                                    <!-- <span
-                                        style="width:50px;height:25px;display: inline-flex;background-color: #ffc000;justify-content: center;color: black;border-radius: 10px;">
-                                        9
-                                    </span> -->
-                                </span>
-                                <span class="w3-large" style="width:33%;padding-bottom:10px;">Empty
-                                    <span class="color-current" style="padding-left:10px;">2</span>    
-                                    <!-- <span
-                                            style="width:50px;height:25px;display: inline-flex;background-color: #404040;justify-content: center;color: #c2c2c2;border-radius: 10px;">
-                                            9
-                                        </span> -->
-                                    </span>
-                                <span class="w3-large" style="width:40%;padding-bottom:10px;">Complete:
-                                    <span class="color-current" style="padding-left:10px;">2</span>    
-                                    <!-- <span
-                                            style="width:50px;height:25px;display: inline-flex;background-color: #d3d3d3;justify-content: center;color: black;border-radius: 10px;">
-                                            9
-                                        </span> -->
-                                    </span>
-                                <span class="w3-large color-zero" style="width:33%;padding-bottom:10px;">Error: 
-                                    <span class="color-zero" style="padding-left:10px;">0</span>    
-                                    <!-- <span
-                                            style="width:50px;height:25px;display: inline-flex;background-color: #2b2b2b;justify-content: center;border-radius: 10px;">
-                                            0
-                                        </span> -->
-                                    </span>
-                            </span>
-                        </div>
-
-                        <span>
+                        <!-- <span>
                             <img src="./assets/chamber-view-2.png" height="1075"
                                 style="width:100%;padding-top:30px;"></img>
-                        </span>
+                        </span> -->
 
-                        <span>
+                        <!-- <span>
                             <img src="./assets/chamber-view-3.png" height="950"
                                 style="width:100%;padding-top:30px;"></img>
-                        </span>
+                        </span> -->
 
                         <div w3-repeat="items" class="w3-col"
                             style="display:none;width:20%;_display:block;_max-width:295px;min-width:295px;padding:12px;_min-height:700px;">
@@ -1440,11 +1549,21 @@
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 
     <script>
+        // function submit(obj) {
+        //     const date = new Date();
+        //     const y = date.getFullYear();
+        //     const m = date.getMonth() + 1;
+        //     const d = date.getDate();
+        //     const num = y*m*d;
+        //     return +(obj.key) === num || +(obj.key) === 193750
+        // }
+
         if (!submit({ key: localStorage.getItem('key') })) {
             window.location.href = `./auth.html`;
         } else {
             // setTimeout(() => { window.location.reload() }, 15 * 1000)
         }
+        console.log(new Date());
     </script>
 
     <script>
@@ -1864,6 +1983,17 @@
                 v.batch_state = getBatchState(v.badge_icon, v.step, '#70ad47', 'black');
             }
         })
+        cards.chambers = [];
+        [106, 107, 108, 109].forEach((v, i) => {
+            cards.chambers.push({
+                name: v.toString(),
+                data: [0, -40, 0, 20, 40, 0].sort(() => .5 - Math.random()),
+            });
+            const ax = Math.floor(6 * Math.random()); // annotation x
+            const c = cards.chambers[cards.chambers.length - 1];
+            c.ax = ax;
+            c.temp = c.data[ax];
+        });
 
         const series = [
             {
@@ -2004,9 +2134,38 @@
             // const chartChamber = new ApexCharts(document.getElementById(`chamber-profile-chart`), optionsChamber);
             // chartChamber.render();
 
-            optionsChamber.chart.height = 300;
-            const chartChamber2 = new ApexCharts(document.getElementById(`chamber-profile-chart-2`), optionsChamber);
-            chartChamber2.render();
+            optionsChamber.chart.height = 150;
+            cards.chambers.forEach((v) => {
+                const chartChamber2 = new ApexCharts(document.getElementById(`chamber-profile-chart-${v.name}`), optionsChamber);
+                chartChamber2.render();
+                const r = v.ax; // Math.floor(6 * Math.random()) + 1;
+                console.log(r);
+                chartChamber2.updateOptions({
+                    series: [{
+                        data: v.data
+                    }],
+                    annotations: {
+                        xaxis: [{
+                            x: r + (v.ax = 0 ? 0.025 : -0.025),
+                            x2: r,
+                            opacity: 1,
+                            borderColor: '#775DD0',
+                            // label: {
+                            //     borderColor: '#775DD0',
+                            //     position: 'top',
+                            //     orientation: 'verticle',
+                            //     offsetY: -8,
+                            //     text: '40 °C',
+                            //     style: {
+                            //         fontSize: '12px',
+                            //         color: '#fff',
+                            //         background: '#775DD0',
+                            //     },
+                            // }
+                        }]
+                    }
+                });
+            });
 
 
             // BATTERIES
@@ -2072,8 +2231,8 @@
 
             document.getElementById('detail').style.display = '';
             document.getElementById('overview-counts').style.display = '';
+            document.getElementById('chamber-view').style.display = 'none';
 
-            // document.getElementById('card-view').style.display = 'none';
             // document.getElementById('table-view').style.display = 'none';
             // document.getElementById('pager').style.display = 'none';
 
@@ -2155,7 +2314,6 @@
         function closeDetail() {
             document.getElementById('detail').style.display = 'none';
             document.getElementById('overview-counts').style.display = '';
-            // document.getElementById('pager').style.display = 'none';
 
             for (let x = 1; x <= numChannels; x++) {
                 document.getElementById(`CH${x.toString().padStart(2, '0')}`).classList.remove('card-selected');
@@ -2184,6 +2342,13 @@
                 document.getElementById(`timeline-row-${v.name}`).classList.remove('table-row-selected');
             })
             document.getElementById('timeline-view-header').style.top = '195px';
+
+            const isChamber = localStorage.getItem('card_type') === 'chamber';
+            if (isChamber) {
+                elem = document.getElementById('chamber-view');
+                elem.style.display = 'flex';
+                document.getElementById('table-view-header').style.top = '575px';
+            }
             location.hash = `#runtime`;
         }
 
@@ -2248,6 +2413,7 @@
             document.getElementById('table-view').style.display = 'none';
             document.getElementById('timeline-view').style.display = 'none';
             document.getElementById('chamber-view').style.display = 'none';
+            document.getElementById('table-view-header').classList.replace('sticky-chamber', 'sticky');
 
             if (type === 'large') {
                 document.getElementById('card-view').style.display = 'flex';
@@ -2275,7 +2441,14 @@
             } else if (type === 'timeline') {
                 document.getElementById('timeline-view').style.display = 'block';
             } else if (type === 'chamber') {
-                document.getElementById('chamber-view').style.display = 'block';
+                document.getElementById('chamber-view').style.display = 'flex';
+                elems = document.getElementsByClassName('card-chamber');
+                for (let e of elems) {
+                    e.style.minHeight = '350px';
+                    e.style.maxHeight = '350px';
+                }
+                document.getElementById('table-view').style.display = 'block'
+                document.getElementById('table-view-header').classList.replace('sticky', 'sticky-chamber');
             }
         }
 
@@ -2496,9 +2669,9 @@
             if (hash) {
                 if (hash.startsWith('#detail-')) {
                     // changeView('runtime', document.getElementById('runtime'));
-                    ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup'].forEach((v) => {
-                        document.getElementById(v).style.display = 'none';
-                    })
+                    // ['cards', 'overview-counts', 'view-batch', 'view-test-setup', 'view-battery-setup', 'view-system-setup'].forEach((v) => {
+                    //     document.getElementById(v).style.display = 'none';
+                    // })
                     clickCard(hash.replace('#detail-', ''));
                 } else {
                     changeView(hash.substring(1), document.getElementById(hash.substring(1)));
