@@ -364,35 +364,35 @@
                                 style="padding-left:75px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;">
                                 <span class="w3-large" style="width:33%;padding-bottom:10px;">On&nbsp;Test: <span
                                         class="color-current">
-                                        <span class="color-current" style="padding-left:0px;">5</span>
+                                        <span class="color-current" style="padding-left:0px;">{{on_test}}</span>
                                         <!-- <span
                                     style="width:50px;height:25px;display: inline-flex;background-color: #70ad47;justify-content: center;color: black;border-radius: 10px;">
                                     5
                                 </span> -->
                                     </span></span>
                                 <span class="w3-large" style="width:33%;padding-bottom:10px;">Paused:&nbsp;
-                                    <span class="color-current" style="padding-left:0px;">3</span>
+                                    <span class="color-current" style="padding-left:0px;">{{paused}}</span>
                                     <!-- <span
                                 style="width:50px;height:25px;display: inline-flex;background-color: #ffc000;justify-content: center;color: black;border-radius: 10px;">
                                 9
                             </span> -->
                                 </span>
                                 <span class="w3-large" style="width:33%;padding-bottom:10px;">Empty
-                                    <span class="color-current" style="padding-left:0px;">2</span>
+                                    <span class="color-current" style="padding-left:0px;">{{empty}}</span>
                                     <!-- <span
                                     style="width:50px;height:25px;display: inline-flex;background-color: #404040;justify-content: center;color: #c2c2c2;border-radius: 10px;">
                                     9
                                 </span> -->
                                 </span>
                                 <span class="w3-large" style="width:40%;padding-bottom:10px;">Complete:
-                                    <span class="color-current" style="padding-left:0px;">2</span>
+                                    <span class="color-current" style="padding-left:0px;">{{complete}}</span>
                                     <!-- <span
                                     style="width:50px;height:25px;display: inline-flex;background-color: #d3d3d3;justify-content: center;color: black;border-radius: 10px;">
                                     9
                                 </span> -->
                                 </span>
-                                <span class="w3-large color-zero" style="width:33%;padding-bottom:10px;">Error:
-                                    <span class="color-zero" style="padding-left:0px;">0</span>
+                                <span class="w3-large color-current" style="width:33%;padding-bottom:10px;">Error:
+                                    <span class="color-current" style="padding-left:0px;">{{error}}</span>
                                     <!-- <span
                                     style="width:50px;height:25px;display: inline-flex;background-color: #2b2b2b;justify-content: center;border-radius: 10px;">
                                     0
@@ -1754,9 +1754,16 @@
                 const c = cards.chambers[cards.chambers.length - 1];
                 c.ax = ax;
                 c.temp = c.data[ax];
+                c.on_test = 0;
+                c.paused = 0;
+                c.empty = 0;
+                c.complete = 0;
+                c.error = 0;
+                c.index = i;
             });
 
-            const chamber = cards.chambers[Math.floor(4 * Math.random())];
+            const chamber_index = Math.floor(4 * Math.random());
+            const chamber = cards.chambers[chamber_index];
             cards.items.push({
                 name: `CH${x < 10 ? '0' + x : x}`,
                 state_icon: 'fa-square',
@@ -1786,9 +1793,19 @@
                 history,
                 battery_info: getBatteryInfo(Math.floor((3 * Math.random()))),
                 chamber: chamber.name,
-                chamber_temp: chamber.temp
+                chamber_temp: chamber.temp,
+                chamber_index,
             });
         }
+
+        cards.items.forEach((v)=>{
+            if (v.state === 'on_test') { cards.chambers[v.chamber_index].on_test++; }
+            if (v.state === 'paused') { cards.chambers[v.chamber_index].paused++; }
+            if (v.state === 'empty') { cards.chambers[v.chamber_index].empty++; }
+            if (v.state === 'complete') { cards.chambers[v.chamber_index].complete++; }
+            if (v.state === 'error') { cards.chambers[v.chamber_index].error++; }
+        })
+
         const numPages = Math.ceil(cards.items.length / 6);
         const temp = { pages: [] };
         for (let x = 1; x <= numPages; x++) {
