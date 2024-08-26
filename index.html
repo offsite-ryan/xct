@@ -338,9 +338,9 @@
                     <!-- CHAMBERS -->
                     <div id="chamber-view" class="sticky-chamber"
                         style="display:flex;justify-content:left;padding-top:10px;padding-bottom:10px;border-bottom:1px solid;background-color: #272727;overflow-x:auto;">
-                        <div w3-repeat="chambers"
+                        <div w3-repeat="chambers" id="chamber_{{name}}"
                             class="card-chamber w3-padding _w3-margin w3-card _w3-col _s3 w3-xxlarge"
-                            style="_display:none;">
+                            style="_display:none;" onclick="filterChamber('{{name}}')">
                             <span class="" style="">
                                 Chamber {{name}}
                                 <span class="_w3-xlarge w3-right" style="padding-top:7px;font-size:23px;">
@@ -2753,6 +2753,38 @@
         // TIMELINE TOOLTIP
         function timelineTooltip(e) {
             console.log(e);
+        }
+
+        // FILTER CHAMBER
+        function filterChamber(name) {
+            isSelected = document.getElementById(`chamber_${name}`).classList.contains('chamber-selected');
+            const elems = document.getElementsByClassName('card-chamber');
+            for (let e of elems) {
+                e.classList.remove('chamber-selected');
+            }
+
+            cards.items.forEach((v) => {
+                ['table-row-'].forEach((v2) => {
+                    const elem = document.getElementById(`${v2}${v.name}`);
+                    elem.classList.remove('w3-hide');
+                });
+            })
+
+            if (isSelected) {
+                document.getElementById(`chamber_${name}`).classList.remove('chamber-selected');
+            } else {
+                document.getElementById(`chamber_${name}`).classList.add('chamber-selected');
+
+                cards.items.forEach((v) => {
+                    ['table-row-'].forEach((v2) => {
+                        const elem = document.getElementById(`${v2}${v.name}`);
+                        if (v.chamber !== name) {
+                            elem.classList.add('w3-hide');
+                        }
+                    });
+                })
+            }
+
         }
 
         // FILTER RUNTIME
