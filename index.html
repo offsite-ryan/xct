@@ -1567,6 +1567,8 @@
     </script>
 
     <script>
+        let active_filter = 'all';
+        let active_chamber = null;
         let language = 'en';
         const split = localStorage.getItem('user').split('');
         split[0] = split[0].toUpperCase();
@@ -2757,6 +2759,7 @@
 
         // FILTER CHAMBER
         function filterChamber(name) {
+            console.log(active_filter);
             isSelected = document.getElementById(`chamber_${name}`).classList.contains('chamber-selected');
             const elems = document.getElementsByClassName('card-chamber');
             for (let e of elems) {
@@ -2771,8 +2774,19 @@
             })
 
             if (isSelected) {
+                active_chamber = null;
                 document.getElementById(`chamber_${name}`).classList.remove('chamber-selected');
+
+                cards.items.forEach((v) => {
+                    ['table-row-'].forEach((v2) => {
+                        const elem = document.getElementById(`${v2}${v.name}`);
+                        if (v.state !== active_filter && active_filter !== 'all') {
+                            elem.classList.add('w3-hide');
+                        }
+                    });
+                })
             } else {
+                active_chamber = name;
                 document.getElementById(`chamber_${name}`).classList.add('chamber-selected');
 
                 cards.items.forEach((v) => {
@@ -2780,11 +2794,15 @@
                         const elem = document.getElementById(`${v2}${v.name}`);
                         if (v.chamber !== name) {
                             elem.classList.add('w3-hide');
+                        } else {
+                            if (v.state !== active_filter && active_filter !== 'all') {
+                                elem.classList.add('w3-hide');
+                            }
                         }
                     });
                 })
             }
-
+            // filterRuntime(active_filter);
         }
 
         // FILTER RUNTIME
@@ -2807,6 +2825,7 @@
                 });
                 filterRuntime('all');
             } else {
+                active_filter = name;
                 document.getElementById(`filter_${name}`).classList.add('filter-selected');
                 cards.items.forEach((v) => {
                     [''].forEach((v2) => {
