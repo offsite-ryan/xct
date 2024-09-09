@@ -340,7 +340,7 @@
                         style="display:flex;justify-content:left;padding-top:10px;padding-bottom:10px;border-bottom:1px solid;background-color: #272727;overflow-x:auto;">
                         <div w3-repeat="chambers" id="chamber_{{name}}"
                             class="card-chamber w3-padding _w3-margin w3-card _w3-col _s3 w3-xxlarge"
-                            style="_display:none;" onclick="filterChamber('{{name}}')">
+                            style="" onclick="filterChamber('{{name}}')">
                             <span class="" style="">
                                 Chamber {{name}}
                                 <span class="_w3-xlarge w3-right" style="padding-top:7px;font-size:23px;">
@@ -1531,7 +1531,8 @@
     <!-- SCRIPT IMPORTS -->
     <script src="key.js"></script>
     <script src="data/16h.js"></script>
-    <script src="data/data.js"></script>
+    <script src="data/simulation-data.js"></script>
+    <script src="views/data.js"></script>
     <script src="test-setup.js"></script>
     <script src="test-defintion.js"></script>
     <script src="battery-setup.js"></script>
@@ -2206,6 +2207,8 @@
                 }
             })
             // w3.displayObject("batteries", obj);
+
+            loadDataFiles();
 
             showView();
             changeLanguage(language);

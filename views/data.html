@@ -2,20 +2,184 @@
 
 <div class="w3-container w3-padding w3-xlarge">
     <div class="w3-row-padding" style="padding:25px;padding-bottom:60px;background-color: #1e1e1e;">
+        <div class="w3-xxlarge" style="">
+            File List
+            <span class="w3-large" style="padding-left:30px;">
+                <!-- <input class="w3-radio" type="radio" name="selected-data-view" value="list" checked>
+                <label style="padding-right:24px;">List</label> -->
+
+                <input class="w3-radio" type="radio" name="selected-data-view" value="table"
+                    onchange="click_data_files_view(this.value)" checked>
+                <label style="padding-right:24px;">Detail</label>
+
+                <!-- <input class="w3-radio" type="radio" name="selected-data-view" value="tiles"
+                    onchange="click_data_files_view(this.value)">
+                <label style="padding-right:24px;">Preview</label> -->
+
+                <input class="w3-radio" type="radio" name="selected-data-view" value="compare"
+                    onchange="click_data_files_view(this.value)">
+                <label style="padding-right:24px;">Preview</label>
+            </span>
+            <span class="w3-large w3-right" style="padding-top:0px;">
+                <!-- <button onclick="document.getElementById('modal-data-files-compare').style.display = 'block'"
+                    class="clickable"
+                    style="width:180px;border:1px solid;border-radius:10px;background-color:#1e1e1e;color:white;padding:10px 20px 10px 20px;margin-right:20px;"><i
+                        class="fa fa-files-o" style="margin-right:10px;"></i> Compare</button> -->
+                <button
+                    style="width:180px;border:1px solid;border-radius:10px;background-color:#1e1e1e;color:white;padding:10px 20px 10px 20px;"><i
+                        class="fa fa-download" style="margin-right:10px;"></i> Download</button>
+            </span>
+        </div>
+        <hr />
+        <div id="data-files" class="w3-col s12 w3-large" style="display:block;_max-height:700px;_overflow-y:scroll;">
+            <table id="data-files-table" class="w3-table w3-bordered w3-large w3-hoverable" style="_display:none;">
+                <tr class="w3-xlarge">
+                    <th><i class="fa fa-square-o"></i></th>
+                    <th></th>
+                    <th><i class="fa fa-filter"></i> Filename</th>
+                    <th><i class="fa fa-filter"></i> Test Procedure</th>
+                    <th><i class="fa fa-filter"></i> Battery Type</th>
+                    <th><i class="fa fa-filter"></i> Location</th>
+                    <th><i class="fa fa-filter"></i> Start Date</th>
+                    <th><i class="fa fa-filter"></i> End Date</th>
+                </tr>
+                <tr w3-repeat="files">
+                    <td onclick="click_data_file_row(this)"><i class="fa fa-square-o w3-xlarge"></i></td>
+                    <td>{{badge}}</td>
+                    <td>{{name}}</td>
+                    <td>{{test_procedure}}</td>
+                    <td>{{battery_type}}</td>
+                    <td>{{locations}}</td>
+                    <td>{{datatime}}</td>
+                    <td>{{datatime}}</td>
+                </tr>
+            </table>
+            <div id="data-files-tiles" class="w3-center" style="display:none;flex-direction:row;flex-wrap:wrap;">
+                <div w3-repeat="files" class="w3-margin"
+                    style="width:400px;_height:400px;border:1px solid;padding:20px;">
+                    
+                    <!-- <i class="fa fa-square-o w3-left w3-xlarge" onclick="click_data_file_card(this)"></i> -->
+                    <span class="w3-xlarge w3-left" style="">{{name}}</span>
+                    {{badge}}
+                    <img src="../assets/data-file-2.png" style="width:350px;height:100px;margin-top:10px;" />
+                    <img src="../assets/data-file-3.png" style="width:350px;height:100px;" />
+                    <img src="../assets/data-file-4.png" style="width:350px;height:100px;" />
+                    <span style="display:block">
+                        <div class="w3-medium w3-left"><span class="color-zero">Test Procedure:</span> 19d C/2 Charge - Discharge (6)</div>
+                        <br />
+                        <div class="w3-medium w3-left"><span class="color-zero" style="padding-right: 19px;">Battery Type:</span> TXW-MI</div>
+                        <br />
+                        <div class="w3-medium w3-left"><span class="color-zero" style="padding-right: 54px;">Project:</span> XYZ-10-321</div>
+                        <br />
+                        <div class="w3-medium w3-left"><span class="color-zero" style="padding-right: 19px;">Start:</span> 10-Jun-24</div>
+                        <div class="w3-medium w3-right"><span class="color-zero" style="padding-right: 19px;">End:</span> 25-Aug-24</div>
+                    </span>
+                </div>
+            </div>
+            <div id="data-files-compare" class="" style="display:none;justify-content:space-around;">
+                <div style="max-height:850px;overflow-y:scroll;min-width:300px;">
+                    <table class="w3-table w3-bordered w3-large w3-hoverable" style="">
+                        <tr class="w3-xlarge">
+                            <th width="50"><i class="fa fa-square-o"></i></th>
+                            <th style="width:200px;"><i class="fa fa-filter"></i> Filename</th>
+                        </tr>
+                        <tr w3-repeat="files">
+                            <td onclick="click_data_file_row(this)"><i class="fa fa-square-o w3-xlarge"></i></td>
+                            <td>{{name}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="_data-files-tiles" class="w3-center" style="padding-left:30px;display:flex;flex-direction:row;flex-wrap:wrap;">
+                    <div w3-repeat="files" class="w3-margin"
+                        style="width:400px;_height:400px;border:1px solid;padding:20px;">
+                        
+                        <!-- <i class="fa fa-square-o w3-left w3-xlarge" onclick="click_data_file_card(this)"></i> -->
+                        <span class="w3-xlarge w3-left" style="">{{name}}</span>
+                        {{badge}}
+                        <img src="../assets/data-file-2.png" style="width:350px;height:100px;margin-top:10px;" />
+                        <img src="../assets/data-file-3.png" style="width:350px;height:100px;" />
+                        <img src="../assets/data-file-4.png" style="width:350px;height:100px;" />
+                        <span style="display:block">
+                            <div class="w3-medium w3-left"><span class="color-zero">Test Procedure:</span> 19d C/2 Charge - Discharge (6)</div>
+                            <br />
+                            <div class="w3-medium w3-left"><span class="color-zero" style="padding-right: 19px;">Battery Type:</span> TXW-MI</div>
+                            <br />
+                            <div class="w3-medium w3-left"><span class="color-zero" style="padding-right: 54px;">Project:</span> XYZ-10-321</div>
+                            <br />
+                            <div class="w3-medium w3-left"><span class="color-zero" style="padding-right: 10px;">Start:</span> 10-Jun-24</div>
+                            <div class="w3-medium w3-right"><span class="color-zero" style="padding-right: 10px;">End:</span> 25-Aug-24</div>
+                        </span>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- MODAL SCAN BATTERY QR CODES -->
+<div id="modal-data-files-compare" class="w3-modal w3-xlarge"
+    style="display:none;z-index: 9999999999;background-color: rgba(0,0,0,0.65);">
+    <div class="w3-modal-content modal-dark" style="width:90%;min-height:800px;">
+        <div class="w3-container w3-padding">
+            <div class="w3-padding">
+                <h3 class="color-time">Compare Data Files
+                    <i class="fa fa-close w3-xlarge w3-right clickable"
+                        onclick="document.getElementById('modal-data-files-compare').style.display='none'"></i>
+                </h3>
+                <hr />
+                <img src="../assets/data-file.png" style="width:100%;_height:80px;" />
+                <!-- <div>
+                    <span class="w3-large color-input-label">CH01 - Serial Number:</span>
+                    <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
+                        disabled />
+                    <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
+                </div>
+                <br />
+                <div>
+                    <span class="w3-large color-input-label">CH02 - Serial Number:</span>
+                    <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
+                        disabled />
+                    <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
+                </div>
+                <br />
+                <div>
+                    <span class="w3-large color-input-label">CH03 - Serial Number:</span>
+                    <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
+                        disabled />
+                    <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
+                </div>
+                <br />
+                <div>
+                    <span class="w3-large color-input-label">CH04 - Serial Number:</span>
+                    <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
+                        disabled />
+                    <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
+                </div>
+                <br /> -->
+            </div>
+        </div>
+        <br />
+    </div>
+</div>
+
+
+<!-- <div class="w3-container w3-padding w3-xlarge">
+    <div class="w3-row-padding" style="padding:25px;padding-bottom:60px;background-color: #1e1e1e;">
         <ul>
             General
             <ul>
                 <li>Search / Filter</li>
             </ul>
-            <br/>
+            <br />
             Export
             <ul>
                 <li>Battery Data Files (option to preview)</li>
                 <li>Data Files (option to preview a basic chart)</li>
             </ul>
-            <br/>
+            <br />
         </ul>
 
         <br />
     </div>
-</div>
+</div> -->
