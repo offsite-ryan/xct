@@ -2,6 +2,8 @@ function loadDataFiles() {
     const obj = { files: [] };
     for (let i = 0; i < 25; i++) {
         let color = i % 7 === 0 ? '#70ad47' : (i % 13 === 0 ? '#fcd00e' : '#c0c0c0');
+        const check = [1,4,5,7,8].indexOf(i) >= 0 ? '<i class="fa fa-check-square-o color-current"></i>' : '<i class="fa fa-square-o"></i>';
+        const display = [1,4,5,7,8].indexOf(i) >= 0 ? '' : 'none';
         obj.files.push({
             name: `TXW6323-0${i}_106`,
             test_procedure: '19d C/2 Charge - Discharge (6)',
@@ -10,9 +12,14 @@ function loadDataFiles() {
             locations: '106',
             datatime: new Date().toLocaleString(),
             badge: `<span class="w3-right" style="background-color:${color};height:20px;width:20px;border-radius:10px;padding:3px 10px 3px 10px;">&nbsp;</span>`,
+            check,
+            display,
         })
     }
     w3.displayObject("data-files", obj);
+    obj.files.forEach((v)=>{
+        const e = document.getElementById(`data-file-tile-${v.name}`).style.display = v.display;
+    })
 }
 function click_data_file_row(elem) {
     if (elem.children[0].classList.contains('fa-square-o')) {
