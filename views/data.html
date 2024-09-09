@@ -91,14 +91,15 @@
                 </div>
                 <div id="_data-files-tiles" class="w3-center" style="padding-left:30px;display:flex;flex-direction:row;flex-wrap:wrap;">
                     <div w3-repeat="files" id="data-file-tile-{{name}}" class="w3-margin"
-                        style="width:400px;height:500px;border:1px solid;padding:20px;">
+                        style="width:400px;height:440px;border:1px solid;padding:20px;background-color:#1e1e1e;">
                         
                         <!-- <i class="fa fa-square-o w3-left w3-xlarge" onclick="click_data_file_card(this)"></i> -->
                         <span class="w3-xlarge w3-left" style="">{{name}}</span>
                         {{badge}}
-                        <img src="./assets/data-file-2.png" style="width:350px;height:100px;margin-top:10px;" />
+                        <!-- <img src="./assets/data-file-2.png" style="width:350px;height:100px;margin-top:10px;" />
                         <img src="./assets/data-file-3.png" style="width:350px;height:100px;" />
-                        <img src="./assets/data-file-4.png" style="width:350px;height:100px;" />
+                        <img src="./assets/data-file-4.png" style="width:350px;height:100px;" /> -->
+                        {{image}}
                         <span style="display:block">
                             <div class="w3-medium w3-left"><span class="color-zero">Test Procedure:</span> 19d C/2 Charge - Discharge (6)</div>
                             <br />

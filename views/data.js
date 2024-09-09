@@ -4,6 +4,7 @@ function loadDataFiles() {
         let color = i % 7 === 0 ? '#70ad47' : (i % 13 === 0 ? '#fcd00e' : '#c0c0c0');
         const check = [1,4,5,7,8].indexOf(i) >= 0 ? '<i class="fa fa-check-square-o color-current"></i>' : '<i class="fa fa-square-o"></i>';
         const display = [1,4,5,7,8].indexOf(i) >= 0 ? '' : 'none';
+        const image = `<img src="./assets/data-file-${i === 4 ? 5 : (i === 7 ? 7 : 6)}.png" style="width:350px;height:250px;padding-top:20px;" />`;
         obj.files.push({
             name: `TXW6323-0${i}_106`,
             test_procedure: '19d C/2 Charge - Discharge (6)',
@@ -14,6 +15,7 @@ function loadDataFiles() {
             badge: `<span class="w3-right" style="background-color:${color};height:20px;width:20px;border-radius:10px;padding:3px 10px 3px 10px;">&nbsp;</span>`,
             check,
             display,
+            image,
         })
     }
     w3.displayObject("data-files", obj);
