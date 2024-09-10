@@ -325,7 +325,7 @@ div.sticky-result-preview {
     bottom: 0px;
     z-index: 999999;
     background-color: #1e1e1e;
-    height: -330px;
+    /* height: -30px; */
     border-top:1px solid;
 }
 /* div.sticky-result-preview-2 {
