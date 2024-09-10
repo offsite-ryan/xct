@@ -319,6 +319,24 @@ div.sticky {
     top: 85px;
     z-index: 999999;
 }
+div.sticky-result-preview {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0px;
+    z-index: 999999;
+    background-color: #1e1e1e;
+    height: -330px;
+    border-top:1px solid;
+}
+/* div.sticky-result-preview-2 {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 15px;
+    z-index: 999999;
+    background-color: #1e1e1e;
+    height: 330px;
+    border-top:1px solid;
+} */
 div.sticky-chamber {
     position: -webkit-sticky; /* Safari */
     position: sticky;
