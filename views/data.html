@@ -107,8 +107,8 @@
                     <span class="color-current" style="padding-left:70px;"><span class="color-zero">Test Procedures: </span> 1</span>
                     <span class="w3-right w3-large" style="padding-top:5px;padding-right:24px;"><i
                             class="fa fa-file-archive-o"></i> Export</span>
-                    <span class="w3-right w3-large" style="padding-top:5px;padding-right:24px;"><i
-                            class="fa fa-files-o"></i> Compare</span>
+                    <span class="w3-right w3-large clickable" style="padding-top:5px;padding-right:24px;" onclick="document.getElementById('modal-data-files-compare').style.display = 'block'">
+                        <i class="fa fa-files-o"></i> Compare</span>
                 </div>
                 <div class="" style="display:flex;flex-direction:row;justify-content:flex-start;overflow-x:auto;">
                     <span w3-repeat="files" id="data-file-tile-{{name}}-2" class="w3-center"
@@ -135,7 +135,7 @@
                         onclick="document.getElementById('modal-data-files-compare').style.display='none'"></i>
                 </h3>
                 <hr />
-                <img src="./assets/data-file.png" style="width:100%;_height:80px;" />
+                <img src="./assets/data-file-transparent-2.png" style="width:100%;_height:80px;" />
                 <!-- <div>
                     <span class="w3-large color-input-label">CH01 - Serial Number:</span>
                     <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
