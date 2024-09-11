@@ -7,6 +7,7 @@
                     <th><i class="fa fa-square-o"></i></th>
                     <th></th>
                     <th><i class="fa fa-filter"></i> Filename</th>
+                    <!-- <th><i class="fa fa-filter"></i> Battery</th> -->
                     <th><i class="fa fa-filter"></i> Project</th>
                     <th><i class="fa fa-filter"></i> Test Procedure</th>
                     <th><i class="fa fa-filter"></i> Battery Type</th>
@@ -19,6 +20,7 @@
                     <td onclick="click_data_file_row(this)">{{check}}</td>
                     <td>{{badge}}</td>
                     <td>{{name}}</td>
+                    <!-- <td>{{battery}}</td> -->
                     <td>{{project}}</td>
                     <td>{{test_procedure}}</td>
                     <td>{{battery_type}}</td>
@@ -28,11 +30,10 @@
                     <td>{{datatime}}</td>
                 </tr>
             </table>
-            <div id="data-files-tiles" class="w3-center" style="display:none;flex-direction:row;flex-wrap:wrap;">
+            <!-- <div id="data-files-tiles" class="w3-center" style="display:none;flex-direction:row;flex-wrap:wrap;">
                 <div w3-repeat="files" class="w3-margin"
                     style="width:400px;_height:400px;border:0px solid;padding:20px;">
 
-                    <!-- <i class="fa fa-square-o w3-left w3-xlarge" onclick="click_data_file_card(this)"></i> -->
                     <span class="w3-xlarge w3-left" style="">{{name}}</span>
                     {{badge}}
                     <img src="./assets/data-file-2.png" style="width:350px;height:100px;margin-top:10px;" />
@@ -54,7 +55,7 @@
                                 style="padding-right: 19px;">End:</span> 25-Aug-24</div>
                     </span>
                 </div>
-            </div>
+            </div> -->
             <div id="data-files-compare" class="" style="display:none;justify-content:space-around;">
                 <div style="max-height:850px;overflow-y:scroll;min-width:300px;">
                     <table class="w3-table w3-bordered w3-large w3-hoverable" style="">
@@ -113,7 +114,7 @@
                     <span class="w3-right w3-large clickable" style="padding-top:5px;padding-right:24px;"><i
                             class="fa fa-file-archive-o"></i> Export</span>
                     <span class="w3-right w3-large clickable" style="padding-top:5px;padding-right:24px;"
-                        onclick="document.getElementById('modal-data-files-compare').style.display = 'block'">
+                        onclick="window.location.href='./lab-management/#analysis'">
                         <i class="fa fa-external-link"></i> Analysis</span>
                     <span class="w3-right w3-large clickable" style="padding-top:5px;padding-right:24px;"
                         onclick="document.getElementById('modal-data-files-compare').style.display = 'block'">
@@ -125,6 +126,7 @@
                         {{name}}
                         <br />
                         {{image2}}
+                        <!-- <div id="data-result-chart" height="300"></div> -->
                     </span>
                 </div>
             </div>
@@ -140,13 +142,16 @@
         <div class="w3-container w3-padding">
             <div class="w3-padding">
                 <h3 class="color-time">Compare Data Files&nbsp;&nbsp;&nbsp;
-                    <span class="w3-large color-zero">|&nbsp;&nbsp;&nbsp;overlay of file traces aligned by cycle
-                        number</span>
+                    <span class="w3-large color-zero"><!--|&nbsp;&nbsp;&nbsp;overlay of file traces aligned by cycle
+                        number--></span>
                     <i class="fa fa-close w3-xlarge w3-right clickable"
                         onclick="document.getElementById('modal-data-files-compare').style.display='none'"></i>
                 </h3>
                 <hr />
-                <img src="./assets/data-file-transparent-2.png" style="width:100%;_height:80px;" />
+                <div id="data-result-chart"></div>
+                <div id="data-result-chart-i"></div>
+                <div id="data-result-chart-scatter"></div>
+                <!-- <img src="./assets/data-file-transparent-2.png" style="width:100%;_height:80px;" /> -->
                 <!-- <div>
                     <span class="w3-large color-input-label">CH01 - Serial Number:</span>
                     <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"

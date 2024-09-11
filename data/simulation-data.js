@@ -53,10 +53,10 @@ class data {
         // }
     }
 
-    getData(field, offset, count) {
+    getData(field, offset, count, factor = 25) {
         let result = this.values.filter((v, i) => i >= offset && i < (count * 25));
         result = result.map((v) => v[field]);
-        result = result.filter((v, i) => i % 25 === 0);
+        result = result.filter((v, i) => i % factor === 0);
         result = result.map((v) => +(v.toFixed(3)))
         return result.slice(Math.floor(offset), count);
     }
