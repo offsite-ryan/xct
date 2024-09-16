@@ -21,6 +21,9 @@ const optionsChamber = {
                 zoomout: false,
             }
         },
+        zoom: {
+            allowMouseWheelZoom: false,
+        },
     },
     tooltip: {
         enabled: false,

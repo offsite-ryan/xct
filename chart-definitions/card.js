@@ -21,6 +21,9 @@ var card_chart_options = {
                 zoomout: false,
             }
         },
+        zoom: {
+            allowMouseWheelZoom: false,
+        },
         // group: undefined,
         // events: {
         //     click: function (event, chartContext, opts) {

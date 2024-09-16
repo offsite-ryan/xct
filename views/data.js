@@ -12,16 +12,18 @@ function loadDataFiles() {
 
     const optionsDataFiles = JSON.parse(JSON.stringify(card_chart_options));
     optionsDataFiles.chart.type = 'line';
-    optionsDataFiles.chart.height = 300;
+    optionsDataFiles.chart.height = 350;
+    // optionsDataFiles.title = { text: 'Voltage over Run Time', style: { fontSize:  '24px', fontWeight:  '', color:'#FFF'} };
     optionsDataFiles.chart.sparkline.enabled = false;
     optionsDataFiles.legend = { fontSize: '24px', labels: { useSeriesColors: true } };
     optionsDataFiles.stroke.width = [2];
     delete optionsDataFiles.fill;
     optionsDataFiles.tooltip.custom = card_chart_options.tooltip.custom;
+    optionsDataFiles.tooltip.enabled = true;
     optionsDataFiles.series = [];
     for (let x = 1; x <= 5; x++) {
         const factor = 25; // x === 4 ?  75 : 25;
-        optionsDataFiles.series.push({ name: x.toString(), data: simu_data.getData('v', x === 4 ? (x * 5) + 15 : x * 3, count, factor) })
+        optionsDataFiles.series.push({ name: x.toString(), data: simu_data.getData('v', x === 4 ? (x * 5) + 25 : x * 3, count, factor) })
     }
     optionsDataFiles.yaxis[0].title.text = 'Voltage';
     optionsDataFiles.yaxis[0].title.style.fontSize = '20px';
@@ -31,12 +33,13 @@ function loadDataFiles() {
     
     const optionsDataFilesI = JSON.parse(JSON.stringify(card_chart_options));
     optionsDataFilesI.chart.type = 'line';
-    optionsDataFilesI.chart.height = 300;
+    optionsDataFilesI.chart.height = 350;
     optionsDataFilesI.chart.sparkline.enabled = false;
     optionsDataFilesI.legend = { fontSize: '24px', labels: { useSeriesColors: true } };
     optionsDataFilesI.stroke.width = [2];
     delete optionsDataFilesI.fill;
     optionsDataFilesI.tooltip.custom = card_chart_options.tooltip.custom;
+    optionsDataFilesI.tooltip.enabled = true;
     optionsDataFilesI.series = [];
     for (let x = 1; x <= 5; x++) {
         const factor = 25; // x === 4 ?  75 : 25;
@@ -56,9 +59,9 @@ function loadDataFiles() {
     optionsDataFilesScatter.stroke.width = [2];
     delete optionsDataFilesScatter.fill;
     delete optionsDataFilesScatter.xaxis.type;
-    // delete optionsDataFilesScatter.tooltip.custom;
+    delete optionsDataFilesScatter.tooltip.custom;
     optionsDataFilesScatter.tooltip.custom = card_chart_options.tooltip.custom;
-    optionsDataFilesScatter.tooltip.enabled = true;
+    optionsDataFilesScatter.tooltip.enabled = false;
     optionsDataFilesScatter.series = [];
     for (let x = 1; x <= 5; x++) {
         const factor = 25; // x === 4 ?  75 : 25;
@@ -73,8 +76,8 @@ function loadDataFiles() {
     optionsDataFilesScatter.yaxis[0].title.text = 'Voltage';
     optionsDataFilesScatter.yaxis[0].title.style.fontSize = '20px';
     optionsDataFilesScatter.xaxis.title = { text: 'Temperature', style: { color: '#FFF', fontSize: '20px'} };
-    chartDataFilesScatter = new ApexCharts(document.getElementById(`data-result-chart-scatter`), optionsDataFilesScatter);
-    chartDataFilesScatter.render();
+    // chartDataFilesScatter = new ApexCharts(document.getElementById(`data-result-chart-scatter`), optionsDataFilesScatter);
+    // chartDataFilesScatter.render();
 
 
     for (let i = 0; i < 25; i++) {

@@ -109,8 +109,10 @@
                         </span> 2</span>
                     <span class="color-current" style="padding-left:70px;"><span class="color-zero">Test Procedures:
                         </span> 1</span>
-                    <span class="w3-right w3-large clickable" style="padding-top:5px;_padding-right:24px;"><i
-                            class="fa fa-check-square-o color-current"></i> Preview</span>
+                    <!-- <span class="w3-right w3-large clickable" style="padding-top:5px;_padding-right:24px;"><i
+                            class="fa fa-circle-o color-current w3-xlarge"></i> Compare</span> -->
+                    <!-- <span class="w3-right w3-large clickable" style="padding-top:5px;padding-right:24px;"><i
+                            class="fa fa-check-circle-o color-current w3-xlarge"></i> Preview</span> -->
                     <span class="w3-right w3-large clickable" style="padding-top:5px;padding-right:24px;"><i
                             class="fa fa-file-archive-o"></i> Export</span>
                     <span class="w3-right w3-large clickable" style="padding-top:5px;padding-right:24px;"
@@ -118,7 +120,7 @@
                         <i class="fa fa-external-link"></i> Analysis</span>
                     <span class="w3-right w3-large clickable" style="padding-top:5px;padding-right:24px;"
                         onclick="document.getElementById('modal-data-files-compare').style.display = 'block'">
-                        <i class="fa fa-files-o"></i> Compare</span>
+                        <i class="fa fa-files-o"></i> View Files</span>
                 </div>
                 <div class="" style="display:flex;flex-direction:row;justify-content:flex-start;overflow-x:auto;">
                     <span w3-repeat="files" id="data-file-tile-{{name}}-2" class="w3-center"
@@ -136,7 +138,7 @@
 </div>
 
 <!-- MODAL SCAN BATTERY QR CODES -->
-<div id="modal-data-files-compare" class="w3-modal w3-xlarge"
+<div id="modal-data-files-compare" class="w3-modal w3-xlarge" onmousewheel="return false;"
     style="display:none;z-index: 9999999999;background-color: rgba(0,0,0,0.65);">
     <div class="w3-modal-content modal-dark" style="width:90%;min-height:800px;">
         <div class="w3-container w3-padding">
@@ -148,9 +150,16 @@
                         onclick="document.getElementById('modal-data-files-compare').style.display='none'"></i>
                 </h3>
                 <hr />
-                <div id="data-result-chart"></div>
-                <div id="data-result-chart-i"></div>
-                <div id="data-result-chart-scatter"></div>
+                <div class="w3-left" style="">Voltage over Run Time</div>
+                <div class="w3-right" style="padding-left:40px;"><span class="color-zero">x:</span> Run Time <i class="fa fa-caret-down"></i></div>
+                <div class="w3-right" style="padding-left:40px;"><span class="color-zero">y:</span> Voltage <i class="fa fa-caret-down"></i></div>
+                <div id="data-result-chart" style="padding-bottom:30px;"></div>
+                <div class="w3-left" style="">Capacity over Run Time</div>
+                <div class="w3-right" style="padding-left:40px;"><span class="color-zero">x:</span> Run Time <i class="fa fa-caret-down"></i></div>
+                <div class="w3-right" style="padding-left:40px;"><span class="color-zero">y:</span> Capacity <i class="fa fa-caret-down"></i></div>
+                <div id="data-result-chart-i" style="padding-bottom:30px;"></div>
+                <!-- <div id="data-result-chart-scatter" style="padding-bottom:30px;"></div> -->
+                
                 <!-- <img src="./assets/data-file-transparent-2.png" style="width:100%;_height:80px;" /> -->
                 <!-- <div>
                     <span class="w3-large color-input-label">CH01 - Serial Number:</span>
