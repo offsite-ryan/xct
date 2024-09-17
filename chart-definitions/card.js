@@ -137,7 +137,7 @@ var card_chart_options = {
         custom: function ({ series, seriesIndex, dataPointIndex, w }) {
             // alert(JSON.stringify({ series, seriesIndex, dataPointIndex, w },null,2));
             return '<div class="w3-padding color-font w3-large" style="background-color:black;">' +
-                `<span><span class="color-current">X:</span> ${dataPointIndex}</span>` +
+                `<span><span class="color-current">X:</span> ${w.config.series[seriesIndex].data[dataPointIndex].x}</span>` +
                 '<br/>' +
                 `<span><span class="color-current">Y:</span> ${series[seriesIndex][dataPointIndex]}</span>` +
                 '</div>'

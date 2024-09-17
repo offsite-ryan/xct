@@ -13,10 +13,15 @@ class data {
             if (i2 > 0) {
                 json.push({
                     // /** not sure why but the data for I (current) is opposite of what it should be */
+                    st: (+(v[2])), // step type
+                    rt: (+(v[3])), // run time
                     i: -(+(v[5])), // current
                     v: +(v[6]), // voltage
                     c: +(v[7]), // capacity
                     t: +(v[8]), // temperature
+                    e: +(v[10]), // energy
+                    dVdt: +(v[11]), // energy
+                    p: +(v[15]), // power
                 })
             }
         })

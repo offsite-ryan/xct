@@ -143,52 +143,150 @@
     <div class="w3-modal-content modal-dark" style="width:90%;min-height:800px;">
         <div class="w3-container w3-padding">
             <div class="w3-padding">
-                <h3 class="color-time">Compare Data Files&nbsp;&nbsp;&nbsp;
+                <h3 class="color-time">Selected Files&nbsp;&nbsp;&nbsp;
                     <span class="w3-large color-zero"><!--|&nbsp;&nbsp;&nbsp;overlay of file traces aligned by cycle
                         number--></span>
                     <i class="fa fa-close w3-xlarge w3-right clickable"
                         onclick="document.getElementById('modal-data-files-compare').style.display='none'"></i>
                 </h3>
                 <hr />
-                <div class="w3-left" style="">Voltage over Run Time</div>
-                <div class="w3-right" style="padding-left:40px;"><span class="color-zero">x:</span> Run Time <i class="fa fa-caret-down"></i></div>
-                <div class="w3-right" style="padding-left:40px;"><span class="color-zero">y:</span> Voltage <i class="fa fa-caret-down"></i></div>
+                <div id="chart_0_title" class="w3-left" style=""><span id="chart_0_title_y">Voltage</span> over <span
+                        id="chart_0_title_x">Run Time</span></div>
+
+                <!-- <div class="w3-right" style="padding-left:40px;"><span class="color-zero"></span><i
+                        class="fa fa-calendar"></i></div> -->
+
+                <span class="w3-dropdown-hover w3-right" style="padding-left:40px;">
+                    <span class=""><span class="color-zero">x:</span> <span id="chart_0_x">Run Time</span> </span><i
+                        class="fa fa-caret-down" style="padding-left:10px;"></i>
+                    <div class=" w3-dropdown-content w3-bar-block w3-border w3-large"
+                        style="right:0;width:125px;min-width:250px;background-color:#2f2f2f;color:white;">
+                        <a id="" class="w3-bar-item w3-button" onclick="changeField(0, 'rt', null, this.innerText)">Run
+                            Time <span class="color-zero"></span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, 'v', null, this.innerText)">Voltage <span
+                                class="color-zero"></span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, 'i', null, this.innerText)">Current <span
+                                class="color-zero">(mA)</span></a>
+                        <a id="" class="w3-bar-item w3-button" onclick="changeField(0, 'p', null, this.innerText)">Power
+                            <span class="color-zero">(W)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, 'c', null, this.innerText)">Capacity <span
+                                class="color-zero">(Ah)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, 'e', null, this.innerText)">Energy <span
+                                class="color-zero">(Wh)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, 't', null, this.innerText)">Temperature <span
+                                class="color-zero">(°C)</span></a>
+                    </div>
+                </span>
+
+                <span class="w3-dropdown-hover w3-right" style="padding-left:40px;">
+                    <span class=""><span class="color-zero">y:</span> <span id="chart_0_y">Voltage</span> </span><i
+                        class="fa fa-caret-down" style="padding-left:10px;"></i>
+                    <div class=" w3-dropdown-content w3-bar-block w3-border w3-large"
+                        style="right:0;width:125px;min-width:250px;background-color:#2f2f2f;color:white;">
+                        <a id="" class="w3-bar-item w3-button" onclick="changeField(0, null, 'rt', this.innerText)">Run
+                            Time <span class="color-zero"></span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, null, 'v', this.innerText)">Voltage <span
+                                class="color-zero"></span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, null, 'i', this.innerText)">Current <span
+                                class="color-zero">(mA)</span></a>
+                        <a id="" class="w3-bar-item w3-button" onclick="changeField(0, null, 'p', this.innerText)">Power
+                            <span class="color-zero">(W)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, null, 'c', this.innerText)">Capacity <span
+                                class="color-zero">(Ah)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, null, 'e', this.innerText)">Energy <span
+                                class="color-zero">(Wh)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, null, 't', this.innerText)">Temperature <span
+                                class="color-zero">(°C)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, null, 'dVdt', this.innerText)">dVdt <span
+                                class="color-zero">(V/h)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(0, null, 'dVdt', this.innerText)">dIdt <span
+                                class="color-zero">(V/h)</span></a>
+                    </div>
+                </span>
+
+                <br />
                 <div id="data-result-chart" style="padding-bottom:30px;"></div>
-                <div class="w3-left" style="">Capacity over Run Time</div>
-                <div class="w3-right" style="padding-left:40px;"><span class="color-zero">x:</span> Run Time <i class="fa fa-caret-down"></i></div>
-                <div class="w3-right" style="padding-left:40px;"><span class="color-zero">y:</span> Capacity <i class="fa fa-caret-down"></i></div>
+
+                <div class="w3-left" style=""><span id="chart_1_title_y">Capacity</span> over <span
+                        id="chart_1_title_x">Run Time</span></div>
+
+                <!-- <div class="w3-right" style="padding-left:40px;"><span class="color-zero"></span><i
+                        class="fa fa-calendar"></i></div> -->
+
+                <span class="w3-dropdown-hover w3-right" style="padding-left:40px;">
+                    <span class=""><span class="color-zero">x:</span> <span id="chart_1_x">Run Time</span> </span><i
+                        class="fa fa-caret-down" style="padding-left:10px;"></i>
+                    <div class=" w3-dropdown-content w3-bar-block w3-border w3-large"
+                        style="right:0;width:125px;min-width:250px;background-color:#2f2f2f;color:white;">
+                        <a id="" class="w3-bar-item w3-button" onclick="changeField(1, 'rt', null, this.innerText)">Run
+                            Time <span class="color-zero"></span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, 'v', null, this.innerText)">Voltage <span
+                                class="color-zero"></span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, 'i', null, this.innerText)">Current <span
+                                class="color-zero">(mA)</span></a>
+                        <a id="" class="w3-bar-item w3-button" onclick="changeField(1, 'p', null, this.innerText)">Power
+                            <span class="color-zero">(W)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, 'c', null, this.innerText)">Capacity <span
+                                class="color-zero">(Ah)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, 'e', null, this.innerText)">Energy <span
+                                class="color-zero">(Wh)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, 't', null, this.innerText)">Temperature <span
+                                class="color-zero">(°C)</span></a>
+                    </div>
+                </span>
+
+                <span class="w3-dropdown-hover w3-right" style="padding-left:40px;">
+                    <span class=""><span class="color-zero">y:</span> <span id="chart_1_y">Capacity</span> </span><i
+                        class="fa fa-caret-down" style="padding-left:10px;"></i>
+                    <div class=" w3-dropdown-content w3-bar-block w3-border w3-large"
+                        style="right:0;width:125px;min-width:250px;background-color:#2f2f2f;color:white;">
+                        <a id="" class="w3-bar-item w3-button" onclick="changeField(1, null, 'rt', this.innerText)">Run
+                            Time <span class="color-zero"></span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, null, 'v', this.innerText)">Voltage <span
+                                class="color-zero"></span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, null, 'i', this.innerText)">Current <span
+                                class="color-zero">(mA)</span></a>
+                        <a id="" class="w3-bar-item w3-button" onclick="changeField(1, null, 'p', this.innerText)">Power
+                            <span class="color-zero">(W)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, null, 'c', this.innerText)">Capacity <span
+                                class="color-zero">(Ah)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, null, 'e', this.innerText)">Energy <span
+                                class="color-zero">(Wh)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, null, 't', this.innerText)">Temperature <span
+                                class="color-zero">(°C)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, null, 'dVdt', this.innerText)">dVdt <span
+                                class="color-zero">(V/h)</span></a>
+                        <a id="" class="w3-bar-item w3-button"
+                            onclick="changeField(1, null, 'dVdt', this.innerText)">dIdt <span
+                                class="color-zero">(V/h)</span></a>
+                    </div>
+                </span>
+
+                <br />
                 <div id="data-result-chart-i" style="padding-bottom:30px;"></div>
-                <!-- <div id="data-result-chart-scatter" style="padding-bottom:30px;"></div> -->
-                
-                <!-- <img src="./assets/data-file-transparent-2.png" style="width:100%;_height:80px;" /> -->
-                <!-- <div>
-                    <span class="w3-large color-input-label">CH01 - Serial Number:</span>
-                    <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
-                        disabled />
-                    <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
-                </div>
-                <br />
-                <div>
-                    <span class="w3-large color-input-label">CH02 - Serial Number:</span>
-                    <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
-                        disabled />
-                    <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
-                </div>
-                <br />
-                <div>
-                    <span class="w3-large color-input-label">CH03 - Serial Number:</span>
-                    <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
-                        disabled />
-                    <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
-                </div>
-                <br />
-                <div>
-                    <span class="w3-large color-input-label">CH04 - Serial Number:</span>
-                    <input id="batch-selected-test" name="batch-selected-test" type="select" style="width:92%"
-                        disabled />
-                    <i class="fa fa-qrcode w3-xxlarge w3-right" style="padding-left:25px;"></i>
-                </div>
-                <br /> -->
             </div>
         </div>
         <br />

@@ -1,6 +1,9 @@
-function loadDataFiles() {
-    const count = 5000
-    const simu_data = new data();
+let chartDataFiles = null;
+let chartDataFiles1 = null;
+let simu_data = null;
+const count = 5000
+function loadDataFiles(field1 = 'v', field2 = 'c') {
+    simu_data = new data();
     const file_data = {
         v: simu_data.getData('v', 1, count),  // voltage
         i: simu_data.getData('i', 1, count),  // current
@@ -15,7 +18,7 @@ function loadDataFiles() {
     optionsDataFiles.chart.height = 350;
     // optionsDataFiles.title = { text: 'Voltage over Run Time', style: { fontSize:  '24px', fontWeight:  '', color:'#FFF'} };
     optionsDataFiles.chart.sparkline.enabled = false;
-    optionsDataFiles.legend = { fontSize: '24px', labels: { useSeriesColors: true } };
+    optionsDataFiles.legend = { fontSize: '16px', labels: { useSeriesColors: true } };
     optionsDataFiles.stroke.width = [2];
     delete optionsDataFiles.fill;
     optionsDataFiles.tooltip.custom = card_chart_options.tooltip.custom;
@@ -23,19 +26,21 @@ function loadDataFiles() {
     optionsDataFiles.series = [];
     for (let x = 1; x <= 5; x++) {
         const factor = 25; // x === 4 ?  75 : 25;
-        optionsDataFiles.series.push({ name: x.toString(), data: simu_data.getData('v', x === 4 ? (x * 5) + 25 : x * 3, count, factor) })
+        optionsDataFiles.series.push({ name: `TXW6323-${x.toString()}_106`, data: simu_data.getData('v', x === 4 ? (x * 5) + 25 : x * 3, count, factor) })
     }
-    optionsDataFiles.yaxis[0].title.text = 'Voltage';
-    optionsDataFiles.yaxis[0].title.style.fontSize = '20px';
+    // optionsDataFiles.yaxis[0].title.text = 'Voltage';
+    // optionsDataFiles.yaxis[0].title.style.fontSize = '20px';
     chartDataFiles = new ApexCharts(document.getElementById(`data-result-chart`), optionsDataFiles);
     chartDataFiles.render();
+    changeField(0,'rt', null, 'Run Time');
+    changeField(0, null,'v', 'Voltage');
 
-    
+
     const optionsDataFilesI = JSON.parse(JSON.stringify(card_chart_options));
     optionsDataFilesI.chart.type = 'line';
     optionsDataFilesI.chart.height = 350;
     optionsDataFilesI.chart.sparkline.enabled = false;
-    optionsDataFilesI.legend = { fontSize: '24px', labels: { useSeriesColors: true } };
+    optionsDataFilesI.legend = { fontSize: '16px', labels: { useSeriesColors: true } };
     optionsDataFilesI.stroke.width = [2];
     delete optionsDataFilesI.fill;
     optionsDataFilesI.tooltip.custom = card_chart_options.tooltip.custom;
@@ -43,41 +48,44 @@ function loadDataFiles() {
     optionsDataFilesI.series = [];
     for (let x = 1; x <= 5; x++) {
         const factor = 25; // x === 4 ?  75 : 25;
-        optionsDataFilesI.series.push({ name: x.toString(), data: simu_data.getData('c', x === 4 ? (x * 5) + 15 : x * 3, count, factor) })
+        optionsDataFilesI.series.push({ name: `TXW6323-${x.toString()}_106`, data: simu_data.getData('c', x === 4 ? (x * 5) + 15 : x * 3, count, factor) })
     }
-    optionsDataFilesI.yaxis[0].title.text = 'Capacity';
-    optionsDataFilesI.yaxis[0].title.style.fontSize = '20px';
+    // optionsDataFilesI.yaxis[0].title.text = 'Capacity';
+    // optionsDataFilesI.yaxis[0].title.style.fontSize = '20px';
     // optionsDataFilesI.xaxis.title = { text: 'Time', style: { color: '#FFF', fontSize: '20px'} };
-    const chartDataFilesI = new ApexCharts(document.getElementById(`data-result-chart-i`), optionsDataFilesI);
-    chartDataFilesI.render();
+    chartDataFiles1 = new ApexCharts(document.getElementById(`data-result-chart-i`), optionsDataFilesI);
+    chartDataFiles1.render();
+    changeField(1,'e', null, 'Energy (Wh)');
+    changeField(1, null,'v', 'Voltage');
 
-    const optionsDataFilesScatter = JSON.parse(JSON.stringify(card_chart_options));
-    optionsDataFilesScatter.chart.type = 'scatter';
-    optionsDataFilesScatter.chart.height = 300;
-    optionsDataFilesScatter.chart.sparkline.enabled = false;
-    optionsDataFilesScatter.legend = { fontSize: '24px', labels: { useSeriesColors: true } };
-    optionsDataFilesScatter.stroke.width = [2];
-    delete optionsDataFilesScatter.fill;
-    delete optionsDataFilesScatter.xaxis.type;
-    delete optionsDataFilesScatter.tooltip.custom;
-    optionsDataFilesScatter.tooltip.custom = card_chart_options.tooltip.custom;
-    optionsDataFilesScatter.tooltip.enabled = false;
-    optionsDataFilesScatter.series = [];
-    for (let x = 1; x <= 5; x++) {
-        const factor = 25; // x === 4 ?  75 : 25;
-        const data_1 = simu_data.getData('v', x === 4 ? (x * 5) + 15 : x * 3, count, factor);
-        const data_2 = simu_data.getData('t', x === 4 ? (x * 5) + 15 : x * 3, count, factor);
-        const series_data = [];
-        data_1.forEach((v, i) => {
-            series_data.push([data_2[i], v]);
-        })
-        optionsDataFilesScatter.series.push({ name: x.toString(), data: series_data })
-    }
-    optionsDataFilesScatter.yaxis[0].title.text = 'Voltage';
-    optionsDataFilesScatter.yaxis[0].title.style.fontSize = '20px';
-    optionsDataFilesScatter.xaxis.title = { text: 'Temperature', style: { color: '#FFF', fontSize: '20px'} };
-    // chartDataFilesScatter = new ApexCharts(document.getElementById(`data-result-chart-scatter`), optionsDataFilesScatter);
-    // chartDataFilesScatter.render();
+
+    // const optionsDataFilesScatter = JSON.parse(JSON.stringify(card_chart_options));
+    // optionsDataFilesScatter.chart.type = 'scatter';
+    // optionsDataFilesScatter.chart.height = 300;
+    // optionsDataFilesScatter.chart.sparkline.enabled = false;
+    // optionsDataFilesScatter.legend = { fontSize: '24px', labels: { useSeriesColors: true } };
+    // optionsDataFilesScatter.stroke.width = [2];
+    // delete optionsDataFilesScatter.fill;
+    // delete optionsDataFilesScatter.xaxis.type;
+    // delete optionsDataFilesScatter.tooltip.custom;
+    // optionsDataFilesScatter.tooltip.custom = card_chart_options.tooltip.custom;
+    // optionsDataFilesScatter.tooltip.enabled = false;
+    // optionsDataFilesScatter.series = [];
+    // for (let x = 1; x <= 5; x++) {
+    //     const factor = 25; // x === 4 ?  75 : 25;
+    //     const data_1 = simu_data.getData('v', x === 4 ? (x * 5) + 15 : x * 3, count, factor);
+    //     const data_2 = simu_data.getData('t', x === 4 ? (x * 5) + 15 : x * 3, count, factor);
+    //     const series_data = [];
+    //     data_1.forEach((v, i) => {
+    //         series_data.push([data_2[i], v]);
+    //     })
+    //     optionsDataFilesScatter.series.push({ name: x.toString(), data: series_data })
+    // }
+    // optionsDataFilesScatter.yaxis[0].title.text = 'Voltage';
+    // optionsDataFilesScatter.yaxis[0].title.style.fontSize = '20px';
+    // optionsDataFilesScatter.xaxis.title = { text: 'Temperature', style: { color: '#FFF', fontSize: '20px' } };
+    // // chartDataFilesScatter = new ApexCharts(document.getElementById(`data-result-chart-scatter`), optionsDataFilesScatter);
+    // // chartDataFilesScatter.render();
 
 
     for (let i = 0; i < 25; i++) {
@@ -108,6 +116,46 @@ function loadDataFiles() {
         document.getElementById(`data-file-tile-${v.name}-2`).style.display = v.display;
     })
     // document.getElementById('modal-data-files-compare').style.display = 'block'
+}
+let chart_x_axis_field = 'rt';
+let chart_y_axis_field = 'v';
+let chart1_x_axis_field = 'e';
+let chart1_y_axis_field = 'v';
+function changeField(chart_num, field_x, field_y, label) {
+    if (chart_num === 1) {
+        chart1_x_axis_field = field_x || chart1_x_axis_field;
+        chart1_y_axis_field = field_y || chart1_y_axis_field;
+    } else {
+        chart_x_axis_field = field_x || chart_x_axis_field;
+        chart_y_axis_field = field_y || chart_y_axis_field;
+    }
+    const obj = [];
+    for (let x = 1; x <= 5; x++) {
+        const factor = 25; // x === 4 ?  75 : 25;
+        let offset = (x === 4) ? (x * 5) + 15 : x * 3;
+        // let offset = x * 100;
+        const x_values = simu_data.getData(chart_num === 1 ? chart1_x_axis_field : chart_x_axis_field, offset, count, factor)
+        const y_values = simu_data.getData(chart_num === 1 ? chart1_y_axis_field : chart_y_axis_field, offset, count, factor)
+        const data = [];
+        x_values.forEach((v, i)=>{
+            data.push({x: v, y: y_values[i + offset]})
+        })
+        obj.push({ 
+            name: `TXW6323-${x.toString()}_106`, 
+            data
+        })
+    }
+    if (chart_num === 1) {
+        chartDataFiles1.updateSeries(obj);
+    } else {
+        chartDataFiles.updateSeries(obj);
+    }
+    if (field_x) {
+        document.getElementById(`chart_${chart_num}_title_x`).innerText = label;
+    } else {
+        document.getElementById(`chart_${chart_num}_title_y`).innerText = label;
+    }
+    document.getElementById(`chart_${chart_num}_${field_x ? 'x' : 'y'}`).innerText = label;
 }
 function click_data_file_row(elem) {
     const index = elem.parentElement.rowIndex - 1;
