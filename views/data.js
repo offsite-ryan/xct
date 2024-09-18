@@ -22,6 +22,10 @@ function loadDataFiles(field1 = 'v', field2 = 'c') {
     optionsDataFiles.stroke.width = [2];
     delete optionsDataFiles.fill;
     optionsDataFiles.tooltip.custom = card_chart_options.tooltip.custom;
+    optionsDataFiles.chart.events.legendClick = (chartContext, seriesIndex, opts) => {
+        console.log('legend click');
+        chartDataFiles1.toggleSeries(opts.config.series[seriesIndex].name);
+    }
     optionsDataFiles.tooltip.enabled = true;
     optionsDataFiles.series = [];
     for (let x = 1; x <= 5; x++) {
@@ -44,7 +48,10 @@ function loadDataFiles(field1 = 'v', field2 = 'c') {
     optionsDataFilesI.stroke.width = [2];
     delete optionsDataFilesI.fill;
     optionsDataFilesI.tooltip.custom = card_chart_options.tooltip.custom;
-    optionsDataFilesI.chart.events.legendClick = card_chart_options.chart.events.legendClick;
+    optionsDataFilesI.chart.events.legendClick = (chartContext, seriesIndex, opts) => {
+        console.log('legend click');
+        chartDataFiles.toggleSeries(opts.config.series[seriesIndex].name);
+    }
     optionsDataFilesI.tooltip.enabled = true;
     optionsDataFilesI.series = [];
     for (let x = 1; x <= 5; x++) {
