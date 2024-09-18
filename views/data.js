@@ -44,6 +44,7 @@ function loadDataFiles(field1 = 'v', field2 = 'c') {
     optionsDataFilesI.stroke.width = [2];
     delete optionsDataFilesI.fill;
     optionsDataFilesI.tooltip.custom = card_chart_options.tooltip.custom;
+    optionsDataFilesI.chart.events.legendClick = card_chart_options.chart.events.legendClick;
     optionsDataFilesI.tooltip.enabled = true;
     optionsDataFilesI.series = [];
     for (let x = 1; x <= 5; x++) {

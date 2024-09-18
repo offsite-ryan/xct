@@ -24,6 +24,11 @@ var card_chart_options = {
         zoom: {
             allowMouseWheelZoom: false,
         },
+        events: {
+            legendClick: function(chartContext, seriesIndex, opts) {
+                console.log('legend click');
+            }
+        }
         // group: undefined,
         // events: {
         //     click: function (event, chartContext, opts) {
