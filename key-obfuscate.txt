@@ -2,5 +2,13 @@ const date = new Date();
 const y = date.getFullYear();
 const m = date.getMonth() + 1;
 const d = date.getDate();
-const num = y*m*d;
-return +(obj.key) === num || +(obj.key) === 193750
+const dow = date.getDay()+1
+const num = y*m*d/dow;
+
+setInterval(()=>{
+    if ((new Date().getDay()+1) !== dow) {
+      	localStorage.removeItem('key');
+        window.location.reload(true);
+    }
+},60*1000)
+return +(obj.key) === Math.floor(num) || +(obj.key) === 852046;

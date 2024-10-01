@@ -8,7 +8,7 @@ body {
     font-family: Roboto !important;
     padding: 4px;
     color: white;
-    background-color: #272727;
+    background-color: #2e2e2e;
     /* max-width: 1915px; */
     padding-top: 40px;
     /* padding-right: 20px; */
@@ -68,6 +68,7 @@ body {
     /* border: 1px solid #c5c5c5; */
     margin: 5px;
     background-color: #1e1e1e;
+    /* background-color: #000000; */
 }
 
 .card-chamber {
@@ -76,9 +77,11 @@ body {
     /* border: 1px solid #c5c5c5; */
     margin: 5px;
     background-color: #1e1e1e;
-    min-width: 500px;
-    max-width: 500px;
+    /* background-color: #000000; */
+    min-width: 700px;
+    max-width: 700px;
     /* width: 400px; */
+    margin:10px 20px 20px 10px;
 }
 table {
     background-color: #1e1e1e;
@@ -364,7 +367,7 @@ tr.sticky {
     top: 195px;
     /* z-index: 999999; */
     /* background-color: #1e1e1e; */
-    background-color: #272727;
+    background-color: #2e2e2e;
     /* border-bottom: 3px solid white !important; */
 }
 tr.sticky-detail {
@@ -373,7 +376,7 @@ tr.sticky-detail {
     top: 0px;
     /* z-index: 999999; */
     /* background-color: #1e1e1e; */
-    background-color: #272727;
+    background-color: #2e2e2e;
     /* border-bottom: 3px solid white !important; */
 }
 tr.sticky-chamber {
@@ -382,7 +385,7 @@ tr.sticky-chamber {
     top: 575px;
     /* z-index: 999999; */
     /* background-color: #1e1e1e; */
-    background-color: #272727;
+    background-color: #2e2e2e;
     /* border-bottom: 3px solid white !important; */
 }
 

@@ -86,7 +86,7 @@ var optionsHeatmap = {
         borderColor: '#000',
     },
     stroke: {
-        colors: ["#272727"],
+        colors: ["#2e2e2e"],
     },
     title: {
         text: '',
