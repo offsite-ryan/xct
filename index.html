@@ -1550,6 +1550,7 @@
         let complete = 0;
         let error = 0;
         let countChamberIndex1 = 0;
+        let countChamberIndex2 = 0;
         const numChannels = 48;
         for (let x = 1; x <= numChannels; x++) {
             const offset = (Math.random() * 700);
@@ -1708,8 +1709,12 @@
             // const chamber_index = Math.floor(2 * Math.random());
             let chamber_index = Math.floor(2 * Math.random());
             countChamberIndex1 += chamber_index === 0 ? 1 : 0;
+            countChamberIndex2 += chamber_index === 1 ? 1 : 0;
             if (countChamberIndex1>24){
                 chamber_index = 1;
+            }
+            if (countChamberIndex2>24){
+                chamber_index = 0;
             }
             const chamber = cards.chambers[chamber_index];
             cards.items.push({
