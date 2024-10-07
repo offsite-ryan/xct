@@ -389,9 +389,14 @@
                                 <div class="" style="width:30%;">
 
                                     <div class="w3-right">
-                                        <span class="w3-text-black"
-                                            style="display:flex;flex-wrap:wrap;flex-direction:row;padding-top:15px;">
-                                            <span class="w3-large w3-center"
+                                        <span id="chamber-{{name}}-positions" class="w3-text-black"
+                                            _style="display:flex;flex-wrap:wrap;flex-direction:row;padding-top:15px;">
+
+                                            <!-- <div w3-repeat="channels" class="w3-text-white">
+                                                {{html}}
+                                            </div> -->
+
+                                            <!-- <span class="w3-large w3-center"
                                                 style="width:16.6%;height:60px;background-color:#70ad47;border:2px solid black;">01</span>
                                             <span class="w3-large w3-center"
                                                 style="width:16.6%;height:60px;background-color:#70ad47;border:2px solid black;">02</span>
@@ -408,16 +413,16 @@
                                             <span class="w3-large w3-center"
                                                 style="width:16.6%;height:60px;background-color:#70ad47;border:2px solid black;">08</span>
 
-                                            <span class="w3-large w3-center w3-text-white"
-                                                style="width:16.6%;height:60px;background-color:#616060;border:2px solid black;">09</span>
+                                            <span class="w3-large w3-center w3-text-black"
+                                                style="width:16.6%;height:60px;background-color:white;border:2px solid black;">09</span>
                                             <span class="w3-large w3-center"
-                                                style="width:16.6%;height:60px;background-color:#70ad47;border:2px solid black;">10</span>
+                                                style="width:16.6%;height:60px;background-color:white;border:2px solid black;">10</span>
                                             <span class="w3-large w3-center"
-                                                style="width:16.6%;height:60px;background-color:#c0c0c0;border:2px solid black;">11</span>
+                                                style="width:16.6%;height:60px;background-color:white;border:2px solid black;">11</span>
                                             <span class="w3-large w3-center"
-                                                style="width:16.6%;height:60px;background-color:#c0c0c0;border:2px solid black;">12</span>
+                                                style="width:16.6%;height:60px;background-color:white;border:2px solid black;">12</span>
                                             <span class="w3-large w3-center"
-                                                style="width:16.6%;height:60px;background-color:#70ad47;border:2px solid black;">13</span>
+                                                style="width:16.6%;height:60px;background-color:white;border:2px solid black;">13</span>
                                             <span class="w3-large w3-center"
                                                 style="width:16.6%;height:60px;background-color:#70ad47;border:2px solid black;">14</span>
                                             <span class="w3-large w3-center"
@@ -439,7 +444,7 @@
                                             <span class="w3-large w3-center"
                                                 style="width:16.6%;height:60px;background-color:#fcd00e;border:2px solid black;">23</span>
                                             <span class="w3-large w3-center"
-                                                style="width:16.6%;height:60px;background-color:#70ad47;border:2px solid black;">24</span>
+                                                style="width:16.6%;height:60px;background-color:#70ad47;border:2px solid black;">24</span> -->
                                         </span>
                                     </div>
                                 </div>
@@ -456,7 +461,7 @@
                                 <tr id="table-view-header" class="sticky color-font" style="">
                                     <!-- <th><i class="fa fa-square-o" aria-hidden="true"></i></th> -->
                                     <th _width="100">Channel</th>
-                                    <th _width="250">Status</th>
+                                    <th width="190">Status</th>
                                     <th>Battery</th>
                                     <th>Test Procedure</th>
                                     <th>Chamber</th>
@@ -1544,6 +1549,7 @@
         let empty = 0;
         let complete = 0;
         let error = 0;
+        let countChamberIndex1 = 0;
         const numChannels = 48;
         for (let x = 1; x <= numChannels; x++) {
             const offset = (Math.random() * 700);
@@ -1696,9 +1702,15 @@
                 c.complete = 0;
                 c.error = 0;
                 c.index = i;
+                c.channels = [];
             });
 
-            const chamber_index = Math.floor(2 * Math.random());
+            // const chamber_index = Math.floor(2 * Math.random());
+            let chamber_index = Math.floor(2 * Math.random());
+            countChamberIndex1 += chamber_index === 0 ? 1 : 0;
+            if (countChamberIndex1>24){
+                chamber_index = 1;
+            }
             const chamber = cards.chambers[chamber_index];
             cards.items.push({
                 name: `CH${x < 10 ? '0' + x : x}`,
@@ -1734,13 +1746,25 @@
             });
         }
 
+        // cards.chambers.forEach((v)=>{
+
+        // })
         cards.items.forEach((v) => {
+            let color = '#70ad47'; // green
+            color = v.state === 'paused' ? '#fcd00e' : color;
+            color = v.state === 'empty' ? '#FFFFFF' : color;
+            color = v.state === 'complete' ? '#c0c0c0' : color;
+            color = v.state === 'error' ? 'red' : color;
+
+            const html = `<span class="w3-large w3-center" style="width:16.6%;height:60px;background-color:${color};border:2px solid black;">${v.name.substring(2)}</span>`;
+            cards.chambers[v.chamber_index].channels.push({ name: v.name.substring(2), html });
             if (v.state === 'on_test') { cards.chambers[v.chamber_index].on_test++; }
             if (v.state === 'paused') { cards.chambers[v.chamber_index].paused++; }
             if (v.state === 'empty') { cards.chambers[v.chamber_index].empty++; }
             if (v.state === 'complete') { cards.chambers[v.chamber_index].complete++; }
             if (v.state === 'error') { cards.chambers[v.chamber_index].error++; }
         })
+        console.log(cards.chambers);
 
         const numPages = Math.ceil(cards.items.length / 6);
         const temp = { pages: [] };
@@ -1779,10 +1803,10 @@
         cards.items.forEach((v) => {
             const getBatchState = (icon, text, backgroundColor, color) => {
                 // width:175px; + change to div
-                return `<span class="" style="font-size:20px;min-width:200px;color:${color};background-color:${backgroundColor};border-radius:10px;padding:3px;padding-right:10px;">
+                return `<div class="" style="font-size:20px;min-width:50px;color:${color};background-color:${backgroundColor};border-radius:10px;padding:3px;padding-right:10px;">
                     <i class="fa ${icon} w3-large" style="color:${color};padding-left:5px;padding-right:5px;padding-top:0px;"></i>
                     ${text}
-                    </span>`
+                    </div>`
             }
             if (v.state === 'empty') {
                 // v.batch_state = '<span class="color-zero">EMPTY</span>';
@@ -1805,7 +1829,7 @@
                 v.uut = `<span class="color-zero"></span>`;
                 v.badge_icon = 'fa-circle-o';
                 // v.batch_state = `<span class="" style="font-size:20px;color:#969696;;background-color:#3d3d3d;border-radius:10px;padding:3px;padding-right:15px;"><i class="fa ${v.badge_icon} w3-large" style="color:#969696;padding-left:10px;padding-right:10px;padding-top:0px;"></i>Empty</span>`;
-                v.batch_state = getBatchState('fa-circle-o', 'Empty', '#3d3d3d', '#969696');
+                v.batch_state = getBatchState('fa-circle-o', 'Empty', '#FFFFFF', '#000000');
                 v.battery_info.rated_capacity = '';
                 v.battery_info.max_voltage = '';
                 v.battery_info.max_current = '';
@@ -1895,6 +1919,7 @@
                     v.dataV[v.dataV.length - y] = null; // v.dataV[start] ;
                     v.dataI[v.dataI.length - y] = null; // 0 ;
                 }
+                v.batch_state = getBatchState('fa-pause', 'Paused', '#fcd00e', 'black');
             }
             if (v.state === 'complete') {
                 v.batch_state = '<span class="w3-text-white">COMPLETE</span>';
@@ -1968,6 +1993,22 @@
         document.getElementById('content').style.display = 'block';
         w3.displayObject("cards", cards);
         w3.displayObject("batch-view", cards);
+
+        cards.chambers.forEach((c) => {
+            elem = document.getElementById(`chamber-${c.name}-positions`);
+            let html = '';
+            c.channels.forEach((v) => {
+                html += v.html;
+            });
+            const n = document.createElement('span');
+            n.classList.add('ww3-text-black');
+            n.style.width = '100%';
+            n.style.display = 'flex';
+            n.style.flexWrap = 'wrap';
+            n.innerHTML = html;
+            elem.appendChild(n);
+        })
+        // w3.displayObject("chamber-positions", obj);
         selectCardType(card_type);
 
 
